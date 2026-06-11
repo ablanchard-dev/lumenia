@@ -1,0 +1,14 @@
+# Secrets — les clés API restent locales
+.env
+
+# Environnements Python
+.venv/
+__pycache__/
+*.pyc
+
+# Données locales (SQLite : profils, évaluations)
+backend/data/
+
+# Divers
+*.log
+.DS_Store

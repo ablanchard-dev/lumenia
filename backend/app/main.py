@@ -28,8 +28,9 @@ def index():
 
 # ---------------- Portail d'entrée (mini-parcours cognitif) ----------------
 @app.get("/entry/parcours")
-def entry_parcours():
-    return get_parcours()
+def entry_parcours(exclude: str = ""):
+    seen = {x.strip() for x in exclude.split(",") if x.strip()}
+    return get_parcours(seen)
 
 @app.get("/entry/challenge")
 def entry_challenge():

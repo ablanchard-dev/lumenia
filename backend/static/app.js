@@ -101,14 +101,44 @@
     }
   });
 
+  /* ---------------- écran de garde ---------------- */
+
+  const splashEl = $("screen-splash");
+  const splashT0 = Date.now();
+
+  function hideSplash() {
+    if (!splashEl || splashEl.classList.contains("fade")) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const minShow = reduced ? 0 : 1500;
+    const wait = Math.max(0, minShow - (Date.now() - splashT0));
+    setTimeout(() => {
+      splashEl.classList.add("fade");
+      setTimeout(() => splashEl.remove(), 600);
+    }, wait);
+  }
+
   /* ---------------- écran 2 : mini-parcours cognitif ---------------- */
+
+  // Mémorise les épreuves déjà proposées sur cet appareil pour varier les tirages.
+  const SEEN_KEY = "lumenia.seenChallenges";
+
+  function loadSeen() {
+    try {
+      const a = JSON.parse(localStorage.getItem(SEEN_KEY));
+      return Array.isArray(a) ? a : [];
+    } catch { return []; }
+  }
 
   async function startParcours() {
     show("challenge");
     $("challenge-step").textContent = "…";
     $("challenge-question").textContent = "…";
     try {
-      const data = await api("/entry/parcours");
+      const seen = loadSeen();
+      const qs = seen.length ? "?exclude=" + encodeURIComponent(seen.join(",")) : "";
+      const data = await api("/entry/parcours" + qs);
+      const ids = data.steps.map((s) => s.id);
+      localStorage.setItem(SEEN_KEY, JSON.stringify([...new Set([...seen, ...ids])].slice(-40)));
       state.parcours = { steps: data.steps, i: 0, results: [], failures: 0 };
       renderStep();
     } catch {
@@ -175,7 +205,7 @@
           p.failures === 1
             ? "Pas tout à fait — tente une autre piste."
             : `Indice : ${r.hint || "pense autrement."}`;
-        if (p.failures >= 3) $("challenge-skip").hidden = false;
+        if (p.failures >= 2) $("challenge-skip").hidden = false;
         btn.disabled = false;
         $("challenge-input").select();
       }
@@ -212,7 +242,10 @@
     $("challenge-skip").hidden = true;
     const fb = $("challenge-feedback");
     fb.classList.add("ok");
-    fb.textContent = "C'est ouvert. Bienvenue.";
+    const okCount = p.results.filter((r) => r.ok && !r.skipped).length;
+    fb.textContent = okCount > 0
+      ? "C'est ouvert. Bienvenue."
+      : "Le seuil s'ouvre quand même — ce qui compte, c'est ta façon de chercher. Bienvenue.";
     try {
       await api("/entry/complete", {
         method: "POST",
@@ -220,7 +253,7 @@
       });
     } catch { /* l'entrée reste ouverte même si l'enregistrement échoue */ }
     localStorage.setItem("lumenia.entered", "1");
-    setTimeout(enterChat, 700);
+    setTimeout(enterChat, okCount > 0 ? 700 : 1600);
   }
 
   $("challenge-btn").addEventListener("click", submitStep);
@@ -279,6 +312,7 @@
   }
 
   function setActive(id) {
+    closeNav();
     if (state.activeId === id) return;
     state.activeId = id;
     localStorage.setItem(ACTIVE_KEY, id);
@@ -288,6 +322,7 @@
   }
 
   function newConv() {
+    closeNav();
     const cur = activeConv();
     if (cur && cur.messages.length === 0) {
       $("chat-input").focus();
@@ -489,6 +524,28 @@
     $("safety-banner").hidden = true;
   });
 
+  /* ---- volet conversations (fenêtres étroites) ---- */
+
+  const appEl = $("screen-chat");
+  const scrimEl = $("nav-scrim");
+
+  function openNav() {
+    appEl.classList.add("nav-open");
+    scrimEl.hidden = false;
+    $("nav-toggle").setAttribute("aria-expanded", "true");
+  }
+
+  function closeNav() {
+    appEl.classList.remove("nav-open");
+    scrimEl.hidden = true;
+    $("nav-toggle").setAttribute("aria-expanded", "false");
+  }
+
+  $("nav-toggle").addEventListener("click", () => {
+    appEl.classList.contains("nav-open") ? closeNav() : openNav();
+  });
+  scrimEl.addEventListener("click", closeNav);
+
   /* ---------------- routage initial ---------------- */
 
   (async function init() {
@@ -501,6 +558,8 @@
       startParcours();
     } catch {
       show("consent");
+    } finally {
+      hideSplash();
     }
   })();
 })();

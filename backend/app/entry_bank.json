@@ -1,0 +1,201 @@
+[
+  {
+    "dimension": "laterale",
+    "label": "Pensée latérale",
+    "kind": "objective",
+    "pool": [
+      {
+        "id": "echo",
+        "question": "Je parle toutes les langues du monde sans en avoir appris aucune. Qui suis-je ?",
+        "hint": "On m'entend surtout en montagne.",
+        "answers": ["echo", "l'echo", "un echo"]
+      },
+      {
+        "id": "trou",
+        "question": "Plus on m'enlève de matière, plus je grandis. Qui suis-je ?",
+        "hint": "Pense à une pelle.",
+        "answers": ["trou", "le trou", "un trou"]
+      },
+      {
+        "id": "prenom",
+        "question": "C'est à toi, mais les autres l'utilisent bien plus souvent que toi. Qu'est-ce que c'est ?",
+        "hint": "On te le demande quand on te rencontre.",
+        "answers": ["prenom", "nom", "mon prenom", "mon nom", "le prenom", "le nom"]
+      },
+      {
+        "id": "silence",
+        "question": "Dès qu'on prononce mon nom, je disparais. Qui suis-je ?",
+        "hint": "Il règne dans une bibliothèque.",
+        "answers": ["silence", "le silence"]
+      },
+      {
+        "id": "aujourdhui",
+        "question": "Je suis l'avenir d'hier et le passé de demain. Qui suis-je ?",
+        "hint": "Tu es en plein dedans.",
+        "answers": ["aujourd'hui", "aujourdhui", "le present", "present"]
+      },
+      {
+        "id": "eponge",
+        "question": "Je suis pleine de trous et pourtant je retiens l'eau. Qui suis-je ?",
+        "hint": "Regarde près de l'évier.",
+        "answers": ["eponge", "l'eponge", "une eponge"]
+      },
+      {
+        "id": "escalier",
+        "question": "Je monte et je descends sans jamais bouger. Qui suis-je ?",
+        "hint": "Tu me prends plusieurs fois par jour s'il n'y a pas d'ascenseur.",
+        "answers": ["escalier", "l'escalier", "les escaliers", "un escalier", "marches", "la temperature", "temperature"]
+      },
+      {
+        "id": "bougie",
+        "question": "Plus je vieillis, plus je raccourcis. Qui suis-je ?",
+        "hint": "Je fonds en éclairant.",
+        "answers": ["bougie", "la bougie", "une bougie", "un cierge", "cierge", "allumette"]
+      }
+    ]
+  },
+  {
+    "dimension": "logique",
+    "label": "Micro-logique",
+    "kind": "objective",
+    "pool": [
+      {
+        "id": "suite",
+        "question": "Complète la suite : 2, 3, 5, 9, 17, … ?",
+        "hint": "Regarde comment on passe d'un nombre au suivant : ×2, puis…",
+        "answers": ["33"]
+      },
+      {
+        "id": "suite_pas",
+        "question": "Complète la suite : 3, 4, 6, 9, 13, … ?",
+        "hint": "Regarde ce qu'on ajoute à chaque pas : +1, +2, +3…",
+        "answers": ["18"]
+      },
+      {
+        "id": "zorg",
+        "question": "Tous les Zorgs sont bleus. Certains êtres bleus chantent. Peut-on être certain qu'au moins un Zorg chante ? (oui / non)",
+        "hint": "Les chanteurs sont bleus… mais qui te dit que ce sont des Zorgs ?",
+        "answers": ["non"]
+      },
+      {
+        "id": "fibo",
+        "question": "Complète la suite : 1, 1, 2, 3, 5, 8, … ?",
+        "hint": "Chaque nombre naît des deux précédents.",
+        "answers": ["13"]
+      },
+      {
+        "id": "grandeur",
+        "question": "Léa est plus grande que Zoé. Marie est plus petite que Zoé. Qui est la plus grande des trois ?",
+        "hint": "Classe-les sur une ligne.",
+        "answers": ["lea", "léa"]
+      },
+      {
+        "id": "jours",
+        "question": "Si avant-hier était un samedi, quel jour serons-nous demain ?",
+        "hint": "Avance pas à pas : avant-hier, hier, aujourd'hui…",
+        "answers": ["mardi"]
+      }
+    ]
+  },
+  {
+    "dimension": "arithmetique",
+    "label": "Raisonnement",
+    "kind": "objective",
+    "pool": [
+      {
+        "id": "marquepage",
+        "question": "Un livre et son marque-page coûtent 11 € en tout. Le livre coûte 10 € de plus que le marque-page. Combien coûte le marque-page ?",
+        "hint": "S'il coûtait 1 €, le total ferait 12 €…",
+        "answers": ["0.5", "50", "cinquante centimes", "un demi euro"]
+      },
+      {
+        "id": "machines",
+        "question": "5 machines fabriquent 5 pièces en 5 minutes. Combien de minutes faut-il à 100 machines pour fabriquer 100 pièces ?",
+        "hint": "Combien de temps met UNE machine pour UNE pièce ?",
+        "answers": ["5", "cinq"]
+      },
+      {
+        "id": "nenuphar",
+        "question": "Sur un étang, un nénuphar double de surface chaque jour. Il couvre tout l'étang en 48 jours. En combien de jours en couvrait-il la moitié ?",
+        "hint": "Pense à l'envers, depuis la fin.",
+        "answers": ["47", "quarante-sept", "quarante sept"]
+      },
+      {
+        "id": "fratrie",
+        "question": "Léo a autant de frères que de sœurs. Sa sœur Jade a deux fois plus de frères que de sœurs. Combien d'enfants compte la fratrie ?",
+        "hint": "Essaie avec de petits nombres : 4 garçons, 3 filles…",
+        "answers": ["7", "sept"]
+      }
+    ]
+  },
+  {
+    "dimension": "similitudes",
+    "label": "Similitudes",
+    "kind": "objective",
+    "pool": [
+      {
+        "id": "horloge_coeur",
+        "question": "Quel point commun vois-tu entre une horloge et un cœur ?",
+        "hint": "Écoute-les.",
+        "answers": ["bat", "battent", "battement", "rythme", "tic", "pulsation", "temps"]
+      },
+      {
+        "id": "graine_idee",
+        "question": "Quel point commun vois-tu entre une graine et une idée ?",
+        "hint": "Que deviennent-elles quand on s'en occupe ?",
+        "answers": ["germe", "germent", "pousse", "poussent", "grandit", "grandissent", "planter", "semer", "cultiver", "fleurir", "murir"]
+      },
+      {
+        "id": "brouillard_oubli",
+        "question": "Quel point commun vois-tu entre le brouillard et l'oubli ?",
+        "hint": "Que font-ils aux contours des choses ?",
+        "answers": ["estompe", "efface", "flou", "floute", "masque", "cache", "voile", "disparait", "disparaitre", "brouille"]
+      },
+      {
+        "id": "piano_violon",
+        "question": "En quoi un piano et un violon se ressemblent-ils ?",
+        "hint": "Pense à ce qu'on en tire.",
+        "answers": ["instrument", "instruments", "musique", "cordes", "son", "jouer", "melodie"]
+      },
+      {
+        "id": "carte_boussole",
+        "question": "En quoi une carte et une boussole se ressemblent-elles ?",
+        "hint": "Quand tu es perdu·e…",
+        "answers": ["orienter", "orientation", "guident", "guider", "guide", "direction", "chemin", "naviguer", "reperer", "situer", "trouver son chemin"]
+      },
+      {
+        "id": "aube_crepuscule",
+        "question": "Quel point commun entre l'aube et le crépuscule ?",
+        "hint": "Ni tout à fait jour, ni tout à fait nuit.",
+        "answers": ["transition", "passage", "entre", "frontiere", "lumiere", "changement", "jour et nuit", "moment", "seuil"]
+      }
+    ]
+  },
+  {
+    "dimension": "creative",
+    "label": "Expression libre",
+    "kind": "open",
+    "pool": [
+      {
+        "id": "penser_comme",
+        "question": "Complète à ta façon : « Penser, pour moi, c'est comme… »"
+      },
+      {
+        "id": "cerveau_lieu",
+        "question": "Si ton esprit était un lieu, lequel serait-il ? Décris-le en une phrase."
+      },
+      {
+        "id": "mot_invente",
+        "question": "Invente un mot qui n'existe pas, et donne sa définition."
+      },
+      {
+        "id": "couleur_son",
+        "question": "Si la musique que tu aimes avait une couleur, laquelle serait-ce ? Pourquoi ?"
+      },
+      {
+        "id": "question_rare",
+        "question": "Quelle question aimerais-tu qu'on te pose plus souvent ?"
+      }
+    ]
+  }
+]

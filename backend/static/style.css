@@ -111,6 +111,54 @@ a { color: var(--primary); }
   }
 }
 
+/* ============ Écran de garde ============ */
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--bg);
+  transition: opacity .5s ease;
+}
+.splash.fade { opacity: 0; pointer-events: none; }
+
+.splash-mark {
+  position: relative;
+  width: 76px; height: 76px;
+  color: var(--primary);
+  animation: lumen-in 1s ease-out both;
+}
+.splash-mark::before {
+  content: "";
+  position: absolute;
+  inset: -120%;
+  background: radial-gradient(circle, var(--halo), transparent 65%);
+  animation: halo-in 1.2s ease-out both;
+}
+.splash-mark svg { position: relative; width: 100%; height: 100%; }
+
+.splash-name {
+  font-family: "Lora", Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  animation: rise .7s .35s ease-out both;
+}
+
+@keyframes lumen-in {
+  from { opacity: 0; transform: scale(.82); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes halo-in {
+  from { opacity: 0; transform: scale(.5); }
+  to   { opacity: 1; transform: none; }
+}
+
 /* ============ Écrans porte (consentement / défi) ============ */
 
 .gate {
@@ -280,8 +328,33 @@ a { color: var(--primary); }
 .challenge-actions {
   display: flex;
   gap: 12px;
-  margin-top: 6px;
+  margin-top: 10px;
   flex-wrap: wrap;
+}
+
+.btn-skip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-weight: 500;
+  transition: border-color .2s ease, background .2s ease;
+  animation: rise .3s ease-out;
+}
+.btn-skip:hover { border-color: var(--primary); }
+.btn-skip svg { width: 16px; height: 16px; color: var(--primary); }
+
+.gate-footnote {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 44ch;
+  margin-inline: auto;
 }
 
 /* ============ Boutons ============ */
@@ -672,8 +745,28 @@ a { color: var(--primary); }
 
 /* ============ Responsive ============ */
 
+.nav-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(10, 6, 18, .55);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.app.nav-open .nav-scrim { opacity: 1; }
+
 @media (max-width: 1023px) {
-  .sidebar { display: none; }
+  /* La sidebar devient un volet coulissant (conversations accessibles partout) */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    z-index: 50;
+    width: min(300px, 84vw);
+    transform: translateX(-105%);
+    transition: transform .28s ease;
+    box-shadow: var(--shadow);
+  }
+  .app.nav-open .sidebar { transform: none; }
   .chat-topbar { display: flex; }
   .mobile-only { display: inline-flex; }
   .welcome { margin-top: 6vh; }

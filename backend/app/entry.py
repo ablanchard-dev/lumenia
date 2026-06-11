@@ -2,148 +2,47 @@
 """Portail d'entrée de Lumenia : mini-parcours de défis cognitifs.
 
 Cahier des charges (§3.1) : l'entrée se fait par un MINI-PARCOURS d'épreuves
-— pensée latérale, micro-épreuve logique, association abstraite, expression
-libre — et non par une énigme unique. Double fonction :
+— pensée latérale, logique, raisonnement, similitudes, expression libre —
+et non par une énigme unique. Double fonction :
   1. seuil symbolique en résonance avec les schémas de pensée atypiques ;
   2. initialisation du profilage cognitif (§3.3) : les réponses alimentent
      le profil injecté ensuite dans les prompts du chat.
 
+La banque de questions vit dans `entry_bank.json` (même dossier) pour être
+enrichie sans toucher au code — y compris par des non-développeurs (items
+inspirés de l'esprit WAIS/CRT, mais ORIGINAUX : ne jamais copier d'items de
+tests psychométriques réels, protégés et éthiquement réservés au cabinet).
+
 Le parcours filtre sans exclure : chaque épreuve peut être passée après
-3 tentatives, et terminer le parcours ouvre toujours l'accès.
+2 échecs, et terminer le parcours ouvre toujours l'accès.
 """
 from __future__ import annotations
 
+import json
 import random
 import re
-from typing import List, Optional
+from pathlib import Path
+from typing import List, Optional, Set
 
 from .chat import _normalize
 from .llm import _chat
 
-# Une épreuve par dimension, tirée au hasard dans un pool. kind:
-#   "objective" : réponse attendue (tolérance + juge LLM en seconde lecture)
-#   "open"      : pas de mauvaise réponse — matière à profilage uniquement
-PARCOURS = [
-    {
-        "dimension": "laterale",
-        "label": "Pensée latérale",
-        "kind": "objective",
-        "pool": [
-            {
-                "id": "echo",
-                "question": "Je parle toutes les langues du monde sans en avoir appris aucune. Qui suis-je ?",
-                "hint": "On m'entend surtout en montagne.",
-                "answers": ["echo", "l'echo", "un echo"],
-            },
-            {
-                "id": "trou",
-                "question": "Plus on m'enlève de matière, plus je grandis. Qui suis-je ?",
-                "hint": "Pense à une pelle.",
-                "answers": ["trou", "le trou", "un trou"],
-            },
-            {
-                "id": "prenom",
-                "question": "C'est à toi, mais les autres l'utilisent bien plus souvent que toi. Qu'est-ce que c'est ?",
-                "hint": "On te le demande quand on te rencontre.",
-                "answers": ["prenom", "nom", "mon prenom", "mon nom", "le prenom", "le nom"],
-            },
-            {
-                "id": "silence",
-                "question": "Dès qu'on prononce mon nom, je disparais. Qui suis-je ?",
-                "hint": "Il règne dans une bibliothèque.",
-                "answers": ["silence", "le silence"],
-            },
-            {
-                "id": "aujourdhui",
-                "question": "Je suis l'avenir d'hier et le passé de demain. Qui suis-je ?",
-                "hint": "Tu es en plein dedans.",
-                "answers": ["aujourd'hui", "aujourdhui", "le present", "present"],
-            },
-        ],
-    },
-    {
-        "dimension": "logique",
-        "label": "Micro-logique",
-        "kind": "objective",
-        "pool": [
-            {
-                "id": "suite",
-                "question": "Complète la suite : 2, 3, 5, 9, 17, … ?",
-                "hint": "Regarde comment on passe d'un nombre au suivant : ×2, puis…",
-                "answers": ["33"],
-            },
-            {
-                "id": "suite_pas",
-                "question": "Complète la suite : 3, 4, 6, 9, 13, … ?",
-                "hint": "Regarde ce qu'on ajoute à chaque pas : +1, +2, +3…",
-                "answers": ["18"],
-            },
-            {
-                "id": "zorg",
-                "question": "Tous les Zorgs sont bleus. Certains êtres bleus chantent. "
-                            "Peut-on être certain qu'au moins un Zorg chante ? (oui / non)",
-                "hint": "Les chanteurs sont bleus… mais qui te dit que ce sont des Zorgs ?",
-                "answers": ["non"],
-            },
-        ],
-    },
-    {
-        "dimension": "abstraite",
-        "label": "Association abstraite",
-        "kind": "objective",
-        "pool": [
-            {
-                "id": "horloge_coeur",
-                "question": "Quel point commun vois-tu entre une horloge et un cœur ?",
-                "hint": "Écoute-les.",
-                "answers": ["bat", "battent", "battement", "rythme", "tic", "pulsation", "temps"],
-            },
-            {
-                "id": "graine_idee",
-                "question": "Quel point commun vois-tu entre une graine et une idée ?",
-                "hint": "Que deviennent-elles quand on s'en occupe ?",
-                "answers": ["germe", "germent", "pousse", "poussent", "grandit", "grandissent",
-                            "planter", "semer", "cultiver", "fleurir", "murir"],
-            },
-            {
-                "id": "brouillard_oubli",
-                "question": "Quel point commun vois-tu entre le brouillard et l'oubli ?",
-                "hint": "Que font-ils aux contours des choses ?",
-                "answers": ["estompe", "efface", "flou", "floute", "masque", "cache", "voile",
-                            "disparait", "disparaitre", "brouille"],
-            },
-        ],
-    },
-    {
-        "dimension": "creative",
-        "label": "Expression libre",
-        "kind": "open",
-        "pool": [
-            {
-                "id": "penser_comme",
-                "question": "Complète à ta façon : « Penser, pour moi, c'est comme… »",
-            },
-            {
-                "id": "cerveau_lieu",
-                "question": "Si ton esprit était un lieu, lequel serait-il ? Décris-le en une phrase.",
-            },
-            {
-                "id": "mot_invente",
-                "question": "Invente un mot qui n'existe pas, et donne sa définition.",
-            },
-        ],
-    },
-]
+# kind: "objective" = réponse attendue (tolérance + juge LLM en seconde lecture)
+#       "open"      = pas de mauvaise réponse — matière à profilage uniquement
+_BANK_PATH = Path(__file__).with_name("entry_bank.json")
+PARCOURS: List[dict] = json.loads(_BANK_PATH.read_text(encoding="utf-8"))
 
 _BY_ID = {item["id"]: {**item, "dimension": step["dimension"], "kind": step["kind"]}
           for step in PARCOURS for item in step["pool"]}
 
 
-def get_parcours() -> dict:
-    """Tire une épreuve par dimension, dans l'ordre du parcours."""
+def get_parcours(exclude: Optional[Set[str]] = None) -> dict:
+    """Tire une épreuve par dimension, en évitant si possible les ids déjà vus."""
+    exclude = exclude or set()
     steps = []
     for step in PARCOURS:
-        item = random.choice(step["pool"])
+        fresh = [i for i in step["pool"] if i["id"] not in exclude]
+        item = random.choice(fresh or step["pool"])  # banque épuisée → on repioche
         steps.append({
             "id": item["id"],
             "dimension": step["dimension"],
@@ -161,6 +60,25 @@ def get_challenge() -> dict:
     return {"id": c["id"], "question": c["question"]}
 
 
+_NUM_RE = re.compile(r"\d+(?:[.,]\d+)?")
+
+
+def _numbers(text: str) -> List[float]:
+    return [float(n.replace(",", ".")) for n in _NUM_RE.findall(text)]
+
+
+def _matches(accepted: str, answer: str) -> bool:
+    """Réponse numérique → égalité exacte sur les nombres extraits (« 133 » ne
+    valide pas « 33 ») ; réponse textuelle → inclusion en forme compacte."""
+    acc_norm = _normalize(accepted).strip()
+    if _NUM_RE.fullmatch(acc_norm):
+        target = float(acc_norm.replace(",", "."))
+        return any(abs(n - target) < 1e-9 for n in _numbers(answer))
+    acc_compact = re.sub(r"[^a-z0-9]", "", acc_norm)
+    norm_compact = re.sub(r"[^a-z0-9]", "", _normalize(answer))
+    return bool(acc_compact) and acc_compact in norm_compact
+
+
 def verify_challenge(challenge_id: str, answer: str) -> dict:
     c = _BY_ID.get(challenge_id)
     if not c:
@@ -172,12 +90,8 @@ def verify_challenge(challenge_id: str, answer: str) -> dict:
             return {"ok": True}
         return {"ok": False, "hint": "Il n'y a pas de bonne réponse ici — écris ce qui te vient."}
 
-    norm = _normalize(answer).strip()
-    norm_compact = re.sub(r"[^a-z0-9]", "", norm)
-    for accepted in c["answers"]:
-        acc_compact = re.sub(r"[^a-z0-9]", "", _normalize(accepted))
-        if acc_compact and acc_compact in norm_compact:
-            return {"ok": True}
+    if any(_matches(accepted, answer) for accepted in c["answers"]):
+        return {"ok": True}
 
     # Réponse non reconnue : le LLM juge avec tolérance (synonymes, formulations).
     verdict = _chat(

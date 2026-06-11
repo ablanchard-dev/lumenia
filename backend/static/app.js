@@ -380,6 +380,9 @@
     }
   });
 
+  const MARK_SVG =
+    '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3c.9 4.8 2.2 6.4 6.7 7.6-4.5 1.2-5.8 2.8-6.7 7.6-.9-4.8-2.2-6.4-6.7-7.6C8.8 9.4 10.1 7.8 11 3Z"/><circle cx="19" cy="18.2" r="2"/></svg>';
+
   function appendMessageEl(role, text) {
     const welcome = messagesEl.querySelector(".welcome");
     if (welcome) welcome.remove();
@@ -392,7 +395,7 @@
     if (role === "assistant") {
       const avatar = document.createElement("div");
       avatar.className = "msg-avatar";
-      avatar.textContent = "L";
+      avatar.innerHTML = MARK_SVG;
       avatar.setAttribute("aria-hidden", "true");
       msg.appendChild(avatar);
       body.innerHTML = renderMarkdown(text);
@@ -426,7 +429,7 @@
     msg.className = "msg assistant";
     msg.id = "typing-msg";
     msg.innerHTML =
-      '<div class="msg-avatar" aria-hidden="true">L</div>' +
+      '<div class="msg-avatar" aria-hidden="true">' + MARK_SVG + '</div>' +
       '<div class="msg-body"><span class="typing" role="status" aria-label="Lumenia écrit"><span></span><span></span><span></span></span></div>';
     messagesEl.appendChild(msg);
     messagesEl.scrollTop = messagesEl.scrollHeight;

@@ -112,7 +112,9 @@ _MAX_HISTORY = 20
 _DIMENSION_LABELS = {
     "laterale": "pensée latérale",
     "logique": "logique",
-    "abstraite": "associations abstraites",
+    "arithmetique": "raisonnement arithmétique",
+    "similitudes": "similitudes entre concepts",
+    "abstraite": "associations abstraites",  # compat anciens profils
 }
 
 

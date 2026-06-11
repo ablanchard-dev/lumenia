@@ -15,6 +15,14 @@
 </head>
 <body>
 
+  <!-- ============ ÉCRAN DE GARDE ============ -->
+  <div id="screen-splash" class="splash" aria-hidden="true">
+    <div class="splash-mark">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3c.9 4.8 2.2 6.4 6.7 7.6-4.5 1.2-5.8 2.8-6.7 7.6-.9-4.8-2.2-6.4-6.7-7.6C8.8 9.4 10.1 7.8 11 3Z"/><circle cx="19" cy="18.2" r="2"/></svg>
+    </div>
+    <div class="splash-name">Lumenia</div>
+  </div>
+
   <!-- ============ ÉCRAN 1 : CONSENTEMENT ============ -->
   <section id="screen-consent" class="gate" hidden>
     <div class="gate-card">
@@ -71,9 +79,13 @@
         </div>
         <p id="challenge-feedback" class="challenge-feedback" role="status" aria-live="polite"></p>
         <div class="challenge-actions">
-          <button id="challenge-skip" class="btn-ghost" hidden>Passer cette épreuve</button>
+          <button id="challenge-skip" class="btn-skip" hidden>
+            Passer cette épreuve
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
         </div>
       </div>
+      <p class="gate-footnote">Rien ici n'est éliminatoire : si une épreuve résiste, tu pourras la passer. Le seuil s'ouvre dans tous les cas.</p>
     </div>
   </section>
 
@@ -113,11 +125,15 @@
 
     <main class="chat-main">
       <header class="chat-topbar">
+        <button id="nav-toggle" class="btn-icon mobile-only" aria-label="Ouvrir les conversations" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+        </button>
         <span class="brand-name mobile-only">Lumenia</span>
         <button id="new-chat-mobile" class="btn-icon mobile-only" aria-label="Nouvelle conversation">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
         </button>
       </header>
+      <div id="nav-scrim" class="nav-scrim" hidden></div>
 
       <div id="safety-banner" class="safety-banner" role="alert" hidden>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>

@@ -117,6 +117,18 @@
         "question": "J'ai des feuilles sans être un arbre, et un dos sans avoir d'os. Qui suis-je ?",
         "hint": "On me lit, page après page.",
         "answers": ["livre", "un livre", "le livre", "bouquin", "roman"]
+      },
+      {
+        "id": "nuage",
+        "question": "Je flotte sans ailes, je pleure sans yeux, et je disparais au soleil. Qui suis-je ?",
+        "hint": "Tu me regardes dans le ciel.",
+        "answers": ["nuage", "un nuage", "le nuage", "nuages", "les nuages"]
+      },
+      {
+        "id": "feu_enigme",
+        "question": "Je dévore tout sans jamais être rassasié ; donne-moi à boire et je meurs. Qui suis-je ?",
+        "hint": "On me combat avec de l'eau.",
+        "answers": ["feu", "le feu", "un feu", "flamme", "la flamme", "incendie"]
       }
     ]
   },
@@ -238,6 +250,24 @@
         "question": "Tous les pingouins sont des oiseaux. Aucun pingouin ne vole. Tous les oiseaux volent-ils ? (oui / non)",
         "hint": "Le pingouin est un oiseau… qui ne vole pas.",
         "answers": ["non"]
+      },
+      {
+        "id": "suite_diff2",
+        "question": "Complète la suite : 5, 10, 20, 40, … ?",
+        "hint": "On double à chaque étape.",
+        "answers": ["80"]
+      },
+      {
+        "id": "suite_minus3",
+        "question": "Complète la suite : 100, 97, 94, 91, … ?",
+        "hint": "On retire 3 à chaque étape.",
+        "answers": ["88"]
+      },
+      {
+        "id": "jours_3",
+        "question": "Si hier était mercredi, quel jour serons-nous après-demain ?",
+        "hint": "Aujourd'hui, c'est le lendemain d'hier.",
+        "answers": ["samedi"]
       }
     ]
   },
@@ -353,6 +383,24 @@
         "question": "Deux nombres : leur somme fait 10 et leur différence fait 4. Quel est le plus grand ?",
         "hint": "Additionne les deux : la somme des deux nombres plus leur différence donne deux fois le plus grand.",
         "answers": ["7", "sept"]
+      },
+      {
+        "id": "pommes_reste",
+        "question": "J'ai 10 pommes. J'en donne la moitié, puis j'en mange 2. Combien m'en reste-t-il ?",
+        "hint": "La moitié de 10, puis on retire 2.",
+        "answers": ["3", "trois"]
+      },
+      {
+        "id": "fourmi_pattes",
+        "question": "Combien de pattes ont en tout 3 araignées (8 pattes chacune) et 4 fourmis (6 pattes chacune) ?",
+        "hint": "3 × 8, plus 4 × 6.",
+        "answers": ["48", "quarante-huit", "quarante huit"]
+      },
+      {
+        "id": "remise_deux",
+        "question": "Un jeu coûte 40 €. On applique -50 %, puis encore -10 % sur le prix déjà réduit. Quel est le prix final ?",
+        "hint": "Les remises s'appliquent l'une après l'autre, pas en s'additionnant.",
+        "answers": ["18", "18 euros", "dix-huit", "18€"]
       }
     ]
   },
@@ -474,6 +522,18 @@
         "question": "Quel point commun entre les racines d'une plante et celles d'un mot ?",
         "hint": "Les deux sont cachées et donnent naissance à ce qui pousse au-dessus.",
         "answers": ["origine", "source", "base", "cachees", "invisibles", "donnent", "naissance", "nourrissent", "fondation", "viennent", "souterraines", "profond"]
+      },
+      {
+        "id": "fenetre_oeil",
+        "question": "Quel point commun vois-tu entre une fenêtre et un œil ?",
+        "hint": "Les deux laissent entrer la lumière et voir au-dehors.",
+        "answers": ["voir", "regarder", "lumiere", "ouvre", "ouverture", "monde", "exterieur", "laisse passer", "vue", "transparent", "observer"]
+      },
+      {
+        "id": "ancre_habitude",
+        "question": "Quel point commun entre une ancre et une habitude ?",
+        "hint": "Les deux retiennent en place — pour le meilleur ou pour le pire.",
+        "answers": ["fixe", "retient", "stabilite", "tient", "attache", "empeche", "bouger", "lourd", "ancrer", "stable", "immobilise", "securite"]
       }
     ]
   },
@@ -533,6 +593,14 @@
       {
         "id": "lieu_invente",
         "question": "Si tu pouvais inventer un lieu qui n'existe pas, à quoi ressemblerait-il ?"
+      },
+      {
+        "id": "objet_vie",
+        "question": "Si tu devais résumer ta vie par un seul objet, lequel choisirais-tu ?"
+      },
+      {
+        "id": "premiere_pensee",
+        "question": "Quelle est la première chose à laquelle tu penses en te réveillant ?"
       }
     ]
   }

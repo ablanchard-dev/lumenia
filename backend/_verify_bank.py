@@ -96,9 +96,15 @@ computed = {
     "crayons_boites": 20 * 3 // 12,  # 0,25 €/crayon -> 5 €
     "horloge_sonne": (7 - 1) * (6 // (4 - 1)),  # intervalles : 6 × 2s -> 12
     "ages_somme": (10 + 4) // 2,     # (somme+diff)/2 -> 7
+    "suite_diff2": 40 * 2,           # ×2 -> 80
+    "suite_minus3": 91 - 3,          # -3 -> 88
+    "pommes_reste": 10 // 2 - 2,     # 5 - 2 -> 3
+    "fourmi_pattes": 3 * 8 + 4 * 6,  # 24 + 24 -> 48
+    "remise_deux": 40 * 0.5 * 0.9,   # -50% puis -10% -> 18
     # jours
     "jours": shift("samedi", 2 + 1),     # avant-hier=samedi -> demain
     "jours_2": shift("vendredi", -3 - 1),  # today+3=vendredi -> hier
+    "jours_3": shift("mercredi", 1 + 2),  # hier=mercredi -> apres-demain
 }
 
 # --- réponses logiques/verbales (vérifiées par raisonnement) ---

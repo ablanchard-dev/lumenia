@@ -99,6 +99,24 @@
         "question": "Tu me possèdes tant que tu me gardes ; dès que tu me partages, je n'existe plus. Qui suis-je ?",
         "hint": "Chut…",
         "answers": ["secret", "un secret", "le secret"]
+      },
+      {
+        "id": "futur",
+        "question": "Je suis toujours devant toi, mais tu ne peux jamais m'atteindre. Qui suis-je ?",
+        "hint": "Hier, j'étais encore à venir.",
+        "answers": ["futur", "le futur", "l'avenir", "avenir", "demain", "lendemain"]
+      },
+      {
+        "id": "carte_geo",
+        "question": "Je montre des villes sans maisons, des routes sans voitures et des rivières sans eau. Qui suis-je ?",
+        "hint": "On me déplie pour ne pas se perdre.",
+        "answers": ["carte", "une carte", "la carte", "carte geographique", "plan", "un plan"]
+      },
+      {
+        "id": "livre_enigme",
+        "question": "J'ai des feuilles sans être un arbre, et un dos sans avoir d'os. Qui suis-je ?",
+        "hint": "On me lit, page après page.",
+        "answers": ["livre", "un livre", "le livre", "bouquin", "roman"]
       }
     ]
   },
@@ -202,6 +220,24 @@
         "question": "Tom court plus vite que Lina. Lina court plus vite que Sam. Qui est le plus lent ?",
         "hint": "Classe-les du plus rapide au plus lent.",
         "answers": ["sam"]
+      },
+      {
+        "id": "suite_impairs",
+        "question": "Complète la suite : 1, 3, 5, 7, 9, … ?",
+        "hint": "Ce sont les nombres impairs.",
+        "answers": ["11"]
+      },
+      {
+        "id": "suite_double_un",
+        "question": "Complète la suite : 1, 2, 4, 8, 16, … ?",
+        "hint": "On double à chaque étape.",
+        "answers": ["32"]
+      },
+      {
+        "id": "syllogisme_oiseaux",
+        "question": "Tous les pingouins sont des oiseaux. Aucun pingouin ne vole. Tous les oiseaux volent-ils ? (oui / non)",
+        "hint": "Le pingouin est un oiseau… qui ne vole pas.",
+        "answers": ["non"]
       }
     ]
   },
@@ -299,6 +335,24 @@
         "question": "Je pense à un nombre. Je le double, puis j'ajoute 10, et j'obtiens 30. Quel est mon nombre ?",
         "hint": "Remonte à l'envers : avant le +10, c'était 20.",
         "answers": ["10", "dix"]
+      },
+      {
+        "id": "crayons_boites",
+        "question": "12 crayons coûtent 3 €. Combien coûtent 20 crayons au même prix unitaire ?",
+        "hint": "Un crayon coûte 25 centimes.",
+        "answers": ["5", "cinq", "5 euros", "5€"]
+      },
+      {
+        "id": "horloge_sonne",
+        "question": "Une horloge met 6 secondes pour sonner 4 coups. Combien de secondes met-elle pour sonner 7 coups ?",
+        "hint": "Compte les INTERVALLES entre les coups, pas les coups eux-mêmes.",
+        "answers": ["12", "douze"]
+      },
+      {
+        "id": "ages_somme",
+        "question": "Deux nombres : leur somme fait 10 et leur différence fait 4. Quel est le plus grand ?",
+        "hint": "Additionne les deux : la somme des deux nombres plus leur différence donne deux fois le plus grand.",
+        "answers": ["7", "sept"]
       }
     ]
   },
@@ -402,6 +456,24 @@
         "question": "Quel point commun entre une étoile et l'espoir ?",
         "hint": "Tous deux brillent, surtout dans le noir.",
         "answers": ["brille", "brillent", "lumiere", "loin", "guide", "nuit", "eclaire", "lointain", "point lumineux", "s'eteint", "persiste", "scintille"]
+      },
+      {
+        "id": "horizon_reve",
+        "question": "Quel point commun entre l'horizon et un rêve ?",
+        "hint": "Plus tu avances vers eux, plus ils semblent reculer.",
+        "answers": ["loin", "lointain", "atteindre", "jamais", "s'eloigne", "inaccessible", "avance", "fuit", "ligne", "but", "poursuit", "recule"]
+      },
+      {
+        "id": "main_outil",
+        "question": "Quel point commun vois-tu entre une main et un outil ?",
+        "hint": "Les deux servent à faire, à transformer.",
+        "answers": ["fabrique", "fabriquer", "cree", "creer", "construit", "transforme", "travaille", "faire", "saisir", "tenir", "agir", "prolonge"]
+      },
+      {
+        "id": "racine_langue",
+        "question": "Quel point commun entre les racines d'une plante et celles d'un mot ?",
+        "hint": "Les deux sont cachées et donnent naissance à ce qui pousse au-dessus.",
+        "answers": ["origine", "source", "base", "cachees", "invisibles", "donnent", "naissance", "nourrissent", "fondation", "viennent", "souterraines", "profond"]
       }
     ]
   },
@@ -453,6 +525,14 @@
       {
         "id": "talent_cache",
         "question": "Quel petit talent, ou détail de toi, que personne ne remarque jamais ?"
+      },
+      {
+        "id": "musique_etat",
+        "question": "Quelle musique décrirait le mieux ton état d'esprit en ce moment ?"
+      },
+      {
+        "id": "lieu_invente",
+        "question": "Si tu pouvais inventer un lieu qui n'existe pas, à quoi ressemblerait-il ?"
       }
     ]
   }

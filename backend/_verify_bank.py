@@ -81,6 +81,11 @@ computed = {
     "prix_remise": 80 * (1 - 0.25),
     "age_double": 34 - 2 * 8,       # 34 + x = 2(8 + x)  ->  x = 18
     "poignees_main": poignees(5),
+    "suite_x3": 54 * 3,              # ×3 -> 162
+    "suite_alt": 16 + 6,            # +1,+2,+3,+4,+5,+6 -> 22
+    "trois_chats": 3,               # 1 chat -> 1 souris/3 min ; 100 souris/100 min -> 3 chats
+    "douzaine_demi": (6 // 2) + 2,  # moitie de 6 = 3, +2 -> 5
+    "minutes_heures": 24 * 60 // 4,  # quart de journee -> 360 min
     # jours
     "jours": shift("samedi", 2 + 1),     # avant-hier=samedi -> demain
     "jours_2": shift("vendredi", -3 - 1),  # today+3=vendredi -> hier
@@ -90,6 +95,7 @@ computed = {
 verbal = {
     "zorg": "non",               # chanteurs bleus pas forcément Zorgs
     "syllogisme_roses": "non",   # fleurs qui fanent pas forcément des roses
+    "syllogisme_chats": "non",   # aucun animal ne parle, le chat est un animal -> non
     "grandeur": "lea",           # Lea > Zoe > Marie
 }
 

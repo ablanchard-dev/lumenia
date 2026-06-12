@@ -63,6 +63,24 @@
         "question": "On me trouve au début de la nuit, à la fin du matin, deux fois dans l'année et jamais dans le mois. Qui suis-je ?",
         "hint": "Je ne suis pas un objet : je suis un signe qu'on écrit.",
         "answers": ["n", "la lettre n", "lettre n", "le n"]
+      },
+      {
+        "id": "lit_riviere",
+        "question": "J'ai un lit mais je n'y dors jamais, je cours sans avoir de jambes. Qui suis-je ?",
+        "hint": "On me traverse sur un pont.",
+        "answers": ["riviere", "la riviere", "fleuve", "le fleuve", "cours d'eau", "ruisseau"]
+      },
+      {
+        "id": "horloge_enigme",
+        "question": "J'ai des aiguilles mais je ne couds pas, un visage mais pas de bouche. Qui suis-je ?",
+        "hint": "Tu me regardes pour ne pas être en retard.",
+        "answers": ["horloge", "une horloge", "l'horloge", "montre", "une montre", "pendule", "reveil"]
+      },
+      {
+        "id": "clavier",
+        "question": "J'ai des touches mais aucune serrure, une barre d'espace mais aucune pièce. Qui suis-je ?",
+        "hint": "Tu m'utilises pour écrire sur un écran.",
+        "answers": ["clavier", "un clavier", "le clavier"]
       }
     ]
   },
@@ -130,6 +148,24 @@
         "question": "Si dans trois jours ce sera vendredi, quel jour était-ce hier ?",
         "hint": "Trouve d'abord quel jour on est aujourd'hui.",
         "answers": ["lundi"]
+      },
+      {
+        "id": "suite_x3",
+        "question": "Complète la suite : 2, 6, 18, 54, … ?",
+        "hint": "On multiplie par le même nombre à chaque étape.",
+        "answers": ["162"]
+      },
+      {
+        "id": "suite_alt",
+        "question": "Complète la suite : 1, 2, 4, 7, 11, 16, … ?",
+        "hint": "Le saut grandit de 1 à chaque fois : +1, +2, +3…",
+        "answers": ["22"]
+      },
+      {
+        "id": "syllogisme_chats",
+        "question": "Tous les chats sont des animaux. Aucun animal ne parle. Un chat peut-il parler ? (oui / non)",
+        "hint": "Si aucun animal ne parle, et qu'un chat est un animal…",
+        "answers": ["non"]
       }
     ]
   },
@@ -191,6 +227,24 @@
         "question": "Dans une pièce, 5 personnes se serrent chacune la main une fois avec toutes les autres. Combien de poignées de main en tout ?",
         "hint": "Chacune en serre 4, mais chaque poignée se compte une seule fois.",
         "answers": ["10", "dix"]
+      },
+      {
+        "id": "trois_chats",
+        "question": "Si 3 chats attrapent 3 souris en 3 minutes, combien de chats faut-il pour attraper 100 souris en 100 minutes ?",
+        "hint": "Combien de souris UN chat attrape-t-il en 100 minutes ?",
+        "answers": ["3", "trois"]
+      },
+      {
+        "id": "douzaine_demi",
+        "question": "La moitié d'une demi-douzaine d'œufs, plus deux, ça fait combien ?",
+        "hint": "Une demi-douzaine, c'est 6.",
+        "answers": ["5", "cinq"]
+      },
+      {
+        "id": "minutes_heures",
+        "question": "Combien de minutes y a-t-il dans un quart de journée ?",
+        "hint": "Une journée fait 24 heures.",
+        "answers": ["360"]
       }
     ]
   },
@@ -258,6 +312,24 @@
         "question": "Quel point commun entre les racines d'un arbre et les fondations d'une maison ?",
         "hint": "On ne les voit pas, mais tout repose dessus.",
         "answers": ["soutien", "soutiennent", "tiennent", "tenir", "base", "support", "stabilite", "ancre", "ancrent", "cachees", "invisibles", "portent", "fondation", "solide"]
+      },
+      {
+        "id": "cle_question",
+        "question": "Quel point commun vois-tu entre une clé et une bonne question ?",
+        "hint": "Les deux ouvrent quelque chose.",
+        "answers": ["ouvre", "ouvrir", "ouvrent", "debloque", "deverrouille", "acces", "solution", "comprendre", "reponse", "serrure"]
+      },
+      {
+        "id": "pont_mot",
+        "question": "Quel point commun entre un pont et un mot ?",
+        "hint": "Les deux relient : deux rives, ou deux personnes.",
+        "answers": ["relie", "relient", "relier", "lien", "connecte", "connecter", "rapproche", "traverser", "unit", "franchir", "communication", "comprendre"]
+      },
+      {
+        "id": "cicatrice_souvenir",
+        "question": "Quel point commun entre une cicatrice et un souvenir ?",
+        "hint": "Toutes deux gardent la trace de quelque chose de passé.",
+        "answers": ["trace", "marque", "reste", "passe", "temps", "histoire", "garde", "laisse", "empreinte", "blessure", "guerit"]
       }
     ]
   },
@@ -293,6 +365,14 @@
       {
         "id": "regle_monde",
         "question": "Si tu pouvais ajouter une seule règle au monde, laquelle serait-ce ?"
+      },
+      {
+        "id": "pouvoir_discret",
+        "question": "Si tu avais un pouvoir discret, invisible aux yeux des autres, lequel choisirais-tu ?"
+      },
+      {
+        "id": "phrase_passe",
+        "question": "Si tu pouvais envoyer une seule phrase à toi-même il y a cinq ans, laquelle ?"
       }
     ]
   }

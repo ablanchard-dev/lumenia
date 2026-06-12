@@ -1,55 +1,53 @@
 # Lumenia
 
-Assistant conversationnel pour profils neuroatypiques (HPI, Asperger/TSA, TDAH).
+Conversational assistant for neurodivergent profiles (gifted/HPI, Asperger/ASD, ADHD).
 
-Un chat pour débloquer une tâche, poser une pensée qui tourne en boucle ou préparer
-une conversation difficile. Ton direct, sans jugement, sans jargon médical. Backend
-FastAPI qui sert aussi l'interface ; LLM via des fournisseurs gratuits chaînés ;
-données locales.
+A chat to unblock a task, put down a looping thought, or prepare a difficult
+conversation. Direct tone, no judgment, no medical jargon. A FastAPI backend that also
+serves the UI; an LLM via chained free providers; local data.
 
-## Lancer
+## Run
 
-Prérequis : Python 3.12+. Au moins une clé API gratuite est conseillée (les liens
-sont dans `backend/.env.example`) ; sans clé, l'app reste utilisable en mode dégradé.
+Requirements: Python 3.12+. At least one free API key is recommended (links are in
+`backend/.env.example`); without a key, the app still works in a degraded mode.
 
 ```
 cd backend
 python -m venv .venv
 .venv\Scripts\pip install -r requirements.txt
-copy .env.example .env        # coller une ou plusieurs clés dedans
+copy .env.example .env        # paste one or more keys into it
 .venv\Scripts\python -m uvicorn app.main:app --port 8000
 ```
 
-Puis http://127.0.0.1:8000
+Then http://127.0.0.1:8000
 
-Sous Windows, `setup_windows_backend.ps1` enchaîne ces étapes. Docker :
+On Windows, `setup_windows_backend.ps1` chains these steps. Docker:
 `docker compose up --build`.
 
-## Comment ça marche
+## How it works
 
-- **Entrée.** Consentement, puis un parcours de défis cognitifs (pensée latérale,
-  logique, raisonnement, similitudes, expression libre). Il conditionne l'accès et
-  initialise un profil cognitif réutilisé ensuite pour adapter les réponses du chat.
-  Le rappel du 3114 reste accessible à toutes les étapes.
-- **Données locales.** Les conversations restent dans le navigateur (localStorage) ;
-  rien n'est envoyé ailleurs que chez le fournisseur LLM le temps d'une réponse.
-- **Sécurité.** Détection de détresse intégrée : si un message évoque des idées
-  suicidaires, Lumenia coupe court et oriente vers le 3114, sans appel au modèle.
-- **LLM.** Une chaîne de fournisseurs gratuits (Gemini, Cerebras, Mistral) avec
-  bascule automatique quand un quota est épuisé. Tous parlent le protocole OpenAI ;
-  un fournisseur sans clé est simplement sauté.
+- **Entry.** Consent, then a short run of cognitive challenges (lateral thinking,
+  logic, reasoning, similarities, free expression). It gates access and initializes a
+  cognitive profile reused afterwards to adapt the chat's answers. The 3114 reminder
+  stays reachable at every step.
+- **Local data.** Conversations stay in the browser (localStorage); nothing is sent
+  anywhere except to the LLM provider for the duration of a response.
+- **Safety.** Built-in distress detection: if a message hints at suicidal thoughts,
+  Lumenia stops short and points to 3114, without calling the model.
+- **LLM.** A chain of free providers (Gemini, Cerebras, Mistral) with automatic
+  failover when a quota runs out. They all speak the OpenAI protocol; a provider with
+  no key is simply skipped.
 
-La persistance serveur est une SQLite locale (`backend/data/lumenia.db`). Le dossier
-`frontend/` est l'ancienne interface Streamlit, conservée pour mémoire mais plus
-utilisée : l'interface actuelle vit dans `backend/static/` et est servie par le
-backend.
+Server persistence is a local SQLite (`backend/data/lumenia.db`). The `frontend/`
+folder is the old Streamlit interface, kept for reference but no longer used: the
+current UI lives in `backend/static/` and is served by the backend.
 
-## Banque du parcours
+## Entry question bank
 
-Les questions d'entrée vivent dans `backend/app/entry_bank.json` (items originaux,
-répartis en cinq dimensions). Le script `backend/_verify_bank.py` recalcule de façon
-indépendante chaque réponse calculable (suites, arithmétique, jours, logique) et
-confirme qu'elle est acceptée par les réponses stockées :
+The entry questions live in `backend/app/entry_bank.json` (original items, split into
+five dimensions). The `backend/_verify_bank.py` script independently recomputes every
+computable answer (sequences, arithmetic, days, logic) and confirms it is accepted by
+the stored answers:
 
 ```
 cd backend
@@ -63,11 +61,11 @@ cd backend
 .venv\Scripts\python -m pytest
 ```
 
-Couvre la détection de crise et les scores cliniques (`backend/tests/`). La détection
-de crise est bloquante : toute modification de `backend/app/chat.py` doit la laisser
-au vert.
+Covers crisis detection and clinical scores (`backend/tests/`). Crisis detection is
+blocking: any change to `backend/app/chat.py` must keep it green.
 
-## Avertissement
+## Disclaimer
 
-Lumenia n'est pas un dispositif médical et ne remplace pas un professionnel de santé.
-En cas de détresse : 3114 (gratuit, 24h/24) ou 15.
+Lumenia is not a medical device and does not replace a health professional. In
+distress: 3114 (France's national suicide-prevention line, free, 24/7) or 15 (medical
+emergencies).

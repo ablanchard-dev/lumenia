@@ -1,6 +1,6 @@
 """Génère le petit 'mark' Lumenia (luciole + anneau, sans le texte) à partir du logo
 détouré, pour la sidebar / cartes / avatars / favicon."""
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageEnhance
 
 CUT = "static/logo-lumenia-cut.png"          # logo complet détouré (transparent)
 MARK = "static/logo-mark.png"                # luciole + anneau, transparent
@@ -19,6 +19,15 @@ mark = src.crop((l, t, r, b))
 side = max(mark.size)
 sq = Image.new("RGBA", (side, side), (0, 0, 0, 0))
 sq.paste(mark, ((side - mark.width) // 2, (side - mark.height) // 2), mark)
+
+# éclaircir : la luciole est pâle, sinon trop sombre sur la pastille foncée
+r, g, b, a = sq.split()
+rgb = ImageEnhance.Brightness(Image.merge("RGB", (r, g, b))).enhance(1.5)
+rgb = ImageEnhance.Contrast(rgb).enhance(1.08)
+r, g, b = rgb.split()
+a = a.point(lambda v: min(255, int(v * 1.3)))
+sq = Image.merge("RGBA", (r, g, b, a))
+
 sq.save(MARK)
 print(f"mark -> {MARK} {sq.size}")
 

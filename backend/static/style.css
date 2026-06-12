@@ -283,6 +283,11 @@ a { color: var(--primary); }
   cursor: pointer;
 }
 
+/* ---- écran : seuil non franchi ---- */
+.fail-box { text-align: center; }
+.fail-score-line { color: var(--text-muted); margin: 0 0 18px; font-size: 15px; }
+.fail-score-line strong { color: var(--text); font-size: 18px; }
+
 /* ============ Parcours cognitif ============ */
 
 .parcours-progress { margin-bottom: 18px; }

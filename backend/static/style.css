@@ -140,7 +140,8 @@ a { color: var(--primary); }
   opacity: 0;
   background: radial-gradient(circle, rgba(255,208,140,.34) 0%, rgba(255,190,110,.14) 30%, rgba(150,130,255,.06) 52%, transparent 70%);
   filter: blur(10px);
-  animation: intro-halo-in 1.8s .2s ease forwards, intro-halo-pulse 4.5s 2.2s ease-in-out infinite;
+  /* le halo respire en opacité seulement (doux, ne scintille pas) */
+  animation: intro-halo-in 1.8s .2s ease forwards, intro-halo-breath 7s 2.6s ease-in-out infinite;
 }
 
 .intro-logo {
@@ -151,8 +152,8 @@ a { color: var(--primary); }
   display: block;
   margin: 0 auto;
   opacity: 0;
-  will-change: filter, transform, opacity;
-  animation: intro-focus 1.8s .15s cubic-bezier(.2, .7, .2, 1) forwards, intro-float 6s 2.3s ease-in-out infinite;
+  /* révélation une fois (mise au point), puis statique : pas de scale en boucle = pas de scintillement */
+  animation: intro-focus 1.8s .15s cubic-bezier(.2, .7, .2, 1) forwards;
 }
 
 .intro-enter {
@@ -164,13 +165,12 @@ a { color: var(--primary); }
 }
 
 @keyframes intro-halo-in { from { opacity: 0; scale: .6; } to { opacity: 1; scale: 1; } }
-@keyframes intro-halo-pulse { 0%, 100% { opacity: .75; scale: 1; } 50% { opacity: 1; scale: 1.06; } }
+@keyframes intro-halo-breath { 0%, 100% { opacity: 1; } 50% { opacity: .82; } }
 @keyframes intro-focus {
   0%   { opacity: 0; filter: blur(12px); transform: translateY(14px) scale(.9); }
   55%  { opacity: 1; }
   100% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
 }
-@keyframes intro-float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-7px) scale(1.015); } }
 @keyframes intro-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
 /* ============ Écrans porte (consentement / défi) ============ */
@@ -219,9 +219,9 @@ a { color: var(--primary); }
   margin-bottom: 20px;
   box-shadow: 0 10px 30px -10px var(--glow);
 }
-.brand-img { width: 42px; height: 42px; object-fit: contain; }
+.brand-img { width: 48px; height: 48px; object-fit: contain; }
 .brand-mark.sm { width: 36px; height: 36px; border-radius: 11px; margin: 0; box-shadow: none; }
-.brand-mark.sm .brand-img { width: 28px; height: 28px; }
+.brand-mark.sm .brand-img { width: 30px; height: 30px; }
 
 .gate-card h1 { font-size: 34px; letter-spacing: .01em; }
 

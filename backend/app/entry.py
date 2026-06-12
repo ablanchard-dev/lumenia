@@ -36,20 +36,34 @@ _BY_ID = {item["id"]: {**item, "dimension": step["dimension"], "kind": step["kin
           for step in PARCOURS for item in step["pool"]}
 
 
+# Épreuves tirées par dimension : 2 pour les dimensions objectives (parcours
+# plus étoffé, esprit WAIS), 1 pour l'expression libre (open). → 9 au total.
+_PER_DIM_DEFAULT = 2
+_PER_DIM_BY_KIND = {"open": 1}
+
+
 def get_parcours(exclude: Optional[Set[str]] = None) -> dict:
-    """Tire une épreuve par dimension, en évitant si possible les ids déjà vus."""
+    """Tire plusieurs épreuves par dimension (2 objectives, 1 ouverte), en
+    évitant si possible les ids déjà vus."""
     exclude = exclude or set()
     steps = []
     for step in PARCOURS:
-        fresh = [i for i in step["pool"] if i["id"] not in exclude]
-        item = random.choice(fresh or step["pool"])  # banque épuisée → on repioche
-        steps.append({
-            "id": item["id"],
-            "dimension": step["dimension"],
-            "label": step["label"],
-            "kind": step["kind"],
-            "question": item["question"],
-        })
+        n = _PER_DIM_BY_KIND.get(step["kind"], _PER_DIM_DEFAULT)
+        pool = step["pool"]
+        fresh = [i for i in pool if i["id"] not in exclude]
+        if len(fresh) >= n:
+            chosen = random.sample(fresh, n)
+        else:  # plus assez de non-vus → on complète depuis le reste du pool
+            rest = [i for i in pool if i not in fresh]
+            chosen = fresh + random.sample(rest, min(n - len(fresh), len(rest)))
+        for item in chosen:
+            steps.append({
+                "id": item["id"],
+                "dimension": step["dimension"],
+                "label": step["label"],
+                "kind": step["kind"],
+                "question": item["question"],
+            })
     return {"steps": steps, "total": len(steps)}
 
 

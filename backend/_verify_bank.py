@@ -86,6 +86,11 @@ computed = {
     "trois_chats": 3,               # 1 chat -> 1 souris/3 min ; 100 souris/100 min -> 3 chats
     "douzaine_demi": (6 // 2) + 2,  # moitie de 6 = 3, +2 -> 5
     "minutes_heures": 24 * 60 // 4,  # quart de journee -> 360 min
+    "suite_moins": 8 // 2,           # ÷2 -> 4
+    "suite_fact": 120 * 6,           # ×2,×3,...,×6 -> 720
+    "train_vitesse": 60 * 60 // 45,  # 60 km / 45 min -> 80 km/h
+    "bonbons_partage": (24 // 6) + (2 * (24 // 6)) // 4,  # 4 + 2 -> 6
+    "double_moitie": (30 - 10) // 2,  # 2x+10=30 -> x=10
     # jours
     "jours": shift("samedi", 2 + 1),     # avant-hier=samedi -> demain
     "jours_2": shift("vendredi", -3 - 1),  # today+3=vendredi -> hier
@@ -97,6 +102,7 @@ verbal = {
     "syllogisme_roses": "non",   # fleurs qui fanent pas forcément des roses
     "syllogisme_chats": "non",   # aucun animal ne parle, le chat est un animal -> non
     "grandeur": "lea",           # Lea > Zoe > Marie
+    "ordre_taille": "sam",       # Tom > Lina > Sam (vitesse) -> plus lent = Sam
 }
 
 

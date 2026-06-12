@@ -7,8 +7,14 @@
   const screens = {
     consent: $("screen-consent"),
     challenge: $("screen-challenge"),
+    fail: $("screen-fail"),
     chat: $("screen-chat"),
   };
+
+  // Test ÉLIMINATOIRE : part minimale de bonnes réponses (épreuves objectives
+  // seulement) pour ouvrir l'accès. PROVISOIRE — à fixer par le protocole clinique
+  // (Blandine). En dessous du seuil : l'accès n'est pas ouvert, mais on peut retenter.
+  const ENTRY_PASS_RATIO = 0.5;
 
   const state = {
     parcours: null,       // {steps:[{id,dimension,label,kind,question}], i, results:[], failures}
@@ -241,22 +247,35 @@
     const p = state.parcours;
     $("challenge-btn").disabled = true;
     $("challenge-skip").hidden = true;
+
+    // Score : seules les épreuves OBJECTIVES comptent (l'expression libre n'a pas
+    // de bonne réponse). Réussite = part de bonnes réponses ≥ ENTRY_PASS_RATIO.
+    const objective = p.results.filter((r) => r.dimension !== "creative");
+    const correct = objective.filter((r) => r.ok && !r.skipped).length;
+    const ratio = objective.length ? correct / objective.length : 0;
+    const passed = ratio >= ENTRY_PASS_RATIO;
+
     const fb = $("challenge-feedback");
     fb.classList.add("ok");
-    const okCount = p.results.filter((r) => r.ok && !r.skipped).length;
-    fb.textContent = okCount > 0
-      ? "C'est ouvert. Bienvenue."
-      : "Le seuil s'ouvre quand même — ce qui compte, c'est ta façon de chercher. Bienvenue.";
+    fb.textContent = passed ? "C'est ouvert. Bienvenue." : "Parcours terminé.";
+
     try {
       await api("/entry/complete", {
         method: "POST",
         body: JSON.stringify({ results: p.results }),
       });
-    } catch { /* l'entrée reste ouverte même si l'enregistrement échoue */ }
-    // réussi (au moins une épreuve) = test fait une fois, plus jamais reproposé.
-    // échoué (0 réussite) = on ne mémorise rien → le parcours sera reproposé à la prochaine ouverture.
-    if (okCount > 0) localStorage.setItem("lumenia.entryPassed", "1");
-    setTimeout(enterChat, okCount > 0 ? 700 : 1600);
+    } catch { /* enregistrement non bloquant */ }
+
+    if (passed) {
+      // Réussi = accès ouvert, test plus jamais reproposé sur cet appareil.
+      localStorage.setItem("lumenia.entryPassed", "1");
+      setTimeout(enterChat, 700);
+    } else {
+      // Échec = test éliminatoire : le seuil ne s'ouvre pas, mais on peut retenter.
+      localStorage.removeItem("lumenia.entryPassed");
+      $("fail-score").textContent = `${correct} / ${objective.length}`;
+      setTimeout(() => show("fail"), 900);
+    }
   }
 
   $("challenge-btn").addEventListener("click", submitStep);
@@ -264,6 +283,7 @@
     if (e.key === "Enter") { e.preventDefault(); submitStep(); }
   });
   $("challenge-skip").addEventListener("click", skipStep);
+  $("fail-retry").addEventListener("click", startParcours);
 
   /* ---------------- conversations (localStorage) ---------------- */
 
@@ -566,6 +586,11 @@
     if (location.hash === "#seuil") {
       hideIntroNow();
       return accepted ? startParcours() : show("consent");
+    }
+    if (location.hash === "#fail") {  // aperçu de l'écran « seuil non franchi » (dev)
+      hideIntroNow();
+      $("fail-score").textContent = "8 / 27";
+      return show("fail");
     }
     // sinon : l'intro animée se joue à CHAQUE ouverture, puis « Entrer dans le seuil »
     //   → consentement (1ʳᵉ fois) → parcours (si pas encore réussi) → chat (si réussi)

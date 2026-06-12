@@ -115,8 +115,9 @@
 
   $("intro-enter").addEventListener("click", () => {
     dismissIntro(() => {
-      if (state.consentAccepted) startParcours();
-      else show("consent");
+      if (!state.consentAccepted) show("consent");
+      else if (localStorage.getItem("lumenia.entryPassed") === "1") enterChat();
+      else startParcours();
     });
   });
 
@@ -255,7 +256,9 @@
         body: JSON.stringify({ results: p.results }),
       });
     } catch { /* l'entrée reste ouverte même si l'enregistrement échoue */ }
-    localStorage.setItem("lumenia.entered", "1");
+    // réussi (au moins une épreuve) = test fait une fois, plus jamais reproposé.
+    // échoué (0 réussite) = on ne mémorise rien → le parcours sera reproposé à la prochaine ouverture.
+    if (okCount > 0) localStorage.setItem("lumenia.entryPassed", "1");
     setTimeout(enterChat, okCount > 0 ? 700 : 1600);
   }
 
@@ -558,17 +561,16 @@
     } catch { accepted = false; }
     state.consentAccepted = accepted;
 
-    const entered = location.hash === "#chat" || localStorage.getItem("lumenia.entered") === "1";
-
-    // raccourcis & retours : on saute l'intro animée
+    // raccourcis (bypass de l'intro) : #chat saute au chat, #seuil rejoue le parcours
+    if (location.hash === "#chat" && accepted) {
+      hideIntroNow();
+      return enterChat();
+    }
     if (location.hash === "#seuil") {
       hideIntroNow();
       return accepted ? startParcours() : show("consent");
     }
-    if (entered && accepted) {
-      hideIntroNow();
-      return enterChat();
-    }
-    // première visite : l'intro s'anime, l'utilisateur clique « Entrer dans le seuil »
+    // sinon : l'intro animée se joue à CHAQUE ouverture, puis « Entrer dans le seuil »
+    //   → consentement (1ʳᵉ fois) → parcours (si pas encore réussi) → chat (si réussi)
   })();
 })();

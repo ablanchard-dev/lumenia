@@ -162,12 +162,9 @@
     p.failures = 0;
 
     const progress = $("parcours-progress");
-    progress.innerHTML = "";
-    p.steps.forEach((_, idx) => {
-      const dot = document.createElement("span");
-      dot.className = "p-dot" + (idx < p.i ? " done" : idx === p.i ? " current" : "");
-      progress.appendChild(dot);
-    });
+    const pct = Math.round(((p.i + 1) / p.steps.length) * 100);
+    progress.innerHTML =
+      `<span class="p-bar"><span class="p-bar-fill" style="width:${pct}%"></span></span>`;
 
     $("challenge-step").textContent = `Épreuve ${p.i + 1} sur ${p.steps.length} — ${step.label}`;
     $("challenge-question").textContent = step.question;

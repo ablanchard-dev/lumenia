@@ -44,13 +44,25 @@
         "id": "escalier",
         "question": "Je monte et je descends sans jamais bouger. Qui suis-je ?",
         "hint": "Tu me prends plusieurs fois par jour s'il n'y a pas d'ascenseur.",
-        "answers": ["escalier", "l'escalier", "les escaliers", "un escalier", "marches", "la temperature", "temperature"]
+        "answers": ["escalier", "l'escalier", "les escaliers", "un escalier", "marches"]
       },
       {
         "id": "bougie",
         "question": "Plus je vieillis, plus je raccourcis. Qui suis-je ?",
         "hint": "Je fonds en éclairant.",
         "answers": ["bougie", "la bougie", "une bougie", "un cierge", "cierge", "allumette"]
+      },
+      {
+        "id": "ombre",
+        "question": "Je te suis partout en plein jour, je grandis le soir et je te quitte la nuit. Qui suis-je ?",
+        "hint": "La lumière me dessine.",
+        "answers": ["ombre", "l'ombre", "mon ombre", "une ombre"]
+      },
+      {
+        "id": "lettre_n",
+        "question": "On me trouve au début de la nuit, à la fin du matin, deux fois dans l'année et jamais dans le mois. Qui suis-je ?",
+        "hint": "Je ne suis pas un objet : je suis un signe qu'on écrit.",
+        "answers": ["n", "la lettre n", "lettre n", "le n"]
       }
     ]
   },
@@ -94,6 +106,30 @@
         "question": "Si avant-hier était un samedi, quel jour serons-nous demain ?",
         "hint": "Avance pas à pas : avant-hier, hier, aujourd'hui…",
         "answers": ["mardi"]
+      },
+      {
+        "id": "suite_premiers",
+        "question": "Complète la suite : 2, 3, 5, 7, 11, … ?",
+        "hint": "Ces nombres n'ont que deux diviseurs : 1 et eux-mêmes.",
+        "answers": ["13"]
+      },
+      {
+        "id": "suite_carres",
+        "question": "Complète la suite : 1, 4, 9, 16, 25, … ?",
+        "hint": "1×1, 2×2, 3×3, 4×4…",
+        "answers": ["36"]
+      },
+      {
+        "id": "syllogisme_roses",
+        "question": "Toutes les roses sont des fleurs. Certaines fleurs fanent vite. Peut-on être certain qu'au moins une rose fane vite ? (oui / non)",
+        "hint": "Les fleurs qui fanent vite ne sont pas forcément des roses.",
+        "answers": ["non"]
+      },
+      {
+        "id": "jours_2",
+        "question": "Si dans trois jours ce sera vendredi, quel jour était-ce hier ?",
+        "hint": "Trouve d'abord quel jour on est aujourd'hui.",
+        "answers": ["lundi"]
       }
     ]
   },
@@ -125,6 +161,36 @@
         "question": "Léo a autant de frères que de sœurs. Sa sœur Jade a deux fois plus de frères que de sœurs. Combien d'enfants compte la fratrie ?",
         "hint": "Essaie avec de petits nombres : 4 garçons, 3 filles…",
         "answers": ["7", "sept"]
+      },
+      {
+        "id": "escargot",
+        "question": "Un escargot grimpe un mur de 10 mètres. Le jour il monte de 3 mètres, mais la nuit il glisse de 2 mètres. En combien de jours atteint-il le sommet ?",
+        "hint": "Le dernier jour, une fois en haut, il ne reglisse pas.",
+        "answers": ["8", "huit", "8 jours", "huit jours"]
+      },
+      {
+        "id": "chaussettes",
+        "question": "Dans un tiroir, 10 chaussettes noires et 10 bleues sont mélangées dans le noir. Combien dois-tu en sortir au minimum pour être sûr d'avoir deux chaussettes de la même couleur ?",
+        "hint": "Avec deux seulement, tu peux tomber sur une de chaque couleur.",
+        "answers": ["3", "trois"]
+      },
+      {
+        "id": "prix_remise",
+        "question": "Un pull coûte 80 €. Il est soldé à -25 %. Quel est son prix soldé ?",
+        "hint": "25 % de 80 €, c'est 20 €.",
+        "answers": ["60", "60 euros", "soixante", "60€"]
+      },
+      {
+        "id": "age_double",
+        "question": "Aujourd'hui, Maya a 8 ans et sa mère 34 ans. Dans combien d'années la mère aura-t-elle exactement le double de l'âge de Maya ?",
+        "hint": "Écris l'égalité : 34 + x = 2 × (8 + x).",
+        "answers": ["18", "dix-huit", "dix huit", "18 ans"]
+      },
+      {
+        "id": "poignees_main",
+        "question": "Dans une pièce, 5 personnes se serrent chacune la main une fois avec toutes les autres. Combien de poignées de main en tout ?",
+        "hint": "Chacune en serre 4, mais chaque poignée se compte une seule fois.",
+        "answers": ["10", "dix"]
       }
     ]
   },
@@ -168,6 +234,30 @@
         "question": "Quel point commun entre l'aube et le crépuscule ?",
         "hint": "Ni tout à fait jour, ni tout à fait nuit.",
         "answers": ["transition", "passage", "entre", "frontiere", "lumiere", "changement", "jour et nuit", "moment", "seuil"]
+      },
+      {
+        "id": "riviere_temps",
+        "question": "Quel point commun vois-tu entre une rivière et le temps ?",
+        "hint": "Ni l'un ni l'autre ne revient en arrière.",
+        "answers": ["coule", "s'ecoule", "ecoule", "ecoulement", "passe", "avance", "irreversible", "sens unique", "ne revient pas", "fluide", "mouvement", "courant"]
+      },
+      {
+        "id": "miroir_lac",
+        "question": "Quel point commun entre un miroir et un lac parfaitement calme ?",
+        "hint": "Penche-toi au-dessus.",
+        "answers": ["reflet", "reflechit", "reflechir", "reflete", "refleter", "image", "surface", "renvoie", "miroir", "reflechissent"]
+      },
+      {
+        "id": "livre_porte",
+        "question": "En quoi un livre et une porte se ressemblent-ils ?",
+        "hint": "Les deux s'ouvrent sur autre chose.",
+        "answers": ["ouvre", "ouvrir", "ouvrent", "passage", "acces", "mene", "monde", "ailleurs", "entree", "franchir", "seuil", "s'ouvrent"]
+      },
+      {
+        "id": "racine_fondation",
+        "question": "Quel point commun entre les racines d'un arbre et les fondations d'une maison ?",
+        "hint": "On ne les voit pas, mais tout repose dessus.",
+        "answers": ["soutien", "soutiennent", "tiennent", "tenir", "base", "support", "stabilite", "ancre", "ancrent", "cachees", "invisibles", "portent", "fondation", "solide"]
       }
     ]
   },
@@ -195,6 +285,14 @@
       {
         "id": "question_rare",
         "question": "Quelle question aimerais-tu qu'on te pose plus souvent ?"
+      },
+      {
+        "id": "objet_emotion",
+        "question": "Si une de tes émotions était un objet du quotidien, lequel serait-ce et pourquoi ?"
+      },
+      {
+        "id": "regle_monde",
+        "question": "Si tu pouvais ajouter une seule règle au monde, laquelle serait-ce ?"
       }
     ]
   }

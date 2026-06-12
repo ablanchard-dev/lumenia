@@ -285,21 +285,22 @@ a { color: var(--primary); }
 
 /* ============ Parcours cognitif ============ */
 
-.parcours-progress {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 16px;
-}
+.parcours-progress { margin-bottom: 18px; }
 
-.p-dot {
-  width: 9px; height: 9px;
-  border-radius: 50%;
+.p-bar {
+  display: block;
+  height: 6px;
+  border-radius: 999px;
   background: var(--border);
-  transition: background .25s ease, transform .25s ease;
+  overflow: hidden;
 }
-.p-dot.current { background: var(--primary); transform: scale(1.25); }
-.p-dot.done { background: var(--accent); }
+.p-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-strong));
+  transition: width .4s ease;
+}
 
 .challenge-step {
   margin: 0 0 10px;

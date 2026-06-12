@@ -36,20 +36,27 @@ _BY_ID = {item["id"]: {**item, "dimension": step["dimension"], "kind": step["kin
           for step in PARCOURS for item in step["pool"]}
 
 
-# Épreuves tirées par dimension : 2 pour les dimensions objectives (parcours
-# plus étoffé, esprit WAIS), 1 pour l'expression libre (open). → 9 au total.
-_PER_DIM_DEFAULT = 2
-_PER_DIM_BY_KIND = {"open": 1}
+# Nombre d'épreuves tirées par dimension → ~30 au total (esprit WAIS, parcours
+# d'évaluation étoffé). Plafonné à la taille du pool pour éviter tout débordement.
+_DRAW_PER_DIM = {
+    "laterale": 7,
+    "logique": 7,
+    "arithmetique": 6,
+    "similitudes": 7,
+    "creative": 3,
+}
+_DRAW_DEFAULT = 6
 
 
 def get_parcours(exclude: Optional[Set[str]] = None) -> dict:
-    """Tire plusieurs épreuves par dimension (2 objectives, 1 ouverte), en
-    évitant si possible les ids déjà vus."""
+    """Tire ~30 épreuves (réparties par dimension), en évitant si possible les
+    ids déjà vus, et en complétant depuis le pool si la réserve de non-vus est
+    insuffisante."""
     exclude = exclude or set()
     steps = []
     for step in PARCOURS:
-        n = _PER_DIM_BY_KIND.get(step["kind"], _PER_DIM_DEFAULT)
         pool = step["pool"]
+        n = min(_DRAW_PER_DIM.get(step["dimension"], _DRAW_DEFAULT), len(pool))
         fresh = [i for i in pool if i["id"] not in exclude]
         if len(fresh) >= n:
             chosen = random.sample(fresh, n)

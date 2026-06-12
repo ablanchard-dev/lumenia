@@ -81,6 +81,24 @@
         "question": "J'ai des touches mais aucune serrure, une barre d'espace mais aucune pièce. Qui suis-je ?",
         "hint": "Tu m'utilises pour écrire sur un écran.",
         "answers": ["clavier", "un clavier", "le clavier"]
+      },
+      {
+        "id": "vent",
+        "question": "On me sent, on m'entend, mais on ne me voit jamais. Qui suis-je ?",
+        "hint": "Je fais danser les feuilles et tourner les moulins.",
+        "answers": ["vent", "le vent", "un courant d'air", "courant d'air", "l'air", "air", "la brise", "brise"]
+      },
+      {
+        "id": "miroir_enigme",
+        "question": "Je te rends tout ce que tu me montres, mais à l'envers, sans rien garder. Qui suis-je ?",
+        "hint": "Tu me regardes le matin.",
+        "answers": ["miroir", "un miroir", "le miroir", "glace", "la glace"]
+      },
+      {
+        "id": "secret",
+        "question": "Tu me possèdes tant que tu me gardes ; dès que tu me partages, je n'existe plus. Qui suis-je ?",
+        "hint": "Chut…",
+        "answers": ["secret", "un secret", "le secret"]
       }
     ]
   },
@@ -166,6 +184,24 @@
         "question": "Tous les chats sont des animaux. Aucun animal ne parle. Un chat peut-il parler ? (oui / non)",
         "hint": "Si aucun animal ne parle, et qu'un chat est un animal…",
         "answers": ["non"]
+      },
+      {
+        "id": "suite_moins",
+        "question": "Complète la suite : 64, 32, 16, 8, … ?",
+        "hint": "On divise par 2 à chaque étape.",
+        "answers": ["4"]
+      },
+      {
+        "id": "suite_fact",
+        "question": "Complète la suite : 1, 2, 6, 24, 120, … ?",
+        "hint": "On multiplie par 2, puis par 3, puis par 4…",
+        "answers": ["720"]
+      },
+      {
+        "id": "ordre_taille",
+        "question": "Tom court plus vite que Lina. Lina court plus vite que Sam. Qui est le plus lent ?",
+        "hint": "Classe-les du plus rapide au plus lent.",
+        "answers": ["sam"]
       }
     ]
   },
@@ -245,6 +281,24 @@
         "question": "Combien de minutes y a-t-il dans un quart de journée ?",
         "hint": "Une journée fait 24 heures.",
         "answers": ["360"]
+      },
+      {
+        "id": "train_vitesse",
+        "question": "Un train parcourt 60 km en 45 minutes. Quelle distance parcourt-il en 1 heure à la même vitesse ?",
+        "hint": "En 15 minutes de plus (un tiers), il parcourt un tiers de plus.",
+        "answers": ["80", "80 km", "quatre-vingts", "quatre vingts"]
+      },
+      {
+        "id": "bonbons_partage",
+        "question": "On partage 24 bonbons également entre 6 enfants. Puis 2 enfants s'en vont en laissant leurs bonbons aux 4 qui restent, partagés également. Combien chaque enfant restant a-t-il de bonbons ?",
+        "hint": "Chacun a 4 au départ ; 2 enfants laissent 8 bonbons à 4 enfants.",
+        "answers": ["6", "six"]
+      },
+      {
+        "id": "double_moitie",
+        "question": "Je pense à un nombre. Je le double, puis j'ajoute 10, et j'obtiens 30. Quel est mon nombre ?",
+        "hint": "Remonte à l'envers : avant le +10, c'était 20.",
+        "answers": ["10", "dix"]
       }
     ]
   },
@@ -330,6 +384,24 @@
         "question": "Quel point commun entre une cicatrice et un souvenir ?",
         "hint": "Toutes deux gardent la trace de quelque chose de passé.",
         "answers": ["trace", "marque", "reste", "passe", "temps", "histoire", "garde", "laisse", "empreinte", "blessure", "guerit"]
+      },
+      {
+        "id": "arbre_personne",
+        "question": "Quel point commun vois-tu entre un arbre et une personne ?",
+        "hint": "Les deux grandissent et ont des racines.",
+        "answers": ["grandit", "grandissent", "racines", "branches", "vie", "vivant", "pousse", "age", "croit", "tronc", "se nourrit", "respire"]
+      },
+      {
+        "id": "feu_colere",
+        "question": "Quel point commun entre le feu et la colère ?",
+        "hint": "Les deux peuvent se propager et tout consumer.",
+        "answers": ["brule", "brulent", "chaud", "chaleur", "consume", "detruit", "propage", "s'eteint", "eteindre", "monte", "intense", "destructeur", "ardent"]
+      },
+      {
+        "id": "etoile_espoir",
+        "question": "Quel point commun entre une étoile et l'espoir ?",
+        "hint": "Tous deux brillent, surtout dans le noir.",
+        "answers": ["brille", "brillent", "lumiere", "loin", "guide", "nuit", "eclaire", "lointain", "point lumineux", "s'eteint", "persiste", "scintille"]
       }
     ]
   },
@@ -373,6 +445,14 @@
       {
         "id": "phrase_passe",
         "question": "Si tu pouvais envoyer une seule phrase à toi-même il y a cinq ans, laquelle ?"
+      },
+      {
+        "id": "journee_couleur",
+        "question": "Si la journée d'aujourd'hui avait une couleur, laquelle serait-ce ?"
+      },
+      {
+        "id": "talent_cache",
+        "question": "Quel petit talent, ou détail de toi, que personne ne remarque jamais ?"
       }
     ]
   }

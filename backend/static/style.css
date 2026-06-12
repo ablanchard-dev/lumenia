@@ -111,53 +111,67 @@ a { color: var(--primary); }
   }
 }
 
-/* ============ Écran de garde ============ */
+/* ============ Intro animée (écran de garde) ============ */
 
-.splash {
+.intro {
   position: fixed;
   inset: 0;
   z-index: 1000;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  background: var(--bg);
-  transition: opacity .5s ease;
+  padding: 24px;
+  /* fond sombre cinématique, indépendant du thème (le logo est lumineux) */
+  background: radial-gradient(circle at 50% 42%, #121829 0%, #0a0e1a 52%, #06080f 100%);
+  transition: opacity .55s ease;
 }
-.splash.fade { opacity: 0; pointer-events: none; }
+.intro.fade { opacity: 0; pointer-events: none; }
 
-.splash-mark {
-  position: relative;
-  width: 76px; height: 76px;
-  color: var(--primary);
-  animation: lumen-in 1s ease-out both;
-}
-.splash-mark::before {
-  content: "";
+.intro-stage { position: relative; width: min(92vw, 440px); text-align: center; }
+
+.intro-halo {
   position: absolute;
-  inset: -120%;
-  background: radial-gradient(circle, var(--halo), transparent 65%);
-  animation: halo-in 1.2s ease-out both;
-}
-.splash-mark svg { position: relative; width: 100%; height: 100%; }
-
-.splash-name {
-  font-family: "Lora", Georgia, serif;
-  font-size: 26px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  animation: rise .7s .35s ease-out both;
+  left: 50%; top: 43%;
+  width: 135%; aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle, rgba(255,208,140,.34) 0%, rgba(255,190,110,.14) 30%, rgba(150,130,255,.06) 52%, transparent 70%);
+  filter: blur(10px);
+  animation: intro-halo-in 1.8s .2s ease forwards, intro-halo-pulse 4.5s 2.2s ease-in-out infinite;
 }
 
-@keyframes lumen-in {
-  from { opacity: 0; transform: scale(.82); }
-  to   { opacity: 1; transform: none; }
+.intro-logo {
+  position: relative;
+  z-index: 1;
+  width: min(80vw, 400px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+  will-change: filter, transform, opacity;
+  animation: intro-focus 1.8s .15s cubic-bezier(.2, .7, .2, 1) forwards, intro-float 6s 2.3s ease-in-out infinite;
 }
-@keyframes halo-in {
-  from { opacity: 0; transform: scale(.5); }
-  to   { opacity: 1; transform: none; }
+
+.intro-enter {
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  opacity: 0;
+  animation: intro-rise .8s 2.1s ease forwards;
 }
+
+@keyframes intro-halo-in { from { opacity: 0; scale: .6; } to { opacity: 1; scale: 1; } }
+@keyframes intro-halo-pulse { 0%, 100% { opacity: .75; scale: 1; } 50% { opacity: 1; scale: 1.06; } }
+@keyframes intro-focus {
+  0%   { opacity: 0; filter: blur(12px); transform: translateY(14px) scale(.9); }
+  55%  { opacity: 1; }
+  100% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+}
+@keyframes intro-float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-7px) scale(1.015); } }
+@keyframes intro-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
 /* ============ Écrans porte (consentement / défi) ============ */
 
@@ -199,15 +213,15 @@ a { color: var(--primary); }
   justify-content: center;
   width: 64px; height: 64px;
   border-radius: 20px;
-  background: radial-gradient(circle at 32% 26%, var(--surface-2), var(--surface));
-  border: 1px solid var(--border);
-  color: var(--primary);
+  /* pastille sombre forcée : le mark luciole est lumineux, il lui faut un fond foncé */
+  background: radial-gradient(circle at 35% 28%, #241b3a, #15101f);
+  border: 1px solid #2c2342;
   margin-bottom: 20px;
   box-shadow: 0 10px 30px -10px var(--glow);
 }
-.brand-mark svg { width: 32px; height: 32px; }
+.brand-img { width: 42px; height: 42px; object-fit: contain; }
 .brand-mark.sm { width: 36px; height: 36px; border-radius: 11px; margin: 0; box-shadow: none; }
-.brand-mark.sm svg { width: 20px; height: 20px; }
+.brand-mark.sm .brand-img { width: 28px; height: 28px; }
 
 .gate-card h1 { font-size: 34px; letter-spacing: .01em; }
 
@@ -644,11 +658,10 @@ a { color: var(--primary); }
 }
 
 .msg.assistant .msg-avatar {
-  background: radial-gradient(circle at 32% 26%, var(--surface-2), var(--surface));
-  border: 1px solid var(--border);
-  color: var(--primary);
+  background: radial-gradient(circle at 35% 28%, #241b3a, #15101f);
+  border: 1px solid #2c2342;
 }
-.msg.assistant .msg-avatar svg { width: 18px; height: 18px; }
+.msg.assistant .msg-avatar .mark-img { width: 24px; height: 24px; object-fit: contain; }
 
 .msg-body { min-width: 0; padding-top: 4px; overflow-wrap: break-word; }
 .msg-body p { margin: 0 0 12px; }

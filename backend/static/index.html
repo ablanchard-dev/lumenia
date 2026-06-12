@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#131019" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#FAF5FF" media="(prefers-color-scheme: light)">
   <title>Lumenia</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%237C3AED'/%3E%3Cpath d='M14.7 5.5c1 5.4 2.5 7.2 7.5 8.6-5 1.4-6.5 3.2-7.5 8.6-1-5.4-2.5-7.2-7.5-8.6 5-1.4 6.5-3.2 7.5-8.6Z' fill='%23fff'/%3E%3Ccircle cx='23.5' cy='23' r='2.2' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="/static/logo-favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,19 +15,20 @@
 </head>
 <body>
 
-  <!-- ============ ÉCRAN DE GARDE ============ -->
-  <div id="screen-splash" class="splash" aria-hidden="true">
-    <div class="splash-mark">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3c.9 4.8 2.2 6.4 6.7 7.6-4.5 1.2-5.8 2.8-6.7 7.6-.9-4.8-2.2-6.4-6.7-7.6C8.8 9.4 10.1 7.8 11 3Z"/><circle cx="19" cy="18.2" r="2"/></svg>
+  <!-- ============ ÉCRAN D'INTRO ANIMÉE ============ -->
+  <div id="screen-splash" class="intro">
+    <div class="intro-stage">
+      <div class="intro-halo" aria-hidden="true"></div>
+      <img class="intro-logo" src="/static/logo-lumenia-cut.png" alt="Lumenia — éclairer sans éblouir">
+      <button id="intro-enter" class="btn-primary intro-enter">Entrer dans le seuil</button>
     </div>
-    <div class="splash-name">Lumenia</div>
   </div>
 
   <!-- ============ ÉCRAN 1 : CONSENTEMENT ============ -->
   <section id="screen-consent" class="gate" hidden>
     <div class="gate-card">
       <div class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3c.9 4.8 2.2 6.4 6.7 7.6-4.5 1.2-5.8 2.8-6.7 7.6-.9-4.8-2.2-6.4-6.7-7.6C8.8 9.4 10.1 7.8 11 3Z"/><circle cx="19" cy="18.2" r="2"/></svg>
+        <img class="brand-img" src="/static/logo-mark.png" alt="">
       </div>
       <h1>Lumenia</h1>
       <p class="gate-tagline">Un espace de clarté pour les esprits qui pensent autrement.</p>
@@ -63,7 +64,7 @@
   <section id="screen-challenge" class="gate" hidden>
     <div class="gate-card">
       <div class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3c.9 4.8 2.2 6.4 6.7 7.6-4.5 1.2-5.8 2.8-6.7 7.6-.9-4.8-2.2-6.4-6.7-7.6C8.8 9.4 10.1 7.8 11 3Z"/><circle cx="19" cy="18.2" r="2"/></svg>
+        <img class="brand-img" src="/static/logo-mark.png" alt="">
       </div>
       <h1>Le seuil</h1>
       <p class="gate-tagline">Lumenia s'ouvre par un mini-parcours de défis — pensée latérale, logique, associations, imagination. Il n'y a rien à réussir : c'est une façon de faire connaissance avec ta manière de penser.</p>
@@ -94,7 +95,7 @@
     <aside class="sidebar">
       <div class="sidebar-brand">
         <span class="brand-mark sm" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3c.9 4.8 2.2 6.4 6.7 7.6-4.5 1.2-5.8 2.8-6.7 7.6-.9-4.8-2.2-6.4-6.7-7.6C8.8 9.4 10.1 7.8 11 3Z"/><circle cx="19" cy="18.2" r="2"/></svg>
+          <img class="brand-img" src="/static/logo-mark.png" alt="">
         </span>
         <span class="brand-name">Lumenia</span>
       </div>

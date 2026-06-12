@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumenia — intro animée (démo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --muted:#9aa3c4; --violet:#7C3AED; }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:Raleway,system-ui,sans-serif; color:#ECE7F5;
+    background:radial-gradient(circle at 50% 42%, #121829 0%, #0a0e1a 52%, #06080f 100%);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+
+  .stage{ position:relative; width:min(92vw,440px); text-align:center; }
+
+  /* halo doux derrière le logo (la lueur qui se diffuse) */
+  .halo{
+    position:absolute; left:50%; top:43%; width:135%; aspect-ratio:1; translate:-50% -50%;
+    border-radius:50%; z-index:0; opacity:0; pointer-events:none;
+    background:radial-gradient(circle, rgba(255,208,140,.34) 0%, rgba(255,190,110,.14) 30%, rgba(150,130,255,.06) 52%, transparent 70%);
+    filter:blur(10px);
+  }
+
+  /* logo détouré (fond transparent) → se fond dans la page */
+  .logo{ position:relative; z-index:1; width:min(80vw,400px); height:auto; display:block; margin:0 auto;
+    opacity:0; will-change:filter,transform,opacity; }
+
+  .enter{ position:relative; z-index:1; margin-top:6px; opacity:0; transform:translateY(12px); }
+  .enter button{
+    font-family:Raleway; font-weight:600; font-size:15px; color:#fff;
+    background:var(--violet); border:none; cursor:pointer; padding:13px 32px;
+    border-radius:999px; box-shadow:0 8px 28px -8px rgba(124,58,237,.75);
+    transition:transform .15s ease, box-shadow .2s ease;
+  }
+  .enter button:hover{ transform:translateY(-2px); box-shadow:0 14px 34px -10px rgba(124,58,237,.9); }
+
+  /* ---------- lecture (classe .play) ---------- */
+  .play .halo{ animation:haloIn 1.8s .2s ease forwards, haloPulse 4.5s 2.2s ease-in-out infinite; }
+  .play .logo{ animation:focusIn 1.8s .15s cubic-bezier(.2,.7,.2,1) forwards, float 6s 2.3s ease-in-out infinite; }
+  .play .enter{ animation:rise .8s 2.1s ease forwards; }
+
+  @keyframes haloIn{ from{opacity:0; scale:.6} to{opacity:1; scale:1} }
+  @keyframes haloPulse{ 0%,100%{opacity:.75; scale:1} 50%{opacity:1; scale:1.06} }
+  @keyframes focusIn{
+    0%   { opacity:0; filter:blur(12px); transform:translateY(14px) scale(.9); }
+    55%  { opacity:1; }
+    100% { opacity:1; filter:blur(0);   transform:translateY(0)    scale(1);  }
+  }
+  @keyframes float{ 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-7px) scale(1.015)} }
+  @keyframes rise{ to{opacity:1; transform:translateY(0)} }
+
+  /* sous reduced-motion : on garde la révélation (focus + halo), on coupe juste les boucles infinies */
+  @media (prefers-reduced-motion: reduce){
+    .play .halo{ animation:haloIn 1.2s .2s ease forwards; }
+    .play .logo{ animation:focusIn 1.4s .15s ease forwards; }
+  }
+
+  .ctl{
+    position:fixed; bottom:18px; right:18px; font-family:Raleway; font-size:13px; color:var(--muted);
+    background:transparent; border:1px solid currentColor; border-radius:999px;
+    padding:7px 16px; cursor:pointer; opacity:.7; z-index:6;
+  }
+  .ctl:hover{ opacity:1 }
+  .note{ position:fixed; top:14px; left:0; right:0; text-align:center; font-size:12px; color:var(--muted); letter-spacing:.04em; }
+
+  .seuil{
+    position:fixed; inset:0; z-index:4; display:flex; align-items:center; justify-content:center;
+    background:radial-gradient(circle at 50% 42%, #121829 0%, #0a0e1a 56%, #06080f 100%);
+    transform:translateY(100%); transition:transform .7s cubic-bezier(.6,0,.2,1); padding:24px;
+  }
+  .seuil.show{ transform:translateY(0) }
+  .seuil-card{ max-width:480px; text-align:center }
+  .seuil h2{ font-weight:600; font-size:28px; margin:0 0 10px; color:#ECE7F5 }
+  .seuil p{ color:var(--muted); line-height:1.6; margin:0 0 22px }
+  .seuil .back{ font-size:13px; color:#A78BFA; background:none; border:none; cursor:pointer }
+</style>
+</head>
+<body>
+  <div class="note">démo intro — « ↻ Rejouer » pour revoir l'animation</div>
+
+  <div class="stage play" id="stage">
+    <div class="halo"></div>
+    <img class="logo" src="/static/logo-lumenia-cut.png" alt="Lumenia — éclairer sans éblouir">
+    <div class="enter"><button id="go">Entrer dans le seuil</button></div>
+  </div>
+
+  <div class="seuil" id="seuil">
+    <div class="seuil-card">
+      <h2>Le seuil</h2>
+      <p>Ici démarrerait ton mini-parcours de défis (pensée latérale, logique, associations…). C'est juste pour te montrer l'enchaînement intro → test.</p>
+      <button class="back" id="back">← revoir l'intro</button>
+    </div>
+  </div>
+
+  <button class="ctl" id="replay">↻ Rejouer</button>
+
+<script>
+  const stage = document.getElementById('stage');
+  const seuil = document.getElementById('seuil');
+  function play(){
+    stage.classList.remove('play');
+    void stage.offsetWidth;
+    stage.classList.add('play');
+  }
+  document.getElementById('replay').addEventListener('click', play);
+  document.getElementById('go').addEventListener('click', () => seuil.classList.add('show'));
+  document.getElementById('back').addEventListener('click', () => seuil.classList.remove('show'));
+  play();
+</script>
+</body>
+</html>

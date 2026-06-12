@@ -1,43 +1,73 @@
 # Lumenia
 
-Assistant IA pour les personnes neuroatypiques (HPI, Asperger, TDAH).
+Assistant conversationnel pour profils neuroatypiques (HPI, Asperger/TSA, TDAH).
 
-Un chat qui aide à débloquer une tâche, poser une pensée qui tourne en boucle ou préparer une conversation difficile. Direct, sans jugement, sans jargon médical.
+Un chat pour débloquer une tâche, poser une pensée qui tourne en boucle ou préparer
+une conversation difficile. Ton direct, sans jugement, sans jargon médical. Backend
+FastAPI qui sert aussi l'interface ; LLM via des fournisseurs gratuits chaînés ;
+données locales.
 
 ## Lancer
 
-Prérequis : Python 3.12+ et au moins une clé API gratuite (voir `backend/.env.example`, liens inclus).
+Prérequis : Python 3.12+. Au moins une clé API gratuite est conseillée (les liens
+sont dans `backend/.env.example`) ; sans clé, l'app reste utilisable en mode dégradé.
 
 ```
 cd backend
 python -m venv .venv
 .venv\Scripts\pip install -r requirements.txt
-copy .env.example .env        # puis coller une clé dedans
+copy .env.example .env        # coller une ou plusieurs clés dedans
 .venv\Scripts\python -m uvicorn app.main:app --port 8000
 ```
 
-Ouvrir http://127.0.0.1:8000
+Puis http://127.0.0.1:8000
 
-Sous Windows, `setup_windows_backend.ps1` fait tout ça en un clic. Docker : `docker compose up --build`.
+Sous Windows, `setup_windows_backend.ps1` enchaîne ces étapes. Docker :
+`docker compose up --build`.
 
 ## Comment ça marche
 
-- À l'entrée : consentement, puis un mini-parcours de défis cognitifs (pensée latérale, logique, associations, expression libre). Il sert de seuil symbolique et initialise le profil cognitif, réutilisé ensuite pour adapter les réponses du chat.
-- Les conversations restent dans le navigateur (localStorage). Rien n'est envoyé ailleurs que chez le fournisseur LLM.
-- Détection de détresse intégrée : si un message évoque des idées suicidaires, Lumenia coupe court et rappelle le 3114.
-- Côté LLM : une chaîne de fournisseurs gratuits (Gemini, Cerebras, Groq, Mistral) avec bascule automatique quand un quota est épuisé. Sans aucune clé, l'app reste utilisable en mode dégradé.
+- **Entrée.** Consentement, puis un parcours de défis cognitifs (pensée latérale,
+  logique, raisonnement, similitudes, expression libre). Il conditionne l'accès et
+  initialise un profil cognitif réutilisé ensuite pour adapter les réponses du chat.
+  Le rappel du 3114 reste accessible à toutes les étapes.
+- **Données locales.** Les conversations restent dans le navigateur (localStorage) ;
+  rien n'est envoyé ailleurs que chez le fournisseur LLM le temps d'une réponse.
+- **Sécurité.** Détection de détresse intégrée : si un message évoque des idées
+  suicidaires, Lumenia coupe court et oriente vers le 3114, sans appel au modèle.
+- **LLM.** Une chaîne de fournisseurs gratuits (Gemini, Cerebras, Mistral) avec
+  bascule automatique quand un quota est épuisé. Tous parlent le protocole OpenAI ;
+  un fournisseur sans clé est simplement sauté.
 
-La base est une SQLite locale (`backend/data/lumenia.db`). Le dossier `frontend/` est l'ancienne interface Streamlit, plus utilisée : l'UI actuelle est servie directement par le backend.
+La persistance serveur est une SQLite locale (`backend/data/lumenia.db`). Le dossier
+`frontend/` est l'ancienne interface Streamlit, conservée pour mémoire mais plus
+utilisée : l'interface actuelle vit dans `backend/static/` et est servie par le
+backend.
 
-## Vérifier
+## Banque du parcours
+
+Les questions d'entrée vivent dans `backend/app/entry_bank.json` (items originaux,
+répartis en cinq dimensions). Le script `backend/_verify_bank.py` recalcule de façon
+indépendante chaque réponse calculable (suites, arithmétique, jours, logique) et
+confirme qu'elle est acceptée par les réponses stockées :
 
 ```
-backend\.venv\Scripts\python _verify_crisis.py
+cd backend
+.venv\Scripts\python _verify_bank.py
 ```
 
-Teste la détection de crise — doit afficher 25/25. À relancer après toute modification de `backend/app/chat.py`.
+## Tests
 
-## Important
+```
+cd backend
+.venv\Scripts\python -m pytest
+```
+
+Couvre la détection de crise et les scores cliniques (`backend/tests/`). La détection
+de crise est bloquante : toute modification de `backend/app/chat.py` doit la laisser
+au vert.
+
+## Avertissement
 
 Lumenia n'est pas un dispositif médical et ne remplace pas un professionnel de santé.
-En cas de détresse : **3114** (gratuit, 24h/24) ou **15**.
+En cas de détresse : 3114 (gratuit, 24h/24) ou 15.

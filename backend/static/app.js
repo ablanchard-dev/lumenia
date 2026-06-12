@@ -15,6 +15,7 @@
     sending: false,
     convs: [],            // [{id,title,createdAt,messages:[{role,content}]}]
     activeId: null,
+    consentAccepted: false,
   };
 
   /* ---------------- utilitaires ---------------- */
@@ -101,21 +102,23 @@
     }
   });
 
-  /* ---------------- écran de garde ---------------- */
+  /* ---------------- écran d'intro animée ---------------- */
 
-  const splashEl = $("screen-splash");
-  const splashT0 = Date.now();
+  const introEl = $("screen-splash");
 
-  function hideSplash() {
-    if (!splashEl || splashEl.classList.contains("fade")) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const minShow = reduced ? 0 : 1500;
-    const wait = Math.max(0, minShow - (Date.now() - splashT0));
-    setTimeout(() => {
-      splashEl.classList.add("fade");
-      setTimeout(() => splashEl.remove(), 600);
-    }, wait);
+  function dismissIntro(then) {
+    introEl.classList.add("fade");
+    setTimeout(() => { introEl.hidden = true; if (then) then(); }, 600);
   }
+
+  function hideIntroNow() { introEl.hidden = true; }
+
+  $("intro-enter").addEventListener("click", () => {
+    dismissIntro(() => {
+      if (state.consentAccepted) startParcours();
+      else show("consent");
+    });
+  });
 
   /* ---------------- écran 2 : mini-parcours cognitif ---------------- */
 
@@ -415,8 +418,7 @@
     }
   });
 
-  const MARK_SVG =
-    '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3c.9 4.8 2.2 6.4 6.7 7.6-4.5 1.2-5.8 2.8-6.7 7.6-.9-4.8-2.2-6.4-6.7-7.6C8.8 9.4 10.1 7.8 11 3Z"/><circle cx="19" cy="18.2" r="2"/></svg>';
+  const MARK_IMG = '<img class="mark-img" src="/static/logo-mark.png" alt="">';
 
   function appendMessageEl(role, text) {
     const welcome = messagesEl.querySelector(".welcome");
@@ -430,7 +432,7 @@
     if (role === "assistant") {
       const avatar = document.createElement("div");
       avatar.className = "msg-avatar";
-      avatar.innerHTML = MARK_SVG;
+      avatar.innerHTML = MARK_IMG;
       avatar.setAttribute("aria-hidden", "true");
       msg.appendChild(avatar);
       body.innerHTML = renderMarkdown(text);
@@ -464,7 +466,7 @@
     msg.className = "msg assistant";
     msg.id = "typing-msg";
     msg.innerHTML =
-      '<div class="msg-avatar" aria-hidden="true">' + MARK_SVG + '</div>' +
+      '<div class="msg-avatar" aria-hidden="true">' + MARK_IMG + '</div>' +
       '<div class="msg-body"><span class="typing" role="status" aria-label="Lumenia écrit"><span></span><span></span><span></span></span></div>';
     messagesEl.appendChild(msg);
     messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -549,17 +551,24 @@
   /* ---------------- routage initial ---------------- */
 
   (async function init() {
+    let accepted = false;
     try {
       const c = await api("/consent");
-      if (!c.accepted) return show("consent");
-      // raccourcis : #seuil rejoue le parcours, #chat le saute (consentement requis)
-      if (location.hash === "#seuil") return startParcours();
-      if (location.hash === "#chat" || localStorage.getItem("lumenia.entered") === "1") return enterChat();
-      startParcours();
-    } catch {
-      show("consent");
-    } finally {
-      hideSplash();
+      accepted = !!c.accepted;
+    } catch { accepted = false; }
+    state.consentAccepted = accepted;
+
+    const entered = location.hash === "#chat" || localStorage.getItem("lumenia.entered") === "1";
+
+    // raccourcis & retours : on saute l'intro animée
+    if (location.hash === "#seuil") {
+      hideIntroNow();
+      return accepted ? startParcours() : show("consent");
     }
+    if (entered && accepted) {
+      hideIntroNow();
+      return enterChat();
+    }
+    // première visite : l'intro s'anime, l'utilisateur clique « Entrer dans le seuil »
   })();
 })();

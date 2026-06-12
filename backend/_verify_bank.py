@@ -91,6 +91,11 @@ computed = {
     "train_vitesse": 60 * 60 // 45,  # 60 km / 45 min -> 80 km/h
     "bonbons_partage": (24 // 6) + (2 * (24 // 6)) // 4,  # 4 + 2 -> 6
     "double_moitie": (30 - 10) // 2,  # 2x+10=30 -> x=10
+    "suite_impairs": 9 + 2,          # impairs -> 11
+    "suite_double_un": 16 * 2,       # ×2 -> 32
+    "crayons_boites": 20 * 3 // 12,  # 0,25 €/crayon -> 5 €
+    "horloge_sonne": (7 - 1) * (6 // (4 - 1)),  # intervalles : 6 × 2s -> 12
+    "ages_somme": (10 + 4) // 2,     # (somme+diff)/2 -> 7
     # jours
     "jours": shift("samedi", 2 + 1),     # avant-hier=samedi -> demain
     "jours_2": shift("vendredi", -3 - 1),  # today+3=vendredi -> hier
@@ -103,6 +108,7 @@ verbal = {
     "syllogisme_chats": "non",   # aucun animal ne parle, le chat est un animal -> non
     "grandeur": "lea",           # Lea > Zoe > Marie
     "ordre_taille": "sam",       # Tom > Lina > Sam (vitesse) -> plus lent = Sam
+    "syllogisme_oiseaux": "non",  # le pingouin est un oiseau qui ne vole pas
 }
 
 

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """Vérifie le lexique de détection de crise : signaux forts captés, innocents ignorés."""
 import sys
-sys.path.insert(0, r"backend")
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent / "backend"))
 from app.chat import detect_crisis
 
 # (phrase, attendu)

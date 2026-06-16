@@ -27,11 +27,15 @@ On Windows, `setup_windows_backend.ps1` chains these steps. Docker:
 ## How it works
 
 - **Entry.** Consent, then a short run of cognitive challenges (lateral thinking,
-  logic, reasoning, similarities, free expression). It gates access and initializes a
-  cognitive profile reused afterwards to adapt the chat's answers. The 3114 reminder
+  logic, reasoning, similarities, free expression). This is a client-side UX gate: it
+  initializes a cognitive profile reused afterwards to adapt the chat's answers, and the
+  SPA only reveals the chat once the run is passed. Server-side enforcement is not yet
+  wired (the API does not block `/chat` on the entry result) — WIP. The 3114 reminder
   stays reachable at every step.
-- **Local data.** Conversations stay in the browser (localStorage); nothing is sent
-  anywhere except to the LLM provider for the duration of a response.
+- **Local data.** Conversations stay in the browser (localStorage), and message
+  content is only sent to the LLM provider for the duration of a response. Two things do
+  persist server-side in the local SQLite: the entry-test answers (cognitive profile)
+  and a risk flag set by the crisis check.
 - **Safety.** Built-in distress detection: if a message hints at suicidal thoughts,
   Lumenia stops short and points to 3114, without calling the model.
 - **LLM.** A chain of free providers (Gemini, Cerebras, Mistral) with automatic
@@ -61,8 +65,9 @@ cd backend
 .venv\Scripts\python -m pytest
 ```
 
-Covers crisis detection and clinical scores (`backend/tests/`). Crisis detection is
-blocking: any change to `backend/app/chat.py` must keep it green.
+Covers crisis detection and clinical scores (`backend/tests/`). The clinical scores are
+legacy assessment endpoints (PHQ-9/GAD-7), not used by the current UI. Crisis detection
+is blocking: any change to `backend/app/chat.py` must keep it green.
 
 ## Disclaimer
 

@@ -13,13 +13,13 @@ from .entry import get_parcours, get_challenge, verify_challenge, entry_summary
 from .assess import entry_score, phq9_score, gad7_score
 
 init_db()
-app = FastAPI(title="LumenIa Backend", default_response_class=ORJSONResponse, version="2.2.0")
+app = FastAPI(title="LumenIa Backend", default_response_class=ORJSONResponse, version="2.3.0")
 
 STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 
 @app.get("/healthz")
 def healthz():
-    return {"ok": True, "version": "2.2.0"}
+    return {"ok": True, "version": "2.3.0"}
 
 # ---------------- UI (SPA servie par le backend) ----------------
 @app.get("/", include_in_schema=False)

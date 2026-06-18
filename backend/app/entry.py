@@ -27,25 +27,29 @@ from typing import List, Optional, Set
 from .chat import _normalize
 from .llm import _chat
 
-# kind: "objective" = réponse attendue (tolérance + juge LLM en seconde lecture)
-#       "open"      = pas de mauvaise réponse — matière à profilage uniquement
+# kind (porté par CHAQUE item) :
+#   "qcm"       = QCM à 4 choix (A/B/C/D) — la clé est la lettre attendue
+#   "objective" = réponse attendue (tolérance + juge LLM en seconde lecture)
+#   "open"      = pas de mauvaise réponse — matière à profilage uniquement
 _BANK_PATH = Path(__file__).with_name("entry_bank.json")
 PARCOURS: List[dict] = json.loads(_BANK_PATH.read_text(encoding="utf-8"))
 
-_BY_ID = {item["id"]: {**item, "dimension": step["dimension"], "kind": step["kind"]}
+_BY_ID = {item["id"]: {**item, "dimension": step["dimension"]}
           for step in PARCOURS for item in step["pool"]}
 
 
-# Nombre d'épreuves tirées par dimension → ~30 au total (esprit WAIS, parcours
-# d'évaluation étoffé). Plafonné à la taille du pool pour éviter tout débordement.
+# Nombre d'épreuves tirées par dimension (~27 au total, esprit WAIS). PROVISOIRE :
+# la longueur définitive du parcours ET le seuil de réussite relèvent du protocole
+# de Blandine (psychologue). Plafonné à la taille du pool pour éviter tout débordement.
 _DRAW_PER_DIM = {
-    "laterale": 7,
-    "logique": 7,
-    "arithmetique": 6,
-    "similitudes": 7,
-    "creative": 3,
+    "verbale": 5,
+    "fluide": 5,
+    "memoire": 5,
+    "spatial": 5,
+    "vitesse": 5,
+    "libre": 2,
 }
-_DRAW_DEFAULT = 6
+_DRAW_DEFAULT = 5
 
 
 def get_parcours(exclude: Optional[Set[str]] = None) -> dict:
@@ -64,13 +68,20 @@ def get_parcours(exclude: Optional[Set[str]] = None) -> dict:
             rest = [i for i in pool if i not in fresh]
             chosen = fresh + random.sample(rest, min(n - len(fresh), len(rest)))
         for item in chosen:
-            steps.append({
+            entry = {
                 "id": item["id"],
                 "dimension": step["dimension"],
                 "label": step["label"],
-                "kind": step["kind"],
+                "kind": item["kind"],
                 "question": item["question"],
-            })
+            }
+            if item.get("consigne"):
+                entry["consigne"] = item["consigne"]
+            if item["kind"] == "qcm":
+                entry["choices"] = item["choices"]
+            if item.get("temps_sec"):
+                entry["temps_sec"] = item["temps_sec"]
+            steps.append(entry)
     return {"steps": steps, "total": len(steps)}
 
 
@@ -105,6 +116,15 @@ def verify_challenge(challenge_id: str, answer: str) -> dict:
     if not c:
         return {"ok": False, "error": "unknown_challenge"}
 
+    # QCM : la réponse est une lettre (A/B/C/D), comparée à la clé. Pas de LLM.
+    # On tolère aussi le texte exact du bon choix (robustesse côté client).
+    if c["kind"] == "qcm":
+        key = str(c.get("answer", "")).strip().upper()
+        picked = str(answer).strip()
+        correct_text = str((c.get("choices") or {}).get(key, "")).strip()
+        ok = picked.upper() == key or (correct_text and _normalize(picked) == _normalize(correct_text))
+        return {"ok": True} if ok else {"ok": False, "hint": c.get("explication", "")}
+
     # Épreuve ouverte : pas de mauvaise réponse, juste de la matière à profil.
     if c["kind"] == "open":
         if len(answer.strip()) >= 2:
@@ -132,7 +152,7 @@ Cette réponse est-elle équivalente ou raisonnablement valable ? Réponds par u
 def entry_summary(results: List[dict]) -> dict:
     """Condense les résultats du parcours pour le profil cognitif (KV profile.entry)."""
     strengths = [r["dimension"] for r in results
-                 if r.get("ok") and not r.get("skipped") and r["dimension"] != "creative"]
+                 if r.get("ok") and not r.get("skipped") and r["dimension"] != "libre"]
     creative = next((r.get("answer", "").strip() for r in results
-                     if r["dimension"] == "creative" and r.get("answer", "").strip()), "")
+                     if r["dimension"] == "libre" and r.get("answer", "").strip()), "")
     return {"strengths": strengths, "creative": creative[:200]}

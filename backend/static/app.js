@@ -166,6 +166,7 @@
     const p = state.parcours;
     const step = currentStep();
     p.failures = 0;
+    p.selected = null;
 
     const progress = $("parcours-progress");
     const pct = Math.round(((p.i + 1) / p.steps.length) * 100);
@@ -173,22 +174,122 @@
       `<span class="p-bar"><span class="p-bar-fill" style="width:${pct}%"></span></span>`;
 
     $("challenge-step").textContent = `Épreuve ${p.i + 1} sur ${p.steps.length} — ${step.label}`;
+
+    const consigne = $("challenge-consigne");
+    consigne.hidden = !step.consigne;
+    consigne.textContent = step.consigne || "";
+
     $("challenge-question").textContent = step.question;
-    $("challenge-input").value = "";
-    $("challenge-input").placeholder =
-      step.kind === "open" ? "Pas de bonne réponse — écris ce qui te vient…" : "Ta réponse…";
     $("challenge-feedback").textContent = "";
     $("challenge-feedback").classList.remove("ok");
     $("challenge-skip").hidden = true;
-    $("challenge-btn").disabled = false;
-    $("challenge-input").focus();
+
+    const input = $("challenge-input");
+    const choices = $("challenge-choices");
+
+    if (step.kind === "qcm") {
+      input.hidden = true;
+      input.value = "";
+      buildChoices(step);
+      choices.hidden = false;
+      $("challenge-btn").disabled = true;          // (ré)activé dès qu'un choix est pris
+      const first = choices.querySelector(".choice");
+      if (first) first.focus();
+    } else {
+      choices.hidden = true;
+      choices.innerHTML = "";
+      input.hidden = false;
+      input.value = "";
+      input.placeholder =
+        step.kind === "open" ? "Pas de bonne réponse — écris ce qui te vient…" : "Ta réponse…";
+      $("challenge-btn").disabled = false;
+      input.focus();
+    }
   }
+
+  /* ---- QCM : 4 choix A-D, sélection unique, clavier ---- */
+
+  function buildChoices(step) {
+    const group = $("challenge-choices");
+    group.classList.remove("is-locked");
+    group.innerHTML = "";
+    ["A", "B", "C", "D"].forEach((L) => {
+      const text = step.choices && step.choices[L];
+      if (!text) return;
+      const opt = document.createElement("button");
+      opt.type = "button";
+      opt.className = "choice";
+      opt.setAttribute("role", "radio");
+      opt.setAttribute("aria-checked", "false");
+      opt.dataset.letter = L;
+      const key = document.createElement("span");
+      key.className = "choice-key";
+      key.setAttribute("aria-hidden", "true");
+      key.textContent = L;
+      const span = document.createElement("span");
+      span.className = "choice-text";
+      span.textContent = text;          // textContent = pas d'injection
+      opt.append(key, span);
+      opt.addEventListener("click", () => selectChoice(L));
+      group.appendChild(opt);
+    });
+  }
+
+  function selectChoice(letter) {
+    const p = state.parcours;
+    if (!p) return;
+    p.selected = letter;
+    $("challenge-choices").querySelectorAll(".choice").forEach((el) => {
+      const on = el.dataset.letter === letter;
+      el.classList.toggle("selected", on);
+      el.classList.remove("wrong");
+      el.setAttribute("aria-checked", on ? "true" : "false");
+    });
+    $("challenge-btn").disabled = false;
+  }
+
+  function lockChoices(correctLetter) {
+    const group = $("challenge-choices");
+    group.classList.add("is-locked");
+    group.querySelectorAll(".choice").forEach((el) => {
+      el.disabled = true;
+      if (el.dataset.letter === correctLetter) {
+        el.classList.add("correct");
+        el.classList.remove("wrong", "selected");
+      }
+    });
+  }
+
+  // Flèches pour naviguer entre les choix ; touches A-D / 1-4 pour sélectionner.
+  $("challenge-choices").addEventListener("keydown", (e) => {
+    const opts = [...$("challenge-choices").querySelectorAll(".choice")];
+    if (!opts.length) return;
+    const idx = opts.indexOf(document.activeElement);
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      e.preventDefault();
+      opts[(idx + 1 + opts.length) % opts.length].focus();
+    } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      opts[(idx - 1 + opts.length) % opts.length].focus();
+    } else {
+      const byLetter = { A: 0, B: 1, C: 2, D: 3 };
+      const k = e.key.toUpperCase();
+      const i = k in byLetter ? byLetter[k] : "1234".indexOf(e.key);
+      if (i >= 0 && i < opts.length) {
+        e.preventDefault();
+        opts[i].focus();
+        selectChoice(opts[i].dataset.letter);
+      }
+    }
+  });
 
   async function submitStep() {
     const step = currentStep();
-    const answer = $("challenge-input").value.trim();
-    if (!answer || !step) return;
+    if (!step) return;
     const p = state.parcours;
+    const isQcm = step.kind === "qcm";
+    const answer = isQcm ? (p.selected || "") : $("challenge-input").value.trim();
+    if (!answer) return;
     const btn = $("challenge-btn");
     btn.disabled = true;
     const fb = $("challenge-feedback");
@@ -205,16 +306,23 @@
         });
         fb.classList.add("ok");
         fb.textContent = step.kind === "open" ? "Merci. On continue." : "C'est ça.";
-        setTimeout(nextStep, 650);
+        if (isQcm) lockChoices(answer);
+        setTimeout(nextStep, 700);
       } else {
         p.failures += 1;
         fb.textContent =
           p.failures === 1
             ? "Pas tout à fait — tente une autre piste."
             : `Indice : ${r.hint || "pense autrement."}`;
+        if (isQcm) {
+          const sel = $("challenge-choices").querySelector(`.choice[data-letter="${answer}"]`);
+          if (sel) sel.classList.add("wrong");
+          btn.disabled = !p.selected;          // peut re-tenter en changeant de choix
+        } else {
+          btn.disabled = false;
+          $("challenge-input").select();
+        }
         if (p.failures >= 2) $("challenge-skip").hidden = false;
-        btn.disabled = false;
-        $("challenge-input").select();
       }
     } catch {
       fb.textContent = "Erreur de connexion au serveur — réessaie.";
@@ -248,9 +356,9 @@
     $("challenge-btn").disabled = true;
     $("challenge-skip").hidden = true;
 
-    // Score : seules les épreuves OBJECTIVES comptent (l'expression libre n'a pas
-    // de bonne réponse). Réussite = part de bonnes réponses ≥ ENTRY_PASS_RATIO.
-    const objective = p.results.filter((r) => r.dimension !== "creative");
+    // Score : seules les épreuves NOTÉES comptent (l'expression libre `libre` n'a
+    // pas de bonne réponse). Réussite = part de bonnes réponses ≥ ENTRY_PASS_RATIO.
+    const objective = p.results.filter((r) => r.dimension !== "libre");
     const correct = objective.filter((r) => r.ok && !r.skipped).length;
     const ratio = objective.length ? correct / objective.length : 0;
     const passed = ratio >= ENTRY_PASS_RATIO;
@@ -438,7 +546,7 @@
     }
   });
 
-  const MARK_IMG = '<img class="mark-img" src="/static/logo-mark.png" alt="">';
+  const MARK_IMG = '<img class="mark-img" src="/static/logo-mark.svg" alt="">';
 
   function appendMessageEl(role, text) {
     const welcome = messagesEl.querySelector(".welcome");

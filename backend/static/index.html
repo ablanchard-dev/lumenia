@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#131019" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#FAF5FF" media="(prefers-color-scheme: light)">
   <title>Lumenia</title>
-  <link rel="icon" type="image/png" href="/static/logo-favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/static/logo-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,7 +19,45 @@
   <div id="screen-splash" class="intro">
     <div class="intro-stage">
       <div class="intro-halo" aria-hidden="true"></div>
-      <img class="intro-logo" src="/static/logo-lumenia-cut.png" alt="Lumenia — éclairer sans éblouir">
+      <div class="intro-logo">
+        <svg class="intro-mark" viewBox="0 0 100 100" role="img" aria-label="Lumenia" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="iv-soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1"/></filter>
+            <filter id="iv-bloom" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="4"/></filter>
+            <radialGradient id="iv-abdo" cx="50%" cy="36%" r="62%">
+              <stop offset="0%" stop-color="#fffdf3"/><stop offset="36%" stop-color="#fde68a"/>
+              <stop offset="72%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f59e0b"/>
+            </radialGradient>
+            <radialGradient id="iv-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffeab4" stop-opacity="1"/>
+              <stop offset="22%" stop-color="#ffd87a" stop-opacity=".8"/>
+              <stop offset="44%" stop-color="#fbbf24" stop-opacity=".42"/>
+              <stop offset="68%" stop-color="#fbbf24" stop-opacity=".16"/>
+              <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="iv-wing" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ede9fe"/><stop offset="55%" stop-color="#c4b5fd"/><stop offset="100%" stop-color="#fcd34d"/>
+            </linearGradient>
+            <linearGradient id="iv-ring" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fde68a"/><stop offset="50%" stop-color="#f59e0b" stop-opacity=".5"/><stop offset="100%" stop-color="#f59e0b" stop-opacity=".12"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="45" r="33" fill="none" stroke="url(#iv-ring)" stroke-width="1.5"/>
+          <ellipse class="iv-glow" cx="50" cy="63" rx="19" ry="21" fill="url(#iv-glow)"/>
+          <g class="iv-wll"><path d="M49 55 C 38 56, 29 64, 35 71 C 40 74, 47 64, 49 58 Z" fill="url(#iv-wing)" fill-opacity=".3" stroke="#a78bfa" stroke-opacity=".5" stroke-width=".7"/><path d="M48 58 C 43 61, 38 66, 36 70" fill="none" stroke="#c4b5fd" stroke-width=".4" stroke-opacity=".5"/></g>
+          <g class="iv-wlr"><path d="M51 55 C 62 56, 71 64, 65 71 C 60 74, 53 64, 51 58 Z" fill="url(#iv-wing)" fill-opacity=".3" stroke="#a78bfa" stroke-opacity=".5" stroke-width=".7"/><path d="M52 58 C 57 61, 62 66, 64 70" fill="none" stroke="#c4b5fd" stroke-width=".4" stroke-opacity=".5"/></g>
+          <g class="iv-wul"><path d="M49 52 C 33 35, 17 39, 22 51 C 26 60, 41 56, 48 51 Z" fill="url(#iv-wing)" fill-opacity=".3" stroke="#a78bfa" stroke-opacity=".5" stroke-width=".7"/><path d="M47 52 C 38 47, 29 46, 22 49" fill="none" stroke="#c4b5fd" stroke-width=".4" stroke-opacity=".5"/></g>
+          <g class="iv-wur"><path d="M51 52 C 67 35, 83 39, 78 51 C 74 60, 59 56, 52 51 Z" fill="url(#iv-wing)" fill-opacity=".3" stroke="#a78bfa" stroke-opacity=".5" stroke-width=".7"/><path d="M53 52 C 62 47, 71 46, 78 49" fill="none" stroke="#c4b5fd" stroke-width=".4" stroke-opacity=".5"/></g>
+          <path d="M47.5 41 C 44 31, 43 25, 44.5 20" fill="none" stroke="#fcd34d" stroke-width="1.1" stroke-linecap="round" opacity=".85"/>
+          <path d="M52.5 41 C 56 31, 57 25, 55.5 20" fill="none" stroke="#fcd34d" stroke-width="1.1" stroke-linecap="round" opacity=".85"/>
+          <circle cx="50" cy="42.5" r="3.2" fill="#e9d5ff"/>
+          <ellipse cx="50" cy="49.5" rx="3" ry="4.4" fill="#c4b5fd"/>
+          <path d="M50 53.5 C 56.5 56, 56 65, 53 72 C 51.3 76, 50 79, 50 79 C 50 79, 48.7 76, 47 72 C 44 65, 43.5 56, 50 53.5 Z" fill="url(#iv-abdo)" filter="url(#iv-soft)"/>
+          <ellipse cx="49" cy="61" rx="1.4" ry="3.1" fill="#fffef7" fill-opacity=".85"/>
+        </svg>
+        <div class="intro-wordmark">Lumenia</div>
+        <div class="intro-tagline">éclairer sans éblouir</div>
+      </div>
       <button id="intro-enter" class="btn-primary intro-enter">Entrer dans le seuil</button>
     </div>
   </div>
@@ -28,7 +66,7 @@
   <section id="screen-consent" class="gate" hidden>
     <div class="gate-card">
       <div class="brand-mark" aria-hidden="true">
-        <img class="brand-img" src="/static/logo-mark.png" alt="">
+        <img class="brand-img" src="/static/logo-mark.svg" alt="">
       </div>
       <h1>Lumenia</h1>
       <p class="gate-tagline">Un espace de clarté pour les esprits qui pensent autrement.</p>
@@ -64,7 +102,7 @@
   <section id="screen-challenge" class="gate" hidden>
     <div class="gate-card">
       <div class="brand-mark" aria-hidden="true">
-        <img class="brand-img" src="/static/logo-mark.png" alt="">
+        <img class="brand-img" src="/static/logo-mark.svg" alt="">
       </div>
       <h1>Le seuil</h1>
       <p class="gate-tagline">Lumenia s'ouvre par un parcours de défis — pensée latérale, logique, associations, imagination. Prends ton temps : c'est une façon de rencontrer ta manière de penser.</p>
@@ -72,7 +110,9 @@
       <div class="challenge-box">
         <div id="parcours-progress" class="parcours-progress" aria-hidden="true"></div>
         <p id="challenge-step" class="challenge-step">…</p>
+        <p id="challenge-consigne" class="challenge-consigne" hidden></p>
         <p id="challenge-question" class="challenge-question">…</p>
+        <div id="challenge-choices" class="challenge-choices" role="radiogroup" aria-labelledby="challenge-question" hidden></div>
         <div class="challenge-form">
           <label for="challenge-input" class="visually-hidden">Ta réponse</label>
           <input type="text" id="challenge-input" placeholder="Ta réponse…" autocomplete="off" maxlength="600">
@@ -87,6 +127,7 @@
         </div>
       </div>
       <p class="gate-footnote">Prends ton temps. Si une épreuve résiste, tu peux la passer — et le parcours peut toujours être retenté.</p>
+      <p class="gate-fineprint">Parcours indicatif — ce n'est pas le WAIS et ne donne pas de QI clinique.</p>
     </div>
   </section>
 
@@ -94,7 +135,7 @@
   <section id="screen-fail" class="gate" hidden>
     <div class="gate-card">
       <div class="brand-mark" aria-hidden="true">
-        <img class="brand-img" src="/static/logo-mark.png" alt="">
+        <img class="brand-img" src="/static/logo-mark.svg" alt="">
       </div>
       <h1>Le seuil reste fermé… pour l'instant</h1>
       <p class="gate-tagline">Ce parcours demande un certain regard sur les choses. Il ne s'est pas tout à fait ouvert cette fois — mais rien n'est figé : tu peux le retenter quand tu veux.</p>
@@ -113,7 +154,7 @@
     <aside class="sidebar">
       <div class="sidebar-brand">
         <span class="brand-mark sm" aria-hidden="true">
-          <img class="brand-img" src="/static/logo-mark.png" alt="">
+          <img class="brand-img" src="/static/logo-mark.svg" alt="">
         </span>
         <span class="brand-name">Lumenia</span>
       </div>

@@ -1,15 +1,20 @@
 # -*- coding: utf-8 -*-
-"""Vérifie la VÉRACITÉ de la banque d'entrée.
+"""Vérifie la VÉRACITÉ et la STRUCTURE de la banque d'entrée.
 
 Pour chaque question dont la réponse est calculable (suites, arithmétique, jours,
-logique), on RECALCULE la bonne réponse de façon indépendante, puis on confirme
-qu'elle est bien acceptée par les réponses stockées — via la vraie fonction de
-matching `_matches` de l'app. Contrôles structurels en plus (ids uniques, champs).
+logique, empan envers), on RECALCULE la bonne réponse de façon indépendante, puis
+on confirme qu'elle est bien acceptée — via la vraie fonction `_matches` de l'app.
+Contrôles structurels en plus : ids uniques, champ question non vide, items
+`objective` avec réponses, items `qcm` dont la clé pointe vers un choix existant
+et sans choix dupliqués.
+
+Le `kind` est porté par CHAQUE item (qcm / objective / open).
 
 Lancement : depuis backend/  ->  .venv\\Scripts\\python.exe _verify_bank.py
 Doit afficher "TOUT EST VRAI" et sortir en code 0.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -22,7 +27,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from app.entry import _matches  # vraie logique de validation de l'app
 
 BANK = json.loads((Path(__file__).parent / "app" / "entry_bank.json").read_text(encoding="utf-8"))
-BY_ID = {item["id"]: {**item, "dimension": dim["dimension"], "kind": dim["kind"]}
+BY_ID = {item["id"]: {**item, "dimension": dim["dimension"]}
          for dim in BANK for item in dim["pool"]}
 
 DAYS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
@@ -65,7 +70,7 @@ def poignees(n):  # combinaisons de paires
     return n * (n - 1) // 2
 
 
-# --- réponses RECALCULÉES indépendamment ---
+# --- réponses RECALCULÉES indépendamment (items legacy calculables) ---
 computed = {
     "suite": 17 * 2 - 1,            # rule ×2−1
     "suite_pas": 13 + 5,            # +1,+2,+3,+4,+5
@@ -126,39 +131,86 @@ def check(qid, correct):
     return ok, f"{qid:16} calc={str(correct):<8} {'OK' if ok else 'REFUSE par ' + str(item.get('answers'))}"
 
 
+def check_qcm(item):
+    """Validation structurelle d'un item QCM : 4 choix non vides et distincts,
+    clé ∈ {A,B,C,D} pointant vers un choix existant."""
+    qid, errs = item.get("id"), []
+    letters = ["A", "B", "C", "D"]
+    choices = item.get("choices") or {}
+    texts = [str(choices.get(L, "")).strip() for L in letters]
+    for L, t in zip(letters, texts):
+        if not t:
+            errs.append(f"{qid} : choix {L} vide")
+    present = [t for t in texts if t]
+    if len(set(present)) < len(present):
+        errs.append(f"{qid} : choix QCM dupliqués")
+    ans = str(item.get("answer", "")).strip().upper()
+    if ans not in letters:
+        errs.append(f"{qid} : clé '{ans}' n'est pas A/B/C/D")
+    elif not str(choices.get(ans, "")).strip():
+        errs.append(f"{qid} : la clé {ans} pointe vers un choix vide")
+    return errs
+
+
 def main():
     errors = []
 
-    # 1) structure
+    # 1) structure (par item, kind porté par l'item)
     ids = [item["id"] for dim in BANK for item in dim["pool"]]
     dups = {i for i in ids if ids.count(i) > 1}
     if dups:
         errors.append(f"ids dupliques: {dups}")
     for dim in BANK:
         for item in dim["pool"]:
+            qid = item.get("id")
             if not item.get("question", "").strip():
-                errors.append(f"{item.get('id')} : question vide")
-            if dim["kind"] == "objective" and not item.get("answers"):
-                errors.append(f"{item['id']} : pas de reponses (objective)")
+                errors.append(f"{qid} : question vide")
+            kind = item.get("kind")
+            if kind == "objective":
+                if not item.get("answers"):
+                    errors.append(f"{qid} : pas de reponses (objective)")
+            elif kind == "qcm":
+                errors.extend(check_qcm(item))
+            elif kind == "open":
+                pass
+            else:
+                errors.append(f"{qid} : kind inconnu ({kind!r})")
 
     print("=== Comptage par dimension ===")
     for dim in BANK:
-        print(f"  {dim['dimension']:12} {dim['kind']:9} pool={len(dim['pool'])}")
+        kinds = {}
+        for it in dim["pool"]:
+            kinds[it["kind"]] = kinds.get(it["kind"], 0) + 1
+        breakdown = "  ".join(f"{k}={v}" for k, v in sorted(kinds.items()))
+        print(f"  {dim['dimension']:8} pool={len(dim['pool']):3}  {breakdown}")
     print(f"  TOTAL = {len(ids)} questions\n")
 
-    print("=== Réponses recalculées (auto) ===")
+    print("=== Réponses recalculées (legacy calculable) ===")
     for qid, val in {**computed, **verbal}.items():
         ok, msg = check(qid, val)
         print(("  [OK]  " if ok else "  [!!] ") + msg)
         if not ok:
             errors.append(msg)
 
-    # items objectifs verbaux (devinettes) non calculables -> listés pour info
+    # 2) empan envers : la réponse est la suite de chiffres inversée -> recalculable
+    empan = [it for it in BY_ID.values() if it.get("sous_type") == "Empan envers"]
+    n_empan_ok = 0
+    for it in empan:
+        seq = [t for t in re.split(r"[^0-9]+", it["question"]) if t]
+        expected = "-".join(reversed(seq))
+        if any(_matches(acc, expected) for acc in it.get("answers", [])):
+            n_empan_ok += 1
+        else:
+            errors.append(f"{it['id']} : empan envers attendu {expected}, stocké {it.get('answers')}")
+    print(f"\n=== Empan envers recalculé (suite inversée) : {n_empan_ok}/{len(empan)} OK ===")
+
+    # 3) inventaire des items à véracité non recalculée (QC fait à la source)
     auto = set(computed) | set(verbal)
-    verbal_riddles = [i for i, it in BY_ID.items()
-                      if it["kind"] == "objective" and i not in auto]
-    print("\n=== Devinettes verbales (véracité validée manuellement) ===")
-    print("  " + ", ".join(sorted(verbal_riddles)))
+    qcm_items = [i for i, it in BY_ID.items() if it["kind"] == "qcm"]
+    trusted = [i for i, it in BY_ID.items()
+               if it["kind"] == "objective" and i not in auto and it.get("sous_type") != "Empan envers"]
+    print(f"=== {len(qcm_items)} items QCM (structure validée : clé ∈ choix, pas de doublon) ===")
+    print(f"=== {len(trusted)} items objectifs non recalculés (devinettes + libre-stricte, QC source) ===")
 
     print()
     if errors:
@@ -166,8 +218,8 @@ def main():
         for e in errors:
             print("  -", e)
         sys.exit(1)
-    print(f"TOUT EST VRAI ✓  ({len(computed) + len(verbal)} réponses recalculées validées, "
-          f"{len(verbal_riddles)} devinettes verbales, {len(ids)} questions au total)")
+    print(f"TOUT EST VRAI ✓  ({len(computed) + len(verbal)} legacy recalculés + {n_empan_ok} empan-envers, "
+          f"{len(qcm_items)} QCM structurés, {len(ids)} questions au total)")
 
 
 if __name__ == "__main__":

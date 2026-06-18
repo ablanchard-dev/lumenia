@@ -1,605 +1,4483 @@
 [
   {
-    "dimension": "laterale",
-    "label": "Pensée latérale",
-    "kind": "objective",
+    "dimension": "verbale",
+    "label": "Compréhension verbale",
     "pool": [
       {
+        "id": "CV-001",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Similarités abstraites",
+        "niveau": 2,
+        "temps_sec": 45,
+        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "question": "Un microscope et un télescope",
+        "kind": "qcm",
+        "choices": {
+          "A": "Des instruments qui étendent l'observation humaine au-delà de la vision ordinaire.",
+          "B": "Deux objets que l'on trouve toujours dans un laboratoire.",
+          "C": "Deux appareils qui servent uniquement à mesurer une distance.",
+          "D": "Deux outils qui fonctionnent sans lentille."
+        },
+        "answer": "A",
+        "explication": "Le point commun de niveau supérieur est l'extension de la perception visuelle; l'un vise le très petit, l'autre le très lointain."
+      },
+      {
+        "id": "CV-002",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Similarités abstraites",
+        "niveau": 2,
+        "temps_sec": 45,
+        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "question": "Une règle sociale et une loi",
+        "kind": "qcm",
+        "choices": {
+          "A": "Deux textes toujours écrits dans un code civil.",
+          "B": "Deux normes qui orientent ou limitent les comportements dans un groupe.",
+          "C": "Deux opinions individuelles sans conséquence.",
+          "D": "Deux sanctions pénales."
+        },
+        "answer": "B",
+        "explication": "Une règle sociale et une loi sont des cadres normatifs; la loi est formalisée juridiquement, la règle sociale peut être informelle."
+      },
+      {
+        "id": "CV-003",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Similarités abstraites",
+        "niveau": 2,
+        "temps_sec": 45,
+        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "question": "Une carte et un modèle réduit",
+        "kind": "qcm",
+        "choices": {
+          "A": "Deux objets nécessairement en papier.",
+          "B": "Deux moyens de se déplacer plus vite.",
+          "C": "Deux représentations simplifiées d'une réalité plus complexe.",
+          "D": "Deux copies toujours à la même échelle."
+        },
+        "answer": "C",
+        "explication": "Les deux représentent une réalité en la simplifiant et en sélectionnant certaines informations."
+      },
+      {
+        "id": "CV-004",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Similarités abstraites",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "question": "Un doute et une hypothèse",
+        "kind": "qcm",
+        "choices": {
+          "A": "Deux certitudes démontrées.",
+          "B": "Deux émotions sans rapport avec la pensée.",
+          "C": "Deux erreurs de raisonnement.",
+          "D": "Deux états/propositions qui appellent une vérification."
+        },
+        "answer": "D",
+        "explication": "Le doute suspend l'adhésion; l'hypothèse propose une explication provisoire à tester."
+      },
+      {
+        "id": "CV-005",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Similarités abstraites",
+        "niveau": 4,
+        "temps_sec": 45,
+        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "question": "Un poème et une équation",
+        "kind": "qcm",
+        "choices": {
+          "A": "Deux systèmes symboliques qui produisent du sens sous contraintes.",
+          "B": "Deux phrases qui racontent toujours une histoire.",
+          "C": "Deux notations qui ne supportent aucune interprétation.",
+          "D": "Deux objets faits pour mesurer le temps."
+        },
+        "answer": "A",
+        "explication": "Les deux utilisent des symboles selon des règles ou contraintes: rythme/langue pour le poème, opérateurs/relations pour l'équation."
+      },
+      {
+        "id": "CV-006",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Similarités abstraites",
+        "niveau": 2,
+        "temps_sec": 45,
+        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "question": "Un vaccin et une ceinture de sécurité",
+        "kind": "qcm",
+        "choices": {
+          "A": "Deux traitements qui guérissent une blessure déjà présente.",
+          "B": "Deux moyens préventifs qui réduisent un risque avant l'incident.",
+          "C": "Deux objets obligatoirement métalliques.",
+          "D": "Deux preuves d'identité."
+        },
+        "answer": "B",
+        "explication": "Ils servent à réduire la probabilité ou la gravité d'un dommage avant qu'il ne survienne."
+      },
+      {
+        "id": "CV-007",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Similarités abstraites",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "question": "Un budget et un calendrier",
+        "kind": "qcm",
+        "choices": {
+          "A": "Deux listes de personnes.",
+          "B": "Deux formes d'argent.",
+          "C": "Deux outils de planification et d'allocation de ressources limitées.",
+          "D": "Deux documents utilisables seulement en entreprise."
+        },
+        "answer": "C",
+        "explication": "Le budget répartit des moyens financiers; le calendrier répartit du temps."
+      },
+      {
+        "id": "CV-008",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Similarités abstraites",
+        "niveau": 2,
+        "temps_sec": 45,
+        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "question": "Un dictionnaire et un atlas",
+        "kind": "qcm",
+        "choices": {
+          "A": "Deux ouvrages de référence qui organisent l'information pour la consultation.",
+          "B": "Deux romans classés par chapitres.",
+          "C": "Deux instruments de mesure de température.",
+          "D": "Deux objets qui n'ont pas de structure interne."
+        },
+        "answer": "A",
+        "explication": "Les deux structurent un domaine d'information: mots/définitions pour le dictionnaire, lieux/cartes pour l'atlas."
+      },
+      {
+        "id": "CV-009",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Similarités abstraites",
+        "niveau": 2,
+        "temps_sec": 45,
+        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "question": "Un algorithme et une recette",
+        "kind": "qcm",
+        "choices": {
+          "A": "Deux textes poétiques.",
+          "B": "Deux listes impossibles à exécuter.",
+          "C": "Deux images sans ordre.",
+          "D": "Deux suites d'étapes visant un résultat reproductible."
+        },
+        "answer": "D",
+        "explication": "Dans les deux cas, l'ordre des opérations permet d'obtenir un résultat attendu."
+      },
+      {
+        "id": "CV-010",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Similarités abstraites",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "question": "Un juge et un arbitre",
+        "kind": "qcm",
+        "choices": {
+          "A": "Deux joueurs d'une équipe.",
+          "B": "Deux personnes qui inventent les faits après coup.",
+          "C": "Deux tiers chargés d'appliquer des règles et de trancher un litige.",
+          "D": "Deux témoins qui ne prennent jamais de décision."
+        },
+        "answer": "C",
+        "explication": "Le juge et l'arbitre ont une fonction de décision selon un cadre de règles."
+      },
+      {
+        "id": "CV-011",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Vocabulaire conceptuel",
+        "niveau": 2,
+        "temps_sec": 35,
+        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "question": "Pragmatique",
+        "kind": "qcm",
+        "choices": {
+          "A": "Orienté vers les conséquences pratiques et l'efficacité concrète.",
+          "B": "Qui refuse toute action concrète.",
+          "C": "Qui concerne uniquement la grammaire.",
+          "D": "Qui change de forme au hasard."
+        },
+        "answer": "A",
+        "explication": "'Pragmatique' renvoie à l'utilité concrète et aux effets pratiques."
+      },
+      {
+        "id": "CV-012",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Vocabulaire conceptuel",
+        "niveau": 2,
+        "temps_sec": 35,
+        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "question": "Inférer",
+        "kind": "qcm",
+        "choices": {
+          "A": "Copier mot pour mot.",
+          "B": "Effacer volontairement une information.",
+          "C": "Déduire une information à partir d'indices ou de prémisses.",
+          "D": "Mesurer une longueur."
+        },
+        "answer": "C",
+        "explication": "Inférer consiste à tirer une conclusion non explicitement donnée."
+      },
+      {
+        "id": "CV-013",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Vocabulaire conceptuel",
+        "niveau": 3,
+        "temps_sec": 35,
+        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "question": "Équivoque",
+        "kind": "qcm",
+        "choices": {
+          "A": "D'une précision mathématique unique.",
+          "B": "Sans aucun sens possible.",
+          "C": "Qui se produit à intervalle régulier.",
+          "D": "Qui peut recevoir plusieurs interprétations."
+        },
+        "answer": "D",
+        "explication": "Une formulation équivoque est ambiguë ou susceptible de plusieurs lectures."
+      },
+      {
+        "id": "CV-014",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Vocabulaire conceptuel",
+        "niveau": 3,
+        "temps_sec": 35,
+        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "question": "Corroborer",
+        "kind": "qcm",
+        "choices": {
+          "A": "Contredire par principe.",
+          "B": "Renforcer ou confirmer par des éléments concordants.",
+          "C": "Décorer un texte.",
+          "D": "Réduire une fraction."
+        },
+        "answer": "B",
+        "explication": "Corroborer une hypothèse, c'est l'appuyer par des preuves ou observations convergentes."
+      },
+      {
+        "id": "CV-015",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Vocabulaire conceptuel",
+        "niveau": 3,
+        "temps_sec": 35,
+        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "question": "Lacunaire",
+        "kind": "qcm",
+        "choices": {
+          "A": "Incomplet, présentant des manques.",
+          "B": "Excessivement rapide.",
+          "C": "Écrit dans une langue ancienne.",
+          "D": "Organisé en cercles concentriques."
+        },
+        "answer": "A",
+        "explication": "Une information lacunaire laisse des trous ou des absences significatives."
+      },
+      {
+        "id": "CV-016",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Vocabulaire conceptuel",
+        "niveau": 3,
+        "temps_sec": 35,
+        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "question": "Paradoxe",
+        "kind": "qcm",
+        "choices": {
+          "A": "Une règle administrative.",
+          "B": "Une unité de masse.",
+          "C": "Une contradiction apparente qui peut révéler une difficulté conceptuelle.",
+          "D": "Une couleur secondaire."
+        },
+        "answer": "C",
+        "explication": "Le paradoxe choque l'intuition par une contradiction apparente ou réelle."
+      },
+      {
+        "id": "CV-017",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Vocabulaire conceptuel",
+        "niveau": 4,
+        "temps_sec": 35,
+        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "question": "Extrapoler",
+        "kind": "qcm",
+        "choices": {
+          "A": "Répéter exactement des données observées.",
+          "B": "Étendre une tendance ou un raisonnement au-delà des données disponibles.",
+          "C": "Classer des mots par ordre alphabétique.",
+          "D": "Remplacer une cause par son effet."
+        },
+        "answer": "B",
+        "explication": "Extrapoler va au-delà du domaine directement observé, avec un risque d'erreur si les conditions changent."
+      },
+      {
+        "id": "CV-018",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Vocabulaire conceptuel",
+        "niveau": 2,
+        "temps_sec": 35,
+        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "question": "Nuance",
+        "kind": "qcm",
+        "choices": {
+          "A": "Une erreur grossière.",
+          "B": "Une preuve irréfutable.",
+          "C": "Une vitesse constante.",
+          "D": "Une différence fine dans le sens, l'intensité ou la qualité."
+        },
+        "answer": "D",
+        "explication": "La nuance désigne un écart subtil, souvent important dans l'interprétation."
+      },
+      {
+        "id": "CV-019",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Vocabulaire conceptuel",
+        "niveau": 3,
+        "temps_sec": 35,
+        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "question": "Réciproque",
+        "kind": "qcm",
+        "choices": {
+          "A": "Qui implique une relation dans les deux sens ou un échange mutuel.",
+          "B": "Qui ne peut jamais être inversé.",
+          "C": "Qui concerne uniquement les nombres pairs.",
+          "D": "Qui s'annule dès qu'on l'observe."
+        },
+        "answer": "A",
+        "explication": "Une relation réciproque va de A vers B et de B vers A, ou implique une correspondance mutuelle."
+      },
+      {
+        "id": "CV-020",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Vocabulaire conceptuel",
+        "niveau": 4,
+        "temps_sec": 35,
+        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "question": "Contingent",
+        "kind": "qcm",
+        "choices": {
+          "A": "Nécessaire dans tous les mondes possibles.",
+          "B": "Identique à lui-même par définition.",
+          "C": "Dépendant des circonstances, non nécessaire.",
+          "D": "Toujours interdit par une règle."
+        },
+        "answer": "C",
+        "explication": "Ce qui est contingent aurait pu être autrement selon les conditions."
+      },
+      {
+        "id": "CV-021",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Information générale stable",
+        "niveau": 2,
+        "temps_sec": 40,
+        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "question": "Quel principe explique qu'un objet immergé dans un fluide subit une poussée verticale vers le haut ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "La loi d'Ohm",
+          "B": "Le principe d'Archimède",
+          "C": "La sélection naturelle",
+          "D": "Le théorème de Pythagore"
+        },
+        "answer": "B",
+        "explication": "Le principe d'Archimède décrit la poussée exercée par un fluide sur un corps immergé."
+      },
+      {
+        "id": "CV-022",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Information générale stable",
+        "niveau": 2,
+        "temps_sec": 40,
+        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "question": "Qu'est-ce qu'un nombre premier ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Un entier supérieur à 1 divisible seulement par 1 et par lui-même.",
+          "B": "Un nombre qui se termine par 1.",
+          "C": "Un nombre toujours pair.",
+          "D": "Un nombre décimal compris entre 0 et 1."
+        },
+        "answer": "A",
+        "explication": "2, 3, 5, 7 sont des exemples de nombres premiers; 1 n'est pas premier."
+      },
+      {
+        "id": "CV-023",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Information générale stable",
+        "niveau": 2,
+        "temps_sec": 40,
+        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "question": "Que mesure principalement le pH ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "La masse d'un objet",
+          "B": "La vitesse de la lumière",
+          "C": "Le caractère acide ou basique d'une solution",
+          "D": "La quantité de mémoire d'un ordinateur"
+        },
+        "answer": "C",
+        "explication": "Le pH situe une solution sur une échelle d'acidité/basicité."
+      },
+      {
+        "id": "CV-024",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Information générale stable",
+        "niveau": 1,
+        "temps_sec": 40,
+        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "question": "Dans une démocratie représentative, à quoi servent principalement les élections ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "À supprimer toute opposition",
+          "B": "À désigner des représentants selon une procédure collective",
+          "C": "À remplacer la loi par l'opinion privée",
+          "D": "À garantir qu'une seule personne décide sans contrôle"
+        },
+        "answer": "B",
+        "explication": "Les élections permettent de déléguer une part du pouvoir politique à des représentants selon des règles collectives."
+      },
+      {
+        "id": "CV-025",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Information générale stable",
+        "niveau": 3,
+        "temps_sec": 40,
+        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "question": "Pourquoi utilise-t-on un groupe témoin dans une expérience ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Pour rendre les résultats plus impressionnants",
+          "B": "Pour comparer et isoler l'effet de la variable étudiée",
+          "C": "Pour supprimer toutes les mesures",
+          "D": "Pour éviter toute hypothèse"
+        },
+        "answer": "B",
+        "explication": "Le groupe témoin sert de point de comparaison pour attribuer plus prudemment un effet à la variable testée."
+      },
+      {
+        "id": "CV-026",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Information générale stable",
+        "niveau": 4,
+        "temps_sec": 40,
+        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "question": "Quelle est la différence essentielle entre corrélation et causalité ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Il n'y en a aucune",
+          "B": "La corrélation prouve toujours la cause",
+          "C": "La corrélation indique une association; la causalité indique qu'un facteur produit un effet",
+          "D": "La causalité ne concerne que les nombres pairs"
+        },
+        "answer": "C",
+        "explication": "Deux variables peuvent varier ensemble sans que l'une cause l'autre."
+      },
+      {
+        "id": "CV-027",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Information générale stable",
+        "niveau": 3,
+        "temps_sec": 40,
+        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "question": "Qu'est-ce qu'une métaphore ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Une comparaison implicite qui transporte un sens d'un domaine à un autre",
+          "B": "Une mesure exacte d'un angle",
+          "C": "Une liste de dates",
+          "D": "Un raisonnement qui exclut toute image"
+        },
+        "answer": "A",
+        "explication": "La métaphore rapproche deux domaines sans outil comparatif explicite comme 'comme'."
+      },
+      {
+        "id": "CV-028",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Information générale stable",
+        "niveau": 2,
+        "temps_sec": 40,
+        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "question": "En économie, que désigne l'inflation ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "La baisse durable de toutes les températures",
+          "B": "La hausse générale et durable du niveau des prix",
+          "C": "Le nombre de naissances",
+          "D": "Une figure de style"
+        },
+        "answer": "B",
+        "explication": "L'inflation renvoie à une augmentation globale et persistante du niveau des prix."
+      },
+      {
+        "id": "CV-029",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Information générale stable",
+        "niveau": 3,
+        "temps_sec": 40,
+        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "question": "Qu'est-ce qu'un biais d'échantillonnage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Une erreur de calcul dans une addition",
+          "B": "Un choix d'échantillon qui représente parfaitement toute population",
+          "C": "Une règle de grammaire",
+          "D": "Une distorsion liée à un échantillon non représentatif de la population visée"
+        },
+        "answer": "D",
+        "explication": "Un échantillon biaisé peut produire des conclusions trompeuses."
+      },
+      {
+        "id": "CV-030",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Information générale stable",
+        "niveau": 2,
+        "temps_sec": 40,
+        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "question": "Quelle unité mesure la fréquence d'un phénomène périodique ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Le mètre",
+          "B": "Le kilogramme",
+          "C": "Le hertz",
+          "D": "Le litre"
+        },
+        "answer": "C",
+        "explication": "Le hertz correspond au nombre de cycles par seconde."
+      },
+      {
+        "id": "CV-031",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Compréhension et jugement",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "question": "Pourquoi demander un consentement éclairé avant une recherche impliquant des personnes ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Pour augmenter artificiellement les scores",
+          "B": "Pour éviter d'expliquer les risques",
+          "C": "Pour s'assurer que la personne comprend les objectifs, les risques et accepte librement",
+          "D": "Pour empêcher toute question"
+        },
+        "answer": "C",
+        "explication": "Le consentement éclairé suppose compréhension, liberté et information suffisante."
+      },
+      {
+        "id": "CV-032",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Compréhension et jugement",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "question": "Pourquoi ne faut-il pas conclure fermement à partir d'une seule observation isolée ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Parce qu'une observation unique peut être accidentelle, biaisée ou non représentative",
+          "B": "Parce que toute observation est inutile",
+          "C": "Parce qu'une seule donnée prouve toujours le contraire",
+          "D": "Parce que la répétition empêche de réfléchir"
+        },
+        "answer": "A",
+        "explication": "La fiabilité augmente avec la convergence de plusieurs observations contrôlées."
+      },
+      {
+        "id": "CV-033",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Compréhension et jugement",
+        "niveau": 2,
+        "temps_sec": 45,
+        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "question": "Si une consigne est ambiguë pendant un test d'entrée non clinique, que faut-il faire avant de répondre ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Répondre au hasard pour gagner du temps",
+          "B": "Demander une clarification standardisée ou relire la consigne prévue",
+          "C": "Modifier soi-même la règle",
+          "D": "Chercher la réponse chez un autre candidat"
+        },
+        "answer": "B",
+        "explication": "Clarifier la consigne protège la comparabilité des réponses."
+      },
+      {
+        "id": "CV-034",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Compréhension et jugement",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "question": "Pourquoi documenter les décisions importantes dans un projet ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Pour rendre le projet plus lent sans raison",
+          "B": "Pour éviter toute responsabilité",
+          "C": "Pour cacher les changements",
+          "D": "Pour permettre traçabilité, cohérence et contrôle ultérieur"
+        },
+        "answer": "D",
+        "explication": "La traçabilité permet de comprendre pourquoi une décision a été prise et de la vérifier."
+      },
+      {
+        "id": "CV-035",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Compréhension et jugement",
+        "niveau": 4,
+        "temps_sec": 45,
+        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "question": "Pourquoi séparer les données personnelles des scores dans une application de test ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Pour limiter les risques d'identification et améliorer la confidentialité",
+          "B": "Pour rendre les scores faux",
+          "C": "Pour empêcher toute suppression de données",
+          "D": "Pour publier les identités plus facilement"
+        },
+        "answer": "A",
+        "explication": "La minimisation et la séparation des données réduisent les risques de confidentialité."
+      },
+      {
+        "id": "CV-036",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Compréhension et jugement",
+        "niveau": 2,
+        "temps_sec": 45,
+        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "question": "Pourquoi proposer un exemple d'entraînement avant une tâche nouvelle ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Pour donner la réponse aux items notés",
+          "B": "Pour décourager le participant",
+          "C": "Pour vérifier la compréhension de la règle sans influencer les réponses notées",
+          "D": "Pour changer la difficulté au hasard"
+        },
+        "answer": "C",
+        "explication": "L'exemple d'entraînement standardise la compréhension de la mécanique."
+      },
+      {
+        "id": "CV-037",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Compréhension et jugement",
+        "niveau": 4,
+        "temps_sec": 45,
+        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "question": "Pourquoi éviter d'annoncer 'tu es surdoué' après un court test d'application ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Parce que les compliments sont toujours interdits",
+          "B": "Parce qu'un mini-test non étalonné ne permet pas un diagnostic ou un QI clinique",
+          "C": "Parce qu'aucun test ne mesure jamais rien",
+          "D": "Parce qu'un score brut suffit toujours à diagnostiquer"
+        },
+        "answer": "B",
+        "explication": "Sans normes, validité et passation clinique, un résultat reste indicatif, pas diagnostique."
+      },
+      {
+        "id": "CV-038",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Compréhension et jugement",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "question": "Pourquoi chronométrer de façon identique tous les utilisateurs dans une tâche de vitesse ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Pour favoriser celui qui connaît l'examinateur",
+          "B": "Pour rendre la tâche moins comparable",
+          "C": "Pour changer les règles pendant la passation",
+          "D": "Pour standardiser les conditions et rendre les scores bruts comparables"
+        },
+        "answer": "D",
+        "explication": "Une contrainte de temps différente change le construit mesuré."
+      },
+      {
+        "id": "CV-039",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Compréhension et jugement",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "question": "Pourquoi proposer une pause lorsqu'un participant montre des signes de fatigue marquée ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Pour préserver la qualité de la réponse et éviter une mesure contaminée par l'épuisement",
+          "B": "Pour augmenter la difficulté secrètement",
+          "C": "Pour annuler toutes les consignes",
+          "D": "Pour transformer le test en diagnostic médical"
+        },
+        "answer": "A",
+        "explication": "La fatigue peut réduire l'attention et fausser l'interprétation d'un score brut."
+      },
+      {
+        "id": "CV-040",
+        "domaine": "Compréhension verbale",
+        "sous_type": "Compréhension et jugement",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "question": "Pourquoi l'examinateur ne doit-il pas aider pendant un item noté ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Pour rendre l'expérience désagréable",
+          "B": "Parce que parler est toujours interdit",
+          "C": "Parce que l'aide change la difficulté et compromet la validité de la réponse",
+          "D": "Parce qu'une bonne réponse doit être punie"
+        },
+        "answer": "C",
+        "explication": "L'assistance pendant l'item modifie ce qui est mesuré."
+      },
+      {
         "id": "echo",
+        "kind": "objective",
         "question": "Je parle toutes les langues du monde sans en avoir appris aucune. Qui suis-je ?",
-        "hint": "On m'entend surtout en montagne.",
-        "answers": ["echo", "l'echo", "un echo"]
+        "answers": [
+          "echo",
+          "l'echo",
+          "un echo"
+        ],
+        "hint": "On m'entend surtout en montagne."
       },
       {
         "id": "trou",
+        "kind": "objective",
         "question": "Plus on m'enlève de matière, plus je grandis. Qui suis-je ?",
-        "hint": "Pense à une pelle.",
-        "answers": ["trou", "le trou", "un trou"]
+        "answers": [
+          "trou",
+          "le trou",
+          "un trou"
+        ],
+        "hint": "Pense à une pelle."
       },
       {
         "id": "prenom",
+        "kind": "objective",
         "question": "C'est à toi, mais les autres l'utilisent bien plus souvent que toi. Qu'est-ce que c'est ?",
-        "hint": "On te le demande quand on te rencontre.",
-        "answers": ["prenom", "nom", "mon prenom", "mon nom", "le prenom", "le nom"]
+        "answers": [
+          "prenom",
+          "nom",
+          "mon prenom",
+          "mon nom",
+          "le prenom",
+          "le nom"
+        ],
+        "hint": "On te le demande quand on te rencontre."
       },
       {
         "id": "silence",
+        "kind": "objective",
         "question": "Dès qu'on prononce mon nom, je disparais. Qui suis-je ?",
-        "hint": "Il règne dans une bibliothèque.",
-        "answers": ["silence", "le silence"]
+        "answers": [
+          "silence",
+          "le silence"
+        ],
+        "hint": "Il règne dans une bibliothèque."
       },
       {
         "id": "aujourdhui",
+        "kind": "objective",
         "question": "Je suis l'avenir d'hier et le passé de demain. Qui suis-je ?",
-        "hint": "Tu es en plein dedans.",
-        "answers": ["aujourd'hui", "aujourdhui", "le present", "present"]
+        "answers": [
+          "aujourd'hui",
+          "aujourdhui",
+          "le present",
+          "present"
+        ],
+        "hint": "Tu es en plein dedans."
       },
       {
         "id": "eponge",
+        "kind": "objective",
         "question": "Je suis pleine de trous et pourtant je retiens l'eau. Qui suis-je ?",
-        "hint": "Regarde près de l'évier.",
-        "answers": ["eponge", "l'eponge", "une eponge"]
+        "answers": [
+          "eponge",
+          "l'eponge",
+          "une eponge"
+        ],
+        "hint": "Regarde près de l'évier."
       },
       {
         "id": "escalier",
+        "kind": "objective",
         "question": "Je monte et je descends sans jamais bouger. Qui suis-je ?",
-        "hint": "Tu me prends plusieurs fois par jour s'il n'y a pas d'ascenseur.",
-        "answers": ["escalier", "l'escalier", "les escaliers", "un escalier", "marches"]
+        "answers": [
+          "escalier",
+          "l'escalier",
+          "les escaliers",
+          "un escalier",
+          "marches"
+        ],
+        "hint": "Tu me prends plusieurs fois par jour s'il n'y a pas d'ascenseur."
       },
       {
         "id": "bougie",
+        "kind": "objective",
         "question": "Plus je vieillis, plus je raccourcis. Qui suis-je ?",
-        "hint": "Je fonds en éclairant.",
-        "answers": ["bougie", "la bougie", "une bougie", "un cierge", "cierge", "allumette"]
+        "answers": [
+          "bougie",
+          "la bougie",
+          "une bougie",
+          "un cierge",
+          "cierge",
+          "allumette"
+        ],
+        "hint": "Je fonds en éclairant."
       },
       {
         "id": "ombre",
+        "kind": "objective",
         "question": "Je te suis partout en plein jour, je grandis le soir et je te quitte la nuit. Qui suis-je ?",
-        "hint": "La lumière me dessine.",
-        "answers": ["ombre", "l'ombre", "mon ombre", "une ombre"]
+        "answers": [
+          "ombre",
+          "l'ombre",
+          "mon ombre",
+          "une ombre"
+        ],
+        "hint": "La lumière me dessine."
       },
       {
         "id": "lettre_n",
+        "kind": "objective",
         "question": "On me trouve au début de la nuit, à la fin du matin, deux fois dans l'année et jamais dans le mois. Qui suis-je ?",
-        "hint": "Je ne suis pas un objet : je suis un signe qu'on écrit.",
-        "answers": ["n", "la lettre n", "lettre n", "le n"]
+        "answers": [
+          "n",
+          "la lettre n",
+          "lettre n",
+          "le n"
+        ],
+        "hint": "Je ne suis pas un objet : je suis un signe qu'on écrit."
       },
       {
         "id": "lit_riviere",
+        "kind": "objective",
         "question": "J'ai un lit mais je n'y dors jamais, je cours sans avoir de jambes. Qui suis-je ?",
-        "hint": "On me traverse sur un pont.",
-        "answers": ["riviere", "la riviere", "fleuve", "le fleuve", "cours d'eau", "ruisseau"]
+        "answers": [
+          "riviere",
+          "la riviere",
+          "fleuve",
+          "le fleuve",
+          "cours d'eau",
+          "ruisseau"
+        ],
+        "hint": "On me traverse sur un pont."
       },
       {
         "id": "horloge_enigme",
+        "kind": "objective",
         "question": "J'ai des aiguilles mais je ne couds pas, un visage mais pas de bouche. Qui suis-je ?",
-        "hint": "Tu me regardes pour ne pas être en retard.",
-        "answers": ["horloge", "une horloge", "l'horloge", "montre", "une montre", "pendule", "reveil"]
+        "answers": [
+          "horloge",
+          "une horloge",
+          "l'horloge",
+          "montre",
+          "une montre",
+          "pendule",
+          "reveil"
+        ],
+        "hint": "Tu me regardes pour ne pas être en retard."
       },
       {
         "id": "clavier",
+        "kind": "objective",
         "question": "J'ai des touches mais aucune serrure, une barre d'espace mais aucune pièce. Qui suis-je ?",
-        "hint": "Tu m'utilises pour écrire sur un écran.",
-        "answers": ["clavier", "un clavier", "le clavier"]
+        "answers": [
+          "clavier",
+          "un clavier",
+          "le clavier"
+        ],
+        "hint": "Tu m'utilises pour écrire sur un écran."
       },
       {
         "id": "vent",
+        "kind": "objective",
         "question": "On me sent, on m'entend, mais on ne me voit jamais. Qui suis-je ?",
-        "hint": "Je fais danser les feuilles et tourner les moulins.",
-        "answers": ["vent", "le vent", "un courant d'air", "courant d'air", "l'air", "air", "la brise", "brise"]
+        "answers": [
+          "vent",
+          "le vent",
+          "un courant d'air",
+          "courant d'air",
+          "l'air",
+          "air",
+          "la brise",
+          "brise"
+        ],
+        "hint": "Je fais danser les feuilles et tourner les moulins."
       },
       {
         "id": "miroir_enigme",
+        "kind": "objective",
         "question": "Je te rends tout ce que tu me montres, mais à l'envers, sans rien garder. Qui suis-je ?",
-        "hint": "Tu me regardes le matin.",
-        "answers": ["miroir", "un miroir", "le miroir", "glace", "la glace"]
+        "answers": [
+          "miroir",
+          "un miroir",
+          "le miroir",
+          "glace",
+          "la glace"
+        ],
+        "hint": "Tu me regardes le matin."
       },
       {
         "id": "secret",
+        "kind": "objective",
         "question": "Tu me possèdes tant que tu me gardes ; dès que tu me partages, je n'existe plus. Qui suis-je ?",
-        "hint": "Chut…",
-        "answers": ["secret", "un secret", "le secret"]
+        "answers": [
+          "secret",
+          "un secret",
+          "le secret"
+        ],
+        "hint": "Chut…"
       },
       {
         "id": "futur",
+        "kind": "objective",
         "question": "Je suis toujours devant toi, mais tu ne peux jamais m'atteindre. Qui suis-je ?",
-        "hint": "Hier, j'étais encore à venir.",
-        "answers": ["futur", "le futur", "l'avenir", "avenir", "demain", "lendemain"]
+        "answers": [
+          "futur",
+          "le futur",
+          "l'avenir",
+          "avenir",
+          "demain",
+          "lendemain"
+        ],
+        "hint": "Hier, j'étais encore à venir."
       },
       {
         "id": "carte_geo",
+        "kind": "objective",
         "question": "Je montre des villes sans maisons, des routes sans voitures et des rivières sans eau. Qui suis-je ?",
-        "hint": "On me déplie pour ne pas se perdre.",
-        "answers": ["carte", "une carte", "la carte", "carte geographique", "plan", "un plan"]
+        "answers": [
+          "carte",
+          "une carte",
+          "la carte",
+          "carte geographique",
+          "plan",
+          "un plan"
+        ],
+        "hint": "On me déplie pour ne pas se perdre."
       },
       {
         "id": "livre_enigme",
+        "kind": "objective",
         "question": "J'ai des feuilles sans être un arbre, et un dos sans avoir d'os. Qui suis-je ?",
-        "hint": "On me lit, page après page.",
-        "answers": ["livre", "un livre", "le livre", "bouquin", "roman"]
+        "answers": [
+          "livre",
+          "un livre",
+          "le livre",
+          "bouquin",
+          "roman"
+        ],
+        "hint": "On me lit, page après page."
       },
       {
         "id": "nuage",
+        "kind": "objective",
         "question": "Je flotte sans ailes, je pleure sans yeux, et je disparais au soleil. Qui suis-je ?",
-        "hint": "Tu me regardes dans le ciel.",
-        "answers": ["nuage", "un nuage", "le nuage", "nuages", "les nuages"]
+        "answers": [
+          "nuage",
+          "un nuage",
+          "le nuage",
+          "nuages",
+          "les nuages"
+        ],
+        "hint": "Tu me regardes dans le ciel."
       },
       {
         "id": "feu_enigme",
+        "kind": "objective",
         "question": "Je dévore tout sans jamais être rassasié ; donne-moi à boire et je meurs. Qui suis-je ?",
-        "hint": "On me combat avec de l'eau.",
-        "answers": ["feu", "le feu", "un feu", "flamme", "la flamme", "incendie"]
-      }
-    ]
-  },
-  {
-    "dimension": "logique",
-    "label": "Micro-logique",
-    "kind": "objective",
-    "pool": [
-      {
-        "id": "suite",
-        "question": "Complète la suite : 2, 3, 5, 9, 17, … ?",
-        "hint": "Regarde comment on passe d'un nombre au suivant : ×2, puis…",
-        "answers": ["33"]
+        "answers": [
+          "feu",
+          "le feu",
+          "un feu",
+          "flamme",
+          "la flamme",
+          "incendie"
+        ],
+        "hint": "On me combat avec de l'eau."
       },
-      {
-        "id": "suite_pas",
-        "question": "Complète la suite : 3, 4, 6, 9, 13, … ?",
-        "hint": "Regarde ce qu'on ajoute à chaque pas : +1, +2, +3…",
-        "answers": ["18"]
-      },
-      {
-        "id": "zorg",
-        "question": "Tous les Zorgs sont bleus. Certains êtres bleus chantent. Peut-on être certain qu'au moins un Zorg chante ? (oui / non)",
-        "hint": "Les chanteurs sont bleus… mais qui te dit que ce sont des Zorgs ?",
-        "answers": ["non"]
-      },
-      {
-        "id": "fibo",
-        "question": "Complète la suite : 1, 1, 2, 3, 5, 8, … ?",
-        "hint": "Chaque nombre naît des deux précédents.",
-        "answers": ["13"]
-      },
-      {
-        "id": "grandeur",
-        "question": "Léa est plus grande que Zoé. Marie est plus petite que Zoé. Qui est la plus grande des trois ?",
-        "hint": "Classe-les sur une ligne.",
-        "answers": ["lea", "léa"]
-      },
-      {
-        "id": "jours",
-        "question": "Si avant-hier était un samedi, quel jour serons-nous demain ?",
-        "hint": "Avance pas à pas : avant-hier, hier, aujourd'hui…",
-        "answers": ["mardi"]
-      },
-      {
-        "id": "suite_premiers",
-        "question": "Complète la suite : 2, 3, 5, 7, 11, … ?",
-        "hint": "Ces nombres n'ont que deux diviseurs : 1 et eux-mêmes.",
-        "answers": ["13"]
-      },
-      {
-        "id": "suite_carres",
-        "question": "Complète la suite : 1, 4, 9, 16, 25, … ?",
-        "hint": "1×1, 2×2, 3×3, 4×4…",
-        "answers": ["36"]
-      },
-      {
-        "id": "syllogisme_roses",
-        "question": "Toutes les roses sont des fleurs. Certaines fleurs fanent vite. Peut-on être certain qu'au moins une rose fane vite ? (oui / non)",
-        "hint": "Les fleurs qui fanent vite ne sont pas forcément des roses.",
-        "answers": ["non"]
-      },
-      {
-        "id": "jours_2",
-        "question": "Si dans trois jours ce sera vendredi, quel jour était-ce hier ?",
-        "hint": "Trouve d'abord quel jour on est aujourd'hui.",
-        "answers": ["lundi"]
-      },
-      {
-        "id": "suite_x3",
-        "question": "Complète la suite : 2, 6, 18, 54, … ?",
-        "hint": "On multiplie par le même nombre à chaque étape.",
-        "answers": ["162"]
-      },
-      {
-        "id": "suite_alt",
-        "question": "Complète la suite : 1, 2, 4, 7, 11, 16, … ?",
-        "hint": "Le saut grandit de 1 à chaque fois : +1, +2, +3…",
-        "answers": ["22"]
-      },
-      {
-        "id": "syllogisme_chats",
-        "question": "Tous les chats sont des animaux. Aucun animal ne parle. Un chat peut-il parler ? (oui / non)",
-        "hint": "Si aucun animal ne parle, et qu'un chat est un animal…",
-        "answers": ["non"]
-      },
-      {
-        "id": "suite_moins",
-        "question": "Complète la suite : 64, 32, 16, 8, … ?",
-        "hint": "On divise par 2 à chaque étape.",
-        "answers": ["4"]
-      },
-      {
-        "id": "suite_fact",
-        "question": "Complète la suite : 1, 2, 6, 24, 120, … ?",
-        "hint": "On multiplie par 2, puis par 3, puis par 4…",
-        "answers": ["720"]
-      },
-      {
-        "id": "ordre_taille",
-        "question": "Tom court plus vite que Lina. Lina court plus vite que Sam. Qui est le plus lent ?",
-        "hint": "Classe-les du plus rapide au plus lent.",
-        "answers": ["sam"]
-      },
-      {
-        "id": "suite_impairs",
-        "question": "Complète la suite : 1, 3, 5, 7, 9, … ?",
-        "hint": "Ce sont les nombres impairs.",
-        "answers": ["11"]
-      },
-      {
-        "id": "suite_double_un",
-        "question": "Complète la suite : 1, 2, 4, 8, 16, … ?",
-        "hint": "On double à chaque étape.",
-        "answers": ["32"]
-      },
-      {
-        "id": "syllogisme_oiseaux",
-        "question": "Tous les pingouins sont des oiseaux. Aucun pingouin ne vole. Tous les oiseaux volent-ils ? (oui / non)",
-        "hint": "Le pingouin est un oiseau… qui ne vole pas.",
-        "answers": ["non"]
-      },
-      {
-        "id": "suite_diff2",
-        "question": "Complète la suite : 5, 10, 20, 40, … ?",
-        "hint": "On double à chaque étape.",
-        "answers": ["80"]
-      },
-      {
-        "id": "suite_minus3",
-        "question": "Complète la suite : 100, 97, 94, 91, … ?",
-        "hint": "On retire 3 à chaque étape.",
-        "answers": ["88"]
-      },
-      {
-        "id": "jours_3",
-        "question": "Si hier était mercredi, quel jour serons-nous après-demain ?",
-        "hint": "Aujourd'hui, c'est le lendemain d'hier.",
-        "answers": ["samedi"]
-      }
-    ]
-  },
-  {
-    "dimension": "arithmetique",
-    "label": "Raisonnement",
-    "kind": "objective",
-    "pool": [
-      {
-        "id": "marquepage",
-        "question": "Un livre et son marque-page coûtent 11 € en tout. Le livre coûte 10 € de plus que le marque-page. Combien coûte le marque-page ?",
-        "hint": "S'il coûtait 1 €, le total ferait 12 €…",
-        "answers": ["0.5", "50", "cinquante centimes", "un demi euro"]
-      },
-      {
-        "id": "machines",
-        "question": "5 machines fabriquent 5 pièces en 5 minutes. Combien de minutes faut-il à 100 machines pour fabriquer 100 pièces ?",
-        "hint": "Combien de temps met UNE machine pour UNE pièce ?",
-        "answers": ["5", "cinq"]
-      },
-      {
-        "id": "nenuphar",
-        "question": "Sur un étang, un nénuphar double de surface chaque jour. Il couvre tout l'étang en 48 jours. En combien de jours en couvrait-il la moitié ?",
-        "hint": "Pense à l'envers, depuis la fin.",
-        "answers": ["47", "quarante-sept", "quarante sept"]
-      },
-      {
-        "id": "fratrie",
-        "question": "Léo a autant de frères que de sœurs. Sa sœur Jade a deux fois plus de frères que de sœurs. Combien d'enfants compte la fratrie ?",
-        "hint": "Essaie avec de petits nombres : 4 garçons, 3 filles…",
-        "answers": ["7", "sept"]
-      },
-      {
-        "id": "escargot",
-        "question": "Un escargot grimpe un mur de 10 mètres. Le jour il monte de 3 mètres, mais la nuit il glisse de 2 mètres. En combien de jours atteint-il le sommet ?",
-        "hint": "Le dernier jour, une fois en haut, il ne reglisse pas.",
-        "answers": ["8", "huit", "8 jours", "huit jours"]
-      },
-      {
-        "id": "chaussettes",
-        "question": "Dans un tiroir, 10 chaussettes noires et 10 bleues sont mélangées dans le noir. Combien dois-tu en sortir au minimum pour être sûr d'avoir deux chaussettes de la même couleur ?",
-        "hint": "Avec deux seulement, tu peux tomber sur une de chaque couleur.",
-        "answers": ["3", "trois"]
-      },
-      {
-        "id": "prix_remise",
-        "question": "Un pull coûte 80 €. Il est soldé à -25 %. Quel est son prix soldé ?",
-        "hint": "25 % de 80 €, c'est 20 €.",
-        "answers": ["60", "60 euros", "soixante", "60€"]
-      },
-      {
-        "id": "age_double",
-        "question": "Aujourd'hui, Maya a 8 ans et sa mère 34 ans. Dans combien d'années la mère aura-t-elle exactement le double de l'âge de Maya ?",
-        "hint": "Écris l'égalité : 34 + x = 2 × (8 + x).",
-        "answers": ["18", "dix-huit", "dix huit", "18 ans"]
-      },
-      {
-        "id": "poignees_main",
-        "question": "Dans une pièce, 5 personnes se serrent chacune la main une fois avec toutes les autres. Combien de poignées de main en tout ?",
-        "hint": "Chacune en serre 4, mais chaque poignée se compte une seule fois.",
-        "answers": ["10", "dix"]
-      },
-      {
-        "id": "trois_chats",
-        "question": "Si 3 chats attrapent 3 souris en 3 minutes, combien de chats faut-il pour attraper 100 souris en 100 minutes ?",
-        "hint": "Combien de souris UN chat attrape-t-il en 100 minutes ?",
-        "answers": ["3", "trois"]
-      },
-      {
-        "id": "douzaine_demi",
-        "question": "La moitié d'une demi-douzaine d'œufs, plus deux, ça fait combien ?",
-        "hint": "Une demi-douzaine, c'est 6.",
-        "answers": ["5", "cinq"]
-      },
-      {
-        "id": "minutes_heures",
-        "question": "Combien de minutes y a-t-il dans un quart de journée ?",
-        "hint": "Une journée fait 24 heures.",
-        "answers": ["360"]
-      },
-      {
-        "id": "train_vitesse",
-        "question": "Un train parcourt 60 km en 45 minutes. Quelle distance parcourt-il en 1 heure à la même vitesse ?",
-        "hint": "En 15 minutes de plus (un tiers), il parcourt un tiers de plus.",
-        "answers": ["80", "80 km", "quatre-vingts", "quatre vingts"]
-      },
-      {
-        "id": "bonbons_partage",
-        "question": "On partage 24 bonbons également entre 6 enfants. Puis 2 enfants s'en vont en laissant leurs bonbons aux 4 qui restent, partagés également. Combien chaque enfant restant a-t-il de bonbons ?",
-        "hint": "Chacun a 4 au départ ; 2 enfants laissent 8 bonbons à 4 enfants.",
-        "answers": ["6", "six"]
-      },
-      {
-        "id": "double_moitie",
-        "question": "Je pense à un nombre. Je le double, puis j'ajoute 10, et j'obtiens 30. Quel est mon nombre ?",
-        "hint": "Remonte à l'envers : avant le +10, c'était 20.",
-        "answers": ["10", "dix"]
-      },
-      {
-        "id": "crayons_boites",
-        "question": "12 crayons coûtent 3 €. Combien coûtent 20 crayons au même prix unitaire ?",
-        "hint": "Un crayon coûte 25 centimes.",
-        "answers": ["5", "cinq", "5 euros", "5€"]
-      },
-      {
-        "id": "horloge_sonne",
-        "question": "Une horloge met 6 secondes pour sonner 4 coups. Combien de secondes met-elle pour sonner 7 coups ?",
-        "hint": "Compte les INTERVALLES entre les coups, pas les coups eux-mêmes.",
-        "answers": ["12", "douze"]
-      },
-      {
-        "id": "ages_somme",
-        "question": "Deux nombres : leur somme fait 10 et leur différence fait 4. Quel est le plus grand ?",
-        "hint": "Additionne les deux : la somme des deux nombres plus leur différence donne deux fois le plus grand.",
-        "answers": ["7", "sept"]
-      },
-      {
-        "id": "pommes_reste",
-        "question": "J'ai 10 pommes. J'en donne la moitié, puis j'en mange 2. Combien m'en reste-t-il ?",
-        "hint": "La moitié de 10, puis on retire 2.",
-        "answers": ["3", "trois"]
-      },
-      {
-        "id": "fourmi_pattes",
-        "question": "Combien de pattes ont en tout 3 araignées (8 pattes chacune) et 4 fourmis (6 pattes chacune) ?",
-        "hint": "3 × 8, plus 4 × 6.",
-        "answers": ["48", "quarante-huit", "quarante huit"]
-      },
-      {
-        "id": "remise_deux",
-        "question": "Un jeu coûte 40 €. On applique -50 %, puis encore -10 % sur le prix déjà réduit. Quel est le prix final ?",
-        "hint": "Les remises s'appliquent l'une après l'autre, pas en s'additionnant.",
-        "answers": ["18", "18 euros", "dix-huit", "18€"]
-      }
-    ]
-  },
-  {
-    "dimension": "similitudes",
-    "label": "Similitudes",
-    "kind": "objective",
-    "pool": [
       {
         "id": "horloge_coeur",
+        "kind": "objective",
         "question": "Quel point commun vois-tu entre une horloge et un cœur ?",
-        "hint": "Écoute-les.",
-        "answers": ["bat", "battent", "battement", "rythme", "tic", "pulsation", "temps"]
+        "answers": [
+          "bat",
+          "battent",
+          "battement",
+          "rythme",
+          "tic",
+          "pulsation",
+          "temps"
+        ],
+        "hint": "Écoute-les."
       },
       {
         "id": "graine_idee",
+        "kind": "objective",
         "question": "Quel point commun vois-tu entre une graine et une idée ?",
-        "hint": "Que deviennent-elles quand on s'en occupe ?",
-        "answers": ["germe", "germent", "pousse", "poussent", "grandit", "grandissent", "planter", "semer", "cultiver", "fleurir", "murir"]
+        "answers": [
+          "germe",
+          "germent",
+          "pousse",
+          "poussent",
+          "grandit",
+          "grandissent",
+          "planter",
+          "semer",
+          "cultiver",
+          "fleurir",
+          "murir"
+        ],
+        "hint": "Que deviennent-elles quand on s'en occupe ?"
       },
       {
         "id": "brouillard_oubli",
+        "kind": "objective",
         "question": "Quel point commun vois-tu entre le brouillard et l'oubli ?",
-        "hint": "Que font-ils aux contours des choses ?",
-        "answers": ["estompe", "efface", "flou", "floute", "masque", "cache", "voile", "disparait", "disparaitre", "brouille"]
+        "answers": [
+          "estompe",
+          "efface",
+          "flou",
+          "floute",
+          "masque",
+          "cache",
+          "voile",
+          "disparait",
+          "disparaitre",
+          "brouille"
+        ],
+        "hint": "Que font-ils aux contours des choses ?"
       },
       {
         "id": "piano_violon",
+        "kind": "objective",
         "question": "En quoi un piano et un violon se ressemblent-ils ?",
-        "hint": "Pense à ce qu'on en tire.",
-        "answers": ["instrument", "instruments", "musique", "cordes", "son", "jouer", "melodie"]
+        "answers": [
+          "instrument",
+          "instruments",
+          "musique",
+          "cordes",
+          "son",
+          "jouer",
+          "melodie"
+        ],
+        "hint": "Pense à ce qu'on en tire."
       },
       {
         "id": "carte_boussole",
+        "kind": "objective",
         "question": "En quoi une carte et une boussole se ressemblent-elles ?",
-        "hint": "Quand tu es perdu·e…",
-        "answers": ["orienter", "orientation", "guident", "guider", "guide", "direction", "chemin", "naviguer", "reperer", "situer", "trouver son chemin"]
+        "answers": [
+          "orienter",
+          "orientation",
+          "guident",
+          "guider",
+          "guide",
+          "direction",
+          "chemin",
+          "naviguer",
+          "reperer",
+          "situer",
+          "trouver son chemin"
+        ],
+        "hint": "Quand tu es perdu·e…"
       },
       {
         "id": "aube_crepuscule",
+        "kind": "objective",
         "question": "Quel point commun entre l'aube et le crépuscule ?",
-        "hint": "Ni tout à fait jour, ni tout à fait nuit.",
-        "answers": ["transition", "passage", "entre", "frontiere", "lumiere", "changement", "jour et nuit", "moment", "seuil"]
+        "answers": [
+          "transition",
+          "passage",
+          "entre",
+          "frontiere",
+          "lumiere",
+          "changement",
+          "jour et nuit",
+          "moment",
+          "seuil"
+        ],
+        "hint": "Ni tout à fait jour, ni tout à fait nuit."
       },
       {
         "id": "riviere_temps",
+        "kind": "objective",
         "question": "Quel point commun vois-tu entre une rivière et le temps ?",
-        "hint": "Ni l'un ni l'autre ne revient en arrière.",
-        "answers": ["coule", "s'ecoule", "ecoule", "ecoulement", "passe", "avance", "irreversible", "sens unique", "ne revient pas", "fluide", "mouvement", "courant"]
+        "answers": [
+          "coule",
+          "s'ecoule",
+          "ecoule",
+          "ecoulement",
+          "passe",
+          "avance",
+          "irreversible",
+          "sens unique",
+          "ne revient pas",
+          "fluide",
+          "mouvement",
+          "courant"
+        ],
+        "hint": "Ni l'un ni l'autre ne revient en arrière."
       },
       {
         "id": "miroir_lac",
+        "kind": "objective",
         "question": "Quel point commun entre un miroir et un lac parfaitement calme ?",
-        "hint": "Penche-toi au-dessus.",
-        "answers": ["reflet", "reflechit", "reflechir", "reflete", "refleter", "image", "surface", "renvoie", "miroir", "reflechissent"]
+        "answers": [
+          "reflet",
+          "reflechit",
+          "reflechir",
+          "reflete",
+          "refleter",
+          "image",
+          "surface",
+          "renvoie",
+          "miroir",
+          "reflechissent"
+        ],
+        "hint": "Penche-toi au-dessus."
       },
       {
         "id": "livre_porte",
+        "kind": "objective",
         "question": "En quoi un livre et une porte se ressemblent-ils ?",
-        "hint": "Les deux s'ouvrent sur autre chose.",
-        "answers": ["ouvre", "ouvrir", "ouvrent", "passage", "acces", "mene", "monde", "ailleurs", "entree", "franchir", "seuil", "s'ouvrent"]
+        "answers": [
+          "ouvre",
+          "ouvrir",
+          "ouvrent",
+          "passage",
+          "acces",
+          "mene",
+          "monde",
+          "ailleurs",
+          "entree",
+          "franchir",
+          "seuil",
+          "s'ouvrent"
+        ],
+        "hint": "Les deux s'ouvrent sur autre chose."
       },
       {
         "id": "racine_fondation",
+        "kind": "objective",
         "question": "Quel point commun entre les racines d'un arbre et les fondations d'une maison ?",
-        "hint": "On ne les voit pas, mais tout repose dessus.",
-        "answers": ["soutien", "soutiennent", "tiennent", "tenir", "base", "support", "stabilite", "ancre", "ancrent", "cachees", "invisibles", "portent", "fondation", "solide"]
+        "answers": [
+          "soutien",
+          "soutiennent",
+          "tiennent",
+          "tenir",
+          "base",
+          "support",
+          "stabilite",
+          "ancre",
+          "ancrent",
+          "cachees",
+          "invisibles",
+          "portent",
+          "fondation",
+          "solide"
+        ],
+        "hint": "On ne les voit pas, mais tout repose dessus."
       },
       {
         "id": "cle_question",
+        "kind": "objective",
         "question": "Quel point commun vois-tu entre une clé et une bonne question ?",
-        "hint": "Les deux ouvrent quelque chose.",
-        "answers": ["ouvre", "ouvrir", "ouvrent", "debloque", "deverrouille", "acces", "solution", "comprendre", "reponse", "serrure"]
+        "answers": [
+          "ouvre",
+          "ouvrir",
+          "ouvrent",
+          "debloque",
+          "deverrouille",
+          "acces",
+          "solution",
+          "comprendre",
+          "reponse",
+          "serrure"
+        ],
+        "hint": "Les deux ouvrent quelque chose."
       },
       {
         "id": "pont_mot",
+        "kind": "objective",
         "question": "Quel point commun entre un pont et un mot ?",
-        "hint": "Les deux relient : deux rives, ou deux personnes.",
-        "answers": ["relie", "relient", "relier", "lien", "connecte", "connecter", "rapproche", "traverser", "unit", "franchir", "communication", "comprendre"]
+        "answers": [
+          "relie",
+          "relient",
+          "relier",
+          "lien",
+          "connecte",
+          "connecter",
+          "rapproche",
+          "traverser",
+          "unit",
+          "franchir",
+          "communication",
+          "comprendre"
+        ],
+        "hint": "Les deux relient : deux rives, ou deux personnes."
       },
       {
         "id": "cicatrice_souvenir",
+        "kind": "objective",
         "question": "Quel point commun entre une cicatrice et un souvenir ?",
-        "hint": "Toutes deux gardent la trace de quelque chose de passé.",
-        "answers": ["trace", "marque", "reste", "passe", "temps", "histoire", "garde", "laisse", "empreinte", "blessure", "guerit"]
+        "answers": [
+          "trace",
+          "marque",
+          "reste",
+          "passe",
+          "temps",
+          "histoire",
+          "garde",
+          "laisse",
+          "empreinte",
+          "blessure",
+          "guerit"
+        ],
+        "hint": "Toutes deux gardent la trace de quelque chose de passé."
       },
       {
         "id": "arbre_personne",
+        "kind": "objective",
         "question": "Quel point commun vois-tu entre un arbre et une personne ?",
-        "hint": "Les deux grandissent et ont des racines.",
-        "answers": ["grandit", "grandissent", "racines", "branches", "vie", "vivant", "pousse", "age", "croit", "tronc", "se nourrit", "respire"]
+        "answers": [
+          "grandit",
+          "grandissent",
+          "racines",
+          "branches",
+          "vie",
+          "vivant",
+          "pousse",
+          "age",
+          "croit",
+          "tronc",
+          "se nourrit",
+          "respire"
+        ],
+        "hint": "Les deux grandissent et ont des racines."
       },
       {
         "id": "feu_colere",
+        "kind": "objective",
         "question": "Quel point commun entre le feu et la colère ?",
-        "hint": "Les deux peuvent se propager et tout consumer.",
-        "answers": ["brule", "brulent", "chaud", "chaleur", "consume", "detruit", "propage", "s'eteint", "eteindre", "monte", "intense", "destructeur", "ardent"]
+        "answers": [
+          "brule",
+          "brulent",
+          "chaud",
+          "chaleur",
+          "consume",
+          "detruit",
+          "propage",
+          "s'eteint",
+          "eteindre",
+          "monte",
+          "intense",
+          "destructeur",
+          "ardent"
+        ],
+        "hint": "Les deux peuvent se propager et tout consumer."
       },
       {
         "id": "etoile_espoir",
+        "kind": "objective",
         "question": "Quel point commun entre une étoile et l'espoir ?",
-        "hint": "Tous deux brillent, surtout dans le noir.",
-        "answers": ["brille", "brillent", "lumiere", "loin", "guide", "nuit", "eclaire", "lointain", "point lumineux", "s'eteint", "persiste", "scintille"]
+        "answers": [
+          "brille",
+          "brillent",
+          "lumiere",
+          "loin",
+          "guide",
+          "nuit",
+          "eclaire",
+          "lointain",
+          "point lumineux",
+          "s'eteint",
+          "persiste",
+          "scintille"
+        ],
+        "hint": "Tous deux brillent, surtout dans le noir."
       },
       {
         "id": "horizon_reve",
+        "kind": "objective",
         "question": "Quel point commun entre l'horizon et un rêve ?",
-        "hint": "Plus tu avances vers eux, plus ils semblent reculer.",
-        "answers": ["loin", "lointain", "atteindre", "jamais", "s'eloigne", "inaccessible", "avance", "fuit", "ligne", "but", "poursuit", "recule"]
+        "answers": [
+          "loin",
+          "lointain",
+          "atteindre",
+          "jamais",
+          "s'eloigne",
+          "inaccessible",
+          "avance",
+          "fuit",
+          "ligne",
+          "but",
+          "poursuit",
+          "recule"
+        ],
+        "hint": "Plus tu avances vers eux, plus ils semblent reculer."
       },
       {
         "id": "main_outil",
+        "kind": "objective",
         "question": "Quel point commun vois-tu entre une main et un outil ?",
-        "hint": "Les deux servent à faire, à transformer.",
-        "answers": ["fabrique", "fabriquer", "cree", "creer", "construit", "transforme", "travaille", "faire", "saisir", "tenir", "agir", "prolonge"]
+        "answers": [
+          "fabrique",
+          "fabriquer",
+          "cree",
+          "creer",
+          "construit",
+          "transforme",
+          "travaille",
+          "faire",
+          "saisir",
+          "tenir",
+          "agir",
+          "prolonge"
+        ],
+        "hint": "Les deux servent à faire, à transformer."
       },
       {
         "id": "racine_langue",
+        "kind": "objective",
         "question": "Quel point commun entre les racines d'une plante et celles d'un mot ?",
-        "hint": "Les deux sont cachées et donnent naissance à ce qui pousse au-dessus.",
-        "answers": ["origine", "source", "base", "cachees", "invisibles", "donnent", "naissance", "nourrissent", "fondation", "viennent", "souterraines", "profond"]
+        "answers": [
+          "origine",
+          "source",
+          "base",
+          "cachees",
+          "invisibles",
+          "donnent",
+          "naissance",
+          "nourrissent",
+          "fondation",
+          "viennent",
+          "souterraines",
+          "profond"
+        ],
+        "hint": "Les deux sont cachées et donnent naissance à ce qui pousse au-dessus."
       },
       {
         "id": "fenetre_oeil",
+        "kind": "objective",
         "question": "Quel point commun vois-tu entre une fenêtre et un œil ?",
-        "hint": "Les deux laissent entrer la lumière et voir au-dehors.",
-        "answers": ["voir", "regarder", "lumiere", "ouvre", "ouverture", "monde", "exterieur", "laisse passer", "vue", "transparent", "observer"]
+        "answers": [
+          "voir",
+          "regarder",
+          "lumiere",
+          "ouvre",
+          "ouverture",
+          "monde",
+          "exterieur",
+          "laisse passer",
+          "vue",
+          "transparent",
+          "observer"
+        ],
+        "hint": "Les deux laissent entrer la lumière et voir au-dehors."
       },
       {
         "id": "ancre_habitude",
+        "kind": "objective",
         "question": "Quel point commun entre une ancre et une habitude ?",
-        "hint": "Les deux retiennent en place — pour le meilleur ou pour le pire.",
-        "answers": ["fixe", "retient", "stabilite", "tient", "attache", "empeche", "bouger", "lourd", "ancrer", "stable", "immobilise", "securite"]
+        "answers": [
+          "fixe",
+          "retient",
+          "stabilite",
+          "tient",
+          "attache",
+          "empeche",
+          "bouger",
+          "lourd",
+          "ancrer",
+          "stable",
+          "immobilise",
+          "securite"
+        ],
+        "hint": "Les deux retiennent en place — pour le meilleur ou pour le pire."
       }
     ]
   },
   {
-    "dimension": "creative",
+    "dimension": "fluide",
+    "label": "Raisonnement fluide",
+    "pool": [
+      {
+        "id": "RF-081",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 3,
+        "temps_sec": 50,
+        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "question": "3, 6, 11, 18, 27, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "35",
+          "B": "38",
+          "C": "40",
+          "D": "42"
+        },
+        "answer": "B",
+        "explication": "Les écarts sont +3, +5, +7, +9; l'écart suivant est +11, donc 38."
+      },
+      {
+        "id": "RF-082",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 2,
+        "temps_sec": 50,
+        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "question": "2, 6, 12, 20, 30, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "36",
+          "B": "40",
+          "C": "41",
+          "D": "42"
+        },
+        "answer": "D",
+        "explication": "Termes n(n+1): 1×2, 2×3, ..., 6×7=42."
+      },
+      {
+        "id": "RF-083",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 1,
+        "temps_sec": 50,
+        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "question": "1, 4, 9, 16, 25, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "30",
+          "B": "35",
+          "C": "36",
+          "D": "49"
+        },
+        "answer": "C",
+        "explication": "Ce sont les carrés parfaits: 1²,2²,3²,4²,5², donc 6²=36."
+      },
+      {
+        "id": "RF-084",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 1,
+        "temps_sec": 50,
+        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "question": "81, 27, 9, 3, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "1",
+          "B": "0",
+          "C": "6",
+          "D": "-3"
+        },
+        "answer": "A",
+        "explication": "Chaque terme est divisé par 3."
+      },
+      {
+        "id": "RF-085",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 3,
+        "temps_sec": 50,
+        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "question": "5, 7, 11, 19, 35, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "51",
+          "B": "63",
+          "C": "65",
+          "D": "67"
+        },
+        "answer": "D",
+        "explication": "Les écarts doublent: +2,+4,+8,+16; ensuite +32, donc 67."
+      },
+      {
+        "id": "RF-086",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 3,
+        "temps_sec": 50,
+        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "question": "4, 9, 19, 39, 79, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "149",
+          "B": "159",
+          "C": "160",
+          "D": "169"
+        },
+        "answer": "B",
+        "explication": "Chaque terme = précédent×2 +1: 79×2+1=159."
+      },
+      {
+        "id": "RF-087",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 2,
+        "temps_sec": 50,
+        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "question": "2, 3, 5, 9, 17, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "25",
+          "B": "31",
+          "C": "33",
+          "D": "35"
+        },
+        "answer": "C",
+        "explication": "Les écarts sont +1,+2,+4,+8; ensuite +16, donc 33."
+      },
+      {
+        "id": "RF-088",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 2,
+        "temps_sec": 50,
+        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "question": "144, 121, 100, 81, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "64",
+          "B": "70",
+          "C": "72",
+          "D": "49"
+        },
+        "answer": "A",
+        "explication": "Ce sont les carrés descendants: 12²,11²,10²,9², donc 8²=64."
+      },
+      {
+        "id": "RF-089",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 1,
+        "temps_sec": 50,
+        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "question": "1, 1, 2, 3, 5, 8, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "10",
+          "B": "11",
+          "C": "12",
+          "D": "13"
+        },
+        "answer": "D",
+        "explication": "Chaque terme est la somme des deux précédents."
+      },
+      {
+        "id": "RF-090",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 3,
+        "temps_sec": 50,
+        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "question": "7, 10, 16, 28, 52, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "92",
+          "B": "100",
+          "C": "104",
+          "D": "108"
+        },
+        "answer": "B",
+        "explication": "Les écarts doublent: +3,+6,+12,+24; ensuite +48, donc 100."
+      },
+      {
+        "id": "RF-091",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Matrices logiques textuelles",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "question": "Lignes: [3, 4, 10], [5, 2, 12], [6, 7, ?]",
+        "kind": "qcm",
+        "choices": {
+          "A": "17",
+          "B": "18",
+          "C": "19",
+          "D": "20"
+        },
+        "answer": "C",
+        "explication": "Troisième nombre = 2×premier + deuxième: 2×6+7=19."
+      },
+      {
+        "id": "RF-092",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Matrices logiques textuelles",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "question": "Lignes: [2, 3, 13], [1, 4, 17], [3, 5, ?]",
+        "kind": "qcm",
+        "choices": {
+          "A": "25",
+          "B": "29",
+          "C": "32",
+          "D": "34"
+        },
+        "answer": "D",
+        "explication": "Troisième nombre = carré du premier + carré du deuxième: 3²+5²=34."
+      },
+      {
+        "id": "RF-093",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Matrices logiques textuelles",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "question": "Lignes: [A, C, F], [B, D, G], [C, E, ?]. Les lettres avancent de +2 puis +3.",
+        "kind": "qcm",
+        "choices": {
+          "A": "G",
+          "B": "H",
+          "C": "I",
+          "D": "J"
+        },
+        "answer": "B",
+        "explication": "C +2 = E; E +3 = H."
+      },
+      {
+        "id": "RF-094",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Matrices logiques textuelles",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "question": "Colonnes: haut [2, 4, 6], milieu [3, 6, 9], bas [5, 10, ?]. Dans chaque colonne, bas = haut + milieu.",
+        "kind": "qcm",
+        "choices": {
+          "A": "12",
+          "B": "14",
+          "C": "15",
+          "D": "18"
+        },
+        "answer": "C",
+        "explication": "La troisième colonne donne 6+9=15."
+      },
+      {
+        "id": "RF-095",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Matrices logiques textuelles",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "question": "Carrés: 4→9, 7→15, 10→?",
+        "kind": "qcm",
+        "choices": {
+          "A": "21",
+          "B": "20",
+          "C": "19",
+          "D": "18"
+        },
+        "answer": "A",
+        "explication": "Règle: sortie = 2×entrée +1; 10 donne 21."
+      },
+      {
+        "id": "RF-096",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Matrices logiques textuelles",
+        "niveau": 1,
+        "temps_sec": 55,
+        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "question": "Triplets: (2,5,7), (4,1,5), (6,3,?) ; le troisième est la somme des deux premiers.",
+        "kind": "qcm",
+        "choices": {
+          "A": "6",
+          "B": "7",
+          "C": "8",
+          "D": "9"
+        },
+        "answer": "D",
+        "explication": "6+3=9."
+      },
+      {
+        "id": "RF-097",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Matrices logiques textuelles",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "question": "Triplets: (3,2,12), (4,3,24), (5,4,?) ; troisième = premier × deuxième × 2.",
+        "kind": "qcm",
+        "choices": {
+          "A": "30",
+          "B": "36",
+          "C": "40",
+          "D": "45"
+        },
+        "answer": "C",
+        "explication": "5×4×2=40."
+      },
+      {
+        "id": "RF-098",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Matrices logiques textuelles",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "question": "Matrice de signes: ligne 1: +, -, + ; ligne 2: -, +, - ; ligne 3: +, -, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "+",
+          "B": "-",
+          "C": "0",
+          "D": "×"
+        },
+        "answer": "A",
+        "explication": "Le motif alterne en damier; la troisième case de la ligne 3 est +."
+      },
+      {
+        "id": "RF-099",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Matrices logiques textuelles",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "question": "Lignes: [8, 4, 2], [18, 6, 3], [32, 8, ?]. Règle: premier ÷ deuxième = troisième.",
+        "kind": "qcm",
+        "choices": {
+          "A": "2",
+          "B": "3",
+          "C": "3,5",
+          "D": "4"
+        },
+        "answer": "D",
+        "explication": "32 ÷ 8 = 4."
+      },
+      {
+        "id": "RF-100",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Matrices logiques textuelles",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "question": "Lignes: [2, 8, 4], [3, 27, 9], [4, 64, ?]. Règle: deuxième = premier × troisième.",
+        "kind": "qcm",
+        "choices": {
+          "A": "12",
+          "B": "16",
+          "C": "20",
+          "D": "24"
+        },
+        "answer": "B",
+        "explication": "64 ÷ 4 = 16; la ligne est 4, 64, 16."
+      },
+      {
+        "id": "RF-101",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "question": "2 triangles = 1 carré. 1 carré + 1 triangle = 12. Combien vaut le carré ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "4",
+          "B": "8",
+          "C": "10",
+          "D": "12"
+        },
+        "answer": "B",
+        "explication": "Si carré=2T, alors 2T+T=12, donc T=4 et carré=8."
+      },
+      {
+        "id": "RF-102",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "question": "3 cercles = 1 losange. 1 losange + 1 cercle = 20. Combien vaut le cercle ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "5",
+          "B": "6",
+          "C": "10",
+          "D": "15"
+        },
+        "answer": "A",
+        "explication": "Losange=3C; 3C+C=20, donc C=5."
+      },
+      {
+        "id": "RF-103",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "question": "2 étoiles + 1 cercle = 13. Le cercle vaut étoile + 4. Combien vaut l'étoile ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "2",
+          "B": "2,5",
+          "C": "3",
+          "D": "4"
+        },
+        "answer": "C",
+        "explication": "2E+(E+4)=13, donc 3E=9 et E=3."
+      },
+      {
+        "id": "RF-104",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "question": "3 carrés = 2 cercles. 1 cercle vaut 6. Combien vaut un carré ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "3",
+          "B": "4",
+          "C": "6",
+          "D": "9"
+        },
+        "answer": "B",
+        "explication": "2 cercles valent 12; 3 carrés valent 12; un carré vaut 4."
+      },
+      {
+        "id": "RF-105",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "question": "2A + 3 = 11. A + B = 9. Combien vaut B ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "3",
+          "B": "4",
+          "C": "5",
+          "D": "6"
+        },
+        "answer": "C",
+        "explication": "2A=8 donc A=4; B=9-4=5."
+      },
+      {
+        "id": "RF-106",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "question": "X + Y = 17 et X - Y = 5. Combien vaut X ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "5",
+          "B": "6",
+          "C": "10",
+          "D": "11"
+        },
+        "answer": "D",
+        "explication": "En additionnant les équations: 2X=22, donc X=11."
+      },
+      {
+        "id": "RF-107",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "question": "4 pentagones = 2 losanges. 1 losange vaut 10. Combien vaut un pentagone ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "5",
+          "B": "10",
+          "C": "15",
+          "D": "20"
+        },
+        "answer": "A",
+        "explication": "2 losanges valent 20; 4 pentagones valent 20; un pentagone vaut 5."
+      },
+      {
+        "id": "RF-108",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "question": "2 livres équilibrent 1 livre + 3 kg. Combien pèse un livre ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "1 kg",
+          "B": "2 kg",
+          "C": "3 kg",
+          "D": "6 kg"
+        },
+        "answer": "C",
+        "explication": "En retirant 1 livre de chaque côté, 1 livre = 3 kg."
+      },
+      {
+        "id": "RF-109",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "question": "3 cubes = 2 cubes + 4 billes. Une bille vaut 2 g. Combien vaut un cube ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "2 g",
+          "B": "4 g",
+          "C": "6 g",
+          "D": "8 g"
+        },
+        "answer": "D",
+        "explication": "Un cube = 4 billes = 8 g."
+      },
+      {
+        "id": "RF-110",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "question": "2A + B = 16 et A + B = 11. Combien vaut B ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "5",
+          "B": "6",
+          "C": "7",
+          "D": "8"
+        },
+        "answer": "B",
+        "explication": "Soustraction: A=5; donc B=11-5=6."
+      },
+      {
+        "id": "RF-111",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "question": "Tous les dax sont des lons. Aucun lon n'est mer. Conclusion: aucun dax n'est mer.",
+        "kind": "qcm",
+        "choices": {
+          "A": "Valide",
+          "B": "Invalide",
+          "C": "Valide seulement si certains mers sont dax",
+          "D": "Impossible car les mots sont inventés"
+        },
+        "answer": "A",
+        "explication": "Si tout dax est lon et si aucun lon n'est mer, aucun dax ne peut être mer."
+      },
+      {
+        "id": "RF-112",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "question": "Tous les A sont B. Certains B sont C. Conclusion: certains A sont C.",
+        "kind": "qcm",
+        "choices": {
+          "A": "Valide",
+          "B": "Non déductible",
+          "C": "Contradictoire",
+          "D": "Toujours faux car A et C sont des lettres"
+        },
+        "answer": "B",
+        "explication": "Les B qui sont C peuvent être hors du sous-ensemble A."
+      },
+      {
+        "id": "RF-113",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "question": "Si la règle P est vraie, alors Q est vraie. Q est fausse. Que peut-on conclure sur P ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "P est vraie",
+          "B": "On ne sait rien",
+          "C": "P est fausse",
+          "D": "Q devient vraie"
+        },
+        "answer": "C",
+        "explication": "Modus tollens: P→Q et non-Q impliquent non-P."
+      },
+      {
+        "id": "RF-114",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "question": "Si un code est valide, il contient au moins un chiffre. Ce code ne contient aucun chiffre. Conclusion ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Il est valide",
+          "B": "Il n'est pas valide",
+          "C": "Il est plus court",
+          "D": "Il contient deux chiffres"
+        },
+        "answer": "B",
+        "explication": "Absence d'une condition nécessaire: le code ne peut pas être valide."
+      },
+      {
+        "id": "RF-115",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 5,
+        "temps_sec": 60,
+        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "question": "Exactement une des trois affirmations est vraie: A dit 'B est vraie'; B dit 'C est vraie'; C dit 'A est fausse'. Quelle affirmation est vraie ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "A",
+          "B": "B",
+          "C": "C",
+          "D": "Aucune"
+        },
+        "answer": "C",
+        "explication": "Si C est vraie, A est fausse et donc B est fausse; exactement une vraie. Les autres hypothèses échouent."
+      },
+      {
+        "id": "RF-116",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "question": "Dans une boîte, tous les jetons rouges sont grands. Un jeton est grand. Peut-on conclure qu'il est rouge ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Oui, forcément",
+          "B": "Non, il peut être grand sans être rouge",
+          "C": "Oui, s'il est dans la boîte",
+          "D": "Non, car aucun jeton rouge n'est grand"
+        },
+        "answer": "B",
+        "explication": "La règle donne rouge→grand, pas grand→rouge."
+      },
+      {
+        "id": "RF-117",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 2,
+        "temps_sec": 60,
+        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "question": "Trois interrupteurs A, B, C: exactement deux sont allumés. A est éteint. Que sait-on ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "B et C sont allumés",
+          "B": "B seul est allumé",
+          "C": "C seul est allumé",
+          "D": "A est allumé"
+        },
+        "answer": "A",
+        "explication": "S'il faut exactement deux allumés et A est éteint, les deux autres doivent être allumés."
+      },
+      {
+        "id": "RF-118",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 2,
+        "temps_sec": 60,
+        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "question": "On sait: si N alors O; si O alors P. N est vrai. Conclusion ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "P est faux",
+          "B": "O est faux",
+          "C": "Rien ne suit",
+          "D": "P est vrai"
+        },
+        "answer": "D",
+        "explication": "Chaînage logique: N→O→P."
+      },
+      {
+        "id": "RF-119",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 2,
+        "temps_sec": 60,
+        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "question": "Un classement respecte: L avant M, M avant N, et N avant O. Quelle proposition est certaine ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "O avant L",
+          "B": "L avant O",
+          "C": "N avant M",
+          "D": "M après O"
+        },
+        "answer": "B",
+        "explication": "La relation transitive donne L<M<N<O."
+      },
+      {
+        "id": "RF-120",
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "question": "Deux règles: soit X soit Y, mais pas les deux. Y est vrai. Conclusion ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "X est vrai",
+          "B": "X et Y sont vrais",
+          "C": "X est faux",
+          "D": "On ne peut rien dire"
+        },
+        "answer": "C",
+        "explication": "Un 'ou exclusif' interdit que les deux soient vrais; si Y est vrai, X est faux."
+      },
+      {
+        "id": "suite",
+        "kind": "objective",
+        "question": "Complète la suite : 2, 3, 5, 9, 17, … ?",
+        "answers": [
+          "33"
+        ],
+        "hint": "Regarde comment on passe d'un nombre au suivant : ×2, puis…"
+      },
+      {
+        "id": "suite_pas",
+        "kind": "objective",
+        "question": "Complète la suite : 3, 4, 6, 9, 13, … ?",
+        "answers": [
+          "18"
+        ],
+        "hint": "Regarde ce qu'on ajoute à chaque pas : +1, +2, +3…"
+      },
+      {
+        "id": "zorg",
+        "kind": "objective",
+        "question": "Tous les Zorgs sont bleus. Certains êtres bleus chantent. Peut-on être certain qu'au moins un Zorg chante ? (oui / non)",
+        "answers": [
+          "non"
+        ],
+        "hint": "Les chanteurs sont bleus… mais qui te dit que ce sont des Zorgs ?"
+      },
+      {
+        "id": "fibo",
+        "kind": "objective",
+        "question": "Complète la suite : 1, 1, 2, 3, 5, 8, … ?",
+        "answers": [
+          "13"
+        ],
+        "hint": "Chaque nombre naît des deux précédents."
+      },
+      {
+        "id": "grandeur",
+        "kind": "objective",
+        "question": "Léa est plus grande que Zoé. Marie est plus petite que Zoé. Qui est la plus grande des trois ?",
+        "answers": [
+          "lea",
+          "léa"
+        ],
+        "hint": "Classe-les sur une ligne."
+      },
+      {
+        "id": "jours",
+        "kind": "objective",
+        "question": "Si avant-hier était un samedi, quel jour serons-nous demain ?",
+        "answers": [
+          "mardi"
+        ],
+        "hint": "Avance pas à pas : avant-hier, hier, aujourd'hui…"
+      },
+      {
+        "id": "suite_premiers",
+        "kind": "objective",
+        "question": "Complète la suite : 2, 3, 5, 7, 11, … ?",
+        "answers": [
+          "13"
+        ],
+        "hint": "Ces nombres n'ont que deux diviseurs : 1 et eux-mêmes."
+      },
+      {
+        "id": "suite_carres",
+        "kind": "objective",
+        "question": "Complète la suite : 1, 4, 9, 16, 25, … ?",
+        "answers": [
+          "36"
+        ],
+        "hint": "1×1, 2×2, 3×3, 4×4…"
+      },
+      {
+        "id": "syllogisme_roses",
+        "kind": "objective",
+        "question": "Toutes les roses sont des fleurs. Certaines fleurs fanent vite. Peut-on être certain qu'au moins une rose fane vite ? (oui / non)",
+        "answers": [
+          "non"
+        ],
+        "hint": "Les fleurs qui fanent vite ne sont pas forcément des roses."
+      },
+      {
+        "id": "jours_2",
+        "kind": "objective",
+        "question": "Si dans trois jours ce sera vendredi, quel jour était-ce hier ?",
+        "answers": [
+          "lundi"
+        ],
+        "hint": "Trouve d'abord quel jour on est aujourd'hui."
+      },
+      {
+        "id": "suite_x3",
+        "kind": "objective",
+        "question": "Complète la suite : 2, 6, 18, 54, … ?",
+        "answers": [
+          "162"
+        ],
+        "hint": "On multiplie par le même nombre à chaque étape."
+      },
+      {
+        "id": "suite_alt",
+        "kind": "objective",
+        "question": "Complète la suite : 1, 2, 4, 7, 11, 16, … ?",
+        "answers": [
+          "22"
+        ],
+        "hint": "Le saut grandit de 1 à chaque fois : +1, +2, +3…"
+      },
+      {
+        "id": "syllogisme_chats",
+        "kind": "objective",
+        "question": "Tous les chats sont des animaux. Aucun animal ne parle. Un chat peut-il parler ? (oui / non)",
+        "answers": [
+          "non"
+        ],
+        "hint": "Si aucun animal ne parle, et qu'un chat est un animal…"
+      },
+      {
+        "id": "suite_moins",
+        "kind": "objective",
+        "question": "Complète la suite : 64, 32, 16, 8, … ?",
+        "answers": [
+          "4"
+        ],
+        "hint": "On divise par 2 à chaque étape."
+      },
+      {
+        "id": "suite_fact",
+        "kind": "objective",
+        "question": "Complète la suite : 1, 2, 6, 24, 120, … ?",
+        "answers": [
+          "720"
+        ],
+        "hint": "On multiplie par 2, puis par 3, puis par 4…"
+      },
+      {
+        "id": "ordre_taille",
+        "kind": "objective",
+        "question": "Tom court plus vite que Lina. Lina court plus vite que Sam. Qui est le plus lent ?",
+        "answers": [
+          "sam"
+        ],
+        "hint": "Classe-les du plus rapide au plus lent."
+      },
+      {
+        "id": "suite_impairs",
+        "kind": "objective",
+        "question": "Complète la suite : 1, 3, 5, 7, 9, … ?",
+        "answers": [
+          "11"
+        ],
+        "hint": "Ce sont les nombres impairs."
+      },
+      {
+        "id": "suite_double_un",
+        "kind": "objective",
+        "question": "Complète la suite : 1, 2, 4, 8, 16, … ?",
+        "answers": [
+          "32"
+        ],
+        "hint": "On double à chaque étape."
+      },
+      {
+        "id": "syllogisme_oiseaux",
+        "kind": "objective",
+        "question": "Tous les pingouins sont des oiseaux. Aucun pingouin ne vole. Tous les oiseaux volent-ils ? (oui / non)",
+        "answers": [
+          "non"
+        ],
+        "hint": "Le pingouin est un oiseau… qui ne vole pas."
+      },
+      {
+        "id": "suite_diff2",
+        "kind": "objective",
+        "question": "Complète la suite : 5, 10, 20, 40, … ?",
+        "answers": [
+          "80"
+        ],
+        "hint": "On double à chaque étape."
+      },
+      {
+        "id": "suite_minus3",
+        "kind": "objective",
+        "question": "Complète la suite : 100, 97, 94, 91, … ?",
+        "answers": [
+          "88"
+        ],
+        "hint": "On retire 3 à chaque étape."
+      },
+      {
+        "id": "jours_3",
+        "kind": "objective",
+        "question": "Si hier était mercredi, quel jour serons-nous après-demain ?",
+        "answers": [
+          "samedi"
+        ],
+        "hint": "Aujourd'hui, c'est le lendemain d'hier."
+      },
+      {
+        "id": "marquepage",
+        "kind": "objective",
+        "question": "Un livre et son marque-page coûtent 11 € en tout. Le livre coûte 10 € de plus que le marque-page. Combien coûte le marque-page ?",
+        "answers": [
+          "0.5",
+          "50",
+          "cinquante centimes",
+          "un demi euro"
+        ],
+        "hint": "S'il coûtait 1 €, le total ferait 12 €…"
+      },
+      {
+        "id": "machines",
+        "kind": "objective",
+        "question": "5 machines fabriquent 5 pièces en 5 minutes. Combien de minutes faut-il à 100 machines pour fabriquer 100 pièces ?",
+        "answers": [
+          "5",
+          "cinq"
+        ],
+        "hint": "Combien de temps met UNE machine pour UNE pièce ?"
+      },
+      {
+        "id": "nenuphar",
+        "kind": "objective",
+        "question": "Sur un étang, un nénuphar double de surface chaque jour. Il couvre tout l'étang en 48 jours. En combien de jours en couvrait-il la moitié ?",
+        "answers": [
+          "47",
+          "quarante-sept",
+          "quarante sept"
+        ],
+        "hint": "Pense à l'envers, depuis la fin."
+      },
+      {
+        "id": "fratrie",
+        "kind": "objective",
+        "question": "Léo a autant de frères que de sœurs. Sa sœur Jade a deux fois plus de frères que de sœurs. Combien d'enfants compte la fratrie ?",
+        "answers": [
+          "7",
+          "sept"
+        ],
+        "hint": "Essaie avec de petits nombres : 4 garçons, 3 filles…"
+      },
+      {
+        "id": "escargot",
+        "kind": "objective",
+        "question": "Un escargot grimpe un mur de 10 mètres. Le jour il monte de 3 mètres, mais la nuit il glisse de 2 mètres. En combien de jours atteint-il le sommet ?",
+        "answers": [
+          "8",
+          "huit",
+          "8 jours",
+          "huit jours"
+        ],
+        "hint": "Le dernier jour, une fois en haut, il ne reglisse pas."
+      },
+      {
+        "id": "chaussettes",
+        "kind": "objective",
+        "question": "Dans un tiroir, 10 chaussettes noires et 10 bleues sont mélangées dans le noir. Combien dois-tu en sortir au minimum pour être sûr d'avoir deux chaussettes de la même couleur ?",
+        "answers": [
+          "3",
+          "trois"
+        ],
+        "hint": "Avec deux seulement, tu peux tomber sur une de chaque couleur."
+      },
+      {
+        "id": "prix_remise",
+        "kind": "objective",
+        "question": "Un pull coûte 80 €. Il est soldé à -25 %. Quel est son prix soldé ?",
+        "answers": [
+          "60",
+          "60 euros",
+          "soixante",
+          "60€"
+        ],
+        "hint": "25 % de 80 €, c'est 20 €."
+      },
+      {
+        "id": "age_double",
+        "kind": "objective",
+        "question": "Aujourd'hui, Maya a 8 ans et sa mère 34 ans. Dans combien d'années la mère aura-t-elle exactement le double de l'âge de Maya ?",
+        "answers": [
+          "18",
+          "dix-huit",
+          "dix huit",
+          "18 ans"
+        ],
+        "hint": "Écris l'égalité : 34 + x = 2 × (8 + x)."
+      },
+      {
+        "id": "poignees_main",
+        "kind": "objective",
+        "question": "Dans une pièce, 5 personnes se serrent chacune la main une fois avec toutes les autres. Combien de poignées de main en tout ?",
+        "answers": [
+          "10",
+          "dix"
+        ],
+        "hint": "Chacune en serre 4, mais chaque poignée se compte une seule fois."
+      },
+      {
+        "id": "trois_chats",
+        "kind": "objective",
+        "question": "Si 3 chats attrapent 3 souris en 3 minutes, combien de chats faut-il pour attraper 100 souris en 100 minutes ?",
+        "answers": [
+          "3",
+          "trois"
+        ],
+        "hint": "Combien de souris UN chat attrape-t-il en 100 minutes ?"
+      },
+      {
+        "id": "douzaine_demi",
+        "kind": "objective",
+        "question": "La moitié d'une demi-douzaine d'œufs, plus deux, ça fait combien ?",
+        "answers": [
+          "5",
+          "cinq"
+        ],
+        "hint": "Une demi-douzaine, c'est 6."
+      },
+      {
+        "id": "minutes_heures",
+        "kind": "objective",
+        "question": "Combien de minutes y a-t-il dans un quart de journée ?",
+        "answers": [
+          "360"
+        ],
+        "hint": "Une journée fait 24 heures."
+      },
+      {
+        "id": "train_vitesse",
+        "kind": "objective",
+        "question": "Un train parcourt 60 km en 45 minutes. Quelle distance parcourt-il en 1 heure à la même vitesse ?",
+        "answers": [
+          "80",
+          "80 km",
+          "quatre-vingts",
+          "quatre vingts"
+        ],
+        "hint": "En 15 minutes de plus (un tiers), il parcourt un tiers de plus."
+      },
+      {
+        "id": "bonbons_partage",
+        "kind": "objective",
+        "question": "On partage 24 bonbons également entre 6 enfants. Puis 2 enfants s'en vont en laissant leurs bonbons aux 4 qui restent, partagés également. Combien chaque enfant restant a-t-il de bonbons ?",
+        "answers": [
+          "6",
+          "six"
+        ],
+        "hint": "Chacun a 4 au départ ; 2 enfants laissent 8 bonbons à 4 enfants."
+      },
+      {
+        "id": "double_moitie",
+        "kind": "objective",
+        "question": "Je pense à un nombre. Je le double, puis j'ajoute 10, et j'obtiens 30. Quel est mon nombre ?",
+        "answers": [
+          "10",
+          "dix"
+        ],
+        "hint": "Remonte à l'envers : avant le +10, c'était 20."
+      },
+      {
+        "id": "crayons_boites",
+        "kind": "objective",
+        "question": "12 crayons coûtent 3 €. Combien coûtent 20 crayons au même prix unitaire ?",
+        "answers": [
+          "5",
+          "cinq",
+          "5 euros",
+          "5€"
+        ],
+        "hint": "Un crayon coûte 25 centimes."
+      },
+      {
+        "id": "horloge_sonne",
+        "kind": "objective",
+        "question": "Une horloge met 6 secondes pour sonner 4 coups. Combien de secondes met-elle pour sonner 7 coups ?",
+        "answers": [
+          "12",
+          "douze"
+        ],
+        "hint": "Compte les INTERVALLES entre les coups, pas les coups eux-mêmes."
+      },
+      {
+        "id": "ages_somme",
+        "kind": "objective",
+        "question": "Deux nombres : leur somme fait 10 et leur différence fait 4. Quel est le plus grand ?",
+        "answers": [
+          "7",
+          "sept"
+        ],
+        "hint": "Additionne les deux : la somme des deux nombres plus leur différence donne deux fois le plus grand."
+      },
+      {
+        "id": "pommes_reste",
+        "kind": "objective",
+        "question": "J'ai 10 pommes. J'en donne la moitié, puis j'en mange 2. Combien m'en reste-t-il ?",
+        "answers": [
+          "3",
+          "trois"
+        ],
+        "hint": "La moitié de 10, puis on retire 2."
+      },
+      {
+        "id": "fourmi_pattes",
+        "kind": "objective",
+        "question": "Combien de pattes ont en tout 3 araignées (8 pattes chacune) et 4 fourmis (6 pattes chacune) ?",
+        "answers": [
+          "48",
+          "quarante-huit",
+          "quarante huit"
+        ],
+        "hint": "3 × 8, plus 4 × 6."
+      },
+      {
+        "id": "remise_deux",
+        "kind": "objective",
+        "question": "Un jeu coûte 40 €. On applique -50 %, puis encore -10 % sur le prix déjà réduit. Quel est le prix final ?",
+        "answers": [
+          "18",
+          "18 euros",
+          "dix-huit",
+          "18€"
+        ],
+        "hint": "Les remises s'appliquent l'une après l'autre, pas en s'additionnant."
+      }
+    ]
+  },
+  {
+    "dimension": "memoire",
+    "label": "Mémoire de travail",
+    "pool": [
+      {
+        "id": "MT-121",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan envers",
+        "niveau": 1,
+        "temps_sec": 35,
+        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "question": "7-2-9-4",
+        "kind": "objective",
+        "answers": [
+          "4-9-2-7"
+        ],
+        "hint": "La suite est simplement renversée: 4-9-2-7."
+      },
+      {
+        "id": "MT-122",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan envers",
+        "niveau": 2,
+        "temps_sec": 40,
+        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "question": "3-8-1-6-5",
+        "kind": "objective",
+        "answers": [
+          "5-6-1-8-3"
+        ],
+        "hint": "La suite est simplement renversée: 5-6-1-8-3."
+      },
+      {
+        "id": "MT-123",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan envers",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "question": "9-4-2-7-1-8",
+        "kind": "objective",
+        "answers": [
+          "8-1-7-2-4-9"
+        ],
+        "hint": "La suite est simplement renversée: 8-1-7-2-4-9."
+      },
+      {
+        "id": "MT-124",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan envers",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "question": "5-1-9-3-8-2-6",
+        "kind": "objective",
+        "answers": [
+          "6-2-8-3-9-1-5"
+        ],
+        "hint": "La suite est simplement renversée: 6-2-8-3-9-1-5."
+      },
+      {
+        "id": "MT-125",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan envers",
+        "niveau": 5,
+        "temps_sec": 55,
+        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "question": "8-6-2-9-4-7-3-1",
+        "kind": "objective",
+        "answers": [
+          "1-3-7-4-9-2-6-8"
+        ],
+        "hint": "La suite est simplement renversée: 1-3-7-4-9-2-6-8."
+      },
+      {
+        "id": "MT-126",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan envers",
+        "niveau": 2,
+        "temps_sec": 40,
+        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "question": "2-5-8-1-4",
+        "kind": "objective",
+        "answers": [
+          "4-1-8-5-2"
+        ],
+        "hint": "La suite est simplement renversée: 4-1-8-5-2."
+      },
+      {
+        "id": "MT-127",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan envers",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "question": "6-3-7-9-2-5",
+        "kind": "objective",
+        "answers": [
+          "5-2-9-7-3-6"
+        ],
+        "hint": "La suite est simplement renversée: 5-2-9-7-3-6."
+      },
+      {
+        "id": "MT-128",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan envers",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "question": "4-8-1-5-9-2-7",
+        "kind": "objective",
+        "answers": [
+          "7-2-9-5-1-8-4"
+        ],
+        "hint": "La suite est simplement renversée: 7-2-9-5-1-8-4."
+      },
+      {
+        "id": "MT-129",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan envers",
+        "niveau": 5,
+        "temps_sec": 55,
+        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "question": "1-7-3-6-8-4-9-2",
+        "kind": "objective",
+        "answers": [
+          "2-9-4-8-6-3-7-1"
+        ],
+        "hint": "La suite est simplement renversée: 2-9-4-8-6-3-7-1."
+      },
+      {
+        "id": "MT-130",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan envers",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "question": "9-2-6-1-8-5-3",
+        "kind": "objective",
+        "answers": [
+          "3-5-8-1-6-2-9"
+        ],
+        "hint": "La suite est simplement renversée: 3-5-8-1-6-2-9."
+      },
+      {
+        "id": "MT-131",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan ordre croissant",
+        "niveau": 1,
+        "temps_sec": 40,
+        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "question": "6-1-9-3",
+        "kind": "objective",
+        "answers": [
+          "1-3-6-9"
+        ],
+        "hint": "Les chiffres sont triés du plus petit au plus grand: 1-3-6-9."
+      },
+      {
+        "id": "MT-132",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan ordre croissant",
+        "niveau": 2,
+        "temps_sec": 45,
+        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "question": "4-8-2-7-1",
+        "kind": "objective",
+        "answers": [
+          "1-2-4-7-8"
+        ],
+        "hint": "Les chiffres sont triés du plus petit au plus grand: 1-2-4-7-8."
+      },
+      {
+        "id": "MT-133",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan ordre croissant",
+        "niveau": 3,
+        "temps_sec": 50,
+        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "question": "9-0-5-2-8-3",
+        "kind": "objective",
+        "answers": [
+          "0-2-3-5-8-9"
+        ],
+        "hint": "Les chiffres sont triés du plus petit au plus grand: 0-2-3-5-8-9."
+      },
+      {
+        "id": "MT-134",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan ordre croissant",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "question": "7-4-1-6-9-2-5",
+        "kind": "objective",
+        "answers": [
+          "1-2-4-5-6-7-9"
+        ],
+        "hint": "Les chiffres sont triés du plus petit au plus grand: 1-2-4-5-6-7-9."
+      },
+      {
+        "id": "MT-135",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan ordre croissant",
+        "niveau": 5,
+        "temps_sec": 60,
+        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "question": "8-3-0-6-1-9-4-2",
+        "kind": "objective",
+        "answers": [
+          "0-1-2-3-4-6-8-9"
+        ],
+        "hint": "Les chiffres sont triés du plus petit au plus grand: 0-1-2-3-4-6-8-9."
+      },
+      {
+        "id": "MT-136",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan ordre croissant",
+        "niveau": 2,
+        "temps_sec": 45,
+        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "question": "5-2-9-1-6",
+        "kind": "objective",
+        "answers": [
+          "1-2-5-6-9"
+        ],
+        "hint": "Les chiffres sont triés du plus petit au plus grand: 1-2-5-6-9."
+      },
+      {
+        "id": "MT-137",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan ordre croissant",
+        "niveau": 3,
+        "temps_sec": 50,
+        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "question": "3-8-0-7-4-1",
+        "kind": "objective",
+        "answers": [
+          "0-1-3-4-7-8"
+        ],
+        "hint": "Les chiffres sont triés du plus petit au plus grand: 0-1-3-4-7-8."
+      },
+      {
+        "id": "MT-138",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan ordre croissant",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "question": "9-6-2-5-8-1-7",
+        "kind": "objective",
+        "answers": [
+          "1-2-5-6-7-8-9"
+        ],
+        "hint": "Les chiffres sont triés du plus petit au plus grand: 1-2-5-6-7-8-9."
+      },
+      {
+        "id": "MT-139",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan ordre croissant",
+        "niveau": 5,
+        "temps_sec": 60,
+        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "question": "4-0-8-3-9-1-6-2",
+        "kind": "objective",
+        "answers": [
+          "0-1-2-3-4-6-8-9"
+        ],
+        "hint": "Les chiffres sont triés du plus petit au plus grand: 0-1-2-3-4-6-8-9."
+      },
+      {
+        "id": "MT-140",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Empan ordre croissant",
+        "niveau": 3,
+        "temps_sec": 50,
+        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "question": "2-7-5-0-9-4",
+        "kind": "objective",
+        "answers": [
+          "0-2-4-5-7-9"
+        ],
+        "hint": "Les chiffres sont triés du plus petit au plus grand: 0-2-4-5-7-9."
+      },
+      {
+        "id": "MT-141",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Séquençage lettres-nombres",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "question": "B-4-A-7-C-2",
+        "kind": "objective",
+        "answers": [
+          "2-4-7-A-B-C"
+        ],
+        "hint": "On place les chiffres en ordre croissant puis les lettres en ordre alphabétique: 2-4-7-A-B-C."
+      },
+      {
+        "id": "MT-142",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Séquençage lettres-nombres",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "question": "D-9-A-1-C-5",
+        "kind": "objective",
+        "answers": [
+          "1-5-9-A-C-D"
+        ],
+        "hint": "On place les chiffres en ordre croissant puis les lettres en ordre alphabétique: 1-5-9-A-C-D."
+      },
+      {
+        "id": "MT-143",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Séquençage lettres-nombres",
+        "niveau": 4,
+        "temps_sec": 65,
+        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "question": "F-3-B-8-E-0-A",
+        "kind": "objective",
+        "answers": [
+          "0-3-8-A-B-E-F"
+        ],
+        "hint": "On place les chiffres en ordre croissant puis les lettres en ordre alphabétique: 0-3-8-A-B-E-F."
+      },
+      {
+        "id": "MT-144",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Séquençage lettres-nombres",
+        "niveau": 5,
+        "temps_sec": 70,
+        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "question": "C-6-G-2-A-9-D-1",
+        "kind": "objective",
+        "answers": [
+          "1-2-6-9-A-C-D-G"
+        ],
+        "hint": "On place les chiffres en ordre croissant puis les lettres en ordre alphabétique: 1-2-6-9-A-C-D-G."
+      },
+      {
+        "id": "MT-145",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Séquençage lettres-nombres",
+        "niveau": 5,
+        "temps_sec": 70,
+        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "question": "H-4-B-7-E-2-A-5",
+        "kind": "objective",
+        "answers": [
+          "2-4-5-7-A-B-E-H"
+        ],
+        "hint": "On place les chiffres en ordre croissant puis les lettres en ordre alphabétique: 2-4-5-7-A-B-E-H."
+      },
+      {
+        "id": "MT-146",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Séquençage lettres-nombres",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "question": "A-8-D-3-B",
+        "kind": "objective",
+        "answers": [
+          "3-8-A-B-D"
+        ],
+        "hint": "On place les chiffres en ordre croissant puis les lettres en ordre alphabétique: 3-8-A-B-D."
+      },
+      {
+        "id": "MT-147",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Séquençage lettres-nombres",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "question": "E-1-C-9-F-4",
+        "kind": "objective",
+        "answers": [
+          "1-4-9-C-E-F"
+        ],
+        "hint": "On place les chiffres en ordre croissant puis les lettres en ordre alphabétique: 1-4-9-C-E-F."
+      },
+      {
+        "id": "MT-148",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Séquençage lettres-nombres",
+        "niveau": 4,
+        "temps_sec": 65,
+        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "question": "G-0-B-6-D-2-A",
+        "kind": "objective",
+        "answers": [
+          "0-2-6-A-B-D-G"
+        ],
+        "hint": "On place les chiffres en ordre croissant puis les lettres en ordre alphabétique: 0-2-6-A-B-D-G."
+      },
+      {
+        "id": "MT-149",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Séquençage lettres-nombres",
+        "niveau": 5,
+        "temps_sec": 70,
+        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "question": "F-5-H-1-C-8-A-3",
+        "kind": "objective",
+        "answers": [
+          "1-3-5-8-A-C-F-H"
+        ],
+        "hint": "On place les chiffres en ordre croissant puis les lettres en ordre alphabétique: 1-3-5-8-A-C-F-H."
+      },
+      {
+        "id": "MT-150",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Séquençage lettres-nombres",
+        "niveau": 5,
+        "temps_sec": 70,
+        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "question": "D-2-I-7-B-0-E-4",
+        "kind": "objective",
+        "answers": [
+          "0-2-4-7-B-D-E-I"
+        ],
+        "hint": "On place les chiffres en ordre croissant puis les lettres en ordre alphabétique: 0-2-4-7-B-D-E-I."
+      },
+      {
+        "id": "MT-151",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Mise à jour mentale",
+        "niveau": 1,
+        "temps_sec": 55,
+        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "question": "Départ 6. +3, ×2, -5 = ?",
+        "kind": "objective",
+        "answers": [
+          "13"
+        ],
+        "hint": "6+3=9; 9×2=18; 18-5=13."
+      },
+      {
+        "id": "MT-152",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Mise à jour mentale",
+        "niveau": 2,
+        "temps_sec": 60,
+        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "question": "Départ 12. -4, ×3, +2 = ?",
+        "kind": "objective",
+        "answers": [
+          "26"
+        ],
+        "hint": "12-4=8; 8×3=24; 24+2=26."
+      },
+      {
+        "id": "MT-153",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Mise à jour mentale",
+        "niveau": 2,
+        "temps_sec": 60,
+        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "question": "Départ 5. ×4, -6, ÷2 = ?",
+        "kind": "objective",
+        "answers": [
+          "7"
+        ],
+        "hint": "5×4=20; 20-6=14; 14÷2=7."
+      },
+      {
+        "id": "MT-154",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Mise à jour mentale",
+        "niveau": 3,
+        "temps_sec": 65,
+        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "question": "Départ 9. +7, ÷4, ×6 = ?",
+        "kind": "objective",
+        "answers": [
+          "24"
+        ],
+        "hint": "9+7=16; 16÷4=4; 4×6=24."
+      },
+      {
+        "id": "MT-155",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Mise à jour mentale",
+        "niveau": 4,
+        "temps_sec": 70,
+        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "question": "Départ 15. -3, ÷2, +11, ×2 = ?",
+        "kind": "objective",
+        "answers": [
+          "34"
+        ],
+        "hint": "15-3=12; 12÷2=6; 6+11=17; 17×2=34."
+      },
+      {
+        "id": "MT-156",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Mise à jour mentale",
+        "niveau": 3,
+        "temps_sec": 65,
+        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "question": "Départ 8. ×3, +4, ÷2, -7 = ?",
+        "kind": "objective",
+        "answers": [
+          "7"
+        ],
+        "hint": "8×3=24; +4=28; ÷2=14; -7=7."
+      },
+      {
+        "id": "MT-157",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Mise à jour mentale",
+        "niveau": 4,
+        "temps_sec": 70,
+        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "question": "Départ 21. ÷3, +8, ×2, -5 = ?",
+        "kind": "objective",
+        "answers": [
+          "25"
+        ],
+        "hint": "21÷3=7; +8=15; ×2=30; -5=25."
+      },
+      {
+        "id": "MT-158",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Mise à jour mentale",
+        "niveau": 4,
+        "temps_sec": 70,
+        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "question": "Départ 4. +9, ×3, -6, ÷3 = ?",
+        "kind": "objective",
+        "answers": [
+          "11"
+        ],
+        "hint": "4+9=13; ×3=39; -6=33; ÷3=11."
+      },
+      {
+        "id": "MT-159",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Mise à jour mentale",
+        "niveau": 4,
+        "temps_sec": 70,
+        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "question": "Départ 18. -5, ×2, +7, ÷3 = ?",
+        "kind": "objective",
+        "answers": [
+          "11"
+        ],
+        "hint": "18-5=13; ×2=26; +7=33; ÷3=11."
+      },
+      {
+        "id": "MT-160",
+        "domaine": "Mémoire de travail",
+        "sous_type": "Mise à jour mentale",
+        "niveau": 5,
+        "temps_sec": 75,
+        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "question": "Départ 11. +5, ÷4, +9, ×3, -6 = ?",
+        "kind": "objective",
+        "answers": [
+          "33"
+        ],
+        "hint": "11+5=16; ÷4=4; +9=13; ×3=39; -6=33."
+      }
+    ]
+  },
+  {
+    "dimension": "spatial",
+    "label": "Raisonnement visuo-spatial",
+    "pool": [
+      {
+        "id": "VS-041",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Transformations mentales",
+        "niveau": 2,
+        "temps_sec": 50,
+        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "question": "Sur une grille 5x5, le point est en (ligne 2, colonne 1). On le reflète par rapport à l'axe vertical central (colonne 3). Quelle est sa nouvelle position ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(2,2)",
+          "B": "(2,3)",
+          "C": "(2,5)",
+          "D": "(4,1)"
+        },
+        "answer": "C",
+        "explication": "La colonne 1 devient la colonne 5; la ligne reste 2."
+      },
+      {
+        "id": "VS-042",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Transformations mentales",
+        "niveau": 3,
+        "temps_sec": 50,
+        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "question": "Une flèche ↑ subit une rotation de 90° dans le sens horaire, puis une symétrie haut/bas. Quelle direction finale ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "↑",
+          "B": "→",
+          "C": "↓",
+          "D": "←"
+        },
+        "answer": "B",
+        "explication": "↑ tourné de 90° horaire devient →; un miroir haut/bas ne change pas une flèche horizontale."
+      },
+      {
+        "id": "VS-043",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Transformations mentales",
+        "niveau": 2,
+        "temps_sec": 50,
+        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "question": "Départ en B2 sur une grille A-D / 1-4. Déplacements: droite, droite, bas, gauche, haut. Case finale ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "B2",
+          "B": "C2",
+          "C": "C3",
+          "D": "D3"
+        },
+        "answer": "B",
+        "explication": "B2 → C2 → D2 → D3 → C3 → C2."
+      },
+      {
+        "id": "VS-044",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Transformations mentales",
+        "niveau": 3,
+        "temps_sec": 50,
+        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "question": "Sur une grille 4x4, un carré occupe (1,2). Après rotation de 180° autour du centre de la grille, où se trouve-t-il ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(1,3)",
+          "B": "(2,1)",
+          "C": "(3,2)",
+          "D": "(4,3)"
+        },
+        "answer": "D",
+        "explication": "Dans une grille 4x4, la rotation 180° transforme (r,c) en (5-r, 5-c), donc (4,3)."
+      },
+      {
+        "id": "VS-045",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Transformations mentales",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "question": "Une forme en L occupe dans un carré 2x2 les cases (1,1), (2,1), (2,2). Après rotation 90° horaire, quelles cases sont occupées ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(1,1), (1,2), (2,1)",
+          "B": "(1,2), (2,1), (2,2)",
+          "C": "(1,1), (1,2), (2,2)",
+          "D": "(1,1), (2,1), (2,2)"
+        },
+        "answer": "A",
+        "explication": "Rotation 90° horaire dans 2x2: (r,c) devient (c,3-r)."
+      },
+      {
+        "id": "VS-046",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Transformations mentales",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "question": "Un segment va de (2,1) à (2,4) dans une grille 4x4. Après réflexion sur la diagonale principale (ligne=colonne), où va-t-il ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "De (2,1) à (2,4)",
+          "B": "De (1,3) à (4,3)",
+          "C": "De (1,2) à (4,2)",
+          "D": "De (3,1) à (3,4)"
+        },
+        "answer": "C",
+        "explication": "La réflexion sur la diagonale échange ligne et colonne: (2,1)→(1,2), (2,4)→(4,2)."
+      },
+      {
+        "id": "VS-047",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Transformations mentales",
+        "niveau": 2,
+        "temps_sec": 50,
+        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "question": "Une flèche ↗ est tournée de 90° dans le sens antihoraire. Quelle direction obtient-on ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "↗",
+          "B": "↘",
+          "C": "↙",
+          "D": "↖"
+        },
+        "answer": "D",
+        "explication": "↗ tourné de 90° antihoraire pointe vers ↖."
+      },
+      {
+        "id": "VS-048",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Transformations mentales",
+        "niveau": 5,
+        "temps_sec": 50,
+        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "question": "Dans une grille 5x5, un motif a pour centre (3,3) et un point en (1,4). Après rotation 90° horaire autour du centre, où va ce point ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(2,1)",
+          "B": "(4,5)",
+          "C": "(5,2)",
+          "D": "(1,2)"
+        },
+        "answer": "B",
+        "explication": "Par rapport au centre, (1,4) a déplacement (-2,+1). Rotation horaire: (+1,+2), donc (4,5)."
+      },
+      {
+        "id": "VS-049",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Transformations mentales",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "question": "Une pièce occupe (1,1), (1,2), (2,2), (3,2) dans une grille 3x3. Après réflexion gauche/droite, quelles cases sont occupées ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(1,2), (1,3), (2,2), (3,2)",
+          "B": "(1,1), (2,1), (2,2), (2,3)",
+          "C": "(1,1), (1,2), (2,1), (3,1)",
+          "D": "(1,2), (2,2), (3,2), (3,3)"
+        },
+        "answer": "A",
+        "explication": "Dans une grille 3x3, la colonne c devient 4-c; les colonnes 1 et 2 deviennent 3 et 2."
+      },
+      {
+        "id": "VS-050",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Transformations mentales",
+        "niveau": 3,
+        "temps_sec": 50,
+        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "question": "On regarde une horloge dans un miroir vertical. L'aiguille qui pointe vers 2 semble pointer vers quelle heure ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "2",
+          "B": "4",
+          "C": "10",
+          "D": "8"
+        },
+        "answer": "C",
+        "explication": "Le miroir vertical inverse gauche/droite: 2 heures se reflète en 10 heures."
+      },
+      {
+        "id": "VS-051",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Patrons de cube",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "question": "Patron en croix: centre=Rouge, haut=Bleu, bas=Vert, gauche=Jaune, droite=Noir, case sous le bas=Blanc. Quelle face est opposée au Rouge ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Bleu",
+          "B": "Vert",
+          "C": "Jaune",
+          "D": "Blanc"
+        },
+        "answer": "D",
+        "explication": "Dans ce patron, le centre est opposé à la case extérieure sous le bas."
+      },
+      {
+        "id": "VS-052",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Patrons de cube",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "question": "Même patron en croix: centre=1, haut=2, bas=3, gauche=4, droite=5, case sous le bas=6. Quelle face est opposée à 2 ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "1",
+          "B": "4",
+          "C": "3",
+          "D": "6"
+        },
+        "answer": "C",
+        "explication": "La face du haut et la face du bas deviennent opposées."
+      },
+      {
+        "id": "VS-053",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Patrons de cube",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "question": "Même patron en croix: centre=A, haut=B, bas=C, gauche=D, droite=E, case sous le bas=F. Quelle face est opposée à D ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "A",
+          "B": "E",
+          "C": "B",
+          "D": "F"
+        },
+        "answer": "B",
+        "explication": "Les faces gauche et droite du centre sont opposées."
+      },
+      {
+        "id": "VS-054",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Patrons de cube",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "question": "Patron en ligne: A-B-C-D en rangée; E au-dessus de B; F au-dessous de B. Quelle face est opposée à B ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "A",
+          "B": "C",
+          "C": "E",
+          "D": "D"
+        },
+        "answer": "D",
+        "explication": "Dans ce patron, B est la face avant et D devient la face arrière, donc opposée."
+      },
+      {
+        "id": "VS-055",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Patrons de cube",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "question": "Patron en ligne: A-B-C-D; E au-dessus de B; F au-dessous de B. Quelle face est opposée à E ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "A",
+          "B": "B",
+          "C": "F",
+          "D": "D"
+        },
+        "answer": "C",
+        "explication": "E et F se replient en haut et bas: elles sont opposées."
+      },
+      {
+        "id": "VS-056",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Patrons de cube",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "question": "Patron en ligne: A-B-C-D; E au-dessus de B; F au-dessous de B. Quelle face est opposée à A ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "B",
+          "B": "C",
+          "C": "D",
+          "D": "F"
+        },
+        "answer": "B",
+        "explication": "A et C deviennent les faces gauche et droite, donc opposées."
+      },
+      {
+        "id": "VS-057",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Patrons de cube",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "question": "Patron en croix: centre=Lune, haut=Étoile, bas=Soleil, gauche=Nuage, droite=Pluie, case sous le bas=Vent. Quelle face est opposée à Soleil ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Lune",
+          "B": "Étoile",
+          "C": "Vent",
+          "D": "Pluie"
+        },
+        "answer": "B",
+        "explication": "Le haut et le bas de la croix deviennent des faces opposées."
+      },
+      {
+        "id": "VS-058",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Patrons de cube",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "question": "Patron en croix: centre=M, haut=N, bas=O, gauche=P, droite=Q, case sous le bas=R. Si M est devant, quelle face est derrière ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "N",
+          "B": "O",
+          "C": "P",
+          "D": "R"
+        },
+        "answer": "D",
+        "explication": "La case extérieure R se replie à l'arrière de M."
+      },
+      {
+        "id": "VS-059",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Patrons de cube",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "question": "Patron en ligne: 1-2-3-4; 5 au-dessus de 2; 6 au-dessous de 2. Si 2 est devant et 5 est dessus, quelle face est à droite ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "1",
+          "B": "4",
+          "C": "3",
+          "D": "6"
+        },
+        "answer": "C",
+        "explication": "Avec 2 devant, 3 se replie à droite, 1 à gauche, 4 derrière."
+      },
+      {
+        "id": "VS-060",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Patrons de cube",
+        "niveau": 5,
+        "temps_sec": 60,
+        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "question": "Patron en croix: centre=C, haut=H, bas=B, gauche=G, droite=D, extérieur sous B=X. Quelles paires sont toutes opposées ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "C-X, H-B, G-D",
+          "B": "C-H, B-X, G-D",
+          "C": "C-D, H-X, G-B",
+          "D": "C-G, H-D, B-X"
+        },
+        "answer": "A",
+        "explication": "Les trois paires opposées du patron en croix sont centre/extérieur, haut/bas, gauche/droite."
+      },
+      {
+        "id": "VS-061",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Pliage mental",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "question": "Feuille 4x4. Pli vertical: colonne 1 sur 4, colonne 2 sur 3. On perce en (ligne 2, colonne 3) sur la feuille pliée. Après dépliage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(2,3) seulement",
+          "B": "(2,2) et (2,3)",
+          "C": "(1,3) et (4,3)",
+          "D": "(2,1) et (2,4)"
+        },
+        "answer": "B",
+        "explication": "La colonne 3 se superpose à la colonne 2."
+      },
+      {
+        "id": "VS-062",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Pliage mental",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "question": "Feuille 4x4. Pli horizontal: ligne 1 sur 4, ligne 2 sur 3. On perce en (ligne 3, colonne 1). Après dépliage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(3,1) seulement",
+          "B": "(1,1) et (4,1)",
+          "C": "(2,1) et (3,1)",
+          "D": "(2,4) et (3,4)"
+        },
+        "answer": "C",
+        "explication": "La ligne 3 se superpose à la ligne 2."
+      },
+      {
+        "id": "VS-063",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Pliage mental",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "question": "Feuille 4x4. Pli vertical puis horizontal. On perce la case pliée correspondant à (ligne 3, colonne 3). Après dépliage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(2,2), (2,3), (3,2), (3,3)",
+          "B": "(1,1), (1,4), (4,1), (4,4)",
+          "C": "(3,3) seulement",
+          "D": "(1,3), (2,3), (3,3), (4,3)"
+        },
+        "answer": "A",
+        "explication": "Les deux plis créent les quatre positions miroir autour du centre."
+      },
+      {
+        "id": "VS-064",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Pliage mental",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "question": "Feuille 6x6. Pli vertical: 1↔6, 2↔5, 3↔4. Trou en (4,5). Après dépliage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(4,5) seulement",
+          "B": "(3,5) et (4,5)",
+          "C": "(4,1) et (4,6)",
+          "D": "(4,2) et (4,5)"
+        },
+        "answer": "D",
+        "explication": "La colonne 5 est miroir de la colonne 2; la ligne ne change pas."
+      },
+      {
+        "id": "VS-065",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Pliage mental",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "question": "Feuille 6x6. Pli horizontal: 1↔6, 2↔5, 3↔4. Trou en (5,4). Après dépliage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(5,4) seulement",
+          "B": "(2,4) et (5,4)",
+          "C": "(5,3) et (5,4)",
+          "D": "(1,4) et (6,4)"
+        },
+        "answer": "B",
+        "explication": "La ligne 5 est miroir de la ligne 2."
+      },
+      {
+        "id": "VS-066",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Pliage mental",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "question": "Feuille 6x6. Pli vertical puis horizontal. Trou en (4,4) sur la feuille pliée. Après dépliage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(4,4) seulement",
+          "B": "(3,3) et (4,4)",
+          "C": "(3,3), (3,4), (4,3), (4,4)",
+          "D": "(1,1), (1,6), (6,1), (6,6)"
+        },
+        "answer": "C",
+        "explication": "Colonne 4 miroir de 3 et ligne 4 miroir de 3, donc quatre trous centraux."
+      },
+      {
+        "id": "VS-067",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Pliage mental",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "question": "Feuille 4x4. Pli vertical. Deux trous sur la feuille pliée: (1,3) et (4,4). Après dépliage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(1,2), (1,3), (4,1), (4,4)",
+          "B": "(1,3), (4,4) seulement",
+          "C": "(1,1), (1,4), (4,1), (4,4)",
+          "D": "(2,3), (3,4)"
+        },
+        "answer": "A",
+        "explication": "Colonne 3 reflète en 2; colonne 4 reflète en 1."
+      },
+      {
+        "id": "VS-068",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Pliage mental",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "question": "Feuille 4x4. Pli horizontal. Deux trous: (3,2) et (4,4). Après dépliage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(3,2), (4,4) seulement",
+          "B": "(1,2), (2,4), (3,2), (4,4)",
+          "C": "(2,1), (3,1), (1,4), (4,4)",
+          "D": "(2,2), (3,2), (1,4), (4,4)"
+        },
+        "answer": "D",
+        "explication": "Ligne 3 reflète en 2; ligne 4 reflète en 1; les colonnes restent identiques."
+      },
+      {
+        "id": "VS-069",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Pliage mental",
+        "niveau": 3,
+        "temps_sec": 60,
+        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "question": "Feuille 8x8. Pli vertical central. Trou en (6,5). Après dépliage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(6,5) seulement",
+          "B": "(6,4) et (6,5)",
+          "C": "(3,5) et (6,5)",
+          "D": "(6,1) et (6,8)"
+        },
+        "answer": "B",
+        "explication": "Dans 8 colonnes, 5 est miroir de 4."
+      },
+      {
+        "id": "VS-070",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Pliage mental",
+        "niveau": 5,
+        "temps_sec": 60,
+        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "question": "Feuille 8x8. Pli vertical puis horizontal. Trou en (5,5). Après dépliage ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(4,4), (4,5), (5,4), (5,5)",
+          "B": "(1,1), (1,8), (8,1), (8,8)",
+          "C": "(5,5) seulement",
+          "D": "(4,5) et (5,4) seulement"
+        },
+        "answer": "A",
+        "explication": "Ligne 5 ↔ 4 et colonne 5 ↔ 4: combinaison des deux symétries."
+      },
+      {
+        "id": "VS-071",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Assemblage de formes",
+        "niveau": 1,
+        "temps_sec": 55,
+        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "question": "Une forme 3x3 occupe toutes les cases sauf le centre. Combien de petites cases la composent ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "6",
+          "B": "7",
+          "C": "8",
+          "D": "9"
+        },
+        "answer": "C",
+        "explication": "Une grille 3x3 a 9 cases; sans le centre il en reste 8."
+      },
+      {
+        "id": "VS-072",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Assemblage de formes",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "question": "Deux rectangles 1x3 sont assemblés en angle droit en partageant exactement une case d'extrémité. Combien de cases distinctes dans la forme finale ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "5",
+          "B": "6",
+          "C": "7",
+          "D": "4"
+        },
+        "answer": "A",
+        "explication": "Chaque rectangle contient 3 cases; une case est commune: 3+3-1=5."
+      },
+      {
+        "id": "VS-073",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Assemblage de formes",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "question": "Dans un carré 4x4, on place un carré 2x2 dans le coin supérieur gauche et un carré 2x2 dans le coin inférieur droit. Combien de cases sont occupées ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "4",
+          "B": "6",
+          "C": "8",
+          "D": "10"
+        },
+        "answer": "C",
+        "explication": "Les deux carrés 2x2 ne se chevauchent pas: 4+4=8."
+      },
+      {
+        "id": "VS-074",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Assemblage de formes",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "question": "Une pièce occupe les cases (1,1), (1,2), (2,1), (3,1). Quelle description correspond ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Une ligne horizontale de 4",
+          "B": "Un carré 2x2 plein",
+          "C": "Une diagonale",
+          "D": "Un L de hauteur 3 avec deux cases en haut"
+        },
+        "answer": "D",
+        "explication": "Les trois cases de la colonne 1 et la case (1,2) forment un L."
+      },
+      {
+        "id": "VS-075",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Assemblage de formes",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "question": "On veut couvrir un rectangle 2x3 avec des dominos 1x2 sans chevauchement. Combien de dominos faut-il ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "6"
+        },
+        "answer": "B",
+        "explication": "Le rectangle a 6 cases; chaque domino couvre 2 cases: 6/2=3."
+      },
+      {
+        "id": "VS-076",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Assemblage de formes",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "question": "Une pièce T dans une grille 3x3 occupe toute la ligne du haut et la case centrale de la ligne du milieu. Après rotation 180°, quelles cases sont occupées ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Toute la ligne du haut et le centre du milieu",
+          "B": "Toute la colonne gauche et le centre",
+          "C": "Toute la ligne du bas et la case centrale du milieu",
+          "D": "Toute la colonne droite seulement"
+        },
+        "answer": "C",
+        "explication": "La rotation 180° transforme le T orienté vers le bas en T orienté vers le haut."
+      },
+      {
+        "id": "VS-077",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Assemblage de formes",
+        "niveau": 2,
+        "temps_sec": 55,
+        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "question": "Un rectangle 3x4 est découpé en carrés 1x1. On enlève les quatre coins. Combien de cases restent ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "8",
+          "B": "9",
+          "C": "10",
+          "D": "12"
+        },
+        "answer": "A",
+        "explication": "3×4=12 cases; 12-4=8."
+      },
+      {
+        "id": "VS-078",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Assemblage de formes",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "question": "Une forme occupe (1,2), (2,1), (2,2), (2,3), (3,2) dans une grille 3x3. Quelle symétrie possède-t-elle ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Seulement horizontale",
+          "B": "Seulement verticale",
+          "C": "Aucune",
+          "D": "Horizontale et verticale"
+        },
+        "answer": "D",
+        "explication": "C'est une croix centrée; elle est symétrique selon les axes horizontal et vertical."
+      },
+      {
+        "id": "VS-079",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Assemblage de formes",
+        "niveau": 3,
+        "temps_sec": 55,
+        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "question": "On assemble deux triangles rectangles identiques par leur hypoténuse. Quelle forme plane peut-on obtenir ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Toujours un cercle",
+          "B": "Un rectangle ou un carré selon les triangles",
+          "C": "Une ligne sans surface",
+          "D": "Un cube"
+        },
+        "answer": "B",
+        "explication": "Deux triangles rectangles congruents peuvent former un rectangle; si les côtés de l'angle droit sont égaux, un carré."
+      },
+      {
+        "id": "VS-080",
+        "domaine": "Raisonnement visuo-spatial",
+        "sous_type": "Assemblage de formes",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "question": "Une pièce en zigzag occupe (1,1), (1,2), (2,2), (2,3). Sa réflexion gauche/droite dans une grille 3x3 occupe quoi ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "(1,1), (1,2), (2,2), (2,3)",
+          "B": "(1,1), (2,1), (2,2), (3,2)",
+          "C": "(1,2), (1,3), (2,1), (2,2)",
+          "D": "(2,1), (2,2), (3,2), (3,3)"
+        },
+        "answer": "C",
+        "explication": "La colonne 1 devient 3, 2 reste 2, 3 devient 1."
+      }
+    ]
+  },
+  {
+    "dimension": "vitesse",
+    "label": "Vitesse & attention",
+    "pool": [
+      {
+        "id": "VT-161",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Codage symbolique",
+        "niveau": 1,
+        "temps_sec": 23,
+        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: ABCD",
+        "kind": "objective",
+        "answers": [
+          "#%&@"
+        ],
+        "hint": "Application directe de la clé de codage; la réponse attendue est #%&@."
+      },
+      {
+        "id": "VT-162",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Codage symbolique",
+        "niveau": 2,
+        "temps_sec": 26,
+        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: FACE",
+        "kind": "objective",
+        "answers": [
+          "?#&+"
+        ],
+        "hint": "Application directe de la clé de codage; la réponse attendue est ?#&+."
+      },
+      {
+        "id": "VT-163",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Codage symbolique",
+        "niveau": 2,
+        "temps_sec": 26,
+        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: BEDA",
+        "kind": "objective",
+        "answers": [
+          "%+@#"
+        ],
+        "hint": "Application directe de la clé de codage; la réponse attendue est %+@#."
+      },
+      {
+        "id": "VT-164",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Codage symbolique",
+        "niveau": 3,
+        "temps_sec": 29,
+        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: CAFÉ (ignorer l'accent: CAFE)",
+        "kind": "objective",
+        "answers": [
+          "&#?+"
+        ],
+        "hint": "Application directe de la clé de codage; la réponse attendue est &#?+."
+      },
+      {
+        "id": "VT-165",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Codage symbolique",
+        "niveau": 3,
+        "temps_sec": 29,
+        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: DEAF",
+        "kind": "objective",
+        "answers": [
+          "@+#?"
+        ],
+        "hint": "Application directe de la clé de codage; la réponse attendue est @+#?."
+      },
+      {
+        "id": "VT-166",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Codage symbolique",
+        "niveau": 2,
+        "temps_sec": 26,
+        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: BEEF",
+        "kind": "objective",
+        "answers": [
+          "%++?"
+        ],
+        "hint": "Application directe de la clé de codage; la réponse attendue est %++?."
+      },
+      {
+        "id": "VT-167",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Codage symbolique",
+        "niveau": 3,
+        "temps_sec": 29,
+        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: FADE",
+        "kind": "objective",
+        "answers": [
+          "?#@+"
+        ],
+        "hint": "Application directe de la clé de codage; la réponse attendue est ?#@+."
+      },
+      {
+        "id": "VT-168",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Codage symbolique",
+        "niveau": 2,
+        "temps_sec": 26,
+        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: ACDF",
+        "kind": "objective",
+        "answers": [
+          "#&@?"
+        ],
+        "hint": "Application directe de la clé de codage; la réponse attendue est #&@?."
+      },
+      {
+        "id": "VT-169",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Codage symbolique",
+        "niveau": 4,
+        "temps_sec": 32,
+        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: FEDCAB",
+        "kind": "objective",
+        "answers": [
+          "?+@&#%"
+        ],
+        "hint": "Application directe de la clé de codage; la réponse attendue est ?+@&#%."
+      },
+      {
+        "id": "VT-170",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Codage symbolique",
+        "niveau": 4,
+        "temps_sec": 32,
+        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: BADFACE",
+        "kind": "objective",
+        "answers": [
+          "%#@?#&+"
+        ],
+        "hint": "Application directe de la clé de codage; la réponse attendue est %#@?#&+."
+      },
+      {
+        "id": "VT-171",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Recherche de symboles",
+        "niveau": 1,
+        "temps_sec": 21,
+        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "question": "Cible: XZ | Série: AXZ-QP-LM-RT",
+        "kind": "objective",
+        "answers": [
+          "OUI"
+        ],
+        "hint": "La séquence XZ est présente dans AXZ."
+      },
+      {
+        "id": "VT-172",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Recherche de symboles",
+        "niveau": 2,
+        "temps_sec": 24,
+        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "question": "Cible: 7B | Série: 7D-8B-9B-B7",
+        "kind": "objective",
+        "answers": [
+          "NON"
+        ],
+        "hint": "On voit 7D, 8B, 9B et B7, mais pas 7B."
+      },
+      {
+        "id": "VT-173",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Recherche de symboles",
+        "niveau": 2,
+        "temps_sec": 24,
+        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "question": "Cible: @# | Série: %&-#@-@@-@#",
+        "kind": "objective",
+        "answers": [
+          "OUI"
+        ],
+        "hint": "Le dernier groupe est @#."
+      },
+      {
+        "id": "VT-174",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Recherche de symboles",
+        "niveau": 1,
+        "temps_sec": 21,
+        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "question": "Cible: MN | Série: NM-MM-NN-MN",
+        "kind": "objective",
+        "answers": [
+          "OUI"
+        ],
+        "hint": "MN apparaît dans le dernier groupe."
+      },
+      {
+        "id": "VT-175",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Recherche de symboles",
+        "niveau": 2,
+        "temps_sec": 24,
+        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "question": "Cible: 42 | Série: 24-44-22-4Z",
+        "kind": "objective",
+        "answers": [
+          "NON"
+        ],
+        "hint": "42 n'apparaît pas; 24 inverse l'ordre."
+      },
+      {
+        "id": "VT-176",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Recherche de symboles",
+        "niveau": 3,
+        "temps_sec": 27,
+        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "question": "Cible: PQ | Série: OPQ-PRQ-P0Q",
+        "kind": "objective",
+        "answers": [
+          "OUI"
+        ],
+        "hint": "OPQ contient P suivi de Q."
+      },
+      {
+        "id": "VT-177",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Recherche de symboles",
+        "niveau": 4,
+        "temps_sec": 30,
+        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "question": "Cible: A1 | Série: AI-AI-1A-lA",
+        "kind": "objective",
+        "answers": [
+          "NON"
+        ],
+        "hint": "A1 n'apparaît pas: AI utilise la lettre I et lA utilise un l minuscule."
+      },
+      {
+        "id": "VT-178",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Recherche de symboles",
+        "niveau": 3,
+        "temps_sec": 27,
+        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "question": "Cible: >< | Série: <>-<<->>-<>",
+        "kind": "objective",
+        "answers": [
+          "NON"
+        ],
+        "hint": ">< n'apparaît pas; <> et >> sont différents."
+      },
+      {
+        "id": "VT-179",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Recherche de symboles",
+        "niveau": 2,
+        "temps_sec": 24,
+        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "question": "Cible: Z2 | Série: ZZ-ZS-2Z-Z2",
+        "kind": "objective",
+        "answers": [
+          "OUI"
+        ],
+        "hint": "Z2 est le dernier groupe."
+      },
+      {
+        "id": "VT-180",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Recherche de symboles",
+        "niveau": 3,
+        "temps_sec": 27,
+        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "question": "Cible: bd | Série: db-bq-pd-bd",
+        "kind": "objective",
+        "answers": [
+          "OUI"
+        ],
+        "hint": "bd est présent dans le dernier groupe; attention aux inversions."
+      },
+      {
+        "id": "VT-181",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Barrage / comptage attentionnel",
+        "niveau": 1,
+        "temps_sec": 26,
+        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
+        "question": "Comptez le nombre de 'A' dans: A C A D B A E A",
+        "kind": "objective",
+        "answers": [
+          "4"
+        ],
+        "hint": "Il y a quatre A."
+      },
+      {
+        "id": "VT-182",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Barrage / comptage attentionnel",
+        "niveau": 2,
+        "temps_sec": 30,
+        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
+        "question": "Comptez les paires 'XZ' dans: XZ XX ZX XZ XZ",
+        "kind": "objective",
+        "answers": [
+          "3"
+        ],
+        "hint": "Les groupes XZ apparaissent 3 fois."
+      },
+      {
+        "id": "VT-183",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Barrage / comptage attentionnel",
+        "niveau": 2,
+        "temps_sec": 30,
+        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
+        "question": "Comptez les chiffres pairs dans: 7 2 5 8 9 4 1 6",
+        "kind": "objective",
+        "answers": [
+          "4"
+        ],
+        "hint": "Pairs: 2,8,4,6."
+      },
+      {
+        "id": "VT-184",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Barrage / comptage attentionnel",
+        "niveau": 3,
+        "temps_sec": 34,
+        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
+        "question": "Comptez les symboles '+' immédiatement suivis de '-': + - + + - - + -",
+        "kind": "objective",
+        "answers": [
+          "3"
+        ],
+        "hint": "Les occurrences '+ -' sont aux positions 1-2, 4-5 et 7-8."
+      },
+      {
+        "id": "VT-185",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Barrage / comptage attentionnel",
+        "niveau": 4,
+        "temps_sec": 38,
+        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
+        "question": "Comptez les lettres B précédées immédiatement d'un A dans: A B B A B A C B A B",
+        "kind": "objective",
+        "answers": [
+          "3"
+        ],
+        "hint": "AB apparaît aux positions 1-2, 4-5 et 9-10."
+      },
+      {
+        "id": "VT-186",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Barrage / comptage attentionnel",
+        "niveau": 3,
+        "temps_sec": 34,
+        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
+        "question": "Comptez les groupes où le premier et le dernier caractère sont identiques: ABA, CDD, EFE, GHG",
+        "kind": "objective",
+        "answers": [
+          "3"
+        ],
+        "hint": "ABA, EFE et GHG ont premier=dernier; CDD non."
+      },
+      {
+        "id": "VT-187",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Barrage / comptage attentionnel",
+        "niveau": 2,
+        "temps_sec": 30,
+        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
+        "question": "Comptez les nombres strictement supérieurs à 50: 49 51 50 62 38 70",
+        "kind": "objective",
+        "answers": [
+          "3"
+        ],
+        "hint": "51, 62 et 70 sont >50; 50 ne l'est pas strictement."
+      },
+      {
+        "id": "VT-188",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Barrage / comptage attentionnel",
+        "niveau": 5,
+        "temps_sec": 42,
+        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
+        "question": "Comptez les occurrences de '11' dans: 111011 (chevauchements autorisés)",
+        "kind": "objective",
+        "answers": [
+          "3"
+        ],
+        "hint": "Positions 1-2, 2-3 et 5-6: trois occurrences avec chevauchement."
+      },
+      {
+        "id": "VT-189",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Barrage / comptage attentionnel",
+        "niveau": 4,
+        "temps_sec": 38,
+        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
+        "question": "Comptez les paires adjacentes de lettres identiques dans: A A B C C C D E E",
+        "kind": "objective",
+        "answers": [
+          "4"
+        ],
+        "hint": "Paires adjacentes: AA, CC (positions 4-5), CC (5-6), EE = 4 paires adjacentes."
+      },
+      {
+        "id": "VT-190",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Barrage / comptage attentionnel",
+        "niveau": 3,
+        "temps_sec": 34,
+        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
+        "question": "Comptez les groupes contenant exactement deux chiffres: A12, B7C, 34D, EFG, 9H8",
+        "kind": "objective",
+        "answers": [
+          "3"
+        ],
+        "hint": "A12, 34D et 9H8 contiennent exactement deux chiffres."
+      },
+      {
+        "id": "VT-191",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Comparaison rapide",
+        "niveau": 1,
+        "temps_sec": 18,
+        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "question": "K7M2Q | K7M2Q",
+        "kind": "objective",
+        "answers": [
+          "IDENTIQUE"
+        ],
+        "hint": "Les deux chaînes sont identiques."
+      },
+      {
+        "id": "VT-192",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Comparaison rapide",
+        "niveau": 2,
+        "temps_sec": 21,
+        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "question": "AB8D0 | AB8O0",
+        "kind": "objective",
+        "answers": [
+          "DIFFÉRENT"
+        ],
+        "hint": "Le quatrième caractère diffère: D vs O."
+      },
+      {
+        "id": "VT-193",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Comparaison rapide",
+        "niveau": 2,
+        "temps_sec": 21,
+        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "question": "pqd69 | pqd69",
+        "kind": "objective",
+        "answers": [
+          "IDENTIQUE"
+        ],
+        "hint": "Même ordre et mêmes caractères."
+      },
+      {
+        "id": "VT-194",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Comparaison rapide",
+        "niveau": 3,
+        "temps_sec": 24,
+        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "question": "L1I0O | L1I0O",
+        "kind": "objective",
+        "answers": [
+          "IDENTIQUE"
+        ],
+        "hint": "Malgré les caractères proches, les deux chaînes correspondent."
+      },
+      {
+        "id": "VT-195",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Comparaison rapide",
+        "niveau": 2,
+        "temps_sec": 21,
+        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "question": "S5Z2B | S5ZB2",
+        "kind": "objective",
+        "answers": [
+          "DIFFÉRENT"
+        ],
+        "hint": "Les deux derniers caractères sont inversés."
+      },
+      {
+        "id": "VT-196",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Comparaison rapide",
+        "niveau": 3,
+        "temps_sec": 24,
+        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "question": "mnRN8 | mnRM8",
+        "kind": "objective",
+        "answers": [
+          "DIFFÉRENT"
+        ],
+        "hint": "N et M diffèrent au quatrième caractère."
+      },
+      {
+        "id": "VT-197",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Comparaison rapide",
+        "niveau": 2,
+        "temps_sec": 21,
+        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "question": "@@##%% | @@##%%",
+        "kind": "objective",
+        "answers": [
+          "IDENTIQUE"
+        ],
+        "hint": "La séquence de symboles est la même."
+      },
+      {
+        "id": "VT-198",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Comparaison rapide",
+        "niveau": 3,
+        "temps_sec": 24,
+        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "question": "bdpq | bdpq",
+        "kind": "objective",
+        "answers": [
+          "IDENTIQUE"
+        ],
+        "hint": "Même casse et mêmes lettres."
+      },
+      {
+        "id": "VT-199",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Comparaison rapide",
+        "niveau": 2,
+        "temps_sec": 21,
+        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "question": "VXWYYX | VXWYYX",
+        "kind": "objective",
+        "answers": [
+          "IDENTIQUE"
+        ],
+        "hint": "Aucune différence."
+      },
+      {
+        "id": "VT-200",
+        "domaine": "Vitesse de traitement / attention",
+        "sous_type": "Comparaison rapide",
+        "niveau": 4,
+        "temps_sec": 27,
+        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "question": "102S0 | 10ZS0",
+        "kind": "objective",
+        "answers": [
+          "DIFFÉRENT"
+        ],
+        "hint": "Le troisième caractère est 2 dans la première chaîne et Z dans la seconde."
+      }
+    ]
+  },
+  {
+    "dimension": "libre",
     "label": "Expression libre",
-    "kind": "open",
     "pool": [
       {
         "id": "penser_comme",
+        "kind": "open",
         "question": "Complète à ta façon : « Penser, pour moi, c'est comme… »"
       },
       {
         "id": "cerveau_lieu",
+        "kind": "open",
         "question": "Si ton esprit était un lieu, lequel serait-il ? Décris-le en une phrase."
       },
       {
         "id": "mot_invente",
+        "kind": "open",
         "question": "Invente un mot qui n'existe pas, et donne sa définition."
       },
       {
         "id": "couleur_son",
+        "kind": "open",
         "question": "Si la musique que tu aimes avait une couleur, laquelle serait-ce ? Pourquoi ?"
       },
       {
         "id": "question_rare",
+        "kind": "open",
         "question": "Quelle question aimerais-tu qu'on te pose plus souvent ?"
       },
       {
         "id": "objet_emotion",
+        "kind": "open",
         "question": "Si une de tes émotions était un objet du quotidien, lequel serait-ce et pourquoi ?"
       },
       {
         "id": "regle_monde",
+        "kind": "open",
         "question": "Si tu pouvais ajouter une seule règle au monde, laquelle serait-ce ?"
       },
       {
         "id": "pouvoir_discret",
+        "kind": "open",
         "question": "Si tu avais un pouvoir discret, invisible aux yeux des autres, lequel choisirais-tu ?"
       },
       {
         "id": "phrase_passe",
+        "kind": "open",
         "question": "Si tu pouvais envoyer une seule phrase à toi-même il y a cinq ans, laquelle ?"
       },
       {
         "id": "journee_couleur",
+        "kind": "open",
         "question": "Si la journée d'aujourd'hui avait une couleur, laquelle serait-ce ?"
       },
       {
         "id": "talent_cache",
+        "kind": "open",
         "question": "Quel petit talent, ou détail de toi, que personne ne remarque jamais ?"
       },
       {
         "id": "musique_etat",
+        "kind": "open",
         "question": "Quelle musique décrirait le mieux ton état d'esprit en ce moment ?"
       },
       {
         "id": "lieu_invente",
+        "kind": "open",
         "question": "Si tu pouvais inventer un lieu qui n'existe pas, à quoi ressemblerait-il ?"
       },
       {
         "id": "objet_vie",
+        "kind": "open",
         "question": "Si tu devais résumer ta vie par un seul objet, lequel choisirais-tu ?"
       },
       {
         "id": "premiere_pensee",
+        "kind": "open",
         "question": "Quelle est la première chose à laquelle tu penses en te réveillant ?"
       }
     ]

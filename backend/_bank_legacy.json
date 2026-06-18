@@ -1,0 +1,607 @@
+[
+  {
+    "dimension": "laterale",
+    "label": "Pensée latérale",
+    "kind": "objective",
+    "pool": [
+      {
+        "id": "echo",
+        "question": "Je parle toutes les langues du monde sans en avoir appris aucune. Qui suis-je ?",
+        "hint": "On m'entend surtout en montagne.",
+        "answers": ["echo", "l'echo", "un echo"]
+      },
+      {
+        "id": "trou",
+        "question": "Plus on m'enlève de matière, plus je grandis. Qui suis-je ?",
+        "hint": "Pense à une pelle.",
+        "answers": ["trou", "le trou", "un trou"]
+      },
+      {
+        "id": "prenom",
+        "question": "C'est à toi, mais les autres l'utilisent bien plus souvent que toi. Qu'est-ce que c'est ?",
+        "hint": "On te le demande quand on te rencontre.",
+        "answers": ["prenom", "nom", "mon prenom", "mon nom", "le prenom", "le nom"]
+      },
+      {
+        "id": "silence",
+        "question": "Dès qu'on prononce mon nom, je disparais. Qui suis-je ?",
+        "hint": "Il règne dans une bibliothèque.",
+        "answers": ["silence", "le silence"]
+      },
+      {
+        "id": "aujourdhui",
+        "question": "Je suis l'avenir d'hier et le passé de demain. Qui suis-je ?",
+        "hint": "Tu es en plein dedans.",
+        "answers": ["aujourd'hui", "aujourdhui", "le present", "present"]
+      },
+      {
+        "id": "eponge",
+        "question": "Je suis pleine de trous et pourtant je retiens l'eau. Qui suis-je ?",
+        "hint": "Regarde près de l'évier.",
+        "answers": ["eponge", "l'eponge", "une eponge"]
+      },
+      {
+        "id": "escalier",
+        "question": "Je monte et je descends sans jamais bouger. Qui suis-je ?",
+        "hint": "Tu me prends plusieurs fois par jour s'il n'y a pas d'ascenseur.",
+        "answers": ["escalier", "l'escalier", "les escaliers", "un escalier", "marches"]
+      },
+      {
+        "id": "bougie",
+        "question": "Plus je vieillis, plus je raccourcis. Qui suis-je ?",
+        "hint": "Je fonds en éclairant.",
+        "answers": ["bougie", "la bougie", "une bougie", "un cierge", "cierge", "allumette"]
+      },
+      {
+        "id": "ombre",
+        "question": "Je te suis partout en plein jour, je grandis le soir et je te quitte la nuit. Qui suis-je ?",
+        "hint": "La lumière me dessine.",
+        "answers": ["ombre", "l'ombre", "mon ombre", "une ombre"]
+      },
+      {
+        "id": "lettre_n",
+        "question": "On me trouve au début de la nuit, à la fin du matin, deux fois dans l'année et jamais dans le mois. Qui suis-je ?",
+        "hint": "Je ne suis pas un objet : je suis un signe qu'on écrit.",
+        "answers": ["n", "la lettre n", "lettre n", "le n"]
+      },
+      {
+        "id": "lit_riviere",
+        "question": "J'ai un lit mais je n'y dors jamais, je cours sans avoir de jambes. Qui suis-je ?",
+        "hint": "On me traverse sur un pont.",
+        "answers": ["riviere", "la riviere", "fleuve", "le fleuve", "cours d'eau", "ruisseau"]
+      },
+      {
+        "id": "horloge_enigme",
+        "question": "J'ai des aiguilles mais je ne couds pas, un visage mais pas de bouche. Qui suis-je ?",
+        "hint": "Tu me regardes pour ne pas être en retard.",
+        "answers": ["horloge", "une horloge", "l'horloge", "montre", "une montre", "pendule", "reveil"]
+      },
+      {
+        "id": "clavier",
+        "question": "J'ai des touches mais aucune serrure, une barre d'espace mais aucune pièce. Qui suis-je ?",
+        "hint": "Tu m'utilises pour écrire sur un écran.",
+        "answers": ["clavier", "un clavier", "le clavier"]
+      },
+      {
+        "id": "vent",
+        "question": "On me sent, on m'entend, mais on ne me voit jamais. Qui suis-je ?",
+        "hint": "Je fais danser les feuilles et tourner les moulins.",
+        "answers": ["vent", "le vent", "un courant d'air", "courant d'air", "l'air", "air", "la brise", "brise"]
+      },
+      {
+        "id": "miroir_enigme",
+        "question": "Je te rends tout ce que tu me montres, mais à l'envers, sans rien garder. Qui suis-je ?",
+        "hint": "Tu me regardes le matin.",
+        "answers": ["miroir", "un miroir", "le miroir", "glace", "la glace"]
+      },
+      {
+        "id": "secret",
+        "question": "Tu me possèdes tant que tu me gardes ; dès que tu me partages, je n'existe plus. Qui suis-je ?",
+        "hint": "Chut…",
+        "answers": ["secret", "un secret", "le secret"]
+      },
+      {
+        "id": "futur",
+        "question": "Je suis toujours devant toi, mais tu ne peux jamais m'atteindre. Qui suis-je ?",
+        "hint": "Hier, j'étais encore à venir.",
+        "answers": ["futur", "le futur", "l'avenir", "avenir", "demain", "lendemain"]
+      },
+      {
+        "id": "carte_geo",
+        "question": "Je montre des villes sans maisons, des routes sans voitures et des rivières sans eau. Qui suis-je ?",
+        "hint": "On me déplie pour ne pas se perdre.",
+        "answers": ["carte", "une carte", "la carte", "carte geographique", "plan", "un plan"]
+      },
+      {
+        "id": "livre_enigme",
+        "question": "J'ai des feuilles sans être un arbre, et un dos sans avoir d'os. Qui suis-je ?",
+        "hint": "On me lit, page après page.",
+        "answers": ["livre", "un livre", "le livre", "bouquin", "roman"]
+      },
+      {
+        "id": "nuage",
+        "question": "Je flotte sans ailes, je pleure sans yeux, et je disparais au soleil. Qui suis-je ?",
+        "hint": "Tu me regardes dans le ciel.",
+        "answers": ["nuage", "un nuage", "le nuage", "nuages", "les nuages"]
+      },
+      {
+        "id": "feu_enigme",
+        "question": "Je dévore tout sans jamais être rassasié ; donne-moi à boire et je meurs. Qui suis-je ?",
+        "hint": "On me combat avec de l'eau.",
+        "answers": ["feu", "le feu", "un feu", "flamme", "la flamme", "incendie"]
+      }
+    ]
+  },
+  {
+    "dimension": "logique",
+    "label": "Micro-logique",
+    "kind": "objective",
+    "pool": [
+      {
+        "id": "suite",
+        "question": "Complète la suite : 2, 3, 5, 9, 17, … ?",
+        "hint": "Regarde comment on passe d'un nombre au suivant : ×2, puis…",
+        "answers": ["33"]
+      },
+      {
+        "id": "suite_pas",
+        "question": "Complète la suite : 3, 4, 6, 9, 13, … ?",
+        "hint": "Regarde ce qu'on ajoute à chaque pas : +1, +2, +3…",
+        "answers": ["18"]
+      },
+      {
+        "id": "zorg",
+        "question": "Tous les Zorgs sont bleus. Certains êtres bleus chantent. Peut-on être certain qu'au moins un Zorg chante ? (oui / non)",
+        "hint": "Les chanteurs sont bleus… mais qui te dit que ce sont des Zorgs ?",
+        "answers": ["non"]
+      },
+      {
+        "id": "fibo",
+        "question": "Complète la suite : 1, 1, 2, 3, 5, 8, … ?",
+        "hint": "Chaque nombre naît des deux précédents.",
+        "answers": ["13"]
+      },
+      {
+        "id": "grandeur",
+        "question": "Léa est plus grande que Zoé. Marie est plus petite que Zoé. Qui est la plus grande des trois ?",
+        "hint": "Classe-les sur une ligne.",
+        "answers": ["lea", "léa"]
+      },
+      {
+        "id": "jours",
+        "question": "Si avant-hier était un samedi, quel jour serons-nous demain ?",
+        "hint": "Avance pas à pas : avant-hier, hier, aujourd'hui…",
+        "answers": ["mardi"]
+      },
+      {
+        "id": "suite_premiers",
+        "question": "Complète la suite : 2, 3, 5, 7, 11, … ?",
+        "hint": "Ces nombres n'ont que deux diviseurs : 1 et eux-mêmes.",
+        "answers": ["13"]
+      },
+      {
+        "id": "suite_carres",
+        "question": "Complète la suite : 1, 4, 9, 16, 25, … ?",
+        "hint": "1×1, 2×2, 3×3, 4×4…",
+        "answers": ["36"]
+      },
+      {
+        "id": "syllogisme_roses",
+        "question": "Toutes les roses sont des fleurs. Certaines fleurs fanent vite. Peut-on être certain qu'au moins une rose fane vite ? (oui / non)",
+        "hint": "Les fleurs qui fanent vite ne sont pas forcément des roses.",
+        "answers": ["non"]
+      },
+      {
+        "id": "jours_2",
+        "question": "Si dans trois jours ce sera vendredi, quel jour était-ce hier ?",
+        "hint": "Trouve d'abord quel jour on est aujourd'hui.",
+        "answers": ["lundi"]
+      },
+      {
+        "id": "suite_x3",
+        "question": "Complète la suite : 2, 6, 18, 54, … ?",
+        "hint": "On multiplie par le même nombre à chaque étape.",
+        "answers": ["162"]
+      },
+      {
+        "id": "suite_alt",
+        "question": "Complète la suite : 1, 2, 4, 7, 11, 16, … ?",
+        "hint": "Le saut grandit de 1 à chaque fois : +1, +2, +3…",
+        "answers": ["22"]
+      },
+      {
+        "id": "syllogisme_chats",
+        "question": "Tous les chats sont des animaux. Aucun animal ne parle. Un chat peut-il parler ? (oui / non)",
+        "hint": "Si aucun animal ne parle, et qu'un chat est un animal…",
+        "answers": ["non"]
+      },
+      {
+        "id": "suite_moins",
+        "question": "Complète la suite : 64, 32, 16, 8, … ?",
+        "hint": "On divise par 2 à chaque étape.",
+        "answers": ["4"]
+      },
+      {
+        "id": "suite_fact",
+        "question": "Complète la suite : 1, 2, 6, 24, 120, … ?",
+        "hint": "On multiplie par 2, puis par 3, puis par 4…",
+        "answers": ["720"]
+      },
+      {
+        "id": "ordre_taille",
+        "question": "Tom court plus vite que Lina. Lina court plus vite que Sam. Qui est le plus lent ?",
+        "hint": "Classe-les du plus rapide au plus lent.",
+        "answers": ["sam"]
+      },
+      {
+        "id": "suite_impairs",
+        "question": "Complète la suite : 1, 3, 5, 7, 9, … ?",
+        "hint": "Ce sont les nombres impairs.",
+        "answers": ["11"]
+      },
+      {
+        "id": "suite_double_un",
+        "question": "Complète la suite : 1, 2, 4, 8, 16, … ?",
+        "hint": "On double à chaque étape.",
+        "answers": ["32"]
+      },
+      {
+        "id": "syllogisme_oiseaux",
+        "question": "Tous les pingouins sont des oiseaux. Aucun pingouin ne vole. Tous les oiseaux volent-ils ? (oui / non)",
+        "hint": "Le pingouin est un oiseau… qui ne vole pas.",
+        "answers": ["non"]
+      },
+      {
+        "id": "suite_diff2",
+        "question": "Complète la suite : 5, 10, 20, 40, … ?",
+        "hint": "On double à chaque étape.",
+        "answers": ["80"]
+      },
+      {
+        "id": "suite_minus3",
+        "question": "Complète la suite : 100, 97, 94, 91, … ?",
+        "hint": "On retire 3 à chaque étape.",
+        "answers": ["88"]
+      },
+      {
+        "id": "jours_3",
+        "question": "Si hier était mercredi, quel jour serons-nous après-demain ?",
+        "hint": "Aujourd'hui, c'est le lendemain d'hier.",
+        "answers": ["samedi"]
+      }
+    ]
+  },
+  {
+    "dimension": "arithmetique",
+    "label": "Raisonnement",
+    "kind": "objective",
+    "pool": [
+      {
+        "id": "marquepage",
+        "question": "Un livre et son marque-page coûtent 11 € en tout. Le livre coûte 10 € de plus que le marque-page. Combien coûte le marque-page ?",
+        "hint": "S'il coûtait 1 €, le total ferait 12 €…",
+        "answers": ["0.5", "50", "cinquante centimes", "un demi euro"]
+      },
+      {
+        "id": "machines",
+        "question": "5 machines fabriquent 5 pièces en 5 minutes. Combien de minutes faut-il à 100 machines pour fabriquer 100 pièces ?",
+        "hint": "Combien de temps met UNE machine pour UNE pièce ?",
+        "answers": ["5", "cinq"]
+      },
+      {
+        "id": "nenuphar",
+        "question": "Sur un étang, un nénuphar double de surface chaque jour. Il couvre tout l'étang en 48 jours. En combien de jours en couvrait-il la moitié ?",
+        "hint": "Pense à l'envers, depuis la fin.",
+        "answers": ["47", "quarante-sept", "quarante sept"]
+      },
+      {
+        "id": "fratrie",
+        "question": "Léo a autant de frères que de sœurs. Sa sœur Jade a deux fois plus de frères que de sœurs. Combien d'enfants compte la fratrie ?",
+        "hint": "Essaie avec de petits nombres : 4 garçons, 3 filles…",
+        "answers": ["7", "sept"]
+      },
+      {
+        "id": "escargot",
+        "question": "Un escargot grimpe un mur de 10 mètres. Le jour il monte de 3 mètres, mais la nuit il glisse de 2 mètres. En combien de jours atteint-il le sommet ?",
+        "hint": "Le dernier jour, une fois en haut, il ne reglisse pas.",
+        "answers": ["8", "huit", "8 jours", "huit jours"]
+      },
+      {
+        "id": "chaussettes",
+        "question": "Dans un tiroir, 10 chaussettes noires et 10 bleues sont mélangées dans le noir. Combien dois-tu en sortir au minimum pour être sûr d'avoir deux chaussettes de la même couleur ?",
+        "hint": "Avec deux seulement, tu peux tomber sur une de chaque couleur.",
+        "answers": ["3", "trois"]
+      },
+      {
+        "id": "prix_remise",
+        "question": "Un pull coûte 80 €. Il est soldé à -25 %. Quel est son prix soldé ?",
+        "hint": "25 % de 80 €, c'est 20 €.",
+        "answers": ["60", "60 euros", "soixante", "60€"]
+      },
+      {
+        "id": "age_double",
+        "question": "Aujourd'hui, Maya a 8 ans et sa mère 34 ans. Dans combien d'années la mère aura-t-elle exactement le double de l'âge de Maya ?",
+        "hint": "Écris l'égalité : 34 + x = 2 × (8 + x).",
+        "answers": ["18", "dix-huit", "dix huit", "18 ans"]
+      },
+      {
+        "id": "poignees_main",
+        "question": "Dans une pièce, 5 personnes se serrent chacune la main une fois avec toutes les autres. Combien de poignées de main en tout ?",
+        "hint": "Chacune en serre 4, mais chaque poignée se compte une seule fois.",
+        "answers": ["10", "dix"]
+      },
+      {
+        "id": "trois_chats",
+        "question": "Si 3 chats attrapent 3 souris en 3 minutes, combien de chats faut-il pour attraper 100 souris en 100 minutes ?",
+        "hint": "Combien de souris UN chat attrape-t-il en 100 minutes ?",
+        "answers": ["3", "trois"]
+      },
+      {
+        "id": "douzaine_demi",
+        "question": "La moitié d'une demi-douzaine d'œufs, plus deux, ça fait combien ?",
+        "hint": "Une demi-douzaine, c'est 6.",
+        "answers": ["5", "cinq"]
+      },
+      {
+        "id": "minutes_heures",
+        "question": "Combien de minutes y a-t-il dans un quart de journée ?",
+        "hint": "Une journée fait 24 heures.",
+        "answers": ["360"]
+      },
+      {
+        "id": "train_vitesse",
+        "question": "Un train parcourt 60 km en 45 minutes. Quelle distance parcourt-il en 1 heure à la même vitesse ?",
+        "hint": "En 15 minutes de plus (un tiers), il parcourt un tiers de plus.",
+        "answers": ["80", "80 km", "quatre-vingts", "quatre vingts"]
+      },
+      {
+        "id": "bonbons_partage",
+        "question": "On partage 24 bonbons également entre 6 enfants. Puis 2 enfants s'en vont en laissant leurs bonbons aux 4 qui restent, partagés également. Combien chaque enfant restant a-t-il de bonbons ?",
+        "hint": "Chacun a 4 au départ ; 2 enfants laissent 8 bonbons à 4 enfants.",
+        "answers": ["6", "six"]
+      },
+      {
+        "id": "double_moitie",
+        "question": "Je pense à un nombre. Je le double, puis j'ajoute 10, et j'obtiens 30. Quel est mon nombre ?",
+        "hint": "Remonte à l'envers : avant le +10, c'était 20.",
+        "answers": ["10", "dix"]
+      },
+      {
+        "id": "crayons_boites",
+        "question": "12 crayons coûtent 3 €. Combien coûtent 20 crayons au même prix unitaire ?",
+        "hint": "Un crayon coûte 25 centimes.",
+        "answers": ["5", "cinq", "5 euros", "5€"]
+      },
+      {
+        "id": "horloge_sonne",
+        "question": "Une horloge met 6 secondes pour sonner 4 coups. Combien de secondes met-elle pour sonner 7 coups ?",
+        "hint": "Compte les INTERVALLES entre les coups, pas les coups eux-mêmes.",
+        "answers": ["12", "douze"]
+      },
+      {
+        "id": "ages_somme",
+        "question": "Deux nombres : leur somme fait 10 et leur différence fait 4. Quel est le plus grand ?",
+        "hint": "Additionne les deux : la somme des deux nombres plus leur différence donne deux fois le plus grand.",
+        "answers": ["7", "sept"]
+      },
+      {
+        "id": "pommes_reste",
+        "question": "J'ai 10 pommes. J'en donne la moitié, puis j'en mange 2. Combien m'en reste-t-il ?",
+        "hint": "La moitié de 10, puis on retire 2.",
+        "answers": ["3", "trois"]
+      },
+      {
+        "id": "fourmi_pattes",
+        "question": "Combien de pattes ont en tout 3 araignées (8 pattes chacune) et 4 fourmis (6 pattes chacune) ?",
+        "hint": "3 × 8, plus 4 × 6.",
+        "answers": ["48", "quarante-huit", "quarante huit"]
+      },
+      {
+        "id": "remise_deux",
+        "question": "Un jeu coûte 40 €. On applique -50 %, puis encore -10 % sur le prix déjà réduit. Quel est le prix final ?",
+        "hint": "Les remises s'appliquent l'une après l'autre, pas en s'additionnant.",
+        "answers": ["18", "18 euros", "dix-huit", "18€"]
+      }
+    ]
+  },
+  {
+    "dimension": "similitudes",
+    "label": "Similitudes",
+    "kind": "objective",
+    "pool": [
+      {
+        "id": "horloge_coeur",
+        "question": "Quel point commun vois-tu entre une horloge et un cœur ?",
+        "hint": "Écoute-les.",
+        "answers": ["bat", "battent", "battement", "rythme", "tic", "pulsation", "temps"]
+      },
+      {
+        "id": "graine_idee",
+        "question": "Quel point commun vois-tu entre une graine et une idée ?",
+        "hint": "Que deviennent-elles quand on s'en occupe ?",
+        "answers": ["germe", "germent", "pousse", "poussent", "grandit", "grandissent", "planter", "semer", "cultiver", "fleurir", "murir"]
+      },
+      {
+        "id": "brouillard_oubli",
+        "question": "Quel point commun vois-tu entre le brouillard et l'oubli ?",
+        "hint": "Que font-ils aux contours des choses ?",
+        "answers": ["estompe", "efface", "flou", "floute", "masque", "cache", "voile", "disparait", "disparaitre", "brouille"]
+      },
+      {
+        "id": "piano_violon",
+        "question": "En quoi un piano et un violon se ressemblent-ils ?",
+        "hint": "Pense à ce qu'on en tire.",
+        "answers": ["instrument", "instruments", "musique", "cordes", "son", "jouer", "melodie"]
+      },
+      {
+        "id": "carte_boussole",
+        "question": "En quoi une carte et une boussole se ressemblent-elles ?",
+        "hint": "Quand tu es perdu·e…",
+        "answers": ["orienter", "orientation", "guident", "guider", "guide", "direction", "chemin", "naviguer", "reperer", "situer", "trouver son chemin"]
+      },
+      {
+        "id": "aube_crepuscule",
+        "question": "Quel point commun entre l'aube et le crépuscule ?",
+        "hint": "Ni tout à fait jour, ni tout à fait nuit.",
+        "answers": ["transition", "passage", "entre", "frontiere", "lumiere", "changement", "jour et nuit", "moment", "seuil"]
+      },
+      {
+        "id": "riviere_temps",
+        "question": "Quel point commun vois-tu entre une rivière et le temps ?",
+        "hint": "Ni l'un ni l'autre ne revient en arrière.",
+        "answers": ["coule", "s'ecoule", "ecoule", "ecoulement", "passe", "avance", "irreversible", "sens unique", "ne revient pas", "fluide", "mouvement", "courant"]
+      },
+      {
+        "id": "miroir_lac",
+        "question": "Quel point commun entre un miroir et un lac parfaitement calme ?",
+        "hint": "Penche-toi au-dessus.",
+        "answers": ["reflet", "reflechit", "reflechir", "reflete", "refleter", "image", "surface", "renvoie", "miroir", "reflechissent"]
+      },
+      {
+        "id": "livre_porte",
+        "question": "En quoi un livre et une porte se ressemblent-ils ?",
+        "hint": "Les deux s'ouvrent sur autre chose.",
+        "answers": ["ouvre", "ouvrir", "ouvrent", "passage", "acces", "mene", "monde", "ailleurs", "entree", "franchir", "seuil", "s'ouvrent"]
+      },
+      {
+        "id": "racine_fondation",
+        "question": "Quel point commun entre les racines d'un arbre et les fondations d'une maison ?",
+        "hint": "On ne les voit pas, mais tout repose dessus.",
+        "answers": ["soutien", "soutiennent", "tiennent", "tenir", "base", "support", "stabilite", "ancre", "ancrent", "cachees", "invisibles", "portent", "fondation", "solide"]
+      },
+      {
+        "id": "cle_question",
+        "question": "Quel point commun vois-tu entre une clé et une bonne question ?",
+        "hint": "Les deux ouvrent quelque chose.",
+        "answers": ["ouvre", "ouvrir", "ouvrent", "debloque", "deverrouille", "acces", "solution", "comprendre", "reponse", "serrure"]
+      },
+      {
+        "id": "pont_mot",
+        "question": "Quel point commun entre un pont et un mot ?",
+        "hint": "Les deux relient : deux rives, ou deux personnes.",
+        "answers": ["relie", "relient", "relier", "lien", "connecte", "connecter", "rapproche", "traverser", "unit", "franchir", "communication", "comprendre"]
+      },
+      {
+        "id": "cicatrice_souvenir",
+        "question": "Quel point commun entre une cicatrice et un souvenir ?",
+        "hint": "Toutes deux gardent la trace de quelque chose de passé.",
+        "answers": ["trace", "marque", "reste", "passe", "temps", "histoire", "garde", "laisse", "empreinte", "blessure", "guerit"]
+      },
+      {
+        "id": "arbre_personne",
+        "question": "Quel point commun vois-tu entre un arbre et une personne ?",
+        "hint": "Les deux grandissent et ont des racines.",
+        "answers": ["grandit", "grandissent", "racines", "branches", "vie", "vivant", "pousse", "age", "croit", "tronc", "se nourrit", "respire"]
+      },
+      {
+        "id": "feu_colere",
+        "question": "Quel point commun entre le feu et la colère ?",
+        "hint": "Les deux peuvent se propager et tout consumer.",
+        "answers": ["brule", "brulent", "chaud", "chaleur", "consume", "detruit", "propage", "s'eteint", "eteindre", "monte", "intense", "destructeur", "ardent"]
+      },
+      {
+        "id": "etoile_espoir",
+        "question": "Quel point commun entre une étoile et l'espoir ?",
+        "hint": "Tous deux brillent, surtout dans le noir.",
+        "answers": ["brille", "brillent", "lumiere", "loin", "guide", "nuit", "eclaire", "lointain", "point lumineux", "s'eteint", "persiste", "scintille"]
+      },
+      {
+        "id": "horizon_reve",
+        "question": "Quel point commun entre l'horizon et un rêve ?",
+        "hint": "Plus tu avances vers eux, plus ils semblent reculer.",
+        "answers": ["loin", "lointain", "atteindre", "jamais", "s'eloigne", "inaccessible", "avance", "fuit", "ligne", "but", "poursuit", "recule"]
+      },
+      {
+        "id": "main_outil",
+        "question": "Quel point commun vois-tu entre une main et un outil ?",
+        "hint": "Les deux servent à faire, à transformer.",
+        "answers": ["fabrique", "fabriquer", "cree", "creer", "construit", "transforme", "travaille", "faire", "saisir", "tenir", "agir", "prolonge"]
+      },
+      {
+        "id": "racine_langue",
+        "question": "Quel point commun entre les racines d'une plante et celles d'un mot ?",
+        "hint": "Les deux sont cachées et donnent naissance à ce qui pousse au-dessus.",
+        "answers": ["origine", "source", "base", "cachees", "invisibles", "donnent", "naissance", "nourrissent", "fondation", "viennent", "souterraines", "profond"]
+      },
+      {
+        "id": "fenetre_oeil",
+        "question": "Quel point commun vois-tu entre une fenêtre et un œil ?",
+        "hint": "Les deux laissent entrer la lumière et voir au-dehors.",
+        "answers": ["voir", "regarder", "lumiere", "ouvre", "ouverture", "monde", "exterieur", "laisse passer", "vue", "transparent", "observer"]
+      },
+      {
+        "id": "ancre_habitude",
+        "question": "Quel point commun entre une ancre et une habitude ?",
+        "hint": "Les deux retiennent en place — pour le meilleur ou pour le pire.",
+        "answers": ["fixe", "retient", "stabilite", "tient", "attache", "empeche", "bouger", "lourd", "ancrer", "stable", "immobilise", "securite"]
+      }
+    ]
+  },
+  {
+    "dimension": "creative",
+    "label": "Expression libre",
+    "kind": "open",
+    "pool": [
+      {
+        "id": "penser_comme",
+        "question": "Complète à ta façon : « Penser, pour moi, c'est comme… »"
+      },
+      {
+        "id": "cerveau_lieu",
+        "question": "Si ton esprit était un lieu, lequel serait-il ? Décris-le en une phrase."
+      },
+      {
+        "id": "mot_invente",
+        "question": "Invente un mot qui n'existe pas, et donne sa définition."
+      },
+      {
+        "id": "couleur_son",
+        "question": "Si la musique que tu aimes avait une couleur, laquelle serait-ce ? Pourquoi ?"
+      },
+      {
+        "id": "question_rare",
+        "question": "Quelle question aimerais-tu qu'on te pose plus souvent ?"
+      },
+      {
+        "id": "objet_emotion",
+        "question": "Si une de tes émotions était un objet du quotidien, lequel serait-ce et pourquoi ?"
+      },
+      {
+        "id": "regle_monde",
+        "question": "Si tu pouvais ajouter une seule règle au monde, laquelle serait-ce ?"
+      },
+      {
+        "id": "pouvoir_discret",
+        "question": "Si tu avais un pouvoir discret, invisible aux yeux des autres, lequel choisirais-tu ?"
+      },
+      {
+        "id": "phrase_passe",
+        "question": "Si tu pouvais envoyer une seule phrase à toi-même il y a cinq ans, laquelle ?"
+      },
+      {
+        "id": "journee_couleur",
+        "question": "Si la journée d'aujourd'hui avait une couleur, laquelle serait-ce ?"
+      },
+      {
+        "id": "talent_cache",
+        "question": "Quel petit talent, ou détail de toi, que personne ne remarque jamais ?"
+      },
+      {
+        "id": "musique_etat",
+        "question": "Quelle musique décrirait le mieux ton état d'esprit en ce moment ?"
+      },
+      {
+        "id": "lieu_invente",
+        "question": "Si tu pouvais inventer un lieu qui n'existe pas, à quoi ressemblerait-il ?"
+      },
+      {
+        "id": "objet_vie",
+        "question": "Si tu devais résumer ta vie par un seul objet, lequel choisirais-tu ?"
+      },
+      {
+        "id": "premiere_pensee",
+        "question": "Quelle est la première chose à laquelle tu penses en te réveillant ?"
+      }
+    ]
+  }
+]

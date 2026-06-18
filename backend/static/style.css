@@ -131,29 +131,61 @@ a { color: var(--primary); }
 
 .intro-halo {
   position: absolute;
-  left: 50%; top: 43%;
-  width: 135%; aspect-ratio: 1;
-  translate: -50% -50%;
+  left: 50%; top: 41%;
+  width: 138%; aspect-ratio: 1;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0;
   background: radial-gradient(circle, rgba(255,208,140,.34) 0%, rgba(255,190,110,.14) 30%, rgba(150,130,255,.06) 52%, transparent 70%);
   filter: blur(10px);
-  /* le halo respire en opacité seulement (doux, ne scintille pas) */
-  animation: intro-halo-in 1.8s .2s ease forwards, intro-halo-breath 7s 2.6s ease-in-out infinite;
+  /* halo ambiant STATIQUE : seul l'abdomen respire (pas d'effet de lumière général) */
 }
 
 .intro-logo {
   position: relative;
   z-index: 1;
-  width: min(80vw, 400px);
-  height: auto;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
   margin: 0 auto;
   opacity: 0;
-  /* révélation une fois (mise au point), puis statique : pas de scale en boucle = pas de scintillement */
-  animation: intro-focus 1.8s .15s cubic-bezier(.2, .7, .2, 1) forwards;
+  animation: lm-reveal 1s .1s ease forwards;
+}
+
+.intro-mark {
+  width: min(52vw, 200px);
+  height: auto;
+  display: block;
+}
+
+/* === Luciole par calques (SVG inline) === */
+/* UNE seule animation : la lumière de l'abdomen respire (opacité = lisse, pas de
+   re-calcul de géométrie -> aucun scintillement). Le reste est immobile. */
+.iv-glow { animation: iv-pulse 4.2s ease-in-out infinite; will-change: opacity; }
+@keyframes iv-pulse { 0%, 100% { opacity: .66; } 50% { opacity: 1; } }
+
+.intro-wordmark {
+  font-family: "Lora", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(34px, 9vw, 52px);
+  letter-spacing: .04em;
+  color: #f3eefc;
+  margin-top: 2px;
+  opacity: 0;
+  animation: lm-rise .7s .45s ease forwards;
+}
+.intro-tagline {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: rgba(236, 232, 246, .6);
+  margin-left: .34em;          /* compense le letter-spacing pour centrer optiquement */
+  opacity: 0;
+  animation: lm-rise .7s .6s ease forwards;
 }
 
 .intro-enter {
@@ -161,17 +193,12 @@ a { color: var(--primary); }
   z-index: 1;
   margin-top: 10px;
   opacity: 0;
-  animation: intro-rise .8s 2.1s ease forwards;
+  animation: lm-rise .7s .78s ease forwards;
 }
 
-@keyframes intro-halo-in { from { opacity: 0; scale: .6; } to { opacity: 1; scale: 1; } }
-@keyframes intro-halo-breath { 0%, 100% { opacity: 1; } 50% { opacity: .82; } }
-@keyframes intro-focus {
-  0%   { opacity: 0; filter: blur(12px); transform: translateY(14px) scale(.9); }
-  55%  { opacity: 1; }
-  100% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
-}
-@keyframes intro-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes lm-reveal { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+@keyframes lm-rise   { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes lm-halo-breath { 0%, 100% { opacity: 1; } 50% { opacity: .8; } }
 
 /* ============ Écrans porte (consentement / défi) ============ */
 
@@ -376,6 +403,92 @@ a { color: var(--primary); }
   max-width: 44ch;
   margin-inline: auto;
 }
+
+.gate-fineprint {
+  margin: 12px auto 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  opacity: .8;
+  max-width: 50ch;
+}
+
+/* ============ QCM — choix multiples (parcours) ============ */
+
+.challenge-consigne {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.challenge-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 2px 0 6px;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 56px;
+  padding: 12px 16px;
+  text-align: left;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.45;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.choice:hover:not(:disabled) { border-color: var(--primary); }
+
+.choice-key {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 14px;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+.choice-text { flex: 1 1 auto; }
+
+/* sélectionné — bordure forte + chip rempli + halo discret (pas couleur seule) */
+.choice.selected {
+  border-color: var(--primary-strong);
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface-2));
+  box-shadow: 0 0 0 1px var(--primary-strong), 0 8px 22px -14px var(--glow);
+}
+.choice.selected .choice-key {
+  background: linear-gradient(180deg, var(--primary), var(--primary-strong));
+  border-color: transparent;
+  color: var(--on-primary);
+}
+
+/* feedback calme après validation */
+.choice.correct {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 13%, var(--surface-2));
+}
+.choice.correct .choice-key { background: var(--accent); border-color: transparent; color: #06251b; }
+.choice.wrong {
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 11%, var(--surface-2));
+}
+
+/* verrouillé une fois la bonne réponse trouvée */
+.challenge-choices.is-locked .choice { cursor: default; }
+.challenge-choices.is-locked .choice:not(.correct) { opacity: .5; }
 
 /* ============ Boutons ============ */
 

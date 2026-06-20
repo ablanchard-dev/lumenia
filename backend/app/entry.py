@@ -40,9 +40,9 @@ _BY_ID = {item["id"]: {**item, "dimension": step["dimension"]}
 
 # Nombre d'épreuves tirées par dimension. Total = 30 questions NOTÉES (6 par
 # dimension cognitive), dans l'esprit d'un test WAIS adulte éliminatoire.
-# PROVISOIRE : la longueur définitive du parcours ET le seuil de réussite relèvent
-# du protocole de Blandine (psychologue). Plafonné à la taille du pool pour éviter
-# tout débordement.
+# Longueur (30) et seuil de réussite (0.85, voir ENTRY_PASS_RATIO côté front)
+# confirmés par le protocole clinique de Blandine (psychologue). Plafonné à la
+# taille du pool pour éviter tout débordement.
 #
 # `libre` (expression libre, kind=open) est à 0 : ces items n'ont pas de bonne
 # réponse, ils ne peuvent donc pas compter dans un score éliminatoire (le front les

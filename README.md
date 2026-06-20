@@ -26,12 +26,14 @@ On Windows, `setup_windows_backend.ps1` chains these steps. Docker:
 
 ## How it works
 
-- **Entry.** Consent, then a short run of cognitive challenges (lateral thinking,
-  logic, reasoning, similarities, free expression). This is a client-side UX gate: it
-  initializes a cognitive profile reused afterwards to adapt the chat's answers, and the
-  SPA only reveals the chat once the run is passed. Server-side enforcement is not yet
-  wired (the API does not block `/chat` on the entry result) — WIP. The 3114 reminder
-  stays reachable at every step.
+- **Entry.** Consent, then a short run of cognitive challenges across six WAIS-inspired
+  dimensions (verbal comprehension, fluid reasoning, working memory, visuospatial
+  reasoning, processing speed, free expression), mostly multiple-choice with a few open
+  answers. It initializes a cognitive profile reused afterwards to adapt the chat's
+  answers, and the SPA only reveals the chat once the run clears the pass threshold.
+  This gate is client-side: server-side enforcement is not yet wired (the API does not
+  block `/chat` on the entry result) — WIP. The 3114 reminder stays reachable at every
+  step.
 - **Local data.** Conversations stay in the browser (localStorage), and message
   content is only sent to the LLM provider for the duration of a response. Two things do
   persist server-side in the local SQLite: the entry-test answers (cognitive profile)
@@ -48,10 +50,12 @@ current UI lives in `backend/static/` and is served by the backend.
 
 ## Entry question bank
 
-The entry questions live in `backend/app/entry_bank.json` (original items, split into
-five dimensions). The `backend/_verify_bank.py` script independently recomputes every
-computable answer (sequences, arithmetic, days, logic) and confirms it is accepted by
-the stored answers:
+The entry questions live in `backend/app/entry_bank.json` — about 300 original items
+across six dimensions, mostly multiple-choice plus some open answers (original items
+only: real psychometric tests are copyrighted and clinically reserved). The
+`backend/_verify_bank.py` script independently recomputes every computable answer
+(sequences, arithmetic, days, logic) and checks the multiple-choice items structurally
+(the key points to a real, non-empty, distinct choice):
 
 ```
 cd backend

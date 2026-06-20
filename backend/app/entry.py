@@ -38,23 +38,30 @@ _BY_ID = {item["id"]: {**item, "dimension": step["dimension"]}
           for step in PARCOURS for item in step["pool"]}
 
 
-# Nombre d'épreuves tirées par dimension (~27 au total, esprit WAIS). PROVISOIRE :
-# la longueur définitive du parcours ET le seuil de réussite relèvent du protocole
-# de Blandine (psychologue). Plafonné à la taille du pool pour éviter tout débordement.
+# Nombre d'épreuves tirées par dimension. Total = 30 questions NOTÉES (6 par
+# dimension cognitive), dans l'esprit d'un test WAIS adulte éliminatoire.
+# PROVISOIRE : la longueur définitive du parcours ET le seuil de réussite relèvent
+# du protocole de Blandine (psychologue). Plafonné à la taille du pool pour éviter
+# tout débordement.
+#
+# `libre` (expression libre, kind=open) est à 0 : ces items n'ont pas de bonne
+# réponse, ils ne peuvent donc pas compter dans un score éliminatoire (le front les
+# exclut déjà du dénominateur). Pour réintroduire une étape de profilage §3.3 en fin
+# de parcours (non notée, clôture douce), il suffit de remettre "libre": 1 ou 2 ici.
 _DRAW_PER_DIM = {
-    "verbale": 5,
-    "fluide": 5,
-    "memoire": 5,
-    "spatial": 5,
-    "vitesse": 5,
-    "libre": 2,
+    "verbale": 6,
+    "fluide": 6,
+    "memoire": 6,
+    "spatial": 6,
+    "vitesse": 6,
+    "libre": 0,
 }
-_DRAW_DEFAULT = 5
+_DRAW_DEFAULT = 6
 
 
 def get_parcours(exclude: Optional[Set[str]] = None) -> dict:
-    """Tire ~30 épreuves (réparties par dimension), en évitant si possible les
-    ids déjà vus, et en complétant depuis le pool si la réserve de non-vus est
+    """Tire 30 épreuves notées (6 par dimension cognitive), en évitant si possible
+    les ids déjà vus, et en complétant depuis le pool si la réserve de non-vus est
     insuffisante."""
     exclude = exclude or set()
     steps = []
@@ -101,14 +108,20 @@ def _numbers(text: str) -> List[float]:
 
 def _matches(accepted: str, answer: str) -> bool:
     """Réponse numérique → égalité exacte sur les nombres extraits (« 133 » ne
-    valide pas « 33 ») ; réponse textuelle → inclusion en forme compacte."""
+    valide pas « 33 ») ; réponse textuelle → inclusion en forme compacte ;
+    réponse purement symbolique (ex. chiffrement « #%&@ ») → comparaison en
+    ignorant seulement les espaces (la compaction alphanumérique la viderait)."""
     acc_norm = _normalize(accepted).strip()
     if _NUM_RE.fullmatch(acc_norm):
         target = float(acc_norm.replace(",", "."))
         return any(abs(n - target) < 1e-9 for n in _numbers(answer))
     acc_compact = re.sub(r"[^a-z0-9]", "", acc_norm)
     norm_compact = re.sub(r"[^a-z0-9]", "", _normalize(answer))
-    return bool(acc_compact) and acc_compact in norm_compact
+    if acc_compact:
+        return acc_compact in norm_compact
+    acc_sym = re.sub(r"\s+", "", acc_norm)
+    ans_sym = re.sub(r"\s+", "", _normalize(answer))
+    return bool(acc_sym) and acc_sym in ans_sym
 
 
 def verify_challenge(challenge_id: str, answer: str) -> dict:

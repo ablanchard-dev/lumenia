@@ -367,73 +367,73 @@
         "id": "CV-021",
         "domaine": "Compréhension verbale",
         "sous_type": "Information générale stable",
-        "niveau": 2,
-        "temps_sec": 40,
-        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
-        "question": "Quel principe explique qu'un objet immergé dans un fluide subit une poussée verticale vers le haut ?",
+        "niveau": 4,
+        "temps_sec": 75,
+        "consigne": "Lisez l'énoncé puis choisissez la seule conclusion logiquement correcte. Une seule réponse respecte exactement le principe physique en jeu.",
+        "question": "Le principe d'Archimède énonce que la poussée subie par un corps immergé égale le poids du volume de fluide qu'il déplace. Deux billes de même volume, l'une en plomb, l'autre en bois, sont entièrement immergées dans la même eau et maintenues sous la surface. Que peut-on affirmer de la poussée exercée sur chacune ?",
         "kind": "qcm",
         "choices": {
-          "A": "La loi d'Ohm",
-          "B": "Le principe d'Archimède",
-          "C": "La sélection naturelle",
-          "D": "Le théorème de Pythagore"
+          "A": "La poussée est plus grande sur la bille de plomb car elle est plus lourde.",
+          "B": "La poussée est identique sur les deux billes car elles déplacent le même volume d'eau.",
+          "C": "La poussée est plus grande sur la bille de bois car elle a tendance à flotter.",
+          "D": "Aucune poussée ne s'exerce sur la bille de plomb puisqu'elle coule."
         },
         "answer": "B",
-        "explication": "Le principe d'Archimède décrit la poussée exercée par un fluide sur un corps immergé."
+        "explication": "La poussée dépend uniquement du volume de fluide déplacé, identique ici, et non du poids ou de la nature du corps. A et C confondent poussée et densité (le comportement flotter/couler vient du rapport entre poids du corps et poussée, pas de la poussée seule). D est faux : la poussée s'exerce sur tout corps immergé, même s'il coule."
       },
       {
         "id": "CV-022",
         "domaine": "Compréhension verbale",
         "sous_type": "Information générale stable",
-        "niveau": 2,
-        "temps_sec": 40,
-        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
-        "question": "Qu'est-ce qu'un nombre premier ?",
+        "niveau": 4,
+        "temps_sec": 75,
+        "consigne": "Raisonnez à partir de la définition donnée, sans la réciter. Choisissez la seule affirmation qui en découle nécessairement.",
+        "question": "Un nombre premier est un entier supérieur à 1 qui n'admet que deux diviseurs distincts : 1 et lui-même. Quelle affirmation est, pour cette raison, nécessairement vraie ?",
         "kind": "qcm",
         "choices": {
-          "A": "Un entier supérieur à 1 divisible seulement par 1 et par lui-même.",
-          "B": "Un nombre qui se termine par 1.",
-          "C": "Un nombre toujours pair.",
-          "D": "Un nombre décimal compris entre 0 et 1."
+          "A": "Tout nombre premier est impair, car les nombres pairs ont toujours plus de deux diviseurs.",
+          "B": "Le produit de deux nombres premiers distincts n'est jamais premier.",
+          "C": "Plus un nombre est grand, plus il a de chances d'être premier.",
+          "D": "Tout nombre impair est premier, puisqu'il n'est pas divisible par 2."
         },
-        "answer": "A",
-        "explication": "2, 3, 5, 7 sont des exemples de nombres premiers; 1 n'est pas premier."
+        "answer": "B",
+        "explication": "Le produit de deux premiers p et q admet au moins quatre diviseurs (1, p, q, pq), il ne peut donc pas être premier. A est faux : 2 est premier et pair. C est faux : les premiers se raréfient quand les nombres grandissent. D est faux : 9, 15, 21 sont impairs mais composés."
       },
       {
         "id": "CV-023",
         "domaine": "Compréhension verbale",
         "sous_type": "Information générale stable",
-        "niveau": 2,
-        "temps_sec": 40,
-        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
-        "question": "Que mesure principalement le pH ?",
+        "niveau": 4,
+        "temps_sec": 70,
+        "consigne": "Mobilisez le sens précis de la notion pour trancher entre des formulations proches. Une seule est exacte.",
+        "question": "Le pH mesure l'acidité ou la basicité d'une solution sur une échelle de 0 à 14. Une solution passe d'un pH de 5 à un pH de 3. Que peut-on en conclure correctement ?",
         "kind": "qcm",
         "choices": {
-          "A": "La masse d'un objet",
-          "B": "La vitesse de la lumière",
-          "C": "Le caractère acide ou basique d'une solution",
-          "D": "La quantité de mémoire d'un ordinateur"
+          "A": "La solution est devenue plus basique, car le nombre a diminué.",
+          "B": "La solution est devenue nettement plus acide, l'écart valant plusieurs unités de pH.",
+          "C": "La solution est devenue neutre, car 3 est proche du milieu de l'échelle.",
+          "D": "La concentration en acide a baissé, puisque le pH a baissé."
         },
-        "answer": "C",
-        "explication": "Le pH situe une solution sur une échelle d'acidité/basicité."
+        "answer": "B",
+        "explication": "Sur l'échelle de pH, plus la valeur est basse, plus la solution est acide ; passer de 5 à 3 correspond donc à une acidité accrue. A inverse le sens de l'échelle. C est faux : la neutralité est à 7, pas à 3. D confond corrélation et causalité inversée : une baisse de pH traduit au contraire une acidité (concentration en ions H+) qui augmente."
       },
       {
         "id": "CV-024",
         "domaine": "Compréhension verbale",
         "sous_type": "Information générale stable",
-        "niveau": 1,
-        "temps_sec": 40,
-        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
-        "question": "Dans une démocratie représentative, à quoi servent principalement les élections ?",
+        "niveau": 4,
+        "temps_sec": 70,
+        "consigne": "Identifiez la fonction la plus fondamentale du dispositif décrit, pas seulement une de ses propriétés visibles. Une seule réponse vise l'essentiel.",
+        "question": "Dans une démocratie représentative, quel rôle les élections périodiques remplissent-elles de la manière la plus fondamentale ?",
         "kind": "qcm",
         "choices": {
-          "A": "À supprimer toute opposition",
-          "B": "À désigner des représentants selon une procédure collective",
-          "C": "À remplacer la loi par l'opinion privée",
-          "D": "À garantir qu'une seule personne décide sans contrôle"
+          "A": "Elles garantissent que le parti majoritaire conserve durablement le pouvoir.",
+          "B": "Elles rendent les gouvernants responsables devant les gouvernés, qui peuvent les reconduire ou les remplacer.",
+          "C": "Elles permettent de mesurer la popularité des candidats les plus médiatiques.",
+          "D": "Elles servent surtout à occuper les citoyens à intervalles réguliers."
         },
         "answer": "B",
-        "explication": "Les élections permettent de déléguer une part du pouvoir politique à des représentants selon des règles collectives."
+        "explication": "Le mécanisme central des élections est la reddition de comptes : la possibilité périodique de sanctionner ou reconduire les dirigeants. A décrit l'inverse de l'alternance démocratique. C n'est qu'un effet secondaire médiatique. D est une formulation cynique sans contenu institutionnel."
       },
       {
         "id": "CV-025",
@@ -493,19 +493,19 @@
         "id": "CV-028",
         "domaine": "Compréhension verbale",
         "sous_type": "Information générale stable",
-        "niveau": 2,
-        "temps_sec": 40,
-        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
-        "question": "En économie, que désigne l'inflation ?",
+        "niveau": 4,
+        "temps_sec": 75,
+        "consigne": "Raisonnez sur les conséquences de la notion économique, au-delà de sa simple définition. Une seule conclusion est correcte.",
+        "question": "L'inflation désigne une hausse générale et durable du niveau des prix. Si le salaire nominal d'une personne augmente de 2 % sur un an alors que l'inflation atteint 5 % sur la même période, que peut-on conclure ?",
         "kind": "qcm",
         "choices": {
-          "A": "La baisse durable de toutes les températures",
-          "B": "La hausse générale et durable du niveau des prix",
-          "C": "Le nombre de naissances",
-          "D": "Une figure de style"
+          "A": "Son pouvoir d'achat a augmenté, puisque son salaire a augmenté.",
+          "B": "Son pouvoir d'achat a diminué, car les prix ont monté plus vite que son salaire.",
+          "C": "Son pouvoir d'achat est resté stable, les deux variations se compensant.",
+          "D": "L'inflation n'a aucun effet sur le pouvoir d'achat tant que le salaire ne baisse pas."
         },
         "answer": "B",
-        "explication": "L'inflation renvoie à une augmentation globale et persistante du niveau des prix."
+        "explication": "Le pouvoir d'achat dépend du salaire rapporté au niveau des prix : +2 % de salaire face à +5 % de prix entraîne une perte réelle d'environ 3 %. A confond salaire nominal et salaire réel. C suppose à tort une compensation alors que les taux diffèrent. D ignore que l'érosion par les prix réduit le pouvoir d'achat même sans baisse nominale."
       },
       {
         "id": "CV-029",
@@ -529,19 +529,19 @@
         "id": "CV-030",
         "domaine": "Compréhension verbale",
         "sous_type": "Information générale stable",
-        "niveau": 2,
-        "temps_sec": 40,
-        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
-        "question": "Quelle unité mesure la fréquence d'un phénomène périodique ?",
+        "niveau": 4,
+        "temps_sec": 80,
+        "consigne": "Utilisez la signification de la grandeur, et non un simple nom d'unité, pour interpréter la situation. Une seule réponse est exacte.",
+        "question": "La fréquence, exprimée en hertz (Hz), correspond au nombre de cycles d'un phénomène périodique par seconde. Un phénomène A se répète 50 fois par seconde, un phénomène B se répète une fois toutes les deux secondes. Comment comparer leurs fréquences ?",
         "kind": "qcm",
         "choices": {
-          "A": "Le mètre",
-          "B": "Le kilogramme",
-          "C": "Le hertz",
-          "D": "Le litre"
+          "A": "A vaut 50 Hz et B vaut 0,5 Hz : A a une fréquence cent fois supérieure à B.",
+          "B": "A vaut 50 Hz et B vaut 2 Hz : A a une fréquence vingt-cinq fois supérieure à B.",
+          "C": "A vaut 0,02 Hz et B vaut 2 Hz : B a la fréquence la plus élevée.",
+          "D": "Les deux ont la même fréquence, car le hertz ne dépend pas de la durée."
         },
-        "answer": "C",
-        "explication": "Le hertz correspond au nombre de cycles par seconde."
+        "answer": "A",
+        "explication": "A : 50 cycles/s = 50 Hz. B : un cycle toutes les 2 s = 1/2 = 0,5 Hz. Le rapport 50/0,5 = 100. B confond la période de B (2 s) avec sa fréquence. C inverse la formule fréquence = 1/période pour A. D nie la définition même du hertz, qui dépend du nombre de cycles par seconde."
       },
       {
         "id": "CV-031",
@@ -583,37 +583,37 @@
         "id": "CV-033",
         "domaine": "Compréhension verbale",
         "sous_type": "Compréhension et jugement",
-        "niveau": 2,
-        "temps_sec": 45,
-        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
-        "question": "Si une consigne est ambiguë pendant un test d'entrée non clinique, que faut-il faire avant de répondre ?",
+        "niveau": 4,
+        "temps_sec": 90,
+        "consigne": "Choisissez la conduite qui préserve à la fois l'équité de l'évaluation, la validité des résultats et l'intégrité de la démarche. Une seule réponse concilie ces trois exigences.",
+        "question": "Pendant un test d'entrée standardisé, plusieurs candidats signalent qu'une même question semble admettre deux interprétations également défendables. L'examinateur ne peut pas joindre le concepteur avant la fin de la session. Quelle décision est la plus défendable ?",
         "kind": "qcm",
         "choices": {
-          "A": "Répondre au hasard pour gagner du temps",
-          "B": "Demander une clarification standardisée ou relire la consigne prévue",
-          "C": "Modifier soi-même la règle",
-          "D": "Chercher la réponse chez un autre candidat"
+          "A": "Laisser chacun répondre selon son interprétation, puis neutraliser la question au moment de la correction si l'ambiguïté est confirmée.",
+          "B": "Imposer oralement à voix haute, en cours d'épreuve, l'interprétation que l'examinateur juge correcte.",
+          "C": "Retirer immédiatement la question des copies déjà commencées et l'effacer sans en garder trace.",
+          "D": "Annuler toute la session et reconvoquer l'ensemble des candidats un autre jour."
         },
-        "answer": "B",
-        "explication": "Clarifier la consigne protège la comparabilité des réponses."
+        "answer": "A",
+        "explication": "Conserver la passation telle quelle puis neutraliser l'item après vérification préserve l'équité (mêmes conditions pour tous), la validité (décision fondée sur examen, pas sur improvisation) et la traçabilité. B introduit une interprétation non standardisée et possiblement erronée en cours d'épreuve. C détruit la traçabilité nécessaire à l'analyse. D est une réaction disproportionnée qui sacrifie les données déjà valides pour un seul item potentiellement neutralisable."
       },
       {
         "id": "CV-034",
         "domaine": "Compréhension verbale",
         "sous_type": "Compréhension et jugement",
-        "niveau": 3,
-        "temps_sec": 45,
-        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
-        "question": "Pourquoi documenter les décisions importantes dans un projet ?",
+        "niveau": 4,
+        "temps_sec": 85,
+        "consigne": "Identifiez la justification la plus profonde de la pratique décrite, celle qui en fait la valeur durable. Une seule réponse vise cette raison de fond.",
+        "question": "Dans un projet long mené par une équipe, on consigne par écrit non seulement les décisions prises, mais aussi les raisons qui les ont motivées et les options écartées. Quelle est la justification la plus fondamentale de cette pratique ?",
         "kind": "qcm",
         "choices": {
-          "A": "Pour rendre le projet plus lent sans raison",
-          "B": "Pour éviter toute responsabilité",
-          "C": "Pour cacher les changements",
-          "D": "Pour permettre traçabilité, cohérence et contrôle ultérieur"
+          "A": "Elle permet, plus tard, de réévaluer une décision à la lumière du contexte d'alors et d'éviter de rejouer des débats déjà tranchés.",
+          "B": "Elle augmente mécaniquement le volume de documents produits, ce qui valorise le travail de l'équipe.",
+          "C": "Elle désigne clairement qui blâmer si une décision se révèle mauvaise.",
+          "D": "Elle remplace la communication directe entre les membres de l'équipe."
         },
-        "answer": "D",
-        "explication": "La traçabilité permet de comprendre pourquoi une décision a été prise et de la vérifier."
+        "answer": "A",
+        "explication": "Documenter le raisonnement, pas seulement le résultat, préserve le contexte décisionnel : on peut comprendre pourquoi un choix a été fait, le reconsidérer si les hypothèses changent, et éviter de rouvrir des questions closes. B confond quantité et valeur. C détourne la traçabilité en outil de désignation de coupable, ce qui en mine l'usage. D oppose à tort documentation et communication, qui sont complémentaires."
       },
       {
         "id": "CV-035",
@@ -637,19 +637,19 @@
         "id": "CV-036",
         "domaine": "Compréhension verbale",
         "sous_type": "Compréhension et jugement",
-        "niveau": 2,
-        "temps_sec": 45,
-        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
-        "question": "Pourquoi proposer un exemple d'entraînement avant une tâche nouvelle ?",
+        "niveau": 4,
+        "temps_sec": 85,
+        "consigne": "Déterminez ce que vise réellement le dispositif décrit du point de vue de la validité de la mesure. Une seule réponse en saisit la fonction propre.",
+        "question": "Avant une tâche cognitive chronométrée, on présente au candidat un exemple d'entraînement non noté, qu'il réalise puis dont on lui montre la solution. Du point de vue de la qualité de la mesure, quelle est la fonction essentielle de cet exemple ?",
         "kind": "qcm",
         "choices": {
-          "A": "Pour donner la réponse aux items notés",
-          "B": "Pour décourager le participant",
-          "C": "Pour vérifier la compréhension de la règle sans influencer les réponses notées",
-          "D": "Pour changer la difficulté au hasard"
+          "A": "S'assurer que le candidat a compris la consigne, afin que le score reflète l'aptitude visée et non un malentendu sur les règles.",
+          "B": "Augmenter le score final de chaque candidat en le familiarisant avec le type de réponse attendu.",
+          "C": "Rendre le test plus agréable en réduisant le temps de travail effectif.",
+          "D": "Sélectionner d'emblée les candidats qui réussissent l'exemple et écarter les autres."
         },
-        "answer": "C",
-        "explication": "L'exemple d'entraînement standardise la compréhension de la mécanique."
+        "answer": "A",
+        "explication": "L'exemple d'entraînement sert à dissocier l'incompréhension de la consigne de l'aptitude mesurée : il garantit que tous partent avec les mêmes règles, ce qui renforce la validité. B est faux : on cherche à mesurer une aptitude, pas à gonfler artificiellement les scores. C décrit un effet accessoire, non la fonction. D détourne l'exemple en épreuve éliminatoire, ce qui contredit son statut explicitement non noté."
       },
       {
         "id": "CV-037",
@@ -725,286 +725,399 @@
       },
       {
         "id": "echo",
-        "kind": "objective",
-        "question": "Je parle toutes les langues du monde sans en avoir appris aucune. Qui suis-je ?",
-        "answers": [
-          "echo",
-          "l'echo",
-          "un echo"
-        ],
-        "hint": "On m'entend surtout en montagne."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (enigme Qui suis-je)",
+        "niveau": 4,
+        "temps_sec": 80,
+        "consigne": "Cette devinette repose sur des métaphores : chaque indice décrit une propriété au sens figuré. Choisissez l'unique réponse qui satisfait simultanément toutes les contraintes de l'énoncé.",
+        "question": "Je restitue ce qu'on me confie sans rien y ajouter ni rien comprendre ; je n'existe que parce qu'un autre a parlé ; je m'affaiblis à chaque fois que je me répète, jusqu'à disparaître. Que suis-je ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Un écho",
+          "B": "Un miroir",
+          "C": "Un perroquet",
+          "D": "Un souvenir"
+        },
+        "answer": "A",
+        "explication": "L'écho restitue fidèlement un son sans le comprendre (1er indice), n'existe que comme réponse à un son émis (2e indice) et s'atténue à chaque réflexion jusqu'à s'éteindre (3e indice) : il satisfait les trois contraintes. Le miroir renvoie des images, non des sons, et ne s'affaiblit pas en se répétant. Le perroquet répète mais existe par lui-même, indépendamment d'une parole préalable. Le souvenir peut s'affaiblir mais n'a besoin de personne d'autre pour exister et n'est pas une simple restitution sonore."
       },
       {
         "id": "trou",
-        "kind": "objective",
-        "question": "Plus on m'enlève de matière, plus je grandis. Qui suis-je ?",
-        "answers": [
-          "trou",
-          "le trou",
-          "un trou"
-        ],
-        "hint": "Pense à une pelle."
+        "domaine": "Compréhension verbale",
+        "sous_type": "Raisonnement conceptuel (paradoxe d'augmentation par retrait)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Identifiez la notion abstraite qui correspond le mieux à la description. Choisissez la seule réponse pleinement cohérente.",
+        "question": "Quelle entité possède la propriété paradoxale de croître précisément à mesure qu'on lui soustrait de la substance ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Une cavité, dont l'étendue augmente lorsqu'on retire la matière qui l'entoure.",
+          "B": "Une dette, qui s'accroît quand on cesse de la rembourser.",
+          "C": "Une cicatrice, qui s'élargit quand la chair s'use.",
+          "D": "Une ombre, qui s'allonge quand la lumière diminue."
+        },
+        "answer": "A",
+        "explication": "Seule la cavité (le vide creusé) grandit par soustraction directe de matière : agrandir un trou consiste littéralement à en ôter le contenu. La dette croît par absence de paiement, non par retrait de substance. La cicatrice s'agrandit par lésion ajoutée, pas par retrait. L'ombre dépend de la lumière, non d'une soustraction de matière ; sa croissance n'est pas un retrait de substance."
       },
       {
         "id": "prenom",
-        "kind": "objective",
-        "question": "C'est à toi, mais les autres l'utilisent bien plus souvent que toi. Qu'est-ce que c'est ?",
-        "answers": [
-          "prenom",
-          "nom",
-          "mon prenom",
-          "mon nom",
-          "le prenom",
-          "le nom"
-        ],
-        "hint": "On te le demande quand on te rencontre."
+        "domaine": "Compréhension verbale",
+        "sous_type": "Analyse sémantique (possession vs usage)",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Choisissez la notion qui satisfait exactement la double condition énoncée, sans approximation.",
+        "question": "Quelle chose vous appartient en propre alors même que ce sont les autres qui s'en servent presque toujours plus que vous ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Votre nom propre, qui vous désigne mais que vous prononcez rarement vous-même alors qu'autrui le prononce constamment.",
+          "B": "Votre voix, qui vous est propre mais que vous n'entendez jamais comme les autres l'entendent.",
+          "C": "Votre réputation, qui vous concerne mais que vous ne contrôlez pas.",
+          "D": "Votre signature, qui vous identifie et que vous seul tracez."
+        },
+        "answer": "A",
+        "explication": "Le nom propre vous appartient (il vous désigne légalement et socialement) tout en étant employé davantage par autrui que par vous-même, qui le prononcez peu. La voix vous appartient mais c'est vous qui l'utilisez le plus. La réputation n'est pas une possession et ne se 'sert' pas. La signature est au contraire tracée par vous seul, ce qui contredit la condition."
       },
       {
         "id": "silence",
-        "kind": "objective",
-        "question": "Dès qu'on prononce mon nom, je disparais. Qui suis-je ?",
-        "answers": [
-          "silence",
-          "le silence"
-        ],
-        "hint": "Il règne dans une bibliothèque."
+        "domaine": "Compréhension verbale",
+        "sous_type": "Raisonnement conceptuel (autoréférence performative)",
+        "niveau": 5,
+        "temps_sec": 50,
+        "consigne": "Repérez la notion dont l'existence est détruite par l'acte même qui la nomme. Une seule réponse est rigoureuse.",
+        "question": "Quelle réalité se trouve abolie par l'acte même de la désigner à voix haute ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Le silence, qu'une parole prononcée pour le nommer fait aussitôt cesser.",
+          "B": "Le secret, qui demeure même après qu'on en a parlé.",
+          "C": "L'oubli, qui persiste quand on essaie de s'en souvenir.",
+          "D": "Le repos, qu'une simple mention ne perturbe pas."
+        },
+        "answer": "A",
+        "explication": "Le silence est l'absence de son ; le prononcer (émettre un son) le supprime instantanément : la désignation est performativement autodestructrice. Le secret peut être divulgué sans cesser d'avoir existé, et le nommer ne le détruit pas en soi. L'oubli n'est pas aboli par l'évocation. Le repos n'est pas annulé par sa simple mention."
       },
       {
         "id": "aujourdhui",
-        "kind": "objective",
-        "question": "Je suis l'avenir d'hier et le passé de demain. Qui suis-je ?",
-        "answers": [
-          "aujourd'hui",
-          "aujourdhui",
-          "le present",
-          "present"
-        ],
-        "hint": "Tu es en plein dedans."
+        "domaine": "Compréhension verbale",
+        "sous_type": "Raisonnement temporel (relations relatives)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Déterminez le repère temporel qui occupe simultanément les deux positions décrites. Choisissez la seule réponse exacte.",
+        "question": "Quel moment est à la fois l'avenir qu'attendait la veille et le passé que regrettera le lendemain ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Le présent, futur du jour précédent et passé du jour suivant.",
+          "B": "Le crépuscule, charnière entre le jour et la nuit.",
+          "C": "L'instant, trop bref pour être un avenir ou un passé.",
+          "D": "L'éternité, qui échappe à la succession des jours."
+        },
+        "answer": "A",
+        "explication": "Le présent (le jour courant) était l'avenir relatif d'hier et deviendra le passé relatif de demain : il occupe les deux positions selon le point de vue adopté. Le crépuscule est une phase de la journée, pas une relation entre trois jours. L'instant, par sa brièveté, n'épouse pas le cadre 'hier/demain' à l'échelle du jour. L'éternité nie justement la succession exigée par l'énoncé."
       },
       {
         "id": "eponge",
-        "kind": "objective",
-        "question": "Je suis pleine de trous et pourtant je retiens l'eau. Qui suis-je ?",
-        "answers": [
-          "eponge",
-          "l'eponge",
-          "une eponge"
-        ],
-        "hint": "Regarde près de l'évier."
+        "domaine": "Compréhension verbale",
+        "sous_type": "Raisonnement conceptuel (la vacuité comme fonction)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Identifiez ce dont la multitude de vides constitue précisément le moyen de retenir. Une seule réponse est défendable.",
+        "question": "Pour quelle chose la profusion de cavités n'est-elle pas une perte mais la condition même de sa capacité à retenir un liquide ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Un matériau poreux, dont les nombreux interstices stockent le liquide par capillarité.",
+          "B": "Un tamis, dont les ouvertures servent au contraire à laisser passer le liquide.",
+          "C": "Un filet, dont les mailles ne retiennent que les solides.",
+          "D": "Une passoire, conçue pour séparer le liquide du solide."
+        },
+        "answer": "A",
+        "explication": "Dans un matériau poreux, les cavités retiennent le liquide par capillarité : le vide est fonctionnel, il rend possible la rétention. Le tamis, le filet et la passoire ont des trous dont la fonction est inverse : laisser passer le liquide ou le séparer du solide, et non le retenir."
       },
       {
         "id": "escalier",
-        "kind": "objective",
-        "question": "Je monte et je descends sans jamais bouger. Qui suis-je ?",
-        "answers": [
-          "escalier",
-          "l'escalier",
-          "les escaliers",
-          "un escalier",
-          "marches"
-        ],
-        "hint": "Tu me prends plusieurs fois par jour s'il n'y a pas d'ascenseur."
+        "domaine": "Compréhension verbale",
+        "sous_type": "Analyse sémantique (ambiguïté du mouvement attribué)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Choisissez la chose qui permet de monter et de descendre tout en demeurant elle-même parfaitement immobile. Une seule réponse résout l'ambiguïté.",
+        "question": "Qu'est-ce qui rend possibles la montée et la descente alors que cette chose ne se déplace jamais d'elle-même ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Une volée de marches fixes : le mouvement est celui de l'usager, jamais le sien.",
+          "B": "Un ascenseur, qui se déplace lui-même de haut en bas.",
+          "C": "Une échelle posée, que l'on doit déplacer pour atteindre un autre point.",
+          "D": "Un escalier mécanique, dont les marches se meuvent en continu."
+        },
+        "answer": "A",
+        "explication": "La volée de marches fixes ne bouge jamais ; c'est l'usager qui monte ou descend. L'ascenseur se déplace lui-même, donc il bouge. L'échelle posée doit être déplacée pour servir ailleurs, donc elle bouge. L'escalier mécanique a des marches en mouvement permanent. Seul l'escalier fixe satisfait l'immobilité stricte exigée."
       },
       {
         "id": "bougie",
-        "kind": "objective",
-        "question": "Plus je vieillis, plus je raccourcis. Qui suis-je ?",
-        "answers": [
-          "bougie",
-          "la bougie",
-          "une bougie",
-          "un cierge",
-          "cierge",
-          "allumette"
-        ],
-        "hint": "Je fonds en éclairant."
+        "domaine": "Compréhension verbale",
+        "sous_type": "Raisonnement conceptuel (usure proportionnelle à la durée d'usage)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Identifiez l'objet dont la diminution de taille mesure exactement le temps pendant lequel il a rempli sa fonction. Une seule réponse est juste.",
+        "question": "Quel objet voit sa hauteur décroître en proportion directe du temps durant lequel il a accompli sa fonction ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Un cierge qui se consume : sa longueur perdue correspond à la durée pendant laquelle il a éclairé.",
+          "B": "Une pile électrique, dont la taille reste constante malgré l'usage.",
+          "C": "Un sablier, dont le volume total ne change pas quand le sable s'écoule.",
+          "D": "Une montre, dont les aiguilles tournent sans que l'objet rétrécisse."
+        },
+        "answer": "A",
+        "explication": "Le cierge se raccourcit en se consumant : la matière fondue mesure le temps d'éclairage écoulé, donc sa réduction de hauteur est proportionnelle à la durée d'usage. La pile garde sa taille même déchargée. Le sablier conserve son volume total, le sable se déplace sans disparaître. La montre ne rétrécit pas. Seul le cierge perd de la matière proportionnellement au temps de service."
       },
       {
         "id": "ombre",
-        "kind": "objective",
-        "question": "Je te suis partout en plein jour, je grandis le soir et je te quitte la nuit. Qui suis-je ?",
-        "answers": [
-          "ombre",
-          "l'ombre",
-          "mon ombre",
-          "une ombre"
-        ],
-        "hint": "La lumière me dessine."
+        "domaine": "Compréhension verbale",
+        "sous_type": "Raisonnement physique-conceptuel (variation avec l'angle de la source)",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Choisissez la chose dont la présence et la taille dépendent entièrement de la position d'une source lumineuse. Une seule réponse est cohérente avec les trois conditions.",
+        "question": "Quelle chose vous accompagne quand la lumière vient de haut, s'allonge quand la source décline, puis disparaît totalement quand toute lumière s'éteint ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "La zone d'ombre projetée par un corps : présente au soleil haut, allongée au soleil rasant, abolie dans l'obscurité.",
+          "B": "Un reflet dans un miroir, qui demeure tant que le miroir est en place.",
+          "C": "Une empreinte au sol, qui subsiste même la nuit.",
+          "D": "Un écho, qui ne dépend pas de la lumière mais du son."
+        },
+        "answer": "A",
+        "explication": "L'ombre projetée remplit les trois conditions : elle existe sous une lumière haute, s'allonge quand la source s'abaisse (rayons rasants) et disparaît dans l'obscurité totale faute de lumière à occulter. Le reflet dépend du miroir, non de l'angle solaire, et peut exister à toute heure éclairée. L'empreinte persiste indépendamment de la lumière. L'écho relève du son, pas de la lumière."
       },
       {
         "id": "lettre_n",
-        "kind": "objective",
-        "question": "On me trouve au début de la nuit, à la fin du matin, deux fois dans l'année et jamais dans le mois. Qui suis-je ?",
-        "answers": [
-          "n",
-          "la lettre n",
-          "lettre n",
-          "le n"
-        ],
-        "hint": "Je ne suis pas un objet : je suis un signe qu'on écrit."
+        "domaine": "Compréhension verbale",
+        "sous_type": "Analyse phonético-orthographique (élément commun récurrent)",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Repérez l'unique élément graphique commun aux quatre mots selon la contrainte de position indiquée. Une seule réponse vérifie toutes les positions.",
+        "question": "Quelle lettre apparaît dans chacun des mots suivants — 'instant', 'banni', 'tunnel' et 'enclin' — tout en y figurant exactement deux fois ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "La lettre N, présente deux fois dans chacun de ces quatre mots.",
+          "B": "La lettre I, présente dans certains mais pas dans tous.",
+          "C": "La lettre T, qui ne figure pas dans tous les mots.",
+          "D": "La lettre E, absente de plusieurs de ces mots."
+        },
+        "answer": "A",
+        "explication": "La lettre N apparaît deux fois dans chacun : i-n-sta-n-t, ba-nn-i, tu-nn-el, e-n-cli-n. La lettre I manque dans 'tunnel'. La lettre T est absente de 'banni', 'tunnel' et 'enclin'. La lettre E ne figure pas dans 'instant' ni 'banni'. Seul N satisfait la double présence dans les quatre mots."
       },
       {
         "id": "lit_riviere",
-        "kind": "objective",
-        "question": "J'ai un lit mais je n'y dors jamais, je cours sans avoir de jambes. Qui suis-je ?",
-        "answers": [
-          "riviere",
-          "la riviere",
-          "fleuve",
-          "le fleuve",
-          "cours d'eau",
-          "ruisseau"
-        ],
-        "hint": "On me traverse sur un pont."
+        "domaine": "Compréhension verbale",
+        "sous_type": "Analyse sémantique (polysémie réconciliant deux sens opposés)",
+        "niveau": 5,
+        "temps_sec": 60,
+        "consigne": "Trouvez la réalité unique qui réconcilie le double sens : posséder un 'lit' sans y dormir, et 'courir' sans avoir de jambes. Une seule réponse honore les deux acceptions à la fois.",
+        "question": "Qu'est-ce qui possède un lit où nul ne se repose et qui court continûment sans jamais avoir de membres ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Un cours d'eau, qui s'écoule dans son lit (le creux où il circule) sans s'y reposer ni posséder de jambes.",
+          "B": "Un dormeur agité, qui a un lit mais y bouge sans courir vraiment.",
+          "C": "Un fleuve gelé, qui possède un lit mais ne court plus.",
+          "D": "Un sentier, parcouru par des marcheurs mais dépourvu de lit."
+        },
+        "answer": "A",
+        "explication": "Le cours d'eau exploite la polysémie de 'lit' (le creux géologique où il circule, et non un lieu de sommeil) et de 'courir' (s'écouler vite, sans jambes) : il satisfait les deux sens simultanément. Le dormeur a un lit-meuble mais ne 'court' pas. Le fleuve gelé a bien un lit mais, immobilisé, ne court plus. Le sentier est parcouru par autrui mais n'a pas de lit. Seul le cours d'eau réconcilie les deux acceptions."
       },
       {
         "id": "horloge_enigme",
-        "kind": "objective",
-        "question": "J'ai des aiguilles mais je ne couds pas, un visage mais pas de bouche. Qui suis-je ?",
-        "answers": [
-          "horloge",
-          "une horloge",
-          "l'horloge",
-          "montre",
-          "une montre",
-          "pendule",
-          "reveil"
-        ],
-        "hint": "Tu me regardes pour ne pas être en retard."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (raisonnement verbal abstrait)",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Choisissez la formulation qui capte le mieux le point commun ABSTRAIT le plus général entre les deux notions.",
+        "question": "Qu'ont fondamentalement en commun une horloge et un calendrier ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Ce sont des dispositifs de découpage conventionnel du temps en unités régulières.",
+          "B": "Ce sont deux objets que l'on accroche obligatoirement au mur.",
+          "C": "Ce sont deux instruments qui mesurent une distance parcourue.",
+          "D": "Ce sont deux outils servant à prédire l'avenir."
+        },
+        "answer": "A",
+        "explication": "Le point commun de niveau supérieur est qu'ils segmentent le temps continu en unités conventionnelles (secondes/heures pour l'horloge, jours/mois pour le calendrier). B est anecdotique et faux (un calendrier de bureau, une horloge de gare). C confond temps et distance. D attribue une fonction divinatoire qu'aucun ne possède : ils enregistrent et structurent, ils ne prédisent pas."
       },
       {
         "id": "clavier",
-        "kind": "objective",
-        "question": "J'ai des touches mais aucune serrure, une barre d'espace mais aucune pièce. Qui suis-je ?",
-        "answers": [
-          "clavier",
-          "un clavier",
-          "le clavier"
-        ],
-        "hint": "Tu m'utilises pour écrire sur un écran."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (raisonnement verbal abstrait)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Identifiez la propriété conceptuelle commune la plus précise.",
+        "question": "Un clavier d'ordinateur et un alphabet relèvent tous deux de quelle notion ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Un ensemble fini d'éléments discrets recombinables produisant un nombre illimité de messages.",
+          "B": "Un système hiérarchique où chaque élément contient le suivant.",
+          "C": "Une suite continue de signaux qu'on ne peut pas isoler les uns des autres.",
+          "D": "Un code secret dont la signification reste cachée à l'utilisateur."
+        },
+        "answer": "A",
+        "explication": "Clavier et alphabet sont des répertoires finis de signes discrets dont la combinaison engendre une infinité d'énoncés : c'est le principe de la double articulation / productivité. B décrit une hiérarchie d'emboîtement, fausse ici. C nie la discrétude pourtant essentielle (touches et lettres sont séparables). D fait de l'alphabet un chiffrement, ce qu'il n'est pas : c'est un système partagé et lisible."
       },
       {
         "id": "vent",
-        "kind": "objective",
-        "question": "On me sent, on m'entend, mais on ne me voit jamais. Qui suis-je ?",
-        "answers": [
-          "vent",
-          "le vent",
-          "un courant d'air",
-          "courant d'air",
-          "l'air",
-          "air",
-          "la brise",
-          "brise"
-        ],
-        "hint": "Je fais danser les feuilles et tourner les moulins."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (raisonnement verbal abstrait)",
+        "niveau": 4,
+        "temps_sec": 45,
+        "consigne": "Choisissez le terme dont la définition correspond exactement à l'énoncé.",
+        "question": "Comment nomme-t-on précisément ce qui n'est jamais perçu directement mais seulement déduit de ses effets sur d'autres objets ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Une grandeur inférée à partir de ses manifestations observables.",
+          "B": "Une illusion d'optique générée par le cerveau.",
+          "C": "Une convention purement arbitraire sans réalité sous-jacente.",
+          "D": "Une donnée mesurée directement par un instrument unique."
+        },
+        "answer": "A",
+        "explication": "Comme le vent, qu'on ne voit pas mais qu'on déduit du mouvement des feuilles, une telle entité est inférée via ses effets : c'est la notion de variable latente / grandeur médiate. B la réduit à une erreur perceptive, alors qu'elle est réelle. C nie son existence, contredisant le fait qu'elle produit des effets constants. D affirme une mesure directe, ce qui contredit précisément l'énoncé."
       },
       {
         "id": "miroir_enigme",
-        "kind": "objective",
-        "question": "Je te rends tout ce que tu me montres, mais à l'envers, sans rien garder. Qui suis-je ?",
-        "answers": [
-          "miroir",
-          "un miroir",
-          "le miroir",
-          "glace",
-          "la glace"
-        ],
-        "hint": "Tu me regardes le matin."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (raisonnement verbal abstrait)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Trouvez le concept général qui rend compte de la propriété décrite.",
+        "question": "Un miroir inverse la gauche et la droite mais conserve le haut et le bas. Quelle notion explique le mieux ce type de transformation ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Une transformation qui préserve les distances mais inverse l'orientation de l'espace.",
+          "B": "Un agrandissement uniforme qui dilate toutes les dimensions.",
+          "C": "Une rotation continue autour d'un axe vertical.",
+          "D": "Une destruction de l'information visuelle d'origine."
+        },
+        "answer": "A",
+        "explication": "Le reflet est une symétrie (isométrie indirecte) : elle conserve les longueurs et angles mais renverse la chiralité, d'où l'effet d'inversion. B décrit une homothétie, sans inversion. C : une rotation est une isométrie directe qui ne crée pas d'image en miroir. D est faux, l'information est intégralement conservée, seulement réorientée."
       },
       {
         "id": "secret",
-        "kind": "objective",
-        "question": "Tu me possèdes tant que tu me gardes ; dès que tu me partages, je n'existe plus. Qui suis-je ?",
-        "answers": [
-          "secret",
-          "un secret",
-          "le secret"
-        ],
-        "hint": "Chut…"
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (raisonnement verbal abstrait)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Identifiez la nuance sémantique exacte qui distingue les deux termes.",
+        "question": "Qu'est-ce qui distingue le plus précisément un secret d'une simple information privée ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Le secret implique une volonté active de dissimulation à autrui, pas seulement l'absence de divulgation.",
+          "B": "Le secret est toujours faux, l'information privée toujours vraie.",
+          "C": "Le secret ne concerne qu'une personne, l'information privée concerne tout un groupe.",
+          "D": "Le secret disparaît dès qu'il est connu d'une seule personne."
+        },
+        "answer": "A",
+        "explication": "Le secret se définit par l'intention de soustraire un contenu à la connaissance d'autrui ; l'information privée peut simplement n'être pas divulguée sans intention de cacher. B confond secret et mensonge (un secret peut être vrai). C est arbitraire : un secret peut être partagé par plusieurs. D est faux : un secret reste un secret tant qu'il est gardé, même connu de plusieurs initiés."
       },
       {
         "id": "futur",
-        "kind": "objective",
-        "question": "Je suis toujours devant toi, mais tu ne peux jamais m'atteindre. Qui suis-je ?",
-        "answers": [
-          "futur",
-          "le futur",
-          "l'avenir",
-          "avenir",
-          "demain",
-          "lendemain"
-        ],
-        "hint": "Hier, j'étais encore à venir."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (raisonnement verbal abstrait)",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Choisissez l'énoncé qui décrit le plus rigoureusement le statut logique de la notion.",
+        "question": "Quel énoncé caractérise le mieux la nature du futur par rapport au passé ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Le futur est un domaine d'états possibles non encore fixés, tandis que le passé est un ensemble de faits déterminés.",
+          "B": "Le futur et le passé sont également connaissables par observation directe.",
+          "C": "Le futur est déjà entièrement écrit et seulement caché à notre perception.",
+          "D": "Le futur n'existe pas du tout, seul le passé est réel."
+        },
+        "answer": "A",
+        "explication": "La distinction usuelle oppose un passé factuel, fixé, à un futur ouvert, fait de possibles non actualisés : c'est l'asymétrie temporelle. B est faux : on n'observe pas le futur. C est une thèse déterministe forte, non requise et plus engagée que l'énoncé neutre demandé. D est une négation excessive : on raisonne en permanence sur le futur comme champ de possibles, ce qui présuppose un statut, même non actualisé."
       },
       {
         "id": "carte_geo",
-        "kind": "objective",
-        "question": "Je montre des villes sans maisons, des routes sans voitures et des rivières sans eau. Qui suis-je ?",
-        "answers": [
-          "carte",
-          "une carte",
-          "la carte",
-          "carte geographique",
-          "plan",
-          "un plan"
-        ],
-        "hint": "On me déplie pour ne pas se perdre."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (raisonnement verbal abstrait)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Identifiez la propriété essentielle commune à ces deux objets.",
+        "question": "Qu'ont fondamentalement en commun une carte géographique et le mot 'arbre' ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Chacun est un signe : il renvoie à autre chose que lui-même sans être la chose désignée.",
+          "B": "Chacun reproduit son objet à l'échelle 1 et en conserve toutes les propriétés.",
+          "C": "Chacun est totalement dépourvu de relation avec ce qu'il évoque.",
+          "D": "Chacun ne peut être interprété que par celui qui l'a créé."
+        },
+        "answer": "A",
+        "explication": "La carte et le mot sont tous deux des représentations / signes : ils tiennent lieu d'un référent sans s'y confondre (le territoire n'est pas la carte). B est faux : tous deux simplifient et n'ont jamais toutes les propriétés du réel. C nie leur fonction même de renvoi. D ignore que carte et langue reposent sur des conventions partagées, lisibles par autrui."
       },
       {
         "id": "livre_enigme",
-        "kind": "objective",
-        "question": "J'ai des feuilles sans être un arbre, et un dos sans avoir d'os. Qui suis-je ?",
-        "answers": [
-          "livre",
-          "un livre",
-          "le livre",
-          "bouquin",
-          "roman"
-        ],
-        "hint": "On me lit, page après page."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (raisonnement verbal abstrait)",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Choisissez la distinction conceptuelle la plus exacte.",
+        "question": "Un livre considéré comme objet physique et le texte qu'il contient illustrent quelle distinction ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "La distinction entre un support matériel singulier et un contenu reproductible indépendant de ce support.",
+          "B": "La distinction entre une cause et son effet direct.",
+          "C": "La distinction entre le vrai et le faux.",
+          "D": "La distinction entre le tout et l'une de ses parties physiques."
+        },
+        "answer": "A",
+        "explication": "Le même texte (type, contenu abstrait) peut exister dans d'innombrables exemplaires (occurrences matérielles) : c'est la distinction type/occurrence, ou support/contenu. B introduit une causalité non pertinente. C porte sur la valeur de vérité, hors sujet. D réduit le texte à une partie matérielle du livre, alors qu'il en est précisément indépendant (un même texte survit à la destruction de l'exemplaire)."
       },
       {
         "id": "nuage",
-        "kind": "objective",
-        "question": "Je flotte sans ailes, je pleure sans yeux, et je disparais au soleil. Qui suis-je ?",
-        "answers": [
-          "nuage",
-          "un nuage",
-          "le nuage",
-          "nuages",
-          "les nuages"
-        ],
-        "hint": "Tu me regardes dans le ciel."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (raisonnement verbal abstrait)",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Identifiez la notion qui décrit le mieux le mode d'existence de l'objet.",
+        "question": "Un nuage n'a ni frontière nette ni composition fixe et se renouvelle constamment tout en gardant son identité apparente. Quelle notion décrit le mieux ce mode d'existence ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Un processus dont l'identité tient à une forme stable traversée par un flux de matière changeant.",
+          "B": "Un objet rigide aux limites parfaitement définies et à la matière permanente.",
+          "C": "Une pure abstraction mathématique sans aucune réalité physique.",
+          "D": "Un assemblage dont chaque composant reste identique au cours du temps."
+        },
+        "answer": "A",
+        "explication": "Comme une flamme ou un tourbillon, le nuage est un objet-processus : sa permanence est celle d'une forme, pas de sa matière (les gouttelettes se forment et s'évaporent sans cesse). B le décrit comme un solide aux frontières nettes, contraire à l'énoncé. C nie sa réalité physique. D affirme la permanence des composants, exactement ce que l'énoncé contredit."
       },
       {
         "id": "feu_enigme",
-        "kind": "objective",
-        "question": "Je dévore tout sans jamais être rassasié ; donne-moi à boire et je meurs. Qui suis-je ?",
-        "answers": [
-          "feu",
-          "le feu",
-          "un feu",
-          "flamme",
-          "la flamme",
-          "incendie"
-        ],
-        "hint": "On me combat avec de l'eau."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (raisonnement verbal abstrait)",
+        "niveau": 5,
+        "temps_sec": 60,
+        "consigne": "Choisissez la formulation la plus rigoureuse du point commun.",
+        "question": "Le feu et un être vivant partagent un trait fondamental. Lequel est formulé le plus rigoureusement ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Tous deux se maintiennent en consommant des ressources et en rejetant des produits, cessant d'exister si l'apport s'arrête.",
+          "B": "Tous deux sont capables de se reproduire en transmettant un patrimoine héréditaire.",
+          "C": "Tous deux possèdent une conscience et des intentions propres.",
+          "D": "Tous deux sont constitués d'une matière qui demeure inchangée tout au long de leur existence."
+        },
+        "answer": "A",
+        "explication": "Feu et organisme sont des systèmes dissipatifs : ils persistent tant qu'un flux d'énergie/matière les alimente (combustible/O2 pour le feu, nutriments pour le vivant) et s'éteignent sinon. B attribue au feu l'hérédité, qu'il n'a pas (il se propage mais ne transmet pas d'information codée). C lui prête une conscience absente. D nie le renouvellement constant de la matière, qui est justement leur trait partagé."
       },
       {
         "id": "horloge_coeur",
-        "kind": "objective",
-        "question": "Quel point commun vois-tu entre une horloge et un cœur ?",
-        "answers": [
-          "bat",
-          "battent",
-          "battement",
-          "rythme",
-          "tic",
-          "pulsation",
-          "temps"
-        ],
-        "hint": "Écoute-les."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (similitude concrete)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Indiquez en quoi ces deux choses se ressemblent au niveau le plus general et le plus abstrait, et non par un simple detail observable.",
+        "question": "Une horloge et un coeur",
+        "kind": "qcm",
+        "choices": {
+          "A": "Ce sont deux mecanismes regulateurs qui imposent un rythme periodique servant de reference a un systeme.",
+          "B": "Ce sont deux objets fabriques par l'homme pour mesurer le temps.",
+          "C": "Ce sont deux choses qui font du bruit lorsqu'elles fonctionnent.",
+          "D": "Ce sont deux dispositifs que l'on peut arreter puis redemarrer a volonte."
+        },
+        "answer": "A",
+        "explication": "La ressemblance de niveau superieur est fonctionnelle: chacun cadence de facon periodique le systeme qui en depend (une journee pour l'horloge, l'irrigation du corps pour le coeur). B est faux car le coeur n'est pas fabrique et ne sert pas a 'mesurer' le temps. C ne retient qu'un detail perceptif accessoire. D est faux: on ne redemarre pas un coeur a volonte, et cela ne saisit pas le point commun essentiel."
       },
       {
         "id": "graine_idee",
@@ -1045,37 +1158,39 @@
       },
       {
         "id": "piano_violon",
-        "kind": "objective",
-        "question": "En quoi un piano et un violon se ressemblent-ils ?",
-        "answers": [
-          "instrument",
-          "instruments",
-          "musique",
-          "cordes",
-          "son",
-          "jouer",
-          "melodie"
-        ],
-        "hint": "Pense à ce qu'on en tire."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (similitude concrete)",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Indiquez en quoi ces deux objets se ressemblent au niveau le plus precis et le plus fondamental possible, au-dela de la categorie evidente.",
+        "question": "Un piano et un violon",
+        "kind": "qcm",
+        "choices": {
+          "A": "Ce sont deux objets en bois que l'on trouve dans un orchestre.",
+          "B": "Ce sont deux instruments dont la hauteur des sons depend de cordes tendues mises en vibration et reglees par un accord prealable.",
+          "C": "Ce sont deux instruments dont on joue toujours assis.",
+          "D": "Ce sont deux instruments dont le son est produit par une colonne d'air."
+        },
+        "answer": "B",
+        "explication": "Le seul point commun a la fois exact et explicatif est le principe physique: tous deux produisent leur hauteur via des cordes tendues et accordees (frappees pour le piano, frottees pour le violon). A reste superficiel et 'orchestre' est inexact pour le piano solo. C est factuellement faux (le violon se joue debout ou assis). D decrit les instruments a vent, pas ceux-ci."
       },
       {
         "id": "carte_boussole",
-        "kind": "objective",
-        "question": "En quoi une carte et une boussole se ressemblent-elles ?",
-        "answers": [
-          "orienter",
-          "orientation",
-          "guident",
-          "guider",
-          "guide",
-          "direction",
-          "chemin",
-          "naviguer",
-          "reperer",
-          "situer",
-          "trouver son chemin"
-        ],
-        "hint": "Quand tu es perdu·e…"
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (similitude concrete)",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Indiquez en quoi ces deux objets se ressemblent de la facon la plus generale et la plus abstraite, sans vous arreter a leur usage apparent.",
+        "question": "Une carte et une boussole",
+        "kind": "qcm",
+        "choices": {
+          "A": "Ce sont deux instruments qui fournissent un systeme de reference reduisant l'incertitude sur sa position ou sa direction.",
+          "B": "Ce sont deux objets que l'on emporte uniquement en randonnee.",
+          "C": "Ce sont deux objets qui indiquent toujours le nord.",
+          "D": "Ce sont deux objets fonctionnant grace au champ magnetique terrestre."
+        },
+        "answer": "A",
+        "explication": "L'abstraction commune est informationnelle: chacun fournit un cadre de reference qui leve l'incertitude spatiale (la carte sur la position relative des lieux, la boussole sur la direction). B reduit a un contexte d'usage. C est faux pour la carte, qui ne 'pointe' pas le nord. D ne vaut que pour la boussole, pas pour la carte."
       },
       {
         "id": "aube_crepuscule",
@@ -1116,21 +1231,21 @@
       },
       {
         "id": "miroir_lac",
-        "kind": "objective",
-        "question": "Quel point commun entre un miroir et un lac parfaitement calme ?",
-        "answers": [
-          "reflet",
-          "reflechit",
-          "reflechir",
-          "reflete",
-          "refleter",
-          "image",
-          "surface",
-          "renvoie",
-          "miroir",
-          "reflechissent"
-        ],
-        "hint": "Penche-toi au-dessus."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (similitude concrete)",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Indiquez le point commun le plus general et le plus precis, au-dela du fait perceptif evident.",
+        "question": "Un miroir et la surface d'un lac calme",
+        "kind": "qcm",
+        "choices": {
+          "A": "Ce sont deux choses dans lesquelles on peut voir son visage.",
+          "B": "Ce sont deux surfaces fabriquees pour decorer un lieu.",
+          "C": "Ce sont deux surfaces lisses qui renvoient la lumiere et forment une image inversee sans la retenir.",
+          "D": "Ce sont deux objets transparents que la lumiere traverse entierement."
+        },
+        "answer": "C",
+        "explication": "Le point commun de fond est le mecanisme optique: une surface suffisamment lisse reflechit la lumiere et produit une image inversee qu'elle ne conserve pas. A n'enonce qu'un effet ponctuel et particulier. B est faux: un lac n'est pas fabrique pour decorer. D confond reflexion et transmission: l'image vient justement de ce que la lumiere n'est pas integralement transmise."
       },
       {
         "id": "livre_porte",
@@ -1233,23 +1348,21 @@
       },
       {
         "id": "arbre_personne",
-        "kind": "objective",
-        "question": "Quel point commun vois-tu entre un arbre et une personne ?",
-        "answers": [
-          "grandit",
-          "grandissent",
-          "racines",
-          "branches",
-          "vie",
-          "vivant",
-          "pousse",
-          "age",
-          "croit",
-          "tronc",
-          "se nourrit",
-          "respire"
-        ],
-        "hint": "Les deux grandissent et ont des racines."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (similitude concrete)",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Indiquez en quoi ces deux realites se ressemblent de la maniere la plus generale et la plus abstraite, en evitant les ressemblances triviales.",
+        "question": "Un arbre et une personne",
+        "kind": "qcm",
+        "choices": {
+          "A": "Ce sont deux etres dont la forme adulte resulte de l'interaction entre un programme interne et les contraintes du milieu.",
+          "B": "Ce sont deux etres qui se deplacent pour chercher leur nourriture.",
+          "C": "Ce sont deux etres dotes d'un cerveau qui coordonne leurs reactions.",
+          "D": "Ce sont deux etres qui grandissent puis cessent definitivement de changer."
+        },
+        "answer": "A",
+        "explication": "Le point commun fecond est developpemental: leur forme finale depend a la fois de l'information heritee et des pressions de l'environnement. B est faux pour l'arbre, qui est fixe. C est faux: l'arbre n'a pas de systeme nerveux. D est faux: tous deux continuent de se transformer (croissance, vieillissement) au-dela de la maturite."
       },
       {
         "id": "feu_colere",
@@ -1354,22 +1467,21 @@
       },
       {
         "id": "fenetre_oeil",
-        "kind": "objective",
-        "question": "Quel point commun vois-tu entre une fenêtre et un œil ?",
-        "answers": [
-          "voir",
-          "regarder",
-          "lumiere",
-          "ouvre",
-          "ouverture",
-          "monde",
-          "exterieur",
-          "laisse passer",
-          "vue",
-          "transparent",
-          "observer"
-        ],
-        "hint": "Les deux laissent entrer la lumière et voir au-dehors."
+        "domaine": "Compréhension verbale",
+        "sous_type": "objective (similitude poetique facile)",
+        "niveau": 5,
+        "temps_sec": 60,
+        "consigne": "Au-dela de la metaphore courante, indiquez le point commun fonctionnel le plus precis entre ces deux elements.",
+        "question": "Une fenetre et un oeil",
+        "kind": "qcm",
+        "choices": {
+          "A": "Ce sont deux choses faites du meme materiau transparent.",
+          "B": "Ce sont deux ouvertures dont l'admission de lumiere est regulee par un element qui peut s'elargir ou se retrecir.",
+          "C": "Ce sont deux dispositifs qui produisent eux-memes de la lumiere.",
+          "D": "Ce sont deux choses par lesquelles on regarde le paysage."
+        },
+        "answer": "B",
+        "explication": "Le point commun fonctionnel exact est le controle du flux lumineux par une ouverture variable: volets ou stores pour la fenetre, iris et pupille pour l'oeil. A est faux: l'oeil n'est pas du meme materiau qu'une vitre. C est faux: ni l'un ni l'autre n'emet de lumiere. D reprend seulement la metaphore usuelle et ne s'applique pas a l'oeil, qui recoit l'image et ne sert pas a 'regarder a travers'."
       },
       {
         "id": "ancre_habitude",
@@ -1437,37 +1549,37 @@
         "id": "RF-083",
         "domaine": "Raisonnement fluide",
         "sous_type": "Séries numériques",
-        "niveau": 1,
-        "temps_sec": 50,
-        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
-        "question": "1, 4, 9, 16, 25, ?",
+        "niveau": 4,
+        "temps_sec": 70,
+        "consigne": "Trouvez la regle qui engendre la serie, puis choisissez le terme suivant.",
+        "question": "2, 3, 7, 16, 32, ?",
         "kind": "qcm",
         "choices": {
-          "A": "30",
-          "B": "35",
-          "C": "36",
-          "D": "49"
+          "A": "48",
+          "B": "53",
+          "C": "57",
+          "D": "64"
         },
         "answer": "C",
-        "explication": "Ce sont les carrés parfaits: 1²,2²,3²,4²,5², donc 6²=36."
+        "explication": "On ajoute des carres parfaits successifs: +1, +4, +9, +16; le prochain ecart est +25, donc 32 + 25 = 57. A (48) suppose un ecart constant de +16; B (53) suppose +21; D (64) suppose un doublement du dernier terme. Aucune de ces regles ne reproduit les ecarts deja observes."
       },
       {
         "id": "RF-084",
         "domaine": "Raisonnement fluide",
         "sous_type": "Séries numériques",
-        "niveau": 1,
-        "temps_sec": 50,
-        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
-        "question": "81, 27, 9, 3, ?",
+        "niveau": 4,
+        "temps_sec": 65,
+        "consigne": "Trouvez la regle qui engendre la serie, puis choisissez le terme suivant.",
+        "question": "3, 8, 18, 38, ?",
         "kind": "qcm",
         "choices": {
-          "A": "1",
-          "B": "0",
-          "C": "6",
-          "D": "-3"
+          "A": "58",
+          "B": "76",
+          "C": "78",
+          "D": "80"
         },
-        "answer": "A",
-        "explication": "Chaque terme est divisé par 3."
+        "answer": "C",
+        "explication": "Chaque terme est le double du precedent augmente de 2 (x2 +2): 3->8, 8->18, 18->38; ensuite 38 x 2 + 2 = 78. B (76) ne fait que doubler sans ajouter 2. A (58) suppose un ecart constant de +20. D (80) ne correspond a aucune regle reguliere coherente avec les termes precedents."
       },
       {
         "id": "RF-085",
@@ -1527,37 +1639,37 @@
         "id": "RF-088",
         "domaine": "Raisonnement fluide",
         "sous_type": "Séries numériques",
-        "niveau": 2,
-        "temps_sec": 50,
-        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
-        "question": "144, 121, 100, 81, ?",
+        "niveau": 4,
+        "temps_sec": 65,
+        "consigne": "Trouvez la regle qui engendre la serie, puis choisissez le terme suivant.",
+        "question": "100, 84, 70, 58, ?",
         "kind": "qcm",
         "choices": {
-          "A": "64",
-          "B": "70",
-          "C": "72",
-          "D": "49"
+          "A": "44",
+          "B": "46",
+          "C": "48",
+          "D": "50"
         },
-        "answer": "A",
-        "explication": "Ce sont les carrés descendants: 12²,11²,10²,9², donc 8²=64."
+        "answer": "C",
+        "explication": "La serie decroit avec des ecarts qui diminuent en valeur absolue: -16, -14, -12; l'ecart suivant est -10, donc 58 - 10 = 48. B (46) suppose un ecart constant de -12. A (44) suppose -14. D (50) suppose -8 alors que la progression des ecarts est de +2 a chaque etape."
       },
       {
         "id": "RF-089",
         "domaine": "Raisonnement fluide",
         "sous_type": "Séries numériques",
-        "niveau": 1,
-        "temps_sec": 50,
-        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
-        "question": "1, 1, 2, 3, 5, 8, ?",
+        "niveau": 5,
+        "temps_sec": 80,
+        "consigne": "Trouvez la regle qui engendre la serie, puis choisissez le terme suivant.",
+        "question": "1, 2, 4, 7, 12, ?",
         "kind": "qcm",
         "choices": {
-          "A": "10",
-          "B": "11",
-          "C": "12",
-          "D": "13"
+          "A": "19",
+          "B": "20",
+          "C": "21",
+          "D": "24"
         },
-        "answer": "D",
-        "explication": "Chaque terme est la somme des deux précédents."
+        "answer": "B",
+        "explication": "Chaque terme est la somme des deux precedents augmentee de 1: 1+2+1=4, 2+4+1=7, 4+7+1=12; ensuite 7+12+1 = 20. A (19) est le piege: c'est la somme simple des deux precedents (7+12), regle de type Fibonacci qui ne reproduit pourtant pas les termes deja donnes. C (21) suppose un ecart de +9 sans justification, D (24) un doublement, regles incompatibles avec la serie."
       },
       {
         "id": "RF-090",
@@ -1635,127 +1747,127 @@
         "id": "RF-094",
         "domaine": "Raisonnement fluide",
         "sous_type": "Matrices logiques textuelles",
-        "niveau": 3,
-        "temps_sec": 55,
-        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
-        "question": "Colonnes: haut [2, 4, 6], milieu [3, 6, 9], bas [5, 10, ?]. Dans chaque colonne, bas = haut + milieu.",
+        "niveau": 4,
+        "temps_sec": 75,
+        "consigne": "Chaque ligne suit une meme regle reliant les deux premiers nombres au troisieme. Identifiez la regle, puis trouvez le nombre manquant.",
+        "question": "Ligne 1 : (4 ; 3) -> 5. Ligne 2 : (6 ; 5) -> 19. Ligne 3 : (8 ; 4) -> ?",
         "kind": "qcm",
         "choices": {
-          "A": "12",
-          "B": "14",
-          "C": "15",
-          "D": "18"
+          "A": "20",
+          "B": "32",
+          "C": "28",
+          "D": "12"
         },
-        "answer": "C",
-        "explication": "La troisième colonne donne 6+9=15."
+        "answer": "A",
+        "explication": "La regle est : resultat = (a x b) - (a + b). Ligne 1 : 12 - 7 = 5 ; ligne 2 : 30 - 11 = 19 ; ligne 3 : 32 - 12 = 20. B (32) ne retient que le produit a x b et ignore la soustraction. C (28) surestime en ne retranchant pas assez : ni a x b - a (qui donnerait 24) ni la regle correcte ne produisent 28. D (12) prend a x (b - 1), faux des la ligne 1 (4 x 2 = 8 ne fait pas 5)."
       },
       {
         "id": "RF-095",
         "domaine": "Raisonnement fluide",
         "sous_type": "Matrices logiques textuelles",
-        "niveau": 2,
-        "temps_sec": 55,
-        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
-        "question": "Carrés: 4→9, 7→15, 10→?",
+        "niveau": 4,
+        "temps_sec": 70,
+        "consigne": "Une meme fonction transforme chaque entree en sa sortie. Deduisez la regle, puis calculez la sortie demandee.",
+        "question": "3 -> 10 ; 5 -> 26 ; 7 -> 50 ; 9 -> ?",
         "kind": "qcm",
         "choices": {
-          "A": "21",
-          "B": "20",
-          "C": "19",
-          "D": "18"
+          "A": "82",
+          "B": "74",
+          "C": "65",
+          "D": "81"
         },
         "answer": "A",
-        "explication": "Règle: sortie = 2×entrée +1; 10 donne 21."
+        "explication": "La fonction est f(n) = n^2 + 1 : 3^2+1=10, 5^2+1=26, 7^2+1=50, donc 9^2+1=82. B (74) suppose un ecart constant errone (ajout de 24 a 50). C (65) applique 8^2+1, c'est-a-dire prend la valeur precedente de la suite des entrees au lieu de 9. D (81) confond avec n^2 sans le +1, ce qui contredit deja 3 -> 10."
       },
       {
         "id": "RF-096",
         "domaine": "Raisonnement fluide",
         "sous_type": "Matrices logiques textuelles",
-        "niveau": 1,
-        "temps_sec": 55,
-        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
-        "question": "Triplets: (2,5,7), (4,1,5), (6,3,?) ; le troisième est la somme des deux premiers.",
+        "niveau": 4,
+        "temps_sec": 70,
+        "consigne": "Dans chaque triplet, le troisieme nombre se deduit des deux premiers par une regle unique. Trouvez la valeur manquante.",
+        "question": "(6 ; 3) -> 33 ; (9 ; 5) -> 76 ; (7 ; 4) -> ?",
         "kind": "qcm",
         "choices": {
-          "A": "6",
-          "B": "7",
-          "C": "8",
-          "D": "9"
+          "A": "45",
+          "B": "28",
+          "C": "11",
+          "D": "53"
         },
-        "answer": "D",
-        "explication": "6+3=9."
+        "answer": "A",
+        "explication": "La regle est : troisieme = a^2 - b. 6^2-3=33, 9^2-5=76, donc 7^2-4=45. B (28) est le simple produit a x b, faux des le premier triplet (18 ne fait pas 33). C (11) est la somme a + b, egalement fausse. D (53) applique a^2 + b/2 ou une variante additive incoherente avec les deux premiers triplets."
       },
       {
         "id": "RF-097",
         "domaine": "Raisonnement fluide",
         "sous_type": "Matrices logiques textuelles",
-        "niveau": 3,
-        "temps_sec": 55,
-        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
-        "question": "Triplets: (3,2,12), (4,3,24), (5,4,?) ; troisième = premier × deuxième × 2.",
+        "niveau": 4,
+        "temps_sec": 75,
+        "consigne": "Chaque triplet obeit a la meme relation entre ses trois termes. Identifiez-la, puis completez le dernier triplet.",
+        "question": "(5 ; 4) -> 9 ; (8 ; 3) -> 55 ; (9 ; 4) -> ?",
         "kind": "qcm",
         "choices": {
-          "A": "30",
-          "B": "36",
-          "C": "40",
-          "D": "45"
+          "A": "65",
+          "B": "72",
+          "C": "52",
+          "D": "40"
         },
-        "answer": "C",
-        "explication": "5×4×2=40."
+        "answer": "A",
+        "explication": "La regle est la difference de carres : a^2 - b^2 = (a+b)(a-b). 25-16=9, 64-9=55, donc 81-16=65. B (72) correspond au produit a x b, faux des le premier triplet (20 ne fait pas 9). C (52) ajoute une constante arbitraire au produit. D (40) provient d'un mauvais calcul de a^2 - b^2 et reste incoherent avec (5;4)->9."
       },
       {
         "id": "RF-098",
         "domaine": "Raisonnement fluide",
         "sous_type": "Matrices logiques textuelles",
-        "niveau": 2,
-        "temps_sec": 55,
-        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
-        "question": "Matrice de signes: ligne 1: +, -, + ; ligne 2: -, +, - ; ligne 3: +, -, ?",
+        "niveau": 4,
+        "temps_sec": 90,
+        "consigne": "Le signe de chaque case resulte d'une regle de multiplication entre un signe propre a sa ligne et un signe propre a sa colonne. Deduisez la regle, puis donnez le signe de la case manquante.",
+        "question": "Grille 3x3 (les signes connus). Ligne 1 : + ; - ; - . Ligne 2 : - ; + ; + . Ligne 3 : + ; ? ; - . Quel est le signe de la case du milieu de la ligne 3 ?",
         "kind": "qcm",
         "choices": {
-          "A": "+",
-          "B": "-",
-          "C": "0",
-          "D": "×"
+          "A": "-",
+          "B": "+",
+          "C": "Indeterminable",
+          "D": "Toujours egal au signe de la case juste au-dessus"
         },
         "answer": "A",
-        "explication": "Le motif alterne en damier; la troisième case de la ligne 3 est +."
+        "explication": "Chaque case vaut (signe de ligne) x (signe de colonne). Les signes de colonne se lisent sur la ligne 1 (dont le signe de ligne est +) : colonne 1 = +, colonne 2 = -, colonne 3 = -. La ligne 3 a pour signe de ligne + (sa case en colonne 1 vaut + x + = +). Donc la case milieu = (+ ligne 3) x (- colonne 2) = -. B (+) resulterait d'une lecture en damier naive, qui est fausse ici car les colonnes 2 et 3 partagent le meme signe. C est faux : la regle est entierement determinee par les cases donnees. D est faux : la case au-dessus (ligne 2, colonne 2) vaut +, alors que la reponse correcte est -."
       },
       {
         "id": "RF-099",
         "domaine": "Raisonnement fluide",
         "sous_type": "Matrices logiques textuelles",
-        "niveau": 2,
-        "temps_sec": 55,
-        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
-        "question": "Lignes: [8, 4, 2], [18, 6, 3], [32, 8, ?]. Règle: premier ÷ deuxième = troisième.",
+        "niveau": 4,
+        "temps_sec": 80,
+        "consigne": "Chaque ligne relie ses trois nombres par une meme regle a deux operations. Trouvez le nombre manquant.",
+        "question": "(48 ; 8) -> 4 ; (54 ; 6) -> 12 ; (60 ; 5) -> ?",
         "kind": "qcm",
         "choices": {
-          "A": "2",
-          "B": "3",
-          "C": "3,5",
-          "D": "4"
+          "A": "19",
+          "B": "12",
+          "C": "24",
+          "D": "55"
         },
-        "answer": "D",
-        "explication": "32 ÷ 8 = 4."
+        "answer": "A",
+        "explication": "La regle est : resultat = (a / b) x 2 - b. Ligne 1 : (48/8) x 2 - 8 = 12 - 8 = 4 ; ligne 2 : (54/6) x 2 - 6 = 18 - 6 = 12 ; ligne 3 : (60/5) x 2 - 5 = 24 - 5 = 19. B (12) ne fait que a / b sans la suite. C (24) s'arrete a (a/b) x 2 et oublie de retrancher b. D (55) correspond a a - b, faux des la premiere ligne."
       },
       {
         "id": "RF-100",
         "domaine": "Raisonnement fluide",
         "sous_type": "Matrices logiques textuelles",
         "niveau": 4,
-        "temps_sec": 55,
-        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
-        "question": "Lignes: [2, 8, 4], [3, 27, 9], [4, 64, ?]. Règle: deuxième = premier × troisième.",
+        "temps_sec": 75,
+        "consigne": "Une seule regle relie les deux premiers nombres de chaque ligne au troisieme. Deduisez-la, puis completez.",
+        "question": "(4 ; 5) -> 21 ; (7 ; 6) -> 29 ; (3 ; 8) -> ?",
         "kind": "qcm",
         "choices": {
-          "A": "12",
-          "B": "16",
-          "C": "20",
-          "D": "24"
+          "A": "61",
+          "B": "24",
+          "C": "64",
+          "D": "55"
         },
-        "answer": "B",
-        "explication": "64 ÷ 4 = 16; la ligne est 4, 64, 16."
+        "answer": "A",
+        "explication": "La regle est : troisieme = b^2 - a. Ligne 1 : 25 - 4 = 21 ; ligne 2 : 36 - 7 = 29 ; ligne 3 : 64 - 3 = 61. B (24) est le produit a x b, faux des la premiere ligne (20 ne fait pas 21). C (64) prend b^2 sans soustraire a. D (55) applique b^2 - a mais avec a et b confondus (mauvaise affectation), incoherent avec les lignes precedentes."
       },
       {
         "id": "RF-101",
@@ -1815,37 +1927,37 @@
         "id": "RF-104",
         "domaine": "Raisonnement fluide",
         "sous_type": "Balances et équations",
-        "niveau": 2,
-        "temps_sec": 55,
-        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
-        "question": "3 carrés = 2 cercles. 1 cercle vaut 6. Combien vaut un carré ?",
+        "niveau": 4,
+        "temps_sec": 80,
+        "consigne": "Plusieurs equivalences de masses sont donnees. Enchaînez-les pour determiner la valeur cherchee.",
+        "question": "Sur des balances en equilibre : 3 carres pesent autant que 4 cercles ; 1 cercle pese autant que 2 triangles ; 1 triangle pese 9 g. Combien pese 1 carre ?",
         "kind": "qcm",
         "choices": {
-          "A": "3",
-          "B": "4",
-          "C": "6",
-          "D": "9"
+          "A": "24 g",
+          "B": "18 g",
+          "C": "12 g",
+          "D": "27 g"
         },
-        "answer": "B",
-        "explication": "2 cercles valent 12; 3 carrés valent 12; un carré vaut 4."
+        "answer": "A",
+        "explication": "1 triangle = 9 g, donc 1 cercle = 2 x 9 = 18 g. 4 cercles = 72 g, qui equilibrent 3 carres : 1 carre = 72 / 3 = 24 g. B (18) est la masse d'un cercle, pas d'un carre. C (12) divise 72 par 6 (erreur de comptage). D (27) ajoute cercle + triangle (18 + 9) sans tenir compte de l'equilibre 3 contre 4."
       },
       {
         "id": "RF-105",
         "domaine": "Raisonnement fluide",
         "sous_type": "Balances et équations",
-        "niveau": 2,
-        "temps_sec": 55,
-        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
-        "question": "2A + 3 = 11. A + B = 9. Combien vaut B ?",
+        "niveau": 4,
+        "temps_sec": 80,
+        "consigne": "Resolvez le systeme, puis evaluez l'expression demandee.",
+        "question": "On sait que 3A + 2B = 31 et que A - B = 2. Quelle est la valeur de 2A + B ?",
         "kind": "qcm",
         "choices": {
-          "A": "3",
-          "B": "4",
-          "C": "5",
-          "D": "6"
+          "A": "19",
+          "B": "17",
+          "C": "21",
+          "D": "12"
         },
-        "answer": "C",
-        "explication": "2A=8 donc A=4; B=9-4=5."
+        "answer": "A",
+        "explication": "De A - B = 2 on tire A = B + 2. En substituant : 3(B+2) + 2B = 31, soit 5B + 6 = 31, donc B = 5 et A = 7. Alors 2A + B = 14 + 5 = 19. B (17) correspond a 2A + B avec A = 6 (mauvaise resolution). C (21) calcule 3A au lieu de 2A + B. D (12) additionne simplement A + B sans appliquer les coefficients."
       },
       {
         "id": "RF-106",
@@ -1869,73 +1981,73 @@
         "id": "RF-107",
         "domaine": "Raisonnement fluide",
         "sous_type": "Balances et équations",
-        "niveau": 2,
-        "temps_sec": 55,
-        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
-        "question": "4 pentagones = 2 losanges. 1 losange vaut 10. Combien vaut un pentagone ?",
+        "niveau": 4,
+        "temps_sec": 80,
+        "consigne": "Combinez les equilibres successifs pour trouver la masse demandee.",
+        "question": "A l'equilibre : 5 pentagones pesent autant que 3 hexagones ; 1 hexagone pese autant que 2 losanges ; 1 losange pese 5 g. Combien pese 1 pentagone ?",
         "kind": "qcm",
         "choices": {
-          "A": "5",
-          "B": "10",
-          "C": "15",
-          "D": "20"
+          "A": "6 g",
+          "B": "10 g",
+          "C": "5 g",
+          "D": "8 g"
         },
         "answer": "A",
-        "explication": "2 losanges valent 20; 4 pentagones valent 20; un pentagone vaut 5."
+        "explication": "1 losange = 5 g, donc 1 hexagone = 10 g. 3 hexagones = 30 g, qui equilibrent 5 pentagones : 1 pentagone = 30 / 5 = 6 g. B (10) est la masse d'un hexagone, pas d'un pentagone. C (5) reprend la masse du losange. D (8) provient d'une division erronee (par exemple 40 / 5) ignorant le rapport 5 contre 3."
       },
       {
         "id": "RF-108",
         "domaine": "Raisonnement fluide",
         "sous_type": "Balances et équations",
-        "niveau": 2,
-        "temps_sec": 55,
-        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
-        "question": "2 livres équilibrent 1 livre + 3 kg. Combien pèse un livre ?",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Une balance est en équilibre. Déduisez la valeur demandée à partir des deux plateaux.",
+        "question": "Sur le plateau gauche on place 3 livres identiques et un poids de 0,5 kg. Sur le plateau droit on place 1 livre identique et un poids de 6,5 kg. La balance est en équilibre. Combien pèse un livre ?",
         "kind": "qcm",
         "choices": {
-          "A": "1 kg",
-          "B": "2 kg",
-          "C": "3 kg",
+          "A": "2 kg",
+          "B": "3 kg",
+          "C": "3,5 kg",
           "D": "6 kg"
         },
-        "answer": "C",
-        "explication": "En retirant 1 livre de chaque côté, 1 livre = 3 kg."
+        "answer": "B",
+        "explication": "L'équilibre donne 3L + 0,5 = L + 6,5, donc 2L = 6 et L = 3 kg. A (2 kg) résulte d'une soustraction faite avant d'isoler les livres (6,5−0,5 puis /3). C (3,5 kg) vient d'oublier de diviser par 2 après avoir gardé un seul livre de différence. D (6 kg) confond le total 2L = 6 avec la valeur d'un seul livre."
       },
       {
         "id": "RF-109",
         "domaine": "Raisonnement fluide",
         "sous_type": "Balances et équations",
-        "niveau": 3,
-        "temps_sec": 55,
-        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
-        "question": "3 cubes = 2 cubes + 4 billes. Une bille vaut 2 g. Combien vaut un cube ?",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Utilisez l'équilibre des deux plateaux pour calculer la masse d'un cube.",
+        "question": "5 cubes identiques et 3 billes équilibrent exactement 3 cubes identiques et 11 billes. Chaque bille pèse 4 g. Quelle est la masse d'un cube ?",
         "kind": "qcm",
         "choices": {
-          "A": "2 g",
-          "B": "4 g",
-          "C": "6 g",
-          "D": "8 g"
+          "A": "12 g",
+          "B": "16 g",
+          "C": "24 g",
+          "D": "32 g"
         },
-        "answer": "D",
-        "explication": "Un cube = 4 billes = 8 g."
+        "answer": "B",
+        "explication": "5C + 3b = 3C + 11b donne 2C = 8b = 32 g, donc C = 16 g. D (32 g) est la masse de DEUX cubes (2C), non d'un seul. C (24 g) provient de 6 billes (différence 11−3 mal calculée à 6) divisées par 1. A (12 g) vient de prendre 3 billes de différence (×4) sans tenir compte du nombre de cubes."
       },
       {
         "id": "RF-110",
         "domaine": "Raisonnement fluide",
         "sous_type": "Balances et équations",
-        "niveau": 3,
+        "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
-        "question": "2A + B = 16 et A + B = 11. Combien vaut B ?",
+        "consigne": "Résolvez le système formé par les deux pesées pour trouver la valeur demandée.",
+        "question": "On sait que 3A + 2B = 29 et que A + B = 12, où A et B sont des masses entières en grammes. Quelle est la masse de A ?",
         "kind": "qcm",
         "choices": {
-          "A": "5",
-          "B": "6",
-          "C": "7",
-          "D": "8"
+          "A": "5 g",
+          "B": "7 g",
+          "C": "9 g",
+          "D": "11 g"
         },
-        "answer": "B",
-        "explication": "Soustraction: A=5; donc B=11-5=6."
+        "answer": "A",
+        "explication": "En remplaçant B = 12 − A dans 3A + 2B = 29 : 3A + 24 − 2A = 29, donc A = 5 (et B = 7). B (7 g) est en réalité la valeur de B, pas de A. C (9 g) vient d'une soustraction directe erronée 29−2×10. D (11 g) suppose à tort A = 12 − 1 en confondant les deux équations."
       },
       {
         "id": "RF-111",
@@ -2067,55 +2179,55 @@
         "id": "RF-118",
         "domaine": "Raisonnement fluide",
         "sous_type": "Logique déductive",
-        "niveau": 2,
-        "temps_sec": 60,
-        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
-        "question": "On sait: si N alors O; si O alors P. N est vrai. Conclusion ?",
+        "niveau": 4,
+        "temps_sec": 80,
+        "consigne": "À partir des règles données, identifiez la SEULE conclusion qui en découle nécessairement.",
+        "question": "On sait : (1) Si N est vrai alors O est vrai. (2) Si O est vrai alors P est faux. (3) Si P est faux alors Q est vrai. Or on observe que Q est FAUX. Que peut-on conclure avec certitude ?",
         "kind": "qcm",
         "choices": {
-          "A": "P est faux",
-          "B": "O est faux",
-          "C": "Rien ne suit",
-          "D": "P est vrai"
+          "A": "N est faux.",
+          "B": "O est vrai.",
+          "C": "P est faux.",
+          "D": "N est vrai et O est faux."
         },
-        "answer": "D",
-        "explication": "Chaînage logique: N→O→P."
+        "answer": "A",
+        "explication": "Par contraposée de (3), Q faux implique P vrai ; par contraposée de (2), P vrai implique O faux ; par contraposée de (1), O faux implique N faux. Donc N est nécessairement faux. B et C affirment le contraire de ce qu'imposent les contraposées (O faux, P vrai). D contient une partie correcte (O faux) mais affirme N vrai, ce qui est exclu."
       },
       {
         "id": "RF-119",
         "domaine": "Raisonnement fluide",
         "sous_type": "Logique déductive",
-        "niveau": 2,
-        "temps_sec": 60,
-        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
-        "question": "Un classement respecte: L avant M, M avant N, et N avant O. Quelle proposition est certaine ?",
+        "niveau": 4,
+        "temps_sec": 90,
+        "consigne": "À partir des contraintes d'ordre, déterminez quelle affirmation est NÉCESSAIREMENT vraie (toujours, sans aucune exception).",
+        "question": "Cinq coureuses Anne, Béa, Clara, Diane et Élise arrivent sans ex aequo. On sait : Élise arrive avant Anne ; Anne arrive avant Béa ; Béa arrive avant Clara ; et Anne arrive avant Diane. Quelle affirmation est forcément vraie ?",
         "kind": "qcm",
         "choices": {
-          "A": "O avant L",
-          "B": "L avant O",
-          "C": "N avant M",
-          "D": "M après O"
+          "A": "Anne arrive avant Clara.",
+          "B": "Anne arrive première.",
+          "C": "Clara arrive dernière.",
+          "D": "Diane arrive deuxième."
         },
-        "answer": "B",
-        "explication": "La relation transitive donne L<M<N<O."
+        "answer": "A",
+        "explication": "La chaîne Anne < Béa < Clara impose que Anne précède toujours Clara : A est nécessairement vraie. B est fausse car Élise arrive avant Anne, donc Anne n'est jamais première. C n'est pas forcée : Diane n'est contrainte qu'à arriver après Anne, elle peut donc finir après Clara, et dans ce cas Clara n'est pas dernière. D est impossible : Élise et Anne arrivent toujours avant Diane, qui ne peut donc jamais être deuxième. Seule A résiste à tous les ordres compatibles avec les contraintes."
       },
       {
         "id": "RF-120",
         "domaine": "Raisonnement fluide",
         "sous_type": "Logique déductive",
-        "niveau": 3,
-        "temps_sec": 60,
-        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
-        "question": "Deux règles: soit X soit Y, mais pas les deux. Y est vrai. Conclusion ?",
+        "niveau": 5,
+        "temps_sec": 75,
+        "consigne": "Combinez les deux conditions logiques pour trouver la SEULE attribution de valeurs compatible.",
+        "question": "Deux interrupteurs X et Y. On sait : (1) X et Y ne peuvent pas être tous les deux dans le même état (l'un est allumé si et seulement si l'autre est éteint). (2) Si Y est éteint, alors X est éteint. Quel est l'état du système ?",
         "kind": "qcm",
         "choices": {
-          "A": "X est vrai",
-          "B": "X et Y sont vrais",
-          "C": "X est faux",
-          "D": "On ne peut rien dire"
+          "A": "X allumé, Y éteint",
+          "B": "X éteint, Y allumé",
+          "C": "X allumé, Y allumé",
+          "D": "X éteint, Y éteint"
         },
-        "answer": "C",
-        "explication": "Un 'ou exclusif' interdit que les deux soient vrais; si Y est vrai, X est faux."
+        "answer": "B",
+        "explication": "La condition (1) est un OU exclusif : X et Y ont des états opposés, ce qui élimine C et D. Restent A (X allumé, Y éteint) et B (X éteint, Y allumé). La condition (2) « si Y éteint alors X éteint » rend A contradictoire (Y éteint mais X allumé). Seul B satisfait les deux règles. Le piège classique est de choisir A par symétrie, sans tester la contrainte conditionnelle (2)."
       },
       {
         "id": "suite",
@@ -2146,22 +2258,39 @@
       },
       {
         "id": "fibo",
-        "kind": "objective",
-        "question": "Complète la suite : 1, 1, 2, 3, 5, 8, … ?",
-        "answers": [
-          "13"
-        ],
-        "hint": "Chaque nombre naît des deux précédents."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Suites numériques",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Identifiez la règle de construction de la suite, puis donnez le terme suivant.",
+        "question": "Soit la suite : 2, 1, 3, 4, 7, 11, 18, ... Quel est le terme suivant ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "25",
+          "B": "29",
+          "C": "31",
+          "D": "36"
+        },
+        "answer": "B",
+        "explication": "Chaque terme est la somme des deux précédents (11 + 18 = 29) ; c'est une suite additive de type Lucas, mais initialisée par 2 et 1 au lieu de 1 et 1, ce qui empêche la reconnaissance automatique de Fibonacci. A (25) ajoute 18 + 7 (les deux mauvais termes). C (31) double 18 puis retranche 5 sans règle cohérente. D (36) double le dernier terme, règle qui ne vaut nulle part ailleurs dans la suite."
       },
       {
         "id": "grandeur",
-        "kind": "objective",
-        "question": "Léa est plus grande que Zoé. Marie est plus petite que Zoé. Qui est la plus grande des trois ?",
-        "answers": [
-          "lea",
-          "léa"
-        ],
-        "hint": "Classe-les sur une ligne."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Ordonnancement déductif",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Croisez toutes les comparaisons de taille pour désigner la personne la plus grande.",
+        "question": "Cinq personnes. Anne est plus grande que Béa. Clara est plus petite que Béa. Diane est plus grande qu'Anne. Élise est plus grande que Béa mais plus petite qu'Anne. Qui est la plus grande des cinq ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Anne",
+          "B": "Béa",
+          "C": "Diane",
+          "D": "Élise"
+        },
+        "answer": "C",
+        "explication": "L'ordre décroissant cohérent est Diane > Anne > Élise > Béa > Clara : Diane domine Anne, qui domine toutes les autres, donc Diane est la plus grande. A (Anne) est dominée par Diane et constitue le piège pour qui s'arrête à « Anne > Béa et > Élise ». D (Élise) est explicitement plus petite qu'Anne. B (Béa) est dominée par Anne, Élise et Diane."
       },
       {
         "id": "jours",
@@ -2174,21 +2303,39 @@
       },
       {
         "id": "suite_premiers",
-        "kind": "objective",
-        "question": "Complète la suite : 2, 3, 5, 7, 11, … ?",
-        "answers": [
-          "13"
-        ],
-        "hint": "Ces nombres n'ont que deux diviseurs : 1 et eux-mêmes."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Suites numériques",
+        "niveau": 5,
+        "temps_sec": 75,
+        "consigne": "Trouvez la loi qui relie les écarts successifs, puis calculez le terme suivant.",
+        "question": "Soit la suite : 2, 5, 10, 17, 28, ... Quel est le terme suivant ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "37",
+          "B": "39",
+          "C": "41",
+          "D": "43"
+        },
+        "answer": "C",
+        "explication": "Les écarts successifs sont 3, 5, 7, 11 : ce sont les nombres premiers consécutifs à partir de 3. Le prochain écart est donc 13, et 28 + 13 = 41. A (37) ajoute un écart de 9, en supposant à tort une progression arithmétique d'écarts (+2 à chaque fois) alors que l'on passe de 7 à 11 en sautant le 9. B (39) ajoute 11 (réutilise le dernier écart). D (43) ajoute 15 (continue +4 sur les écarts)."
       },
       {
         "id": "suite_carres",
-        "kind": "objective",
-        "question": "Complète la suite : 1, 4, 9, 16, 25, … ?",
-        "answers": [
-          "36"
-        ],
-        "hint": "1×1, 2×2, 3×3, 4×4…"
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Suites numériques",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Dégagez la règle générant la suite, puis fournissez le terme manquant.",
+        "question": "Soit la suite : 2, 5, 10, 17, 26, ... Quel est le terme suivant ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "35",
+          "B": "36",
+          "C": "37",
+          "D": "38"
+        },
+        "answer": "C",
+        "explication": "Le terme de rang n vaut n² + 1 (1+1, 4+1, 9+1, 16+1, 25+1), donc le 6e terme est 36 + 1 = 37. B (36) est le carré pur 6² et constitue le piège pour qui repère « les carrés » sans voir le +1. A (35) suppose des écarts mal projetés. D (38) ajoute un écart de 12 au lieu de 11 (les écarts réels sont les impairs 3, 5, 7, 9, 11)."
       },
       {
         "id": "syllogisme_roses",
@@ -2210,12 +2357,21 @@
       },
       {
         "id": "suite_x3",
-        "kind": "objective",
-        "question": "Complète la suite : 2, 6, 18, 54, … ?",
-        "answers": [
-          "162"
-        ],
-        "hint": "On multiplie par le même nombre à chaque étape."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Identifiez la règle de récurrence qui lie chaque terme aux précédents, puis choisissez le terme suivant.",
+        "question": "2, 6, 14, 30, 62, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "126",
+          "B": "124",
+          "C": "120",
+          "D": "94"
+        },
+        "answer": "A",
+        "explication": "Chaque terme vaut le double du précédent augmenté de 2 (a(n)=2·a(n-1)+2) : 62·2+2=126. B (124) ne fait que doubler sans ajouter 2. C suppose à tort un facteur fixe. D applique l'écart précédent (+32) comme s'il était constant, alors que les écarts (4, 8, 16, 32) doublent et passent à +64."
       },
       {
         "id": "suite_alt",
@@ -2228,21 +2384,39 @@
       },
       {
         "id": "syllogisme_chats",
-        "kind": "objective",
-        "question": "Tous les chats sont des animaux. Aucun animal ne parle. Un chat peut-il parler ? (oui / non)",
-        "answers": [
-          "non"
-        ],
-        "hint": "Si aucun animal ne parle, et qu'un chat est un animal…"
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Syllogismes",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "En admettant les deux prémisses comme vraies, choisissez la SEULE conclusion qui en découle nécessairement.",
+        "question": "Prémisses : « Certains félins de ce refuge sont vaccinés. » et « Tous les animaux vaccinés de ce refuge sont adoptables. » Que peut-on conclure avec certitude ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Certains félins de ce refuge sont adoptables.",
+          "B": "Tous les félins de ce refuge sont adoptables.",
+          "C": "Certains animaux adoptables ne sont pas des félins.",
+          "D": "Aucun félin non vacciné n'est adoptable."
+        },
+        "answer": "A",
+        "explication": "Les félins vaccinés existent (prémisse 1) et tout vacciné est adoptable (prémisse 2) : ces félins-là sont donc adoptables, d'où « certains félins sont adoptables ». B généralise indûment à TOUS les félins, alors que seuls « certains » sont concernés. C affirme une info absente : on ne sait rien des adoptables non félins. D commet une erreur de conversion : l'adoptabilité peut venir d'autres causes que la vaccination, donc un félin non vacciné pourrait être adoptable."
       },
       {
         "id": "suite_moins",
-        "kind": "objective",
-        "question": "Complète la suite : 64, 32, 16, 8, … ?",
-        "answers": [
-          "4"
-        ],
-        "hint": "On divise par 2 à chaque étape."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "La série alterne deux opérations différentes. Trouvez le motif, puis choisissez le terme suivant.",
+        "question": "96, 48, 72, 36, 54, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "27",
+          "B": "81",
+          "C": "26",
+          "D": "18"
+        },
+        "answer": "A",
+        "explication": "Les opérations alternent : ÷2 puis ×1,5. 96÷2=48, 48×1,5=72, 72÷2=36, 36×1,5=54, puis 54÷2=27. B (81) applique ×1,5 alors que c'est un rang de division. C (26) suppose à tort une soustraction constante. D (18) divise par 3, motif inexistant ici."
       },
       {
         "id": "suite_fact",
@@ -2255,57 +2429,111 @@
       },
       {
         "id": "ordre_taille",
-        "kind": "objective",
-        "question": "Tom court plus vite que Lina. Lina court plus vite que Sam. Qui est le plus lent ?",
-        "answers": [
-          "sam"
-        ],
-        "hint": "Classe-les du plus rapide au plus lent."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Ordonnancement / inférence transitive",
+        "niveau": 5,
+        "temps_sec": 75,
+        "consigne": "À partir des comparaisons de vitesse données, déterminez qui est le coureur le plus lent. Toutes les comparaisons sont strictes.",
+        "question": "Cinq coureurs : Alex court plus vite que Bilal. Chloé court plus vite qu'Alex. Bilal court plus vite que Driss. Chloé court plus vite qu'Émile. Émile court plus vite que Bilal. Qui est le plus lent ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Driss",
+          "B": "Bilal",
+          "C": "Émile",
+          "D": "Impossible à déterminer"
+        },
+        "answer": "A",
+        "explication": "On obtient Chloé > Alex > Bilal et Chloé > Émile > Bilal, et Bilal > Driss. Tout le monde est donc strictement plus rapide que Bilal, qui est lui-même plus rapide que Driss : Driss est dernier. B est piégeur car Bilal est bas dans le classement, mais il bat Driss. C est faux : Émile devance Bilal. D est exclu car même si l'ordre exact d'Alex et d'Émile reste indéterminé, le dernier rang, lui, est parfaitement fixé."
       },
       {
         "id": "suite_impairs",
-        "kind": "objective",
-        "question": "Complète la suite : 1, 3, 5, 7, 9, … ?",
-        "answers": [
-          "11"
-        ],
-        "hint": "Ce sont les nombres impairs."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Les écarts entre les termes ne sont pas constants. Trouvez la loi qui les gouverne, puis choisissez le terme suivant.",
+        "question": "3, 4, 7, 12, 19, 28, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "39",
+          "B": "37",
+          "C": "38",
+          "D": "41"
+        },
+        "answer": "A",
+        "explication": "Les écarts successifs sont les nombres impairs : +1, +3, +5, +7, +9, puis +11 → 28+11=39. B (37) prolonge l'écart précédent (+9) comme s'il restait constant. C (38) suppose un saut de +10, brisant la suite des impairs. D (41) ajoute +13 en sautant l'écart +11."
       },
       {
         "id": "suite_double_un",
-        "kind": "objective",
-        "question": "Complète la suite : 1, 2, 4, 8, 16, … ?",
-        "answers": [
-          "32"
-        ],
-        "hint": "On double à chaque étape."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "Repérez la relation entre chaque terme et le suivant, puis choisissez le terme manquant.",
+        "question": "2, 3, 5, 9, 17, 33, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "65",
+          "B": "66",
+          "C": "64",
+          "D": "49"
+        },
+        "answer": "A",
+        "explication": "Chaque terme double le précédent et retranche 1 (a(n)=2·a(n-1)−1) : 33·2−1=65. On peut aussi voir que les écarts (1, 2, 4, 8, 16) doublent, prochain écart +32 → 65. B (66) double sans retrancher 1. C (64) interprète à tort une puissance de 2. D (49) ajoute l'écart précédent (+16) sans le doubler."
       },
       {
         "id": "syllogisme_oiseaux",
-        "kind": "objective",
-        "question": "Tous les pingouins sont des oiseaux. Aucun pingouin ne vole. Tous les oiseaux volent-ils ? (oui / non)",
-        "answers": [
-          "non"
-        ],
-        "hint": "Le pingouin est un oiseau… qui ne vole pas."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Syllogismes / validité logique",
+        "niveau": 5,
+        "temps_sec": 70,
+        "consigne": "Une règle générale et un fait sont donnés. Choisissez l'énoncé qui constitue un raisonnement logiquement VALIDE.",
+        "question": "On admet : « Tous les oiseaux migrateurs de cette réserve partent au sud en hiver. » Quel raisonnement est logiquement valide ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "Cet oiseau n'est pas parti au sud cet hiver, donc ce n'est pas un migrateur de la réserve.",
+          "B": "Cet oiseau est parti au sud cet hiver, donc c'est un migrateur de la réserve.",
+          "C": "Cet oiseau est un migrateur de la réserve, donc il n'est pas parti au sud.",
+          "D": "Cet oiseau n'est pas un migrateur de la réserve, donc il n'est pas parti au sud."
+        },
+        "answer": "A",
+        "explication": "La règle « si migrateur, alors part au sud » a pour seule conséquence valide sa contraposée : « si n'est pas parti au sud, alors n'est pas migrateur » — c'est A (modus tollens). B affirme le conséquent : partir au sud peut avoir d'autres causes, donc cela ne prouve pas que l'oiseau soit migrateur. C contredit directement la règle. D nie l'antécédent : un non-migrateur peut très bien partir au sud pour une autre raison."
       },
       {
         "id": "suite_diff2",
-        "kind": "objective",
-        "question": "Complète la suite : 5, 10, 20, 40, … ?",
-        "answers": [
-          "80"
-        ],
-        "hint": "On double à chaque étape."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 5,
+        "temps_sec": 60,
+        "consigne": "Le facteur multiplicatif change d'un terme à l'autre. Identifiez sa progression, puis choisissez le terme suivant.",
+        "question": "1, 2, 6, 24, 120, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "720",
+          "B": "600",
+          "C": "240",
+          "D": "840"
+        },
+        "answer": "A",
+        "explication": "Le multiplicateur croît de 1 à chaque étape : ×2, ×3, ×4, ×5, puis ×6 → 120×6=720 (ce sont les factorielles 1!, 2!, 3!, 4!, 5!, 6!). B (600) applique ×5 au lieu de ×6. C (240) garde le facteur précédent (×2). D (840) utilise ×7 en sautant ×6."
       },
       {
         "id": "suite_minus3",
-        "kind": "objective",
-        "question": "Complète la suite : 100, 97, 94, 91, … ?",
-        "answers": [
-          "88"
-        ],
-        "hint": "On retire 3 à chaque étape."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Séries numériques",
+        "niveau": 4,
+        "temps_sec": 55,
+        "consigne": "La quantité soustraite n'est pas constante. Trouvez la règle qui la fait évoluer, puis choisissez le terme suivant.",
+        "question": "100, 97, 91, 82, 70, ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "55",
+          "B": "58",
+          "C": "61",
+          "D": "52"
+        },
+        "answer": "A",
+        "explication": "Les soustractions augmentent de 3 à chaque pas : −3, −6, −9, −12, puis −15 → 70−15=55. B (58) reconduit la soustraction précédente (−12). C (61) suppose un écart constant de −9. D (52) applique −18 en sautant −15."
       },
       {
         "id": "jours_3",
@@ -2383,15 +2611,21 @@
       },
       {
         "id": "prix_remise",
-        "kind": "objective",
-        "question": "Un pull coûte 80 €. Il est soldé à -25 %. Quel est son prix soldé ?",
-        "answers": [
-          "60",
-          "60 euros",
-          "soixante",
-          "60€"
-        ],
-        "hint": "25 % de 80 €, c'est 20 €."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Raisonnement quantitatif / pourcentages",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Lisez attentivement l'énoncé et effectuez le calcul exact. Attention au piège de l'addition des pourcentages.",
+        "question": "Un manteau affiché 120 € est d'abord soldé à −30 %. À la caisse, une remise supplémentaire de 30 % est appliquée sur le prix déjà soldé. Combien le client paie-t-il ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "58,80 €",
+          "B": "48,00 €",
+          "C": "60,00 €",
+          "D": "54,00 €"
+        },
+        "answer": "A",
+        "explication": "Les remises successives se multiplient, elles ne s'additionnent pas : 120 × 0,70 = 84, puis 84 × 0,70 = 58,80 €. B (48 €) résulte du piège classique consistant à cumuler les deux remises en −60 % (120 × 0,40). C (60 €) revient à −50 %, valeur sans rapport avec l'énoncé. D (54 €) applique la seconde remise de 30 % sur le prix initial (120) au lieu du prix soldé."
       },
       {
         "id": "age_double",
@@ -2427,22 +2661,39 @@
       },
       {
         "id": "douzaine_demi",
-        "kind": "objective",
-        "question": "La moitié d'une demi-douzaine d'œufs, plus deux, ça fait combien ?",
-        "answers": [
-          "5",
-          "cinq"
-        ],
-        "hint": "Une demi-douzaine, c'est 6."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 3,
+        "temps_sec": 45,
+        "consigne": "Calculez mentalement en respectant l'ordre des opérations, puis choisissez le résultat exact.",
+        "question": "Que vaut : les deux tiers d'une douzaine et demie, diminués de la moitié d'une demi-douzaine ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "9",
+          "B": "5",
+          "C": "12",
+          "D": "11"
+        },
+        "answer": "A",
+        "explication": "Une douzaine et demie = 18 ; les deux tiers de 18 = 12. Une demi-douzaine = 6, sa moitié = 3. Donc 12 − 3 = 9. B (5) résulte d'avoir pris 12 au lieu de 18. C (12) oublie la soustraction. D (11) soustrait à tort une seule unité au lieu de 3."
       },
       {
         "id": "minutes_heures",
-        "kind": "objective",
-        "question": "Combien de minutes y a-t-il dans un quart de journée ?",
-        "answers": [
-          "360"
-        ],
-        "hint": "Une journée fait 24 heures."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Modélisez le rythme du retard, rapportez-le à la durée totale, puis choisissez le résultat exact.",
+        "question": "Une horloge prend 3 minutes de retard toutes les 4 heures. De combien de minutes retarde-t-elle au bout de 3 jours pleins ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "18",
+          "B": "36",
+          "C": "54",
+          "D": "72"
+        },
+        "answer": "C",
+        "explication": "3 jours = 72 heures ; 72 ÷ 4 = 18 intervalles de 4 heures ; 18 × 3 minutes = 54 minutes. A (18) ne compte que 1 jour (24 h ÷ 4 × 3). B (36) ne compte que 2 jours. D (72) confond le nombre d'intervalles avec la durée en heures."
       },
       {
         "id": "train_vitesse",
@@ -2468,25 +2719,39 @@
       },
       {
         "id": "double_moitie",
-        "kind": "objective",
-        "question": "Je pense à un nombre. Je le double, puis j'ajoute 10, et j'obtiens 30. Quel est mon nombre ?",
-        "answers": [
-          "10",
-          "dix"
-        ],
-        "hint": "Remonte à l'envers : avant le +10, c'était 20."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 4,
+        "temps_sec": 50,
+        "consigne": "Traduisez l'énoncé en équation, isolez l'inconnue, puis choisissez sa valeur.",
+        "question": "Le triple d'un nombre, augmenté de 7, est égal au double de ce même nombre augmenté de 20. Quel est ce nombre ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "7",
+          "B": "13",
+          "C": "20",
+          "D": "27"
+        },
+        "answer": "B",
+        "explication": "3x + 7 = 2x + 20, donc x = 20 − 7 = 13 (vérification : 3×13+7 = 46 = 2×13+20). A (7) reprend la constante de gauche. C (20) résout à tort 3x = 2x + 20. D (27) additionne les deux constantes 7 + 20."
       },
       {
         "id": "crayons_boites",
-        "kind": "objective",
-        "question": "12 crayons coûtent 3 €. Combien coûtent 20 crayons au même prix unitaire ?",
-        "answers": [
-          "5",
-          "cinq",
-          "5 euros",
-          "5€"
-        ],
-        "hint": "Un crayon coûte 25 centimes."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Logique déductive",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Déterminez le prix unitaire, appliquez la remise, puis choisissez le prix total exact.",
+        "question": "Douze crayons coûtent 9 EUR. Un lot de 30 crayons est vendu avec une remise de 20 % sur le prix unitaire. Combien coûte ce lot ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "18",
+          "B": "21",
+          "C": "22,50",
+          "D": "24"
+        },
+        "answer": "A",
+        "explication": "Prix unitaire = 9 ÷ 12 = 0,75 EUR. Avec −20 % : 0,75 × 0,80 = 0,60 EUR. Lot : 30 × 0,60 = 18 EUR. C (22,50) oublie la remise (30 × 0,75). B (21) et D (24) appliquent une remise mal calculée."
       },
       {
         "id": "horloge_sonne",
@@ -2500,34 +2765,57 @@
       },
       {
         "id": "ages_somme",
-        "kind": "objective",
-        "question": "Deux nombres : leur somme fait 10 et leur différence fait 4. Quel est le plus grand ?",
-        "answers": [
-          "7",
-          "sept"
-        ],
-        "hint": "Additionne les deux : la somme des deux nombres plus leur différence donne deux fois le plus grand."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 5,
+        "temps_sec": 75,
+        "consigne": "Posez le système à partir des deux conditions, résolvez, puis choisissez la valeur demandée.",
+        "question": "La somme des âges d'un père et de son fils est 56 ans. Il y a 8 ans, le père avait exactement le triple de l'âge du fils. Quel est l'âge actuel du fils ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "14",
+          "B": "18",
+          "C": "20",
+          "D": "38"
+        },
+        "answer": "B",
+        "explication": "Soit f et s les âges actuels : f + s = 56 et (f − 8) = 3(s − 8). On obtient f = 3s − 16, puis 4s − 16 = 56, donc s = 18 (père 38, vérif. : 30 = 3×10). A (14) ignore le décalage de 8 ans. C (20) est une estimation erronée. D (38) est l'âge du père, pas du fils."
       },
       {
         "id": "pommes_reste",
-        "kind": "objective",
-        "question": "J'ai 10 pommes. J'en donne la moitié, puis j'en mange 2. Combien m'en reste-t-il ?",
-        "answers": [
-          "3",
-          "trois"
-        ],
-        "hint": "La moitié de 10, puis on retire 2."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Traduisez la suite d'actions en équation portant sur le nombre initial, résolvez, puis choisissez ce nombre.",
+        "question": "Un panier contient des pommes. On en retire le tiers, puis on en mange 4 de plus ; il reste alors exactement la moitié du nombre initial. Combien le panier contenait-il de pommes au départ ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "12",
+          "B": "18",
+          "C": "24",
+          "D": "36"
+        },
+        "answer": "C",
+        "explication": "Soit n le nombre initial : n − n/3 − 4 = n/2. Donc 2n/3 − n/2 = 4, soit n/6 = 4, d'où n = 24 (vérif. : 24 − 8 − 4 = 12 = 24/2). A (12) est le reste final, pas le départ. B (18) et D (36) ne vérifient pas l'égalité."
       },
       {
         "id": "fourmi_pattes",
-        "kind": "objective",
-        "question": "Combien de pattes ont en tout 3 araignées (8 pattes chacune) et 4 fourmis (6 pattes chacune) ?",
-        "answers": [
-          "48",
-          "quarante-huit",
-          "quarante huit"
-        ],
-        "hint": "3 × 8, plus 4 × 6."
+        "domaine": "Raisonnement fluide",
+        "sous_type": "Balances et équations",
+        "niveau": 4,
+        "temps_sec": 60,
+        "consigne": "Posez le système liant le nombre de bêtes et le nombre de pattes, résolvez, puis choisissez la valeur demandée.",
+        "question": "Un terrarium contient uniquement des araignées (8 pattes chacune) et des scarabées (6 pattes chacun). On y compte 10 bêtes et 68 pattes au total. Combien y a-t-il d'araignées ?",
+        "kind": "qcm",
+        "choices": {
+          "A": "3",
+          "B": "4",
+          "C": "5",
+          "D": "6"
+        },
+        "answer": "B",
+        "explication": "Soit a araignées et b scarabées : a + b = 10 et 8a + 6b = 68. En substituant b = 10 − a : 8a + 60 − 6a = 68, donc 2a = 8 et a = 4 (vérif. : 4×8 + 6×6 = 32 + 36 = 68). D (6) est le nombre de scarabées. A (3) donne 66 pattes, C (5) en donne 70 : aucun ne satisfait la contrainte."
       },
       {
         "id": "remise_deux",

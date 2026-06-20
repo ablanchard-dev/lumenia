@@ -127,6 +127,11 @@ def check(qid, correct):
     item = BY_ID.get(qid)
     if not item:
         return False, f"{qid} introuvable"
+    # Un item legacy recalculable peut avoir été réécrit en QCM (parcours audit) :
+    # sa question a changé, le recalcul numérique ne s'applique plus. La validité
+    # du nouvel item est couverte par check_qcm (structure) + relecture humaine.
+    if item.get("kind") != "objective":
+        return None, f"{qid:16} calc={str(correct):<8} converti en {item.get('kind')} -> recalcul N/A"
     ok = any(_matches(acc, str(correct)) for acc in item.get("answers", []))
     return ok, f"{qid:16} calc={str(correct):<8} {'OK' if ok else 'REFUSE par ' + str(item.get('answers'))}"
 
@@ -186,10 +191,16 @@ def main():
     print(f"  TOTAL = {len(ids)} questions\n")
 
     print("=== Réponses recalculées (legacy calculable) ===")
+    n_recalc_ok = 0
     for qid, val in {**computed, **verbal}.items():
         ok, msg = check(qid, val)
-        print(("  [OK]  " if ok else "  [!!] ") + msg)
-        if not ok:
+        if ok is None:           # item réécrit en QCM -> recalcul non applicable
+            print("  [~~]  " + msg)
+        elif ok:
+            n_recalc_ok += 1
+            print("  [OK]  " + msg)
+        else:
+            print("  [!!]  " + msg)
             errors.append(msg)
 
     # 2) empan envers : la réponse est la suite de chiffres inversée -> recalculable
@@ -218,7 +229,7 @@ def main():
         for e in errors:
             print("  -", e)
         sys.exit(1)
-    print(f"TOUT EST VRAI ✓  ({len(computed) + len(verbal)} legacy recalculés + {n_empan_ok} empan-envers, "
+    print(f"TOUT EST VRAI ✓  ({n_recalc_ok} legacy recalculés + {n_empan_ok} empan-envers, "
           f"{len(qcm_items)} QCM structurés, {len(ids)} questions au total)")
 
 

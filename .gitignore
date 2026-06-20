@@ -9,6 +9,15 @@ __pycache__/
 # Données locales (SQLite : profils, évaluations)
 backend/data/
 
+# Artefacts de travail (audit/réécriture de la banque) — locaux, hors dépôt
+backend/_wf_*.js
+backend/_apply_*.py
+backend/_audit_items.json
+backend/_rewritten_items.json
+backend/_dump_answer_key.py
+backend/ANSWER_KEY.md
+backend/app/entry_bank.json.bak*
+
 # Divers
 *.log
 .DS_Store

@@ -31,9 +31,10 @@ On Windows, `setup_windows_backend.ps1` chains these steps. Docker:
   reasoning, processing speed, free expression), mostly multiple-choice with a few open
   answers. It initializes a cognitive profile reused afterwards to adapt the chat's
   answers, and the SPA only reveals the chat once the run clears the pass threshold.
-  This gate is client-side: server-side enforcement is not yet wired (the API does not
-  block `/chat` on the entry result) — WIP. The 3114 reminder stays reachable at every
-  step.
+  The gate is **enforced server-side** (`ENTRY_PASS_RATIO = 0.85`): `/chat` returns a
+  gated response until the entry result is recorded as passed, so calling the API
+  directly does not bypass it. The 3114 crisis line stays reachable at every step —
+  including in the gated response.
 - **Local data.** Conversations stay in the browser (localStorage), and message
   content is only sent to the LLM provider for the duration of a response. Two things do
   persist server-side in the local SQLite: the entry-test answers (cognitive profile)

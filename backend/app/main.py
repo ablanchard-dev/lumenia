@@ -9,7 +9,7 @@ from .models import Profile, Journal, KV, Assessment
 from .schemas import *
 from .llm import decompose, reframe, creative, scenarios, psycho_coach
 from .chat import chat_reply
-from .entry import get_parcours, get_challenge, verify_challenge, entry_summary
+from .entry import get_parcours, get_challenge, verify_challenge, entry_summary, entry_passed
 from .assess import entry_score, phq9_score, gad7_score
 
 init_db()
@@ -44,6 +44,8 @@ def entry_verify(body: EntryVerifyIn):
 def entry_complete(body: EntryCompleteIn):
     results = [r.model_dump() for r in body.results]
     score = sum(1 for r in results if r["ok"] and not r["skipped"])
+    total = len(results)
+    passed = entry_passed(score, total)
     summary = json.dumps(entry_summary(results), ensure_ascii=False)
     with SessionLocal() as db:
         db.add(Assessment(kind="entry", payload=json.dumps(results, ensure_ascii=False),
@@ -53,12 +55,29 @@ def entry_complete(body: EntryCompleteIn):
             db.add(KV(key="profile.entry", value=summary))
         else:
             kv.value = summary
+        # Résultat du gate persisté côté serveur (source de vérité, pas seulement le front).
+        gk = db.get(KV, "entry.passed")
+        if not gk:
+            db.add(KV(key="entry.passed", value="1" if passed else "0"))
+        else:
+            gk.value = "1" if passed else "0"
         db.commit()
-    return {"ok": True, "score": score, "total": len(results)}
+    return {"ok": True, "score": score, "total": total, "passed": passed}
 
 # ---------------- Chat (évaluation interne incluse) ----------------
 @app.post("/chat")
 def chat(body: ChatIn):
+    # Gate serveur : l'accompagnement n'est ouvert qu'apres validation du parcours d'entree
+    # (seuil ENTRY_PASS_RATIO). Enforce cote serveur, pas seulement au front (un appel direct a
+    # /chat ne contourne plus le gate). SECURITE : la ressource de crise (3114) reste TOUJOURS
+    # visible, on ne coupe jamais l'acces a l'aide en cas de detresse.
+    with SessionLocal() as db:
+        gk = db.get(KV, "entry.passed")
+    if not gk or gk.value != "1":
+        return {"reply": "L'accompagnement s'ouvre une fois le parcours d'entree valide (seuil 85%). "
+                          "Termine-le pour continuer. En cas de detresse, le 3114 (national, gratuit, "
+                          "24h/24) reste joignable directement, a tout moment.",
+                "risk_flag": False, "gated": True}
     with SessionLocal() as db:
         prof = db.execute(select(Profile).limit(1)).scalar_one_or_none()
         low_stim = bool(prof and prof.low_stim)

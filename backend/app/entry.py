@@ -38,9 +38,17 @@ _BY_ID = {item["id"]: {**item, "dimension": step["dimension"]}
           for step in PARCOURS for item in step["pool"]}
 
 
+# Seuil de réussite du parcours d'entrée. Source de vérité SERVEUR (le front a sa
+# propre constante ENTRY_PASS_RATIO ; les deux doivent rester alignées).
+ENTRY_PASS_RATIO = 0.85
+
+def entry_passed(score: int, total: int) -> bool:
+    """Vrai si le parcours d'entrée est validé (>= 85% des questions notées)."""
+    return total > 0 and (score / total) >= ENTRY_PASS_RATIO
+
 # Nombre d'épreuves tirées par dimension. Total = 30 questions NOTÉES (6 par
 # dimension cognitive), dans l'esprit d'un test WAIS adulte éliminatoire.
-# Longueur (30) et seuil de réussite (0.85, voir ENTRY_PASS_RATIO côté front)
+# Longueur (30) et seuil de réussite (0.85 = ENTRY_PASS_RATIO)
 # confirmés par le protocole clinique de Blandine (psychologue). Plafonné à la
 # taille du pool pour éviter tout débordement.
 #

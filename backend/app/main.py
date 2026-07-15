@@ -8,7 +8,7 @@ from .db import SessionLocal, init_db
 from .models import Profile, Journal, KV, Assessment
 from .schemas import *
 from .llm import decompose, reframe, creative, scenarios, psycho_coach
-from .chat import chat_reply
+from .chat import chat_reply, detect_crisis, SAFETY_REPLY
 from .entry import get_parcours, get_challenge, verify_challenge, entry_summary, entry_passed
 from .assess import entry_score, phq9_score, gad7_score
 
@@ -65,8 +65,24 @@ def entry_complete(body: EntryCompleteIn):
     return {"ok": True, "score": score, "total": total, "passed": passed}
 
 # ---------------- Chat (évaluation interne incluse) ----------------
+def _persist_risk_flag():
+    with SessionLocal() as db:
+        kv = db.get(KV, "risk.flag")
+        if not kv:
+            db.add(KV(key="risk.flag", value="1"))
+        else:
+            kv.value = "1"
+        db.commit()
+
+
 @app.post("/chat")
 def chat(body: ChatIn):
+    # SECURITE D'ABORD : la detresse prime sur le controle d'acces. On detecte la crise AVANT
+    # le gate, sinon une personne suicidaire qui n'a pas valide le parcours recevrait « finis
+    # ton test a 85% » au lieu d'une reponse de crise. La crise court-circuite le gate.
+    if detect_crisis(body.message):
+        _persist_risk_flag()
+        return {"reply": SAFETY_REPLY, "risk_flag": True}
     # Gate serveur : l'accompagnement n'est ouvert qu'apres validation du parcours d'entree
     # (seuil ENTRY_PASS_RATIO). Enforce cote serveur, pas seulement au front (un appel direct a
     # /chat ne contourne plus le gate). SECURITE : la ressource de crise (3114) reste TOUJOURS
@@ -89,13 +105,7 @@ def chat(body: ChatIn):
             entry_profile = None
     out = chat_reply(body.message, [t.model_dump() for t in body.history], low_stim, pacing, entry_profile)
     if out["risk"]:
-        with SessionLocal() as db:
-            kv = db.get(KV, "risk.flag")
-            if not kv:
-                db.add(KV(key="risk.flag", value="1"))
-            else:
-                kv.value = "1"
-            db.commit()
+        _persist_risk_flag()
     return {"reply": out["reply"], "risk_flag": out["risk"]}
 
 # Consent

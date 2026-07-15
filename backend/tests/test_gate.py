@@ -40,3 +40,15 @@ def test_chat_is_gated_server_side_until_entry_passed():
     c.post("/entry/complete", json={"results": _results(20)})
     g2 = c.post("/chat", json={"message": "aide", "history": []}).json()
     assert g2.get("gated") is True
+
+
+def test_crisis_bypasses_gate():
+    # SECURITE : une detresse aigue prime sur le gate. En etat NON valide, un message de
+    # crise doit recevoir la reponse de crise (3114 + risk_flag), pas le message « finis
+    # ton test a 85% ». La crise court-circuite le controle d'acces.
+    c = TestClient(app)
+    c.post("/entry/complete", json={"results": _results(5)})   # parcours echoue -> gated
+    r = c.post("/chat", json={"message": "je veux mourir", "history": []}).json()
+    assert r.get("gated") is not True
+    assert r.get("risk_flag") is True
+    assert "3114" in r.get("reply", "")

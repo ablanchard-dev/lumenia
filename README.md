@@ -1,10 +1,21 @@
 # Lumenia
 
+[![CI](https://github.com/ablanchard-dev/lumenia/actions/workflows/ci.yml/badge.svg)](https://github.com/ablanchard-dev/lumenia/actions/workflows/ci.yml)
+
 Conversational assistant for neurodivergent profiles (gifted/HPI, Asperger/ASD, ADHD).
 
 A chat to unblock a task, put down a looping thought, or prepare a difficult
 conversation. Direct tone, no judgment, no medical jargon. A FastAPI backend that also
 serves the UI; an LLM via chained free providers; local data.
+
+Full-stack: FastAPI + SQLite + a served SPA, a multi-provider LLM chain with failover,
+a **server-enforced** access gate, and a blocking crisis-safety check — deployed with
+Docker, tested in CI.
+
+<!-- Capture d'ecran a ajouter : deposer docs/lumenia.png puis decommenter la ligne ci-dessous
+![Lumenia — parcours d'entree et chat](docs/lumenia.png)
+-->
+
 
 ## Run
 
@@ -70,9 +81,11 @@ cd backend
 .venv\Scripts\python -m pytest
 ```
 
-Covers crisis detection and clinical scores (`backend/tests/`). The clinical scores are
-legacy assessment endpoints (PHQ-9/GAD-7), not used by the current UI. Crisis detection
-is blocking: any change to `backend/app/chat.py` must keep it green.
+69 tests (`backend/tests/`), run in CI on every push. They cover crisis detection, the
+server-side access gate (entry threshold enforced on `/chat`, with the 3114 line still
+reachable when gated), and the clinical scores. The clinical scores are legacy
+assessment endpoints (PHQ-9/GAD-7), not used by the current UI. Crisis detection is
+blocking: any change to `backend/app/chat.py` must keep it green.
 
 ## Disclaimer
 

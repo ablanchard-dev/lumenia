@@ -23,3 +23,22 @@ jobs:
           pip install -r requirements.txt pytest
       - name: Run tests
         run: pytest -q
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compose builds both images
+        run: docker compose build
+      - name: Backend image serves a real parcours
+        # On lance l'image directement, sans passer par compose : compose monte ./backend
+        # sur /app, ce qui masquerait le contenu de l'image et ne testerait donc pas l'image.
+        run: |
+          docker build -t lumenia-backend-ci ./backend
+          docker run -d --rm -p 8000:8000 --name lumenia-ci lumenia-backend-ci
+          for _ in $(seq 1 30); do
+            curl -sf http://localhost:8000/healthz >/dev/null && break || sleep 2
+          done
+          curl -sf http://localhost:8000/healthz
+          curl -sf http://localhost:8000/entry/parcours | head -c 200
+          docker stop lumenia-ci

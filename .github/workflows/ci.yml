@@ -39,6 +39,9 @@ jobs:
           for _ in $(seq 1 30); do
             curl -sf http://localhost:8000/healthz >/dev/null && break || sleep 2
           done
-          curl -sf http://localhost:8000/healthz
+          # Sans ca, un backend qui meurt au boot ne donne qu'un "exit 7" muet.
+          curl -sf http://localhost:8000/healthz || { docker logs lumenia-ci; exit 1; }
           curl -sf http://localhost:8000/entry/parcours | head -c 200
+          # Le SPA : c'est lui qui a revele que static/ manquait dans l'image.
+          curl -sf http://localhost:8000/ >/dev/null
           docker stop lumenia-ci

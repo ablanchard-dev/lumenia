@@ -81,7 +81,7 @@ cd backend
 .venv\Scripts\python -m pytest
 ```
 
-69 tests (`backend/tests/`), run in CI on every push. They cover crisis detection, the
+70 tests (`backend/tests/`), run in CI on every push. They cover crisis detection, the
 server-side access gate (entry threshold enforced on `/chat`, with the 3114 line still
 reachable when gated), and the clinical scores. The clinical scores are legacy
 assessment endpoints (PHQ-9/GAD-7), not used by the current UI. Crisis detection is

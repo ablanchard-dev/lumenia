@@ -81,9 +81,11 @@ cd backend
 .venv\Scripts\python -m pytest
 ```
 
-70 tests (`backend/tests/`), run in CI on every push. They cover crisis detection, the
+70+ parametrized cases (`backend/tests/`), run in CI on every push — the exact count is
+whatever `pytest` reports, and it grows with the suite. They cover crisis detection, the
 server-side access gate (entry threshold enforced on `/chat`, with the 3114 line still
-reachable when gated), and the clinical scores. The clinical scores are legacy
+reachable when gated), the unavailable-judge flag on the entry parcours, and the clinical
+scores. The clinical scores are legacy
 assessment endpoints (PHQ-9/GAD-7), not used by the current UI. Crisis detection is
 blocking: any change to `backend/app/chat.py` must keep it green.
 

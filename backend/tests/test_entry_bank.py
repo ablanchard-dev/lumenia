@@ -22,6 +22,35 @@ OBJECTIVE = [it for it in ALL_ITEMS if it["kind"] == "objective"]
 SCORED_DIMS = ("verbale", "fluide", "memoire", "spatial", "vitesse")
 
 
+# --- Panne du juge LLM : « non jugé » ne doit pas se confondre avec « faux » ---
+
+def _first_objective_id():
+    """Un id d'épreuve à réponse libre, quel que soit le tirage."""
+    return OBJECTIVE[0]["id"]
+
+
+def test_juge_indisponible_marque_undetermined(monkeypatch):
+    """Juge HS (quota épuisé / aucune clé) -> l'épreuve est marquée NON JUGÉE.
+
+    Sans ce drapeau, une panne de juge rend un verdict négatif indiscernable
+    d'une vraie erreur : un candidat valable échoue sans que personne ne le voie.
+    """
+    import app.entry as entry
+    monkeypatch.setattr(entry, "_chat", lambda *a, **k: None)
+    res = entry.verify_challenge(_first_objective_id(), "une formulation absente de la liste")
+    assert res["ok"] is False
+    assert res.get("undetermined") is True, "panne de juge non signalée"
+
+
+def test_juge_dit_non_reste_une_vraie_erreur(monkeypatch):
+    """Juge joignable qui répond NON -> faux, et surtout PAS marqué non jugé."""
+    import app.entry as entry
+    monkeypatch.setattr(entry, "_chat", lambda *a, **k: "NON")
+    res = entry.verify_challenge(_first_objective_id(), "reponse clairement fausse xyzzy")
+    assert res["ok"] is False
+    assert res.get("undetermined") is not True, "une vraie erreur ne doit pas passer pour une panne"
+
+
 # --- Longueur et répartition du parcours -------------------------------------
 
 def test_parcours_draws_30_scored_questions():

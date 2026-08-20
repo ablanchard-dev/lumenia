@@ -9,7 +9,8 @@ from .models import Profile, Journal, KV, Assessment
 from .schemas import *
 from .llm import decompose, reframe, creative, scenarios, psycho_coach
 from .chat import chat_reply, detect_crisis, SAFETY_REPLY
-from .entry import get_parcours, get_challenge, verify_challenge, entry_summary, entry_passed
+from .entry import (get_parcours, get_challenge, verify_challenge, entry_summary,
+                    entry_passed, entry_is_complete, entry_is_gradable)
 from .assess import entry_score, phq9_score, gad7_score
 
 init_db()
@@ -45,7 +46,10 @@ def entry_complete(body: EntryCompleteIn):
     results = [r.model_dump() for r in body.results]
     score = sum(1 for r in results if r["ok"] and not r["skipped"])
     total = len(results)
-    passed = entry_passed(score, total)
+    # Le seuil est un RATIO : sans contrôle de longueur, le dénominateur vient du client
+    # et un appel direct avec un seul item juste passait à 100 %. Fail-closed.
+    gradable = entry_is_gradable(results)
+    passed = gradable and entry_is_complete(total) and entry_passed(score, total)
     summary = json.dumps(entry_summary(results), ensure_ascii=False)
     with SessionLocal() as db:
         db.add(Assessment(kind="entry", payload=json.dumps(results, ensure_ascii=False),
@@ -62,7 +66,10 @@ def entry_complete(body: EntryCompleteIn):
         else:
             gk.value = "1" if passed else "0"
         db.commit()
-    return {"ok": True, "score": score, "total": total, "passed": passed}
+    return {"ok": True, "score": score, "total": total, "passed": passed,
+            # Distingue "tu as echoue" de "on n a pas pu corriger" : le front doit
+            # proposer de reessayer, pas annoncer un echec cognitif.
+            "undetermined": not gradable}
 
 # ---------------- Chat (évaluation interne incluse) ----------------
 def _persist_risk_flag():

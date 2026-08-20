@@ -58,6 +58,13 @@ class EntryStepResult(BaseModel):
     answer: str = Field("", max_length=600)
     attempts: int = 1
     skipped: bool = False
+    # `/entry/verify` sait déjà distinguer « réponse fausse » de « juge injoignable »
+    # (il renvoie `undetermined`). Ce drapeau s'arrêtait au front : le serveur ne
+    # voyait qu'un `ok=False` et annonçait un échec au parcours. Avec ~14,65 items
+    # jugés sur 30 et 4 erreurs permises, une panne de juge rendait le parcours
+    # quasi impassable — et disait à la personne qu'elle avait échoué un test
+    # cognitif. Défaut par défaut à False : les clients existants ne changent pas.
+    undetermined: bool = False
 
 class EntryCompleteIn(BaseModel):
     results: List[EntryStepResult]

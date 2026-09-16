@@ -47,11 +47,14 @@ On Windows, `setup_windows_backend.ps1` chains these steps. Docker:
   directly does not bypass it. The 3114 crisis line stays reachable at every step —
   including in the gated response.
 - **Local data.** Conversations stay in the browser (localStorage), and message
-  content is only sent to the LLM provider for the duration of a response. Two things do
-  persist server-side in the local SQLite: the entry-test answers (cognitive profile)
-  and a risk flag set by the crisis check.
-- **Safety.** Built-in distress detection: if a message hints at suicidal thoughts,
-  Lumenia stops short and points to 3114, without calling the model.
+  content is only sent to the LLM provider for the duration of a response. Three things do
+  persist server-side in the local SQLite, unencrypted: the entry-test answers (cognitive
+  profile), a risk flag set by the crisis check, and journal entries (`/journal`).
+- **Safety.** Built-in distress detection on every free-text input (chat, the helper
+  tools and the journal): if a message hints at suicidal thoughts, Lumenia stops short and
+  points to 3114, without calling the model.
+- **Single user.** The entry gate, the risk flag and the profile are global to the server:
+  run one instance per person. It is not built to be shared behind one URL.
 - **LLM.** A chain of free providers (Gemini, Cerebras, Mistral) with automatic
   failover when a quota runs out. They all speak the OpenAI protocol; a provider with
   no key is simply skipped.

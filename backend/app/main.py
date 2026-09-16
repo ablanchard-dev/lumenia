@@ -193,21 +193,52 @@ def adapt(p: ProfileIn):
     if p.pacing == "slow": tips.append("Mode Pomodoro 10/2")
     return {"ui_tips": tips}
 
+def _guard(*texts: str, gate: bool = True):
+    """Meme securite que /chat pour tout texte libre qui partirait au LLM.
+
+    Revue 17/09, verifie en l'executant : ces routes envoyaient « je veux mourir » au LLM
+    et rendaient une decomposition de tache, sans 3114, et ignoraient le gate d'entree.
+    Crise d'abord (jamais bloquee par le gate), puis gate. None = la route peut continuer.
+    """
+    if any(detect_crisis(t or "") for t in texts):
+        _persist_risk_flag()
+        return {"reply": SAFETY_REPLY, "risk_flag": True}
+    if gate:
+        with SessionLocal() as db:
+            gk = db.get(KV, "entry.passed")
+        if not gk or gk.value != "1":
+            return {"reply": "Cet outil s'ouvre une fois le parcours d'entree valide. En cas de "
+                             "detresse, le 3114 (national, gratuit, 24h/24) reste joignable.",
+                    "risk_flag": False, "gated": True}
+    return None
+
 # Focus / impostor / creativity / scenarios
 @app.post("/focus/decompose")
 def focus_decompose(body: DecomposeIn):
+    blocked = _guard(body.task)
+    if blocked:
+        return blocked
     return {"task": body.task, "steps": decompose(body.task, body.steps)}
 
 @app.post("/impostor/reframe")
 def impostor_reframe(body: ReframeIn):
+    blocked = _guard(body.thought)
+    if blocked:
+        return blocked
     return {"thought": body.thought, "reframes": reframe(body.thought)}
 
 @app.post("/creativity/generate")
 def creativity_generate(body: CreativityIn):
+    blocked = _guard(body.goal)
+    if blocked:
+        return blocked
     return {"goal": body.goal, "mode": body.mode, "ideas": creative(body.goal, body.mode)}
 
 @app.post("/scenarios")
 def scenarios_generate(body: ScenarioIn):
+    blocked = _guard(body.context)
+    if blocked:
+        return blocked
     return {"context": body.context, "style": body.style, "scripts": scenarios(body.context, body.style)}
 
 # Journal
@@ -222,7 +253,11 @@ def journal_add(body: JournalIn):
     with SessionLocal() as db:
         j = Journal(title=body.title, content=body.content)
         db.add(j); db.commit(); db.refresh(j)
-        return {"id": j.id, "title": j.title, "content": j.content, "created_at": str(j.created_at)}
+        out = {"id": j.id, "title": j.title, "content": j.content, "created_at": str(j.created_at)}
+    # L'entree reste enregistree, mais une detresse ecrite au journal declenche la meme reponse
+    # de crise qu'au chat (avant, rien ne se passait). Pas de gate : ecrire n'appelle aucun LLM.
+    crisis = _guard(body.title, body.content, gate=False)
+    return {**out, **crisis} if crisis else out
 
 @app.get("/journal/export")
 def journal_export():
@@ -270,6 +305,10 @@ def assess_gad7(body: GAD7In):
 # Psy coach (gated by risk flag)
 @app.post("/psy/coach")
 def psy_coach(body: CoachIn):
+    # Le message COURANT est analyse (avant, seul un drapeau deja pose ailleurs bloquait).
+    crisis = _guard(body.topic, gate=False)
+    if crisis:
+        return {**crisis, "blocked": True, "message": SAFETY_REPLY}
     with SessionLocal() as db:
         kv = db.get(KV, "risk.flag")
         risky = bool(kv and kv.value == "1")

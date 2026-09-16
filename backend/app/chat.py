@@ -33,12 +33,17 @@ _CRISIS_PATTERNS = [
     r"\bme tuer\b",
     r"\ben finir\b",
     r"\bmettre fin a (?:mes jours|ma vie)\b",
-    r"\bme foutre en l'?air\b",
+    r"\bme foutre en l['\s]?air\b",   # « en l air » sans apostrophe (mesure 17/09)
     # fatigue de vivre
     r"\bplus envie de vivre\b",
     r"\benvie de mourir\b",
     r"\b(?:je )?veux mourir\b",
     r"\b(?:je )?veux crever\b",
+    r"\benvie de crever\b",
+    r"\ba quoi bon (?:continuer a )?vivre\b",
+    r"\bmieux si j'?etais morte?\b",
+    r"\bpersonne ne me regrettera\b",
+    r"\bdisparaitre pour toujours\b",
     r"\bplus la force de (?:continuer|vivre|me battre)\b",
     r"\barrete pour toujours\b",      # « que ça s'arrête pour toujours »
     r"\bplus (?:jamais )?me reveiller\b",
@@ -50,8 +55,11 @@ _CRISIS_PATTERNS = [
     r"\bme jeter (?:sous|du haut|dans le vide|par la fenetre)\b",
     r"\bsauter (?:du pont|d'un pont|par la fenetre|de la fenetre|dans le vide|du toit)\b",
     r"\bavale\w*\b.{0,16}\btoute?s?\b.{0,16}\b(?:pilules|cachets|medicaments|comprimes)\b",
+    # Declenchement a tort accepte (un aidant qui prepare des medicaments) : rater est pire.
+    r"\bprepare\w*\b.{0,12}\b(?:pilules|cachets|medicaments|comprimes)\b",
     # auto-mutilation
     r"\bme faire du mal\b",
+    r"\bme fais du mal\b",
     r"\bme blesser\b",
     r"\bme tailler les veines\b",
     r"\bme mutiler\b",

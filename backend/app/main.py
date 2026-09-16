@@ -10,7 +10,7 @@ from .schemas import *
 from .llm import decompose, reframe, creative, scenarios, psycho_coach
 from .chat import chat_reply, detect_crisis, SAFETY_REPLY
 from .entry import (get_parcours, get_challenge, verify_challenge, entry_summary,
-                    entry_passed, entry_is_complete, entry_is_gradable)
+                    entry_passed, entry_is_complete, entry_is_gradable, _BY_ID)
 from .assess import entry_score, phq9_score, gad7_score
 
 init_db()
@@ -37,14 +37,36 @@ def entry_parcours(exclude: str = ""):
 def entry_challenge():
     return get_challenge()
 
+# Ce que le SERVEUR a constaté à /entry/verify, par épreuve : "ok", "undetermined" ou "ko".
+# /entry/complete ne compte que ça : le `ok` envoyé par le client ouvrait le chat à
+# 30 résultats inventés (vérifié le 16/09). Une bonne réponse obtenue après un essai
+# raté reste bonne (le front autorise les nouvelles tentatives avec indice).
+# ponytail: mémoire du process, mono-utilisateur local comme le gate lui-même ; un
+# redémarrage en plein parcours fait échouer fermé (épreuves non vérifiées).
+_VERIFIED: dict[str, str] = {}
+
 @app.post("/entry/verify")
 def entry_verify(body: EntryVerifyIn):
-    return verify_challenge(body.challenge_id, body.answer)
+    res = verify_challenge(body.challenge_id, body.answer)
+    if body.challenge_id in _BY_ID and _VERIFIED.get(body.challenge_id) != "ok":
+        _VERIFIED[body.challenge_id] = ("ok" if res.get("ok")
+                                        else "undetermined" if res.get("undetermined") else "ko")
+    return res
 
 @app.post("/entry/complete")
 def entry_complete(body: EntryCompleteIn):
-    results = [r.model_dump() for r in body.results]
-    score = sum(1 for r in results if r["ok"] and not r["skipped"])
+    seen: set[str] = set()
+    results = []
+    for r in (r.model_dump() for r in body.results):
+        if r["id"] not in _BY_ID or r["id"] in seen:
+            continue  # épreuve inconnue ou répétée : ne compte pas, ne gonfle pas le total
+        seen.add(r["id"])
+        state = _VERIFIED.pop(r["id"], None)
+        r["dimension"] = _BY_ID[r["id"]]["dimension"]
+        r["ok"] = state == "ok" and not r["skipped"]
+        r["undetermined"] = state == "undetermined" and not r["skipped"]
+        results.append(r)
+    score = sum(1 for r in results if r["ok"])
     total = len(results)
     # Le seuil est un RATIO : sans contrôle de longueur, le dénominateur vient du client
     # et un appel direct avec un seul item juste passait à 100 %. Fail-closed.

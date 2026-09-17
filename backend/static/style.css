@@ -13,7 +13,7 @@
   --text-muted: #a49bbd;
   --primary: #a78bfa;
   --primary-strong: #8b5cf6;
-  --on-primary: #18122b;
+  --on-primary: #0f0b1a;
   --accent: #6ee7b7;
   --danger: #fda4af;
   --ring: #a78bfa;
@@ -501,7 +501,7 @@ a { color: var(--primary); }
   padding: 0 28px;
   border-radius: var(--radius-sm);
   background: linear-gradient(180deg, var(--primary), var(--primary-strong));
-  color: #fff;
+  color: var(--on-primary);
   font-weight: 600;
   transition: box-shadow .2s ease, transform .15s ease, filter .2s ease;
 }
@@ -862,7 +862,7 @@ a { color: var(--primary); }
   width: 44px; height: 44px;
   border-radius: 14px;
   background: var(--primary-strong);
-  color: #fff;
+  color: var(--on-primary);
   transition: background .2s ease, opacity .2s ease, transform .15s ease;
 }
 .btn-send:hover:not(:disabled) { background: var(--primary); color: var(--on-primary); }
@@ -907,3 +907,21 @@ a { color: var(--primary); }
   .welcome { margin-top: 6vh; }
   .messages { padding-top: 20px; }
 }
+
+/* ---- Page 404 : meme carte que le seuil, un seul chemin de sortie ---- */
+.err-code {
+  font-family: 'Lora', serif;
+  font-size: 68px;
+  line-height: 1;
+  margin: 4px 0 2px;
+  color: var(--primary);
+  opacity: .5;
+  letter-spacing: .04em;
+}
+.err-cta {
+  display: inline-block;
+  margin-top: 22px;
+  text-decoration: none;
+  text-align: center;
+}
+@media (max-width: 480px) { .err-code { font-size: 52px; } }

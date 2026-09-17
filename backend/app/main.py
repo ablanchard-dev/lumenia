@@ -322,3 +322,7 @@ def resources():
     return {"fr": {"urgence": ["15 (SAMU)", "112 (EU)"], "suicide": ["3114"], "sites": ["https://3114.fr", "https://service-public.fr"]}}
 
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
+# En-tetes de securite, robots.txt, sitemap et 404 humain : un seul endroit.
+from . import web  # noqa: E402
+web.install(app, STATIC_DIR)

@@ -1,0 +1,30 @@
+Polices embarquées dans Lumenia
+===============================
+
+Ces quatre fichiers sont des sous-ensembles (« subsets ») variables officiels,
+téléchargés depuis fonts.gstatic.com le 17 septembre 2026, puis servis par
+Lumenia lui-même pour qu'aucune requête du visiteur n'aille chez un tiers.
+
+  lora-latin.woff2         Lora v37, sous-ensemble latin
+  lora-latin-ext.woff2     Lora v37, sous-ensemble latin étendu
+  raleway-latin.woff2      Raleway v37, sous-ensemble latin
+  raleway-latin-ext.woff2  Raleway v37, sous-ensemble latin étendu
+
+Licence
+-------
+Lora    — SIL Open Font License 1.1 — Copyright The Lora Project Authors
+          https://github.com/cyrealtype/Lora-Cyrillic
+Raleway — SIL Open Font License 1.1 — Copyright The Raleway Project Authors
+          https://github.com/impallari/Raleway
+
+La SIL OFL 1.1 autorise l'usage, la redistribution et l'intégration de ces
+fichiers, y compris dans un produit commercial, à la condition qu'ils ne soient
+pas vendus seuls et que cette notice accompagne les fichiers. Texte complet de
+la licence : https://openfontlicense.org
+
+Regénérer
+---------
+Les plages `unicode-range` des blocs `@font-face` de `style.css` sont recopiées
+telles quelles depuis la feuille servie par :
+  https://fonts.googleapis.com/css2?family=Lora:wght@500..700&family=Raleway:wght@400..700&display=swap
+(demandée avec un User-Agent de navigateur récent, sinon Google renvoie du TTF).

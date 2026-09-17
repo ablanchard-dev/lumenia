@@ -14,13 +14,14 @@ import os
 from fastapi import Request
 from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse, RedirectResponse, Response
 
-# La page charge sa feuille chez Google Fonts et ses fichiers de police chez gstatic.
-# Rien d'autre ne sort : pas de 'unsafe-inline' sur les scripts, un seul script, local.
+# 17/09/2026 : la page n'appelle plus AUCUN tiers. Les polices sont servies par nous
+# (`static/polices/`), donc googleapis et gstatic sortent de la CSP -- et une CSP qui
+# n'autorise personne d'autre est la seule qui se verifie d'un coup d'oeil.
 _CSP = (
     "default-src 'self'; "
     "script-src 'self'; "
-    "style-src 'self' https://fonts.googleapis.com; "
-    "font-src 'self' https://fonts.gstatic.com; "
+    "style-src 'self'; "
+    "font-src 'self'; "
     "img-src 'self' data:; "
     "connect-src 'self'; "
     "base-uri 'none'; "

@@ -79,10 +79,11 @@ def test_les_en_tetes_de_securite_sont_sur_toutes_les_reponses():
         assert "default-src 'self'" in h["content-security-policy"]
 
 
-def test_la_csp_autorise_exactement_les_polices_que_la_page_charge():
+def test_la_csp_n_autorise_personne_d_autre_que_nous():
+    """17/09 : les polices sont servies par nous, donc plus aucun hote tiers.
+    Une CSP sans exception se verifie d'un coup d'oeil -- c'est tout l'interet."""
     csp = client.get("/").headers["content-security-policy"]
-    assert "https://fonts.googleapis.com" in csp   # la feuille
-    assert "https://fonts.gstatic.com" in csp      # les fichiers de police
+    assert "http" not in csp, csp          # aucune URL, donc aucun tiers
     assert "frame-ancestors 'none'" in csp
     assert "'unsafe-inline'" not in csp.split("script-src")[1].split(";")[0]
 

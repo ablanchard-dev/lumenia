@@ -1,0 +1,29 @@
+/* Extrait de logo-lab.html le 17/09/2026 : la CSP du site interdit les styles en ligne
+   (`style-src 'self'`), et la page d'atelier s'affichait donc sans mise en forme.
+   Decouvert en OUVRANT la page, pas en la relisant. */
+body { margin:0; font-family:"Raleway",sans-serif; background:#0e0b14; color:#ece8f6; padding:32px 20px 80px; }
+  h1 { font-family:"Lora",serif; text-align:center; font-size:26px; margin:0 0 6px; }
+  .sub { text-align:center; color:#a49bbd; margin:0 0 36px; }
+  .cand { max-width:980px; margin:0 auto 36px; border:1px solid #332b49; border-radius:16px; padding:22px 24px; background:#16121f; }
+  .cand h2 { font-family:"Lora",serif; font-size:19px; margin:0 0 2px; }
+  .cand h2 span { display:inline-block; width:26px; height:26px; border-radius:8px; background:#8b5cf6; color:#fff; text-align:center; line-height:26px; font-size:14px; margin-right:10px; font-family:"Raleway",sans-serif; }
+  .cand p { color:#a49bbd; margin:0 0 18px; font-size:14px; }
+  .tiles { display:flex; flex-wrap:wrap; gap:14px; align-items:stretch; }
+  .tile { border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:14px; min-width:120px; }
+  .tile small { font-size:11px; opacity:.65; }
+  .dark { background:#131019; border:1px solid #332b49; color:#a78bfa; }
+  .light { background:#faf5ff; border:1px solid #ede9fe; color:#7c3aed; }
+  .light small { color:#6b6383; }
+  .mark-lg svg { width:72px; height:72px; }
+  .fav { width:40px; height:40px; border-radius:11px; background:#7c3aed; color:#fff; display:flex; align-items:center; justify-content:center; }
+  .fav svg { width:26px; height:26px; }
+  .side { flex-direction:row; gap:10px; }
+  .side .bm { width:36px; height:36px; border-radius:10px; border:1px solid #332b49; background:#241e33; display:flex; align-items:center; justify-content:center; }
+  .light .bm { border-color:#ede9fe; background:#f3eefc; }
+  .side .bm svg { width:20px; height:20px; }
+  .wordmark { font-family:"Lora",serif; font-size:19px; font-weight:600; color:#ece8f6; }
+  .light .wordmark { color:#2a2438; }
+
+/* Les cinq `style="color:#a78bfa"` des vignettes : un attribut de style
+   est bloque par la CSP au meme titre qu'un bloc <style>. */
+.tile .bm svg.iris { color: #a78bfa; }

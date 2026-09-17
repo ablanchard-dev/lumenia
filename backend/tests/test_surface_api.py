@@ -46,7 +46,10 @@ SANS_CONSOMMATEUR = {
 }
 
 # Ce qui est servi a un humain n'est pas « appele par le front » : c'est le front.
-PAGES = {"/", "/cgu", "/confidentialite", "/robots.txt", "/sitemap.xml", "/healthz"}
+PAGES = {"/", "/cgu", "/confidentialite", "/robots.txt", "/sitemap.xml", "/healthz",
+         # Ajoutee le 17/09 : le navigateur la demande seul, aucun ecran ne l'appelle,
+         # et ce test l'a signalee des son ajout — c'est le garde-fou qui a fonctionne.
+         "/favicon.ico"}
 
 
 def _routes_exposees() -> set[str]:

@@ -45,7 +45,13 @@ class JournalIn(BaseModel):
     content: TexteLong
 
 class EntryAssessmentIn(BaseModel):
-    answers: Dict[str, int]
+    # Le parcours compte six dimensions ; 60 entrees laissent toute la marge utile.
+    # On borne la TAILLE, pas le sens : la liste legitime des cles de cette route
+    # heritee n'est pas connue, donc elle ne s'invente pas ici.
+    answers: Annotated[
+        Dict[Annotated[str, Field(max_length=60)], int],
+        Field(max_length=60),
+    ]
 
 class PHQ9In(BaseModel):
     # Exactement 9 items cotes 0-3 : ni 8 ni 10, et rien hors de l'echelle.

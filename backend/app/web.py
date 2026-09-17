@@ -12,7 +12,7 @@ Trois raisons de tout mettre la plutot qu'au fil des routes :
 import os
 
 from fastapi import Request
-from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse, RedirectResponse, Response
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, PlainTextResponse, RedirectResponse, Response
 
 # 17/09/2026 : la page n'appelle plus AUCUN tiers. Les polices sont servies par nous
 # (`static/polices/`), donc googleapis et gstatic sortent de la CSP -- et une CSP qui
@@ -74,6 +74,14 @@ def install(app, static_dir):
         for key, value in _HEADERS.items():
             response.headers.setdefault(key, value)
         return response
+
+    @app.get("/favicon.ico", include_in_schema=False)
+    def favicon():
+        # Un navigateur demande /favicon.ico tout seul des qu'une page n'en declare
+        # pas : mesure du 17/09, chaque ouverture d'une page d'atelier laissait un
+        # 404 dans la console. Servir la marque SVG coute une ligne et repond a tous
+        # les clients, y compris ceux qui ne lisent pas les <link>.
+        return FileResponse(static_dir / "logo-mark.svg", media_type="image/svg+xml")
 
     @app.get("/robots.txt", include_in_schema=False)
     def robots():

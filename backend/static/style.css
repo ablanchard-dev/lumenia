@@ -1059,3 +1059,34 @@ a { color: var(--primary); }
   /* La liste respire un peu moins pour absorber les cibles plus hautes. */
   .conv-item { margin-bottom: 2px; }
 }
+
+/* ---- Le 3114, partout où il est écrit : une cible, pas une mention ----
+   Mesuré le 17/09/2026 sur l'écran d'échec du parcours : le lien faisait
+   28 × 15 px — la plus petite cible de la page, sur l'écran où la détresse
+   est la plus probable. Et sur les pages 404, CGU et Confidentialité, le
+   numéro n'était même pas composable.
+   La pastille ne crie pas (le produit est low-stim) : elle se contente
+   d'exister comme un objet qu'on peut viser, et de ne pas dépendre de sa
+   seule couleur pour se signaler. */
+.tel-urgence {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 88px;
+  padding: 0 16px;
+  margin: 2px 2px;
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition: background .15s ease, color .15s ease;
+}
+.tel-urgence:hover,
+.tel-urgence:focus-visible {
+  background: var(--primary);
+  color: var(--on-primary);
+  text-decoration: none;
+}

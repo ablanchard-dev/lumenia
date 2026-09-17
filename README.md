@@ -14,6 +14,8 @@ Docker, tested in CI.
 
 ![Lumenia home screen](docs/lumenia.png)
 
+![Lumenia consent screen: data, medical and crisis-line disclosures](docs/lumenia-consent.png)
+
 
 ## Run
 
@@ -53,7 +55,7 @@ On Windows, `setup_windows_backend.ps1` chains these steps. Docker:
   points to 3114, without calling the model.
 - **Single user.** The entry gate, the risk flag and the profile are global to the server:
   run one instance per person. It is not built to be shared behind one URL.
-- **LLM.** A chain of free providers (Gemini, Cerebras, Mistral) with automatic
+- **LLM.** A chain of free providers (Gemini, Cerebras, Groq, Mistral) with automatic
   failover when a quota runs out. They all speak the OpenAI protocol; a provider with
   no key is simply skipped.
 

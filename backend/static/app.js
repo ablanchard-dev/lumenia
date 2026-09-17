@@ -527,7 +527,7 @@
   async function refreshRisk() {
     try {
       const r = await api("/risk");
-      if (r.risk_flag) $("safety-banner").hidden = false;
+      if (r.risk_flag) showSafetyBanner();
     } catch { /* non bloquant */ }
   }
 
@@ -583,6 +583,19 @@
       return;
     }
     conv.messages.forEach((m) => appendMessageEl(m.role, m.content));
+    scrollToEnd();
+  }
+
+  // À la (ré)ouverture on atterrit sur le dernier échange, sans animation (le
+  // défilement doux est réservé aux nouveaux messages). Rappelé quand le bandeau
+  // de sécurité apparaît : il réduit la zone et laissait l'historique en haut.
+  function scrollToEnd() {
+    messagesEl.scrollTo({ top: messagesEl.scrollHeight, behavior: "instant" });
+  }
+
+  function showSafetyBanner() {
+    $("safety-banner").hidden = false;
+    scrollToEnd();
   }
 
   // Suggestions du message d'accueil (re-créées à chaque rendu → délégation).
@@ -626,7 +639,7 @@
       appendMessageEl("assistant", r.reply);
       conv.messages.push({ role: "assistant", content: r.reply });
       saveConvs();
-      if (r.risk_flag) $("safety-banner").hidden = false;
+      if (r.risk_flag) showSafetyBanner();
     } catch {
       $("typing-msg")?.remove();
       appendMessageEl(

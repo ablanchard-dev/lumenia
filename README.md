@@ -81,6 +81,7 @@ cd backend
 
 ```
 cd backend
+.venv\Scripts\pip install pytest
 .venv\Scripts\python -m pytest
 ```
 

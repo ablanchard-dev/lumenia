@@ -34,6 +34,15 @@ def index():
 # ---------------- Portail d'entrée (mini-parcours cognitif) ----------------
 @app.get("/entry/parcours")
 def entry_parcours(exclude: str = ""):
+    # Tirer un parcours, c'est COMMENCER une tentative : ce que le serveur a constaté
+    # dans la précédente ne la concerne plus.
+    #
+    # 17/09/2026 — sans cette ligne, un « ok » survivait à une tentative abandonnée
+    # (la règle « une bonne réponse reste bonne » n'expirait jamais), et une épreuve
+    # ratée dans la tentative suivante comptait quand même comme juste. Le seuil
+    # d'entrée s'ouvrait alors en partie sur une tentative précédente — pour une garde,
+    # c'est une porte entrebâillée, pas un détail de score.
+    _VERIFIED.clear()
     seen = {x.strip() for x in exclude.split(",") if x.strip()}
     return get_parcours(seen)
 

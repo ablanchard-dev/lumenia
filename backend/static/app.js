@@ -172,8 +172,12 @@
 
     const progress = $("parcours-progress");
     const pct = Math.round(((p.i + 1) / p.steps.length) * 100);
-    progress.innerHTML =
-      `<span class="p-bar"><span class="p-bar-fill" style="width:${pct}%"></span></span>`;
+    // 17/09/2026 — la largeur était posée par un attribut `style="width:…"` dans la
+    // chaîne HTML. Notre propre CSP (`style-src 'self'`) bloque les attributs de style :
+    // la barre restait VIDE pendant tout le parcours d'entrée, sans rien signaler.
+    // La propriété DOM, elle, n'est pas concernée par la CSP.
+    progress.innerHTML = `<span class="p-bar"><span class="p-bar-fill"></span></span>`;
+    progress.querySelector(".p-bar-fill").style.width = `${pct}%`;
 
     $("challenge-step").textContent = `Épreuve ${p.i + 1} sur ${p.steps.length} — ${step.label}`;
 

@@ -114,6 +114,13 @@ FALLBACK_REPLY = (
     "écris simplement la toute première action de moins de 5 minutes, et fais-la."
 )
 
+# Aucune clé configurée : « réessaie dans une minute » ne marcherait jamais.
+NO_KEY_REPLY = (
+    "Aucune clé d'IA n'est configurée sur cette installation, donc je ne peux pas encore répondre. "
+    "Il faut copier backend/.env.example en backend/.env et y ajouter au moins une clé gratuite, "
+    "puis relancer. En attendant, écris la toute première action de moins de 5 minutes, et fais-la."
+)
+
 _MAX_HISTORY = 20
 
 
@@ -172,7 +179,7 @@ def chat_reply(
         return {"reply": SAFETY_REPLY, "risk": True}
 
     if _client is None:
-        return {"reply": FALLBACK_REPLY, "risk": False}
+        return {"reply": NO_KEY_REPLY, "risk": False}
 
     messages = [{"role": "system", "content": SYSTEM_PROMPT + _profile_directives(low_stim, pacing, entry_profile)}]
     for turn in (history or [])[-_MAX_HISTORY:]:

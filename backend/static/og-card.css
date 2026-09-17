@@ -1,0 +1,68 @@
+/* Carte de partage 1200x630 — tokens du site, aucune couleur inventee. */
+.og-body {
+  margin: 0;
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  background: var(--bg);
+}
+.og-card {
+  position: relative;
+  width: 1200px;
+  height: 630px;
+  box-sizing: border-box;
+  padding: 88px 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background:
+    radial-gradient(900px 520px at 78% -8%, var(--halo), transparent 68%),
+    linear-gradient(160deg, var(--surface) 0%, var(--bg) 62%);
+}
+.og-halo {
+  position: absolute;
+  right: -130px;
+  top: -130px;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--glow) 0%, transparent 62%);
+  filter: blur(14px);
+}
+.og-row { display: flex; align-items: center; gap: 20px; margin-bottom: 26px; }
+.og-mark { width: 74px; height: 74px; }
+.og-name {
+  font-family: 'Lora', serif;
+  font-size: 44px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: .01em;
+}
+.og-title {
+  position: relative;
+  margin: 0;
+  font-family: 'Lora', serif;
+  font-size: 58px;
+  line-height: 1.16;
+  font-weight: 600;
+  color: var(--text);
+  max-width: 21ch;
+}
+.og-sub {
+  position: relative;
+  margin: 26px 0 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 27px;
+  color: var(--text-muted);
+}
+.og-foot {
+  position: absolute;
+  left: 96px;
+  bottom: 64px;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 19px;
+  letter-spacing: .04em;
+  color: var(--primary);
+}

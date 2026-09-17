@@ -25,7 +25,9 @@ def healthz():
 # ---------------- UI (SPA servie par le backend) ----------------
 @app.get("/", include_in_schema=False)
 def index():
-    return FileResponse(STATIC_DIR / "index.html")
+    # Passe par web.page : l'origine publique est injectee dans canonical et og:image.
+    from . import web
+    return web.page(STATIC_DIR, "index.html")
 
 # ---------------- Portail d'entrée (mini-parcours cognitif) ----------------
 @app.get("/entry/parcours")

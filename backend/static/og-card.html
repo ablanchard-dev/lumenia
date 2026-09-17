@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Carte de partage — Lumenia</title>
+  <!--
+    Source de `og-image.png` (1200x630). Regenerer :
+      1. servir le backend, ouvrir /static/og-card.html
+      2. capture de la fenetre en 1200x630 -> backend/static/og-image.png
+    Le fichier reste dans le depot pour que l'image ne soit jamais un binaire
+    orphelin que plus personne ne sait refaire.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/og-card.css">
+</head>
+<body class="og-body">
+  <div class="og-card">
+    <div class="og-halo" aria-hidden="true"></div>
+    <div class="og-row">
+      <img class="og-mark" src="/static/logo-mark.svg" alt="">
+      <span class="og-name">Lumenia</span>
+    </div>
+    <h1 class="og-title">Un espace de clarté pour les esprits qui pensent autrement.</h1>
+    <p class="og-sub">Assistant cognitif pour profils neuroatypiques — HPI, Asperger, TDAH.</p>
+    <p class="og-foot">Pas un dispositif médical · 3114 toujours accessible</p>
+  </div>
+</body>
+</html>

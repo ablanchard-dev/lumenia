@@ -12,7 +12,7 @@ Trois raisons de tout mettre la plutot qu'au fil des routes :
 import os
 
 from fastapi import Request
-from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, RedirectResponse, Response
+from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse, RedirectResponse, Response
 
 # La page charge sa feuille chez Google Fonts et ses fichiers de police chez gstatic.
 # Rien d'autre ne sort : pas de 'unsafe-inline' sur les scripts, un seul script, local.
@@ -41,6 +41,17 @@ _HEADERS = {
 
 def public_origin() -> str:
     return os.getenv("PUBLIC_ORIGIN", "http://localhost:8000").rstrip("/")
+
+
+def page(static_dir, nom: str, status_code: int = 200) -> Response:
+    """Sert une page en y injectant l'origine publique.
+
+    `og:image` et `canonical` doivent etre des URL ABSOLUES : un fichier statique
+    ne peut pas les connaitre, donc la page porte `{{ORIGIN}}` et le serveur le
+    remplace. Sans ca, le lien partage montre une image introuvable.
+    """
+    html = (static_dir / nom).read_text(encoding="utf-8").replace("{{ORIGIN}}", public_origin())
+    return HTMLResponse(html, status_code=status_code)
 
 
 def _wants_html(request: Request) -> bool:
@@ -99,5 +110,5 @@ def install(app, static_dir):
     async def not_found(request: Request, exc):
         # Un humain recoit une page, un client d'API recoit son JSON.
         if _wants_html(request):
-            return FileResponse(static_dir / "404.html", status_code=404)
+            return page(static_dir, "404.html", status_code=404)
         return JSONResponse({"detail": "Not Found"}, status_code=404)

@@ -12,9 +12,7 @@ Full-stack: FastAPI + SQLite + a served SPA, a multi-provider LLM chain with fai
 a **server-enforced** access gate, and a blocking crisis-safety check — deployed with
 Docker, tested in CI.
 
-<!-- Capture d'ecran a ajouter : deposer docs/lumenia.png puis decommenter la ligne ci-dessous
-![Lumenia — parcours d'entree et chat](docs/lumenia.png)
--->
+![Lumenia home screen](docs/lumenia.png)
 
 
 ## Run

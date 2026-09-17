@@ -1042,3 +1042,20 @@ a { color: var(--primary); }
 }
 .site-foot a { color: var(--text-muted); }
 .site-foot a:hover { color: var(--primary); }
+
+/* ============================================================
+   Petits écrans : la cible grossit, pas le dessin.
+   Mesure du 17/09/2026 à 430 px, écran de chat ouvert : la corbeille d'une
+   conversation faisait 30 × 30 px — la plus petite commande de l'écran était
+   la seule destructive. WCAG 2.5.5 demande 44 × 44.
+   Lumenia s'adresse à des profils TDAH et autistes : viser au pixel près,
+   c'est exactement l'effort qu'on est censé leur épargner.
+   ============================================================ */
+@media (max-width: 760px) {
+  .conv-del { width: 44px; height: 44px; margin-right: 2px; }
+  .conv-open { min-height: 44px; }
+  .sidebar-card-link { min-height: 44px; }
+  .safety-close { width: 44px; height: 44px; }
+  /* La liste respire un peu moins pour absorber les cibles plus hautes. */
+  .conv-item { margin-bottom: 2px; }
+}

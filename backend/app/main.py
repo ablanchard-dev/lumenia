@@ -2,6 +2,8 @@ import io, csv, json
 from pathlib import Path
 from fastapi import FastAPI
 from fastapi.responses import ORJSONResponse, StreamingResponse, FileResponse
+import mimetypes
+
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy import select
 from .db import SessionLocal, init_db
@@ -322,6 +324,13 @@ def psy_coach(body: CoachIn):
 @app.get("/resources")
 def resources():
     return {"fr": {"urgence": ["15 (SAMU)", "112 (EU)"], "suicide": ["3114"], "sites": ["https://3114.fr", "https://service-public.fr"]}}
+
+# Le type d'une police ne doit pas dependre du poste qui sert le fichier. `StaticFiles` delegue a
+# `mimetypes`, qui lit la base de registre sous Windows : sans entree pour `.woff2`, la police part
+# en `text/plain`, le navigateur la refuse, et la page retombe sur une fonte systeme -- en silence.
+# Mesure du 17/09/2026 : vert sur la CI Linux, rouge sur le poste de developpement.
+mimetypes.add_type("font/woff2", ".woff2")
+mimetypes.add_type("font/woff", ".woff")
 
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 

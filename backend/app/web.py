@@ -79,21 +79,22 @@ def install(app, static_dir):
     def robots():
         # L'API n'a rien a faire dans un index de recherche : elle n'a pas de
         # page, et une reponse JSON indexee est une fuite tranquille.
-        lines = [
-            "User-agent: *",
-            "Allow: /$",
-            "Disallow: /chat",
-            "Disallow: /journal",
-            "Disallow: /profile",
-            "Disallow: /assessment",
-            "Disallow: /psy",
-            "Disallow: /entry",
-            "Disallow: /consent",
-            "Disallow: /risk",
-            "Disallow: /docs",
-            f"Sitemap: {public_origin()}/sitemap.xml",
-            "",
-        ]
+        #
+        # 17/09/2026 — cette liste etait ecrite a la main, et trois routes lui
+        # echappaient deja (`/adapt`, `/resources`, `/focus`...). Une liste tenue a
+        # la main derive des qu'une route est ajoutee, en silence. Elle est donc
+        # DEDUITE des routes reellement exposees : on ne peut plus oublier une porte.
+        publiques = {c for c, *_ in PAGES} | {"/robots.txt", "/sitemap.xml", "/healthz"}
+        api = sorted({
+            "/" + r.path.lstrip("/").split("/")[0]
+            for r in app.routes
+            if getattr(r, "methods", None)
+            and r.path not in publiques
+            and not r.path.startswith("/static")
+        })
+        lines = ["User-agent: *", "Allow: /$"]
+        lines += [f"Disallow: {chemin}" for chemin in api]
+        lines += [f"Sitemap: {public_origin()}/sitemap.xml", ""]
         return PlainTextResponse("\n".join(lines))
 
     # Les pages publiques : celles qu'un moteur peut indexer et qu'un humain peut lire.

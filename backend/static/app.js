@@ -164,6 +164,32 @@
     return p ? p.steps[p.i] : null;
   }
 
+
+  /* Une seule porte pour griser « Valider ».
+     17/09/2026 — le bouton demarrait grise sur chaque QCM sans dire pourquoi :
+     on voit une action, on la clique, rien. Et sur le web une infobulle `title`
+     ne s'affiche PAS sur un bouton `disabled` (le navigateur ne lui envoie aucun
+     evenement de pointeur), donc la reponse doit etre une ligne VISIBLE — ici la
+     zone `role="status"`, deja annoncee aux lecteurs d'ecran. */
+  let raisonAffichee = "";
+
+  function boutonValider(actif, raison = "") {
+    $("challenge-btn").disabled = !actif;
+    const zone = $("challenge-feedback");
+    if (!actif && raison) {
+      zone.textContent = raison;
+      zone.classList.remove("ok");
+      raisonAffichee = raison;
+    } else if (actif && raisonAffichee && zone.textContent === raisonAffichee) {
+      // Vu dans le navigateur : la phrase « Choisis une réponse » restait affichée
+      // APRÈS le choix — elle devenait fausse. On efface, mais UNIQUEMENT notre
+      // propre message : l'indice d'une mauvaise réponse vit dans la même zone et
+      // doit survivre.
+      zone.textContent = "";
+      raisonAffichee = "";
+    }
+  }
+
   function renderStep() {
     const p = state.parcours;
     const step = currentStep();
@@ -198,7 +224,7 @@
       input.value = "";
       buildChoices(step);
       choices.hidden = false;
-      $("challenge-btn").disabled = true;          // (ré)activé dès qu'un choix est pris
+      boutonValider(false, "Choisis une réponse pour continuer.");   // réactivé dès qu'un choix est pris
       const first = choices.querySelector(".choice");
       if (first) first.focus();
     } else {
@@ -208,7 +234,7 @@
       input.value = "";
       input.placeholder =
         step.kind === "open" ? "Pas de bonne réponse — écris ce qui te vient…" : "Ta réponse…";
-      $("challenge-btn").disabled = false;
+      boutonValider(true);
       input.focus();
     }
   }
@@ -251,7 +277,7 @@
       el.classList.remove("wrong");
       el.setAttribute("aria-checked", on ? "true" : "false");
     });
-    $("challenge-btn").disabled = false;
+    boutonValider(true);
   }
 
   function lockChoices(correctLetter) {
@@ -296,8 +322,8 @@
     const isQcm = step.kind === "qcm";
     const answer = isQcm ? (p.selected || "") : $("challenge-input").value.trim();
     if (!answer) return;
-    const btn = $("challenge-btn");
-    btn.disabled = true;
+    // Pendant la verification : le bouton se grise, et « … » dit pourquoi.
+    boutonValider(false);
     const fb = $("challenge-feedback");
     fb.textContent = "…";
     try {
@@ -323,16 +349,17 @@
         if (isQcm) {
           const sel = $("challenge-choices").querySelector(`.choice[data-letter="${answer}"]`);
           if (sel) sel.classList.add("wrong");
-          btn.disabled = !p.selected;          // peut re-tenter en changeant de choix
+          // Par la porte, comme partout : sinon la phrase et l'etat du bouton divergent.
+          boutonValider(!!p.selected, "Choisis une reponse pour continuer.");
         } else {
-          btn.disabled = false;
+          boutonValider(true);
           $("challenge-input").select();
         }
         if (p.failures >= 2) $("challenge-skip").hidden = false;
       }
     } catch {
       fb.textContent = "Erreur de connexion au serveur — réessaie.";
-      btn.disabled = false;
+      boutonValider(true);
     }
   }
 
@@ -359,7 +386,7 @@
 
   async function completeParcours() {
     const p = state.parcours;
-    $("challenge-btn").disabled = true;
+    boutonValider(false);
     $("challenge-skip").hidden = true;
 
     // Score : seules les épreuves NOTÉES comptent (l'expression libre `libre` n'a

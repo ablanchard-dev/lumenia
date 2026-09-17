@@ -9,6 +9,7 @@ Ce qu'elle s'interdit : faire taire le 3114. La reponse 429 porte le numero,
 comme le gate d'entree le porte deja. Quelqu'un qui tape trop vite peut etre
 quelqu'un qui va mal.
 """
+import os
 import time
 
 from fastapi.responses import JSONResponse
@@ -54,16 +55,49 @@ def reset() -> None:
     _decalage = 0.0
 
 
+def derriere_un_proxy() -> bool:
+    """Un proxy a-t-il ete DECLARE devant Lumenia ?
+
+    `x-forwarded-for` est ecrit par le client : le lire sans proxy declare, c'est
+    laisser n'importe qui repartir de zero en incrementant un en-tete -- la limite
+    ne protege alors plus rien. Derriere un hebergeur qui met un proxy (Render,
+    Fly...), l'inverse est vrai : tout arrive avec la meme IP de sortie, et sans
+    l'en-tete un visiteur bruyant fermerait la porte a tous les autres.
+    Les deux modes sont justes ; c'est celui qui heberge qui sait lequel s'applique.
+    """
+    return os.getenv("LUMENIA_DERRIERE_PROXY", "").strip().lower() in {"1", "true", "oui", "yes"}
+
+
 def client_de(request) -> str:
-    entete = request.headers.get("x-forwarded-for")
-    if entete:
-        return entete.split(",")[0].strip()
+    if derriere_un_proxy():
+        entete = request.headers.get("x-forwarded-for")
+        if entete:
+            return entete.split(",")[0].strip()
     return request.client.host if request.client else "inconnu"
+
+
+def _oublier_les_perimes(t: float) -> None:
+    """Une entree dont la fenetre est passee n'apprend plus rien : elle part.
+
+    Sans ca, chaque client vu une fois reste en memoire pour toujours -- et derriere un
+    proxy declare, une boucle qui incremente `x-forwarded-for` fait monter cette memoire
+    jusqu'a faire tomber le serveur. Le balayage ne se declenche qu'au-dessus du seuil :
+    il ne coute rien tant que Lumenia ne voit que ses visiteurs reels.
+    """
+    for cle in [c for c, vues in _vues.items() if all(t - v >= FENETRE for v in vues)]:
+        del _vues[cle]
+
+
+# ponytail: balayage au seuil plutot qu'une tache de fond. Une tache de fond serait un
+# processus de plus a surveiller pour un dict qui tient dans une poignee de Ko.
+VISITEURS_AVANT_BALAYAGE = 1000
 
 
 def autorise(cle: str) -> tuple[bool, int]:
     """(passe, secondes avant la prochaine ouverture)."""
     t = maintenant()
+    if len(_vues) > VISITEURS_AVANT_BALAYAGE:
+        _oublier_les_perimes(t)
     recentes = [v for v in _vues.get(cle, ()) if t - v < FENETRE]
     if len(recentes) >= PAR_MINUTE:
         _vues[cle] = recentes

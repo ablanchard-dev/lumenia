@@ -35,6 +35,12 @@ Then http://127.0.0.1:8000
 On Windows, `setup_windows_backend.ps1` chains these steps. Docker:
 `docker compose up --build`.
 
+**Behind a reverse proxy** (Render, Fly, nginx...), set `LUMENIA_DERRIERE_PROXY=1`.
+The rate limiter then reads `x-forwarded-for` to tell visitors apart; without a proxy
+every request arrives with the host's own address, so one noisy visitor would lock
+everyone else out. Left unset, the header is ignored on purpose: it is written by the
+client, and trusting it would let a ten-line loop reset its LLM quota at will.
+
 ## How it works
 
 - **Entry.** Consent, then a short run of cognitive challenges across six WAIS-inspired

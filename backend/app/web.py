@@ -95,13 +95,32 @@ def install(app, static_dir):
         ]
         return PlainTextResponse("\n".join(lines))
 
+    # Les pages publiques : celles qu'un moteur peut indexer et qu'un humain peut lire.
+    PAGES = [("/", "index.html", "weekly", "1.0"),
+             ("/confidentialite", "confidentialite.html", "yearly", "0.3"),
+             ("/cgu", "cgu.html", "yearly", "0.3")]
+
+    @app.get("/confidentialite", include_in_schema=False)
+    def confidentialite():
+        return page(static_dir, "confidentialite.html")
+
+    @app.get("/cgu", include_in_schema=False)
+    def cgu():
+        return page(static_dir, "cgu.html")
+
     @app.get("/sitemap.xml", include_in_schema=False)
     def sitemap():
         origin = public_origin()
+        # Une seule liste : le sitemap ne peut pas oublier une page que le site sert.
+        lignes = "".join(
+            f"  <url><loc>{origin}{chemin}</loc>"
+            f"<changefreq>{freq}</changefreq><priority>{prio}</priority></url>\n"
+            for chemin, _, freq, prio in PAGES
+        )
         xml = (
             '<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-            f"  <url><loc>{origin}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n"
+            f"{lignes}"
             "</urlset>\n"
         )
         return Response(xml, media_type="application/xml")

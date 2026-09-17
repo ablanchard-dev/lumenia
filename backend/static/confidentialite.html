@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ce que Lumenia enregistre, où, pendant combien de temps, à qui vos messages sont envoyés, et les droits que vous gardez dessus.">
+  <meta name="theme-color" content="#131019" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FAF5FF" media="(prefers-color-scheme: light)">
+  <title>Confidentialité — Lumenia</title>
+  <link rel="canonical" href="{{ORIGIN}}/confidentialite">
+  <link rel="icon" type="image/svg+xml" href="/static/logo-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main class="legal">
+  <a class="legal-back" href="/">← Revenir à Lumenia</a>
+
+  <h1>Confidentialité</h1>
+  <p class="legal-lead">
+    Cette page décrit ce que Lumenia fait réellement de vos données. Elle est vérifiée
+    par des tests automatiques : si le code se met à appeler un fournisseur de plus ou
+    à enregistrer une table de plus sans que cette page le dise, la suite de tests échoue.
+  </p>
+  <p class="legal-date">Dernière mise à jour : 17 septembre 2026.</p>
+
+  <section>
+    <h2>Qui est responsable</h2>
+    <p>
+      Responsable du traitement :
+      <mark data-a-completer="identite-responsable">à compléter — nom ou raison sociale</mark>.
+      Contact :
+      <mark data-a-completer="contact-responsable">à compléter — adresse e-mail de contact</mark>.
+      Hébergement :
+      <mark data-a-completer="hebergeur">à compléter — hébergeur et pays</mark>.
+    </p>
+    <p class="legal-note">
+      Ces trois champs ne s'inventent pas. Tant qu'ils ne sont pas remplis, la page
+      le dit plutôt que de faire semblant.
+    </p>
+  </section>
+
+  <section>
+    <h2>Ce qui reste dans votre navigateur</h2>
+    <p>
+      Vos conversations sont stockées dans le <strong>stockage local de votre navigateur</strong>,
+      pas sur le serveur. S'y trouvent également le thème choisi, le fait que le parcours
+      d'entrée a été validé, et la liste des identifiants d'exercices déjà vus.
+    </p>
+    <p>
+      <strong>Aucun cookie</strong> n'est déposé, ni par Lumenia ni par un tiers. Il n'y a
+      aucun traceur, aucune mesure d'audience, aucun pixel publicitaire. C'est pour cela
+      qu'aucun bandeau ne vous demande votre consentement : il n'y a rien à consentir.
+    </p>
+    <p>
+      Vider le stockage du site dans votre navigateur efface ces données immédiatement
+      et définitivement.
+    </p>
+  </section>
+
+  <section>
+    <h2>Ce que le serveur enregistre</h2>
+    <p>Le serveur tient une base locale qui contient exactement quatre tables :</p>
+    <ul>
+      <li><code>kv_store</code> — réglages simples : consentement accepté, parcours validé, profil d'entrée, indicateur de risque.</li>
+      <li><code>profiles</code> — vos préférences d'accompagnement (stimulation basse, rythme).</li>
+      <li><code>journal</code> — les notes que vous écrivez volontairement dans le journal.</li>
+      <li><code>assessments</code> — les résultats des questionnaires que vous remplissez.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Données de santé</h2>
+    <p>
+      Les questionnaires <strong>PHQ-9</strong> et <strong>GAD-7</strong> portent sur l'humeur
+      et l'anxiété. Leurs résultats, ainsi que l'indicateur de détresse déclenché par la
+      détection de crise, sont des <strong>données concernant la santé</strong> au sens de
+      l'article 9 du RGPD. Ils ne sont ni vendus, ni partagés, ni utilisés pour du profilage
+      publicitaire, et ils ne quittent pas la base du serveur.
+    </p>
+  </section>
+
+  <section>
+    <h2>Où partent vos messages</h2>
+    <p>
+      Pour vous répondre, Lumenia envoie le message courant et les tours récents de la
+      conversation à un modèle de langage exploité par un tiers. Selon la configuration
+      de l'instance, ce tiers peut être :
+    </p>
+    <ul>
+      <li><strong>gemini</strong> — Google (États-Unis)</li>
+      <li><strong>cerebras</strong> — Cerebras Systems (États-Unis)</li>
+      <li><strong>groq</strong> — Groq (États-Unis)</li>
+      <li><strong>mistral</strong> — Mistral AI (France, Union européenne)</li>
+    </ul>
+    <p>
+      Trois de ces quatre fournisseurs sont établis <strong>hors de l'Union européenne</strong> :
+      vos messages y sont alors transférés, et soumis au droit de leur pays. C'est la raison
+      pour laquelle l'écran d'accueil vous demande de ne pas écrire ce que vous ne voulez pas
+      voir sortir de votre appareil.
+    </p>
+    <p>
+      Un message détecté comme signalant une détresse n'est <strong>jamais</strong> envoyé à un
+      modèle : la réponse d'urgence est produite localement.
+    </p>
+  </section>
+
+  <section>
+    <h2>Combien de temps</h2>
+    <p>
+      Les données du navigateur restent jusqu'à ce que vous les effaciez. Les données du
+      serveur restent tant que l'instance existe : Lumenia n'a pas de compte utilisateur,
+      donc pas d'expiration automatique. Une demande d'effacement se traite en supprimant
+      la base de l'instance.
+    </p>
+  </section>
+
+  <section>
+    <h2>Vos droits</h2>
+    <p>
+      Vous disposez d'un droit d'<strong>accès</strong>, de <strong>rectification</strong>,
+      d'<strong>effacement</strong>, d'<strong>opposition</strong>, de
+      <strong>limitation</strong> et de <strong>portabilité</strong> sur vos données.
+      Le journal est d'ailleurs exportable directement depuis l'application.
+      Pour exercer ces droits, écrivez à l'adresse de contact ci-dessus.
+    </p>
+    <p>
+      Si la réponse ne vous satisfait pas, vous pouvez saisir la <strong>CNIL</strong>
+      (Commission nationale de l'informatique et des libertés),
+      <a href="https://www.cnil.fr/fr/plaintes" rel="noopener">cnil.fr/fr/plaintes</a>.
+    </p>
+  </section>
+
+  <p class="legal-foot">
+    En cas de détresse, le <strong>3114</strong> répond gratuitement, 24 h/24.
+    Voir aussi les <a href="/cgu">conditions d'utilisation</a>.
+  </p>
+</main>
+</body>
+</html>

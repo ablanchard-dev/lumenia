@@ -925,3 +925,71 @@ a { color: var(--primary); }
   text-align: center;
 }
 @media (max-width: 480px) { .err-code { font-size: 52px; } }
+
+/* ---- Pages legales : du texte long, lisible, aux couleurs du produit ---- */
+.legal {
+  max-width: 68ch;
+  margin: 0 auto;
+  padding: 48px 20px 96px;
+  color: var(--text);
+}
+.legal-back {
+  display: inline-block;
+  margin-bottom: 26px;
+  font-size: 15px;
+  color: var(--primary);
+  text-decoration: none;
+}
+.legal-back:hover { text-decoration: underline; }
+.legal h1 {
+  font-family: 'Lora', serif;
+  font-size: 38px;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+.legal h2 {
+  font-family: 'Lora', serif;
+  font-size: 23px;
+  margin: 44px 0 10px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+.legal p, .legal li { font-size: 16px; line-height: 1.72; }
+.legal ul { padding-left: 22px; }
+.legal li { margin: 8px 0; }
+.legal a { color: var(--primary); }
+.legal code {
+  font-size: 14.5px;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+.legal p.legal-lead { font-size: 17.5px; color: var(--text-muted); }
+.legal p.legal-date { font-size: 14px; color: var(--text-muted); margin-top: -4px; }
+.legal p.legal-note { font-size: 14.5px; color: var(--text-muted); }
+.legal mark {
+  background: var(--surface-2);
+  color: var(--primary);
+  border: 1px dashed var(--primary);
+  border-radius: 6px;
+  padding: 1px 7px;
+}
+.legal-foot {
+  margin-top: 52px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--text-muted);
+}
+@media (max-width: 480px) { .legal h1 { font-size: 30px; } }
+
+/* Pied de page discret, present sur l'accueil */
+.site-foot {
+  padding: 26px 20px 34px;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+.site-foot a { color: var(--text-muted); }
+.site-foot a:hover { color: var(--primary); }

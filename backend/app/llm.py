@@ -108,6 +108,9 @@ def _build_chain() -> List[dict]:
                  p, " ou ".join(_PROVIDERS[p]["key_envs"]))
     if chain:
         log.info("Chaîne LLM active : %s", " -> ".join(c["label"] for c in chain))
+    else:
+        log.warning("Aucune clé LLM configurée : le chat ne répondra qu'avec des messages "
+                    "statiques. Copier .env.example en .env et ajouter au moins une clé gratuite.")
     return chain
 
 

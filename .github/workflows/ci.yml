@@ -22,9 +22,13 @@ jobs:
         working-directory: backend
     steps:
       - uses: actions/checkout@v4
+      # 3.11, parce que c'est ce que les deux images livrent (`FROM python:3.11-slim`).
+      # Jusqu'au 18/09/2026 la CI validait sur 3.12 : elle testait une version que
+      # personne n'execute, et son vert ne disait rien de ce qui tourne vraiment.
+      # `test_ce_qui_est_teste_est_ce_qui_est_livre` refuse que les deux redivergent.
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.11"
       - name: Install deps
         run: |
           python -m pip install --upgrade pip

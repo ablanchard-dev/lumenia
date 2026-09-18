@@ -92,8 +92,16 @@ def install(app, static_dir):
         # `no-cache` ne veut pas dire « ne cache pas » : il veut dire « redemande-moi
         # avant de reutiliser ». Avec l'ETag deja pose par StaticFiles, cette
         # revalidation coute un 304 vide.
-        if request.url.path.startswith("/static/"):
-            response.headers.setdefault("cache-control", "no-cache")
+        chemin = request.url.path
+        if chemin.startswith("/static/"):
+            # Une police est immuable : changer de fonte, c'est changer de fichier.
+            # Mesure du 18/09 : les quatre polices pesent 134 Ko et etaient revalidees
+            # a chaque visite. Elles meritent le cache maximal ; le script et la
+            # feuille, qui changent sous le meme nom, gardent leur revalidation.
+            immuable = chemin.startswith("/static/polices/")
+            response.headers.setdefault(
+                "cache-control",
+                "public, max-age=31536000, immutable" if immuable else "no-cache")
 
         if tete:
             # Memes statut, memes en-tetes (y compris HSTS et CSP), corps vide :

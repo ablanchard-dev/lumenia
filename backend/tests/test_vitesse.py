@@ -70,11 +70,36 @@ def test_les_polices_declarees_existent_vraiment_et_sont_en_woff2():
 
 
 def test_chaque_police_est_servie_et_se_met_en_cache_longtemps():
+    """18/09/2026 : ce test PROMETTAIT le cache long dans son nom et ne verifiait
+    que le statut et le type. Mesure du jour : les quatre polices (134 Ko) etaient
+    revalidees a chaque visite. Un nom de test n'est pas une garantie.
+
+    Une police est immuable : changer de fonte, c'est changer de fichier. Elle
+    merite donc le cache maximal, la ou le script et la feuille — qui changent
+    sous le meme nom — exigent une revalidation."""
     css = (STATIC / "style.css").read_text(encoding="utf-8")
-    for src in re.findall(r"src:\s*url\('([^']+)'\)", css):
+    polices = re.findall(r"src:\s*url\('([^']+)'\)", css)
+    assert polices, "aucune police declaree : ce test n'exercerait rien"
+
+    for src in polices:
         r = client.get(src)
         assert r.status_code == 200, src
         assert r.headers["content-type"] in ("font/woff2", "application/octet-stream"), src
+
+        cache = r.headers.get("cache-control", "")
+        assert "immutable" in cache, f"{src} : {cache or 'aucun cache-control'}"
+        age = re.search(r"max-age=(\d+)", cache)
+        assert age and int(age.group(1)) >= 2_592_000, f"{src} : {cache}"  # 30 jours au moins
+
+
+def test_le_script_et_la_feuille_gardent_leur_revalidation():
+    """Le temoin inverse : offrir le cache long aux polices ne doit pas le donner
+    a ce qui change sous le meme nom, sinon on ramene le defaut du 18/09 — une
+    correction qui n'atteint jamais qui a deja ouvert le site."""
+    for chemin in ("/static/app.js", "/static/style.css"):
+        cache = client.get(chemin).headers.get("cache-control", "")
+        assert "immutable" not in cache, f"{chemin} : {cache}"
+        assert "no-cache" in cache or "max-age=0" in cache, f"{chemin} : {cache}"
 
 
 def test_le_texte_reste_lisible_pendant_le_chargement_des_polices():

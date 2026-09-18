@@ -175,6 +175,30 @@ def install(app, static_dir):
              ("/confidentialite", "confidentialite.html", "yearly", "0.3"),
              ("/cgu", "cgu.html", "yearly", "0.3")]
 
+    # 18/09/2026 - UNE PAGE, UNE ADRESSE. Les ecrans sont des gabarits : ils portent
+    # `{{ORIGIN}}` et `page()` le remplace. Mais ils vivent dans le dossier monte, donc
+    # `/static/index.html` et `/static/cgu.html` repondaient 200 en servant le gabarit
+    # BRUT -- avec un `canonical` qui vaut litteralement `{{ORIGIN}}/` et une `og:image`
+    # introuvable. Chaque page existait a deux adresses, et la seconde ne pointait vers
+    # rien. `/static/404.html` etait pire encore : 200 sur une page qui dit « introuvable »,
+    # le soft 404 du manuel.
+    #
+    # On ne retire rien du dossier (les gabarits y sont lus par `page()`), on repond a la
+    # seconde adresse avant que le montage ne la serve. 301 : permanent, c'est l'original
+    # qui compte. Les planches de travail declarees, elles, restent servies telles quelles.
+    # Une route par gabarit, JAMAIS `/static/{fichier}` : une route attrape-tout ne peut pas
+    # rendre la main au montage (Starlette n'essaie pas la route suivante quand celle-ci a
+    # repondu), et tout le dossier -- css, polices, images -- passerait par ici.
+    _CANONIQUE = {f: c for c, f, *_ in PAGES} | {"404.html": "/", "500.html": "/"}
+
+    def _vers(cible: str):
+        def redirige():
+            return RedirectResponse(cible, status_code=301)
+        return redirige
+
+    for _fichier, _cible in _CANONIQUE.items():
+        app.add_api_route(f"/static/{_fichier}", _vers(_cible), methods=["GET"], include_in_schema=False)
+
     @app.get("/confidentialite", include_in_schema=False)
     def confidentialite():
         return page(static_dir, "confidentialite.html")

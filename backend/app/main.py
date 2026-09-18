@@ -409,11 +409,16 @@ def resources():
 mimetypes.add_type("font/woff2", ".woff2")
 mimetypes.add_type("font/woff", ".woff")
 
-app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
-
 # En-tetes de securite, robots.txt, sitemap et 404 humain : un seul endroit.
+#
+# 18/09/2026 - INSTALLE AVANT LE MONTAGE, et l'ordre est le correctif. Starlette essaie
+# les routes dans l'ordre d'ajout, et `app.mount("/static", ...)` attrape TOUT ce qui
+# commence par /static. Tant que web.install venait apres, une route /static/index.html
+# ne pouvait plus etre atteinte : le montage servait le gabarit brut, `{{ORIGIN}}` compris.
 from . import web  # noqa: E402
 web.install(app, STATIC_DIR)
+
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 # Limite de debit sur les seules routes qui appellent un LLM.
 from . import limite  # noqa: E402

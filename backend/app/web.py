@@ -9,10 +9,13 @@ Trois raisons de tout mettre la plutot qu'au fil des routes :
  - la redirection HTTPS doit lire son reglage A CHAQUE requete : l'hebergeur
    l'allume, le poste de developpement ne l'a pas.
 """
+import logging
 import os
 
 from fastapi import Request
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, PlainTextResponse, RedirectResponse, Response
+
+log = logging.getLogger("lumenia.web")
 
 # 17/09/2026 : la page n'appelle plus AUCUN tiers. Les polices sont servies par nous
 # (`static/polices/`), donc googleapis et gstatic sortent de la CSP -- et une CSP qui
@@ -55,6 +58,17 @@ def page(static_dir, nom: str, status_code: int = 200) -> Response:
     return HTMLResponse(html, status_code=status_code)
 
 
+def _proteger(response: Response) -> Response:
+    """Pose les en-tetes de securite. UNE seule liste, deux chemins qui l'appellent :
+    le middleware normal et le gestionnaire de panne. Mesure du 18/09 : le
+    gestionnaire d'exception de Starlette est le middleware le PLUS EXTERNE, donc sa
+    reponse ne repasse pas par le middleware qui pose les en-tetes -- il doit les
+    poser lui-meme, et surtout pas depuis une seconde liste qui divergerait."""
+    for key, value in _HEADERS.items():
+        response.headers.setdefault(key, value)
+    return response
+
+
 def _wants_html(request: Request) -> bool:
     accept = request.headers.get("accept", "")
     return "text/html" in accept and "application/json" not in accept
@@ -80,9 +94,7 @@ def install(app, static_dir):
             if proto == "http":
                 return RedirectResponse(str(request.url).replace("http://", "https://", 1), status_code=308)
 
-        response: Response = await call_next(request)
-        for key, value in _HEADERS.items():
-            response.headers.setdefault(key, value)
+        response: Response = _proteger(await call_next(request))
 
         # Les URL statiques ne portent pas d'empreinte (`/static/app.js`), donc un
         # cache long servirait une version perimee apres chaque correction. Constate
@@ -178,3 +190,34 @@ def install(app, static_dir):
         if _wants_html(request):
             return page(static_dir, "404.html", status_code=404)
         return JSONResponse({"detail": "Not Found"}, status_code=404)
+
+    @app.exception_handler(Exception)
+    async def panne(request: Request, exc):
+        """Une panne reste une panne, mais elle ne largue pas le client.
+
+        Mesure du 18/09/2026 : sans ce gestionnaire, une route qui leve renvoyait
+        `Internal Server Error` en text/plain -- SANS aucun en-tete de securite (CSP,
+        nosniff, X-Frame-Options, Referrer-Policy) et sans le 3114. L'exception
+        remontait au-dessus du middleware qui les pose : c'etait l'ordre des couches,
+        pas un oubli de configuration. La seule page du site a ne pas etre protegee
+        etait celle qui apparait quand ca va mal.
+
+        Ce que ce gestionnaire ne fait PAS : deguiser la panne. Le statut reste 500 et
+        le detail interne ne sort pas -- il est journalise, pas servi.
+        """
+        log.exception("panne non rattrapee sur %s %s", request.method, request.url.path)
+        if _wants_html(request):
+            return _proteger(page(static_dir, "500.html", status_code=500))
+        return _proteger(JSONResponse(
+            {
+                "error": "internal",
+                # Le 3114 voyage avec la panne : il est sur tous les ecrans et dans la
+                # reponse 429 de l'anti-spam, il n'a pas de raison de disparaitre ici.
+                "reply": (
+                    "Ca a casse de notre cote, tu n'y es pour rien et rien n'est perdu. "
+                    "Reessaie dans un instant. En cas de detresse, le 3114 (national, "
+                    "gratuit, 24h/24) reste joignable directement."
+                ),
+            },
+            status_code=500,
+        ))

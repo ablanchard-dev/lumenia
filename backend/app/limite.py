@@ -48,6 +48,42 @@ TROP_D_ECRITURES = (
     "Rien n'est perdu, et rien ne t'est reproche."
 )
 
+# 18/09/2026 - LE JUGE DU PARCOURS D'ENTREE. La regle en tete de ce fichier dit « les
+# seules routes qui appellent un LLM ». Il en manquait une, et pas dans la liste : dans le
+# chemin. `POST /entry/verify` -> `verify_challenge` -> `_chat` : une epreuve `objective`
+# (117 items de la banque) dont la formulation n'est pas dans la liste de synonymes part
+# chez le modele. La route tombait donc dans le budget des ECRITURES -- 120/min, calibre
+# sur le DISQUE, pas sur le quota -- soit six fois le plafond de conversation pour un appel
+# qui coute exactement pareil.
+#
+# Le plafond est GLOBAL au processus, et c'est voulu : ce qu'on protege ici est le quota de
+# qui heberge Lumenia, et un quota n'a pas d'adresse IP. Un plafond par visiteur laisse N
+# visiteurs multiplier la facture par N.
+#
+# Au-dela, `verify_challenge` rend `undetermined` : l'etat que le produit sait deja tenir
+# (« juge injoignable, epreuve NON JUGEE »). Rendre « faux » ferait echouer un candidat
+# valable parce que quelqu'un d'autre a boucle sur la route une minute plus tot.
+#
+# 60 : le double d'un parcours entier (30 epreuves) integralement juge, ce qui n'arrive
+# jamais -- la moitie du tirage est en QCM et la liste de synonymes absorbe l'essentiel du
+# reste.
+PAR_MINUTE_JUGE = 60
+
+CLE_DU_JUGE = "juge-entree"
+
+# Les routes qui ATTEIGNENT le modele sans passer par le budget du middleware. Une seule
+# a ce jour, et elle n'est pas une exception de confort : son plafond est plus strict que
+# celui des routes de conversation (global, pas par visiteur). Toute entree ajoutee ici
+# doit venir avec un test qui EPUISE son plafond -- sinon la derogation ne garde rien.
+ROUTES_LLM_RATIONNEES_AILLEURS = {"/entry/verify"}
+
+
+def juge_autorise() -> bool:
+    """Le juge d'entree peut-il encore partir chez le modele dans cette fenetre ?"""
+    passe, _ = autorise(CLE_DU_JUGE, PAR_MINUTE_JUGE)
+    return passe
+
+
 ROUTES_LLM = {
     "/chat",
     "/focus/decompose",

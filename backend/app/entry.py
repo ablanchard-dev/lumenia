@@ -36,6 +36,7 @@ import re
 from pathlib import Path
 from typing import List, Optional, Set
 
+from . import limite
 from .chat import _normalize
 from .llm import _chat
 
@@ -220,6 +221,15 @@ def verify_challenge(challenge_id: str, answer: str) -> dict:
         return {"ok": True}
 
     # Réponse non reconnue : le LLM juge avec tolérance (synonymes, formulations).
+    #
+    # 18/09/2026 — Ce `_chat` est un appel payant qu'aucun budget LLM ne rationnait :
+    # `/entry/verify` n'est pas dans `limite.ROUTES_LLM` et tombait dans le budget des
+    # écritures (120/min). Le plafond du juge est global au processus — c'est le quota
+    # de l'hébergeur qui est en jeu, et il n'a pas d'adresse IP.
+    if not limite.juge_autorise():
+        log.warning("Plafond du juge LLM atteint — épreuve %s NON JUGÉE.", c.get("id"))
+        return {"ok": False, "undetermined": True, "hint": c["hint"]}
+
     verdict = _chat(
         f"""Énigme : « {c['question']} »
 Réponses attendues : {", ".join(c['answers'])}

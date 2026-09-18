@@ -144,3 +144,138 @@ def test_une_route_sans_LLM_n_est_pas_accusee():
     )
 
     assert routes_llm_deduites(faux) == set()
+
+
+# ---------------------------------------------------------------------------
+# 18/09/2026 — LA DÉDUCTION CI-DESSUS S'ARRÊTE AU PREMIER CRAN.
+#
+# Elle lit le corps des routes de `main.py` et y cherche six noms écrits à la main
+# (`APPELS_LLM`). Une route qui appelle une fonction qui, elle, appelle le modèle
+# passe dessous sans être vue. C'est le cas mesuré ce jour :
+#
+#     POST /entry/verify → entry.verify_challenge → llm._chat
+#
+# Sept routes atteignent le modèle, six étaient rationnées. La septième tombait dans
+# le budget des ÉCRITURES (120/min, calibré sur le disque) : six fois le plafond de
+# conversation, pour un appel qui coûte exactement pareil.
+#
+# Ce qui suit ne cherche plus des noms : il construit le graphe d'appels de tout
+# `app/`, marque les fonctions qui atteignent `_chat` **à n'importe quelle profondeur**,
+# et remonte aux routes. Le garde du dessus reste : il tient la moitié « crise », qui
+# ne concerne que les routes rendant du texte de modèle à la personne.
+# ---------------------------------------------------------------------------
+
+APP = MAIN.parent
+POINT_D_ENTREE_LLM = "_chat"
+
+
+def _fonctions_de(source: str) -> dict[str, set[str]]:
+    """Pour chaque fonction du module : les noms qu'elle appelle."""
+    arbre = ast.parse(source)
+    appels: dict[str, set[str]] = {}
+    for noeud in ast.walk(arbre):
+        if isinstance(noeud, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            noms = set()
+            for sous in ast.walk(noeud):
+                if isinstance(sous, ast.Call):
+                    f = sous.func
+                    nom = f.id if isinstance(f, ast.Name) else (f.attr if isinstance(f, ast.Attribute) else None)
+                    if nom:
+                        noms.add(nom)
+            appels[noeud.name] = noms
+    return appels
+
+
+def fonctions_qui_atteignent_le_modele() -> set[str]:
+    """Clôture transitive : tout ce dont l'appel finit chez `_chat`, où qu'il soit."""
+    appels: dict[str, set[str]] = {}
+    # utf-8-sig et pas utf-8 : `app/models.py` porte un BOM. Python l'accepte a
+    # l'import, `ast.parse` non -- le garde tombait sur une SyntaxError au lieu de lire.
+    for fichier in sorted(APP.glob("*.py")):
+        for nom, cibles in _fonctions_de(fichier.read_text(encoding="utf-8-sig")).items():
+            appels.setdefault(nom, set()).update(cibles)
+
+    atteignent = {POINT_D_ENTREE_LLM}
+    change = True
+    while change:  # petit graphe : le point fixe converge en quelques tours
+        change = False
+        for nom, cibles in appels.items():
+            if nom not in atteignent and (cibles & atteignent):
+                atteignent.add(nom)
+                change = True
+    return atteignent
+
+
+def _routes_par(noms: set[str]) -> set[str]:
+    """Les routes POST de `main.py` dont le corps appelle l'un de ces noms."""
+    arbre = ast.parse(MAIN.read_text(encoding="utf-8"))
+    trouvees: set[str] = set()
+    for noeud in ast.walk(arbre):
+        if not isinstance(noeud, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            continue
+        chemin = None
+        for deco in noeud.decorator_list:
+            if isinstance(deco, ast.Call) and isinstance(deco.func, ast.Attribute) \
+               and deco.func.attr == "post" and deco.args and isinstance(deco.args[0], ast.Constant):
+                chemin = deco.args[0].value
+        if chemin is None:
+            continue
+        for sous in ast.walk(noeud):
+            if isinstance(sous, ast.Call):
+                f = sous.func
+                nom = f.id if isinstance(f, ast.Name) else (f.attr if isinstance(f, ast.Attribute) else None)
+                if nom in noms:
+                    trouvees.add(chemin)
+                    break
+    return trouvees
+
+
+def routes_qui_atteignent_le_modele() -> set[str]:
+    return routes_llm_deduites(MAIN.read_text(encoding="utf-8")) | _routes_par(
+        fonctions_qui_atteignent_le_modele()
+    )
+
+
+def test_la_deduction_profonde_voit_ce_que_la_deduction_plate_manquait():
+    """Témoin : sans lui, le test du dessous serait vert sur une déduction aveugle."""
+    profondes = routes_qui_atteignent_le_modele()
+    plates = routes_llm_deduites(MAIN.read_text(encoding="utf-8"))
+
+    assert "/entry/verify" in profondes, (
+        "le juge du parcours d'entrée part bien chez le modèle, deux crans sous la route"
+    )
+    assert "/entry/verify" not in plates, (
+        "et la déduction plate ne pouvait pas le voir : c'est tout l'objet de celle-ci"
+    )
+
+
+def test_toute_route_qui_ATTEINT_le_LLM_est_rationnee_quelque_part():
+    """Le plafond peut être ailleurs que dans le middleware — mais il doit exister."""
+    non_rationnees = (
+        routes_qui_atteignent_le_modele()
+        - limite.ROUTES_LLM
+        - limite.ROUTES_LLM_RATIONNEES_AILLEURS
+    )
+    assert not non_rationnees, (
+        "ces routes atteignent le modèle et aucun plafond ne les couvre : "
+        + repr(sorted(non_rationnees))
+    )
+
+
+def test_ce_qui_est_declare_rationne_ailleurs_l_est_vraiment():
+    """Une dérogation qu'on n'aurait plus qu'à écrire ne garderait plus rien.
+
+    `/entry/verify` est couvert par le plafond GLOBAL du juge : on le prouve ici en
+    épuisant ce plafond, pas en lisant une liste.
+    """
+    assert limite.ROUTES_LLM_RATIONNEES_AILLEURS == {"/entry/verify"}, (
+        "toute nouvelle dérogation doit venir avec sa preuve d'exécution"
+    )
+
+    limite.reset()
+    assert limite.juge_autorise() is True
+    for _ in range(limite.PAR_MINUTE_JUGE - 2):
+        limite.juge_autorise()
+    assert limite.juge_autorise() is True, "l'avant-dernier passage doit encore ouvrir"
+    assert limite.juge_autorise() is False, "et le plafond doit bel et bien fermer"
+    limite.reset()

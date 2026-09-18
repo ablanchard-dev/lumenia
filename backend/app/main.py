@@ -18,7 +18,14 @@ from .entry import (get_parcours, get_challenge, verify_challenge, entry_summary
 from .assess import entry_score, phq9_score, gad7_score
 
 init_db()
-app = FastAPI(title="LumenIa Backend", default_response_class=ORJSONResponse, version="2.3.0")
+
+# 18/09/2026 : ce numero etait ecrit DEUX fois a la main -- ici et dans /healthz.
+# Les deux disaient la meme chose, et rien ne les tenait ensemble. Un superviseur
+# lit /healthz pour savoir quelle version tourne, un client lit le schema pour
+# savoir a quoi il parle : deux reponses, c'est un deploiement qu'on croit fait.
+VERSION = "2.3.0"
+
+app = FastAPI(title="LumenIa Backend", default_response_class=ORJSONResponse, version=VERSION)
 
 # Le premier chargement de l'accueil pesait 71,4 Ko de texte brut alors que tout
 # navigateur annonce `Accept-Encoding: gzip` ; compressé, il en pèse 20,4 (mesuré
@@ -55,7 +62,7 @@ STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 
 @app.get("/healthz")
 def healthz():
-    return {"ok": True, "version": "2.3.0"}
+    return {"ok": True, "version": VERSION}
 
 # ---------------- UI (SPA servie par le backend) ----------------
 @app.get("/", include_in_schema=False)

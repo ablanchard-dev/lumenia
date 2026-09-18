@@ -1055,7 +1055,11 @@ a { color: var(--primary); }
   .conv-del { width: 44px; height: 44px; margin-right: 2px; }
   .conv-open { min-height: 44px; }
   .sidebar-card-link { min-height: 44px; }
-  .safety-close { width: 44px; height: 44px; }
+  /* 18/09/2026 : cette regle visait `.safety-close`, une CLASSE. Le bouton porte
+     id="safety-close" et class="btn-icon" : elle ne s'appliquait a rien, et le
+     bouton qui ferme la banniere de CRISE restait a 36 x 36. Une regle peut nommer
+     une garantie sans la tenir, exactement comme un test. */
+  #safety-close { width: 44px; height: 44px; }
   /* La liste respire un peu moins pour absorber les cibles plus hautes. */
   .conv-item { margin-bottom: 2px; }
 }

@@ -98,3 +98,65 @@ def test_le_compte_annonce_par_la_page_est_le_bon():
         f"la page annonce « exactement {m.group(1)} tables » et le code en déclare "
         f"{len(_tables_du_code())} ({attendu})"
     )
+
+
+# ---------------------------------------------------------------------------
+# 18/09/2026 — la MÊME affirmation vit dans le README, et personne ne la gardait.
+#
+# La page de confidentialité est exacte : elle nomme les quatre tables, et les
+# trois tests ci-dessus la tiennent. Le README, lui, annonce « **Three** things do
+# persist server-side » et en énumère trois : réponses du parcours, drapeau de
+# risque, entrées de journal. Il oublie `profiles`.
+#
+# Ce ne sont « que » des préférences — mode faible stimulation, taille de police,
+# rythme. Mais sur une application destinée à des personnes neuroatypiques, dire
+# qu'on ne stocke pas ça alors qu'on le stocke, c'est précisément le genre de
+# détail qui compte : `low_stim` est une information sur quelqu'un, pas un thème
+# clair/sombre. Et l'affirmation est CHIFFRÉE, donc vérifiable, donc fausse.
+#
+# Deux surfaces portaient la promesse, une seule était gardée — le même trou que
+# celui trouvé le même jour sur la version de Python annoncée.
+# ---------------------------------------------------------------------------
+README = RACINE.parent / "README.md"
+
+# « Three things do persist » : le nombre est écrit en anglais, en toutes lettres.
+NOMBRES_EN = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six"}
+
+
+def test_le_compte_annonce_par_le_readme_est_le_bon():
+    texte = README.read_text(encoding="utf-8-sig")
+    attendu = NOMBRES_EN[len(_tables_du_code())]
+
+    m = re.search(r"(\w+)\s+things\s+do\s+persist", texte, re.I)
+    assert m, "le README n'affirme plus d'exhaustivité — si c'est voulu, ce test doit changer aussi"
+
+    assert m.group(1).lower() == attendu, (
+        f"le README annonce « {m.group(1)} things do persist » et le code déclare "
+        f"{len(_tables_du_code())} tables ({attendu}). Une affirmation chiffrée sur ce "
+        "qui est stocké est une affirmation RGPD : trop basse, elle rassure à tort"
+    )
+
+
+def test_le_readme_nomme_ce_qui_persiste_vraiment():
+    """Le compte ne suffit pas : encore faut-il que la liste dise quoi.
+
+    Premier essai : chercher les mots dans tout le README. Il ne mordait pas —
+    retirer « display preferences » de la phrase laissait le test vert, parce que
+    le mot vit ailleurs dans le document. Le test nommait la garantie sans la
+    tenir. On lit désormais le seul passage qui porte l'affirmation.
+    """
+    texte = README.read_text(encoding="utf-8-sig")
+    # On recolle AVANT de chercher : le README passe à la ligne au milieu de sa
+    # phrase, « Four things do » finit une ligne et « persist » commence la suivante.
+    passage = next(
+        (p for p in (" ".join(b.split()) for b in re.split(r"\n\s*\n", texte))
+         if "do persist" in p),
+        None,
+    )
+    assert passage, "le passage qui affirme ce qui persiste a disparu du README"
+
+    for attendu in ("journal", "risk flag", "preference"):
+        assert attendu in passage.lower(), (
+            f"la phrase du README ne dit plus que « {attendu} » persiste côté serveur ; "
+            f"le compte peut être juste et la liste muette — {passage}"
+        )

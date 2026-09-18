@@ -53,9 +53,13 @@ client, and trusting it would let a ten-line loop reset its LLM quota at will.
   directly does not bypass it. The 3114 crisis line stays reachable at every step —
   including in the gated response.
 - **Local data.** Conversations stay in the browser (localStorage), and message
-  content is only sent to the LLM provider for the duration of a response. Three things do
+  content is only sent to the LLM provider for the duration of a response. Four things do
   persist server-side in the local SQLite, unencrypted: the entry-test answers (cognitive
-  profile), a risk flag set by the crisis check, and journal entries (`/journal`).
+  profile), a risk flag set by the crisis check, journal entries (`/journal`), and the
+  display preferences (low-stimulation mode, font size, pacing). This line said "three"
+  and left the preferences out until 18/09/2026 — they are not a light/dark theme,
+  `low_stim` says something about the person. `/confidentialite` lists the four tables,
+  and a test now holds both that page **and** this line to what `app/models.py` declares.
 - **Safety.** Built-in distress detection on every free-text input (chat, the helper
   tools and the journal): if a message hints at suicidal thoughts, Lumenia stops short and
   points to 3114, without calling the model.

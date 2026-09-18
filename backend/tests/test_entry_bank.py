@@ -64,6 +64,10 @@ def test_parcours_draws_30_scored_questions():
 
 def test_parcours_steps_carry_qcm_choices():
     p = get_parcours()
+    # Temoin de non-vacuite : sans lui, un tirage qui ne rend plus aucun QCM laisserait
+    # ce test vert en n'ayant rien regarde.
+    qcm = [s for s in p["steps"] if s["kind"] == "qcm"]
+    assert len(qcm) > 0, "le tirage ne contient plus aucun QCM : ce test ne verifie plus rien"
     for s in p["steps"]:
         if s["kind"] == "qcm":
             assert s.get("choices"), f"{s['id']} : QCM sans choix dans le parcours"
@@ -102,6 +106,7 @@ def test_qcm_structure_valid():
 
 
 def test_objective_items_have_answers():
+    assert len(OBJECTIVE) > 0, "plus aucun item objectif dans la banque : ce test est muet"
     for it in OBJECTIVE:
         assert it.get("answers"), f"{it['id']} : item objectif sans réponses"
 
@@ -109,17 +114,20 @@ def test_objective_items_have_answers():
 # --- Validation déterministe (sans LLM) --------------------------------------
 
 def test_verify_qcm_correct_letter_is_ok():
+    assert len(QCM) > 0, "plus aucun QCM dans la banque : ce test est muet"
     for it in QCM:
         assert verify_challenge(it["id"], it["answer"]).get("ok") is True, it["id"]
 
 
 def test_verify_qcm_wrong_letter_is_rejected():
+    assert len(QCM) > 0, "plus aucun QCM dans la banque : ce test est muet"
     for it in QCM:
         wrong = next(L for L in "ABCD" if L != str(it["answer"]).upper())
         assert verify_challenge(it["id"], wrong).get("ok") is False, it["id"]
 
 
 def test_verify_objective_exact_answer_is_ok(monkeypatch):
+    assert len(OBJECTIVE) > 0, "plus aucun item objectif dans la banque : ce test est muet"
     # Passer une réponse acceptée déclenche _matches et DOIT court-circuiter avant
     # le LLM. On fait planter _chat : si un item exact tombe quand même dans la
     # branche LLM (réseau), le test échoue bruyamment au lieu d'appeler le réseau.

@@ -64,8 +64,14 @@ def test_le_crible_voit_bien_les_images_de_la_page():
 
 
 def test_aucune_image_de_page_ne_pese_plus_qu_une_page():
+    reclamees = _images_reclamees()
+    # Temoin de non-vacuite : ce crible LIT les pages pour trouver leurs images. Le jour ou
+    # le motif ne mord plus -- un attribut ecrit autrement, un chemin change -- il ne trouve
+    # rien, la boucle ne tourne pas, et le budget par image n'est plus garde par personne.
+    assert len(reclamees) > 0, "aucune image reclamee par les pages : le crible ne lit plus rien"
+
     lourdes = {}
-    for cible, pages in _images_reclamees().items():
+    for cible, pages in reclamees.items():
         reponse = client.get(cible)
         assert reponse.status_code == 200, f"{cible} est réclamée par {sorted(pages)} et ne se sert pas"
         if len(reponse.content) > BUDGET_PAR_IMAGE:

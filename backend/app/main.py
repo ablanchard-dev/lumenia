@@ -1,6 +1,7 @@
 import io, csv, json
 from pathlib import Path
 from fastapi import FastAPI
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import ORJSONResponse, StreamingResponse, FileResponse
 import mimetypes
 
@@ -17,6 +18,19 @@ from .assess import entry_score, phq9_score, gad7_score
 
 init_db()
 app = FastAPI(title="LumenIa Backend", default_response_class=ORJSONResponse, version="2.3.0")
+
+# Le premier chargement de l'accueil pesait 71,4 Ko de texte brut alors que tout
+# navigateur annonce `Accept-Encoding: gzip` ; compressé, il en pèse 20,4 (mesuré
+# le 18/09/2026). Sur un lien lent, ces 51 Ko sont des secondes d'écran blanc pour
+# quelqu'un qui cherche le 3114.
+#
+# Compresser une réponse chiffrée n'est sûr que si elle ne transporte aucun secret
+# (attaque BREACH). Lumenia n'en met aucun : ni cookie de session, ni jeton CSRF.
+# C'est une condition, pas un acquis — `test_ce_qui_part_sur_le_reseau_est_compresse`
+# la vérifie sur les sources et rougit le jour où un secret apparaît.
+#
+# 500 octets : en dessous, l'en-tête de gzip coûte plus que ce qu'il fait gagner.
+app.add_middleware(GZipMiddleware, minimum_size=500)
 
 STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 

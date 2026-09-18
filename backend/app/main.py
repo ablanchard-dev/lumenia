@@ -1,6 +1,6 @@
 import io, csv, json
 from pathlib import Path
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import ORJSONResponse, StreamingResponse, FileResponse
@@ -66,10 +66,11 @@ def healthz():
 
 # ---------------- UI (SPA servie par le backend) ----------------
 @app.get("/", include_in_schema=False)
-def index():
-    # Passe par web.page : l'origine publique est injectee dans canonical et og:image.
+def index(request: Request):
+    # Passe par web.page : l'origine publique est injectee dans canonical et og:image,
+    # et l'origine se deduit de CETTE requete quand PUBLIC_ORIGIN n'est pas pose.
     from . import web
-    return web.page(STATIC_DIR, "index.html")
+    return web.page(STATIC_DIR, "index.html", request=request)
 
 # ---------------- Portail d'entrée (mini-parcours cognitif) ----------------
 @app.get("/entry/parcours")

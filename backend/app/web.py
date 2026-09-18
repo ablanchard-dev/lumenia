@@ -43,18 +43,47 @@ _HEADERS = {
 }
 
 
-def public_origin() -> str:
-    return os.getenv("PUBLIC_ORIGIN", "http://localhost:8000").rstrip("/")
+def public_origin(request: Request | None = None) -> str:
+    """L'adresse publique du site, dans l'ordre de ce qui SAIT.
+
+    18/09/2026. Cette fonction rendait `http://localhost:8000` des que
+    `PUBLIC_ORIGIN` n'etait pas pose -- et mesure du jour : **rien ne le posait**.
+    Ni le README, ni `docker-compose.yml`, ni un `.env.example`, ni le Dockerfile ;
+    la variable n'existait que dans ce fichier et dans deux tests qui la posaient
+    eux-memes. Un deploiement reel servait donc `localhost` dans le `canonical`,
+    l'`og:url`, l'`og:image` et le `Sitemap:` de robots.txt. Tout repondait 200, et
+    le lien partage restait une ligne grise : l'oubli ne se voyait nulle part.
+
+    Documenter la variable n'aurait rien reglé : une configuration qu'il faut
+    penser a poser est une configuration qu'on oublie. Le produit, lui, sait deja a
+    quelle adresse on lui parle.
+
+    1. `PUBLIC_ORIGIN` s'il est pose : derriere un proxy, c'est LUI qui sait, et
+       l'en-tete `Host` ne doit pas pouvoir le contredire (sinon un client choisit
+       ce que la page declare etre).
+    2. Sinon l'adresse de la requete, telle que le client l'a atteinte.
+    3. Sinon seulement, le defaut local -- hors requete (sitemap genere a la main,
+       tests unitaires), il n'y a rien d'autre a dire.
+    """
+    configure = os.getenv("PUBLIC_ORIGIN")
+    if configure:
+        return configure.rstrip("/")
+    if request is not None:
+        hote = request.headers.get("host")
+        if hote:
+            return f"{request.url.scheme}://{hote}".rstrip("/")
+    return "http://localhost:8000"
 
 
-def page(static_dir, nom: str, status_code: int = 200) -> Response:
+def page(static_dir, nom: str, status_code: int = 200, request: Request | None = None) -> Response:
     """Sert une page en y injectant l'origine publique.
 
     `og:image` et `canonical` doivent etre des URL ABSOLUES : un fichier statique
     ne peut pas les connaitre, donc la page porte `{{ORIGIN}}` et le serveur le
     remplace. Sans ca, le lien partage montre une image introuvable.
     """
-    html = (static_dir / nom).read_text(encoding="utf-8").replace("{{ORIGIN}}", public_origin())
+    origine = public_origin(request)
+    html = (static_dir / nom).read_text(encoding="utf-8").replace("{{ORIGIN}}", origine)
     return HTMLResponse(html, status_code=status_code)
 
 
@@ -133,7 +162,7 @@ def install(app, static_dir):
         return FileResponse(static_dir / "logo-mark.svg", media_type="image/svg+xml")
 
     @app.get("/robots.txt", include_in_schema=False)
-    def robots():
+    def robots(request: Request):
         # L'API n'a rien a faire dans un index de recherche : elle n'a pas de
         # page, et une reponse JSON indexee est une fuite tranquille.
         #
@@ -167,7 +196,7 @@ def install(app, static_dir):
         lines = ["User-agent: *", "Allow: /$"]
         lines += [f"Disallow: {chemin}" for chemin in api]
         lines += [f"Disallow: /static/{nom}" for nom in ateliers]
-        lines += [f"Sitemap: {public_origin()}/sitemap.xml", ""]
+        lines += [f"Sitemap: {public_origin(request)}/sitemap.xml", ""]
         return PlainTextResponse("\n".join(lines))
 
     # Les pages publiques : celles qu'un moteur peut indexer et qu'un humain peut lire.
@@ -200,16 +229,16 @@ def install(app, static_dir):
         app.add_api_route(f"/static/{_fichier}", _vers(_cible), methods=["GET"], include_in_schema=False)
 
     @app.get("/confidentialite", include_in_schema=False)
-    def confidentialite():
-        return page(static_dir, "confidentialite.html")
+    def confidentialite(request: Request):
+        return page(static_dir, "confidentialite.html", request=request)
 
     @app.get("/cgu", include_in_schema=False)
-    def cgu():
-        return page(static_dir, "cgu.html")
+    def cgu(request: Request):
+        return page(static_dir, "cgu.html", request=request)
 
     @app.get("/sitemap.xml", include_in_schema=False)
-    def sitemap():
-        origin = public_origin()
+    def sitemap(request: Request):
+        origin = public_origin(request)
         # 🔴 Corrige le 18/09/2026 : cette ligne disait « une seule liste : le sitemap ne
         # peut pas oublier une page que le site sert ». C'etait faux. `PAGES` alimente le
         # sitemap et robots.txt, mais les routes sont ecrites a la main ailleurs — juste

@@ -331,6 +331,20 @@ def journal_add(body: JournalIn):
     crisis = _guard(body.title, body.content, gate=False)
     return {**out, **crisis} if crisis else out
 
+# 18/09/2026 - Un journal exporte est un fichier qu'on DONNE a quelqu'un : la page de
+# confidentialite promet la portabilite, et l'ecran offre le lien. Ce fichier s'ouvre
+# dans un tableur. Une cellule qui commence par = + - @ n'y est plus du texte mais une
+# formule, executee a l'ouverture -- et le tiers qui ouvre le CSV, c'est le psy ou le
+# medecin de quelqu'un. On prefixe l'apostrophe que les tableurs comprennent comme
+# « ceci est du texte » : rien n'est coupe, tout ce qui a ete ecrit reste dans le fichier.
+_AMORCES_DE_FORMULE = ("=", "+", "-", "@")
+
+
+def _texte(valeur) -> str:
+    s = "" if valeur is None else str(valeur)
+    return "'" + s if s[:1] in _AMORCES_DE_FORMULE else s
+
+
 @app.get("/journal/export")
 def journal_export():
     with SessionLocal() as db:
@@ -339,9 +353,13 @@ def journal_export():
         w = csv.writer(buf)
         w.writerow(["id","title","content","created_at"])
         for j in rows:
-            w.writerow([j.id, j.title, j.content, j.created_at])
+            w.writerow([j.id, _texte(j.title), _texte(j.content), j.created_at])
+        # BOM : sans lui, Excel lit le fichier dans le codage local de la machine et tout
+        # le journal d'une personne francophone s'affiche en mojibake. L'en-tete HTTP ne
+        # sert a rien ici — le fichier est telecharge avant d'etre ouvert.
         buf.seek(0)
-        return StreamingResponse(iter([buf.getvalue()]), media_type="text/csv", headers={"Content-Disposition": "attachment; filename=journal.csv"})
+        return StreamingResponse(iter([buf.getvalue().encode("utf-8-sig")]), media_type="text/csv",
+                                 headers={"Content-Disposition": "attachment; filename=journal.csv"})
 
 # Assessments
 @app.post("/assessment/entry")

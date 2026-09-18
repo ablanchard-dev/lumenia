@@ -358,6 +358,13 @@ def journal_export():
     with SessionLocal() as db:
         rows = db.execute(select(Journal).order_by(Journal.created_at)).scalars().all()
         buf = io.StringIO()
+        # 19/09/2026 - EXCEL N'EMPLOIE PAS UN SEPARATEUR FIXE : il prend le separateur de
+        # liste de Windows, qui vaut « ; » en francais, en allemand, en espagnol. Un
+        # double-clic sur ce fichier, sur une machine francaise, mettait toute la ligne dans
+        # la colonne A -- et le tiers qui ouvre ce journal, c'est la psychologue de quelqu'un.
+        # `sep=,` est la declaration qu'Excel lit avant tout : le fichier RESTE un CSV a
+        # virgules (RFC 4180), on ne fait que nommer son separateur.
+        buf.write("sep=," + "\n")
         w = csv.writer(buf)
         w.writerow(["id","title","content","created_at"])
         for j in rows:

@@ -38,7 +38,10 @@ AMORCES = ["=", "+", "-", "@"]
 def _exporte(titre: str, contenu: str) -> list[list[str]]:
     client.post("/journal", json={"title": titre, "content": contenu})
     texte = client.get("/journal/export").content.decode("utf-8-sig")
-    return list(csv.reader(io.StringIO(texte)))
+    # 19/09/2026 : le fichier commence par `sep=,`, la declaration qu'Excel lit pour ne pas
+    # employer le separateur de liste de Windows (« ; » en francais) et tout mettre en
+    # colonne A. Elle n'est pas une ligne de donnees : ce crible la saute.
+    return list(csv.reader(io.StringIO(texte.split("\n", 1)[1])))
 
 
 def test_le_crible_lit_bien_un_export():

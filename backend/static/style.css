@@ -1068,6 +1068,21 @@ a { color: var(--primary); }
    La pastille ne crie pas (le produit est low-stim) : elle se contente
    d'exister comme un objet qu'on peut viser, et de ne pas dépendre de sa
    seule couleur pour se signaler. */
+/* 18/09/2026 — l'ecran de chat ouvert pour la premiere fois : son 3114 (pied du
+   composeur) faisait 24 x 15 px. La correction de la veille ne tenait qu'a une
+   classe qu'il fallait penser a ecrire ; trois liens de cet ecran ne la portaient
+   pas. La taille tient desormais au SELECTEUR : tout numero composable est une
+   cible, meme celui qu'on ajoutera demain sans y penser. WCAG 2.5.5. */
+a[href^="tel:"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 6px;
+  border-radius: 8px;
+}
+
 .tel-urgence {
   display: inline-flex;
   align-items: center;

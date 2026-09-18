@@ -76,3 +76,43 @@ def test_la_page_404_et_les_pages_legales_le_portent_encore():
     """La garantie positive : borner ne doit pas faire disparaître le numéro."""
     for chemin in PAGES_SERVIES:
         assert "3114" in _html(chemin), chemin
+
+
+# -----------------------------------------------------------------------------
+# 18/09/2026 — l'écran de chat ouvert pour la première fois en conditions réelles
+# (gate ouvert dans une base jetable, 430 px). Le 3114 du pied du composeur y fait
+# **24 × 15 px** : le même défaut que sur l'écran d'échec, corrigé la veille.
+#
+# Le test ci-dessus NOMMAIT la garantie (« partout où le numéro est écrit, il a la
+# taille d'une vraie cible ») mais ne vérifiait que l'existence de la classe
+# `.tel-urgence`. Trois liens `tel:` de l'écran de chat ne la portent pas — le
+# numéro d'urgence de l'écran où l'on PARLE est resté du texte en ligne.
+#
+# Corrigé à la racine : la taille tient au sélecteur `a[href^="tel:"]`, pas à une
+# classe qu'il faut penser à écrire. Le prochain numéro ajouté sera couvert seul.
+# -----------------------------------------------------------------------------
+
+def _regle(selecteur):
+    motif = re.escape(selecteur) + r"\s*(?:,[^{]*)?\{([^}]*)\}"
+    trouve = re.search(motif, CSS)
+    return trouve.group(1) if trouve else None
+
+
+def test_tout_lien_telephonique_est_une_cible_sans_avoir_a_le_demander():
+    contenu = _regle('a[href^="tel:"]')
+    assert contenu, "aucune règle sur a[href^=\"tel:\"] : la taille dépend encore d'une classe"
+    hauteur = re.search(r"min-height:\s*(\d+)px", contenu)
+    assert hauteur and int(hauteur.group(1)) >= 44, contenu
+    largeur = re.search(r"min-width:\s*(\d+)px", contenu)
+    assert largeur and int(largeur.group(1)) >= 44, (
+        "44 px de haut ne suffisent pas : le critere 2.5.5 porte sur les DEUX cotes, "
+        "et le lien du composeur mesurait encore 36 de large apres la premiere passe. " + contenu)
+    assert "inline-flex" in contenu, contenu
+
+
+def test_l_ecran_de_chat_porte_toujours_ses_numeros():
+    """Témoin : borner ne doit pas les faire disparaître, et un test qui
+    n'exigerait que la règle CSS passerait sur une page vidée de ses liens."""
+    html = (STATIC / "index.html").read_text(encoding="utf-8")
+    assert html.count('href="tel:3114"') >= 4, "le 3114 a disparu d'un écran"
+    assert 'href="tel:15"' in html, "le 15 a disparu de la bannière de sécurité"

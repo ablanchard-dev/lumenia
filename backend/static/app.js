@@ -104,7 +104,7 @@
     } catch {
       $("consent-error").hidden = false;
       $("consent-error").textContent =
-        "Impossible de joindre le serveur. Vérifie que le backend tourne, puis réessaie.";
+        "Impossible de joindre le serveur. Vérifie que le backend tourne, puis réessaie. Si ça ne va pas, le 3114 (gratuit, 24h/24) répond tout de suite.";
       btn.textContent = "Continuer";
       btn.disabled = false;
     }
@@ -155,7 +155,7 @@
       renderStep();
     } catch {
       $("challenge-question").textContent =
-        "Le serveur ne répond pas. Vérifie que le backend tourne, puis recharge la page.";
+        "Le serveur ne répond pas. Vérifie que le backend tourne, puis recharge la page. Si ça ne va pas, le 3114 (gratuit, 24h/24) répond tout de suite.";
     }
   }
 
@@ -358,7 +358,7 @@
         if (p.failures >= 2) $("challenge-skip").hidden = false;
       }
     } catch {
-      fb.textContent = "Erreur de connexion au serveur — réessaie.";
+      fb.textContent = "Erreur de connexion au serveur — réessaie. Si ça ne va pas, le 3114 (gratuit, 24h/24) répond tout de suite.";
       boutonValider(true);
     }
   }
@@ -675,7 +675,7 @@
       $("typing-msg")?.remove();
       appendMessageEl(
         "assistant",
-        "La connexion au serveur a échoué. Ton message n'est pas perdu — réessaie dans un instant."
+        "La connexion au serveur a échoué. Ton message n'est pas perdu — réessaie dans un instant. Et si ça urge, le 3114 (gratuit, 24h/24) ne dépend pas de Lumenia : il répond même quand nous sommes en panne."
       );
     } finally {
       state.sending = false;

@@ -336,8 +336,17 @@ def resources():
 
 # Le type d'une police ne doit pas dependre du poste qui sert le fichier. `StaticFiles` delegue a
 # `mimetypes`, qui lit la base de registre sous Windows : sans entree pour `.woff2`, la police part
-# en `text/plain`, le navigateur la refuse, et la page retombe sur une fonte systeme -- en silence.
-# Mesure du 17/09/2026 : vert sur la CI Linux, rouge sur le poste de developpement.
+# en `text/plain`. Mesure du 17/09/2026 : vert sur la CI Linux, rouge sur le poste de developpement.
+#
+# 🔴 POURQUOI CA CASSE VRAIMENT, precise le 18/09 : parce que `web.py` pose
+# `x-content-type-options: nosniff` — a raison. Avec cet en-tete, le navigateur n'a PAS le droit
+# de deviner le type d'apres le contenu : une police annoncee `text/plain` est refusee, et la page
+# retombe sur une fonte systeme sans un mot. Sans `nosniff`, les navigateurs toleraient le mauvais
+# type et le defaut serait passe inapercu.
+#
+# ⚠️ Donc : ne pas « reparer » un probleme de police en retirant `nosniff`. C'est le durcissement
+# qui est juste ; c'etait le type qui etait faux. Verifie en servant les quatre polices : les deux
+# en-tetes voyagent bien ensemble (`font/woff2` + `nosniff`).
 mimetypes.add_type("font/woff2", ".woff2")
 mimetypes.add_type("font/woff", ".woff")
 

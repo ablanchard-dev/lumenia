@@ -12,6 +12,11 @@ from fastapi.testclient import TestClient
 
 from app import entry
 from app.entry import entry_passed, ENTRY_PASS_RATIO, _BY_ID
+
+# 18/09/2026 — la reponse bidon vient d'un seul endroit, et un test verifie qu'elle n'est
+# bonne pour AUCUN item de la banque. Ecrite ici a la main, elle valait « non » pour six
+# items : l'epreuve etait alors validee sans juge et ce fichier tombait 1 fois sur 35.
+from conftest import REPONSE_BIDON
 from app.main import app
 
 
@@ -54,9 +59,9 @@ def _play(c, nok, undet_idx=(), monkeypatch=None):
     for i, step in enumerate(steps):
         if i in undet_idx:
             monkeypatch.setattr(entry, "_chat", lambda *a, **k: None)
-            c.post("/entry/verify", json={"challenge_id": step["id"], "answer": "zzz-non-juge"})
+            c.post("/entry/verify", json={"challenge_id": step["id"], "answer": REPONSE_BIDON})
             monkeypatch.setattr(entry, "_chat", lambda *a, **k: "NON")
-            answer = "zzz-non-juge"
+            answer = REPONSE_BIDON
         else:
             answer = _good(step) if i < nok else _bad(step)
             c.post("/entry/verify", json={"challenge_id": step["id"], "answer": answer})
@@ -154,7 +159,7 @@ def test_un_item_non_juge_empeche_le_verdict_meme_si_le_score_suffit(monkeypatch
     for i, step in enumerate(steps):
         if i in undet:
             monkeypatch.setattr(entry, "_chat", lambda *a, **k: None)
-            ans = "zzz-non-juge"
+            ans = REPONSE_BIDON
         else:
             monkeypatch.setattr(entry, "_chat", lambda *a, **k: "NON")
             ans = _good(step)

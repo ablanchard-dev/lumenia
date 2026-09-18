@@ -37,3 +37,16 @@ def _etat_de_processus_vierge():
     yield
     limite.reset()
     _VERIFIED.clear()
+
+
+# --- La reponse bidon des tests du parcours ----------------------------------
+#
+# 18/09/2026. Elle etait ecrite a la main dans `test_gate.py` : « zzz-non-juge ». Or
+# `_matches` compare par SOUS-CHAINE, et six items `objective` de la banque acceptent
+# « non ». Pour ces six-la, l'epreuve etait validee sans juge, l'invariant teste ne se
+# produisait pas, et le fichier tombait environ 1 fois sur 35.
+#
+# Elle vit donc a UN seul endroit, et `test_la_reponse_bidon_d_un_test_ne_doit_etre_bonne
+# _nulle_part.py` verifie contre la banque qu'elle n'est bonne pour aucun item -- y compris
+# apres l'ajout d'un item demain.
+REPONSE_BIDON = "qwxzv-kjhgf-mnbvc"

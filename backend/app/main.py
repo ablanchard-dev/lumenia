@@ -1,6 +1,7 @@
 import io, csv, json
 from pathlib import Path
 from fastapi import FastAPI
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import ORJSONResponse, StreamingResponse, FileResponse
 import mimetypes
@@ -31,6 +32,24 @@ app = FastAPI(title="LumenIa Backend", default_response_class=ORJSONResponse, ve
 #
 # 500 octets : en dessous, l'en-tête de gzip coûte plus que ce qu'il fait gagner.
 app.add_middleware(GZipMiddleware, minimum_size=500)
+
+
+# ---------------- Refuser une saisie sans la répéter ----------------
+# 18/09/2026. Par défaut, le 422 de FastAPI recopie la valeur refusée dans
+# `detail[].input`. Sur Lumenia, cette valeur c'est ce que quelqu'un vient
+# d'écrire de lui — et un corps d'erreur est justement ce qu'un proxy, un
+# journal d'accès ou un rapport de plantage côté navigateur conserve.
+#
+# On garde ce qui sert à corriger la saisie (quel champ, pourquoi) et on jette
+# ce qui n'apprend rien à personne d'autre qu'à celui qui l'a déjà écrit.
+@app.exception_handler(RequestValidationError)
+def _refus_sans_echo(request, exc: RequestValidationError):
+    fautes = [
+        {"type": f.get("type", ""), "loc": f.get("loc", ()), "msg": f.get("msg", "")}
+        for f in exc.errors()
+    ]
+    return ORJSONResponse(status_code=422, content={"detail": fautes})
+
 
 STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 

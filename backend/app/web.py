@@ -149,8 +149,24 @@ def install(app, static_dir):
             and r.path not in publiques
             and not r.path.startswith("/static")
         })
+        # 18/09/2026 — `StaticFiles` monte TOUT le dossier : y deposer un fichier,
+        # c'est le publier. Mesure du jour : trois planches de travail internes
+        # (`logo-lab.html` — cinq pistes de logo, `intro-preview.html`,
+        # `og-card.html`) repondaient 200 et rien ne les tenait hors des moteurs.
+        # Sans titre produit, sans le 3114, sans mention legale : une planche de
+        # logos qui remonte a cote du vrai site, sur une application de sante
+        # mentale, n'est pas un detail de referencement.
+        #
+        # Deduit, pas ecrit a la main : tout `.html` du dossier servi qui n'est pas
+        # un ecran du produit. Une planche ajoutee demain est couverte le jour meme.
+        # Le CSS et le JS, eux, restent ouverts : les bloquer empeche les moteurs de
+        # rendre le vrai site.
+        ecrans = {f for _, f, *_ in PAGES} | {"404.html", "500.html"}
+        ateliers = sorted(f.name for f in static_dir.glob("*.html") if f.name not in ecrans)
+
         lines = ["User-agent: *", "Allow: /$"]
         lines += [f"Disallow: {chemin}" for chemin in api]
+        lines += [f"Disallow: /static/{nom}" for nom in ateliers]
         lines += [f"Sitemap: {public_origin()}/sitemap.xml", ""]
         return PlainTextResponse("\n".join(lines))
 

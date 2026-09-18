@@ -104,6 +104,15 @@ def _wants_html(request: Request) -> bool:
 
 
 def install(app, static_dir):
+    def ecrans_du_produit() -> set[str]:
+        """Les fichiers qu'un humain est cense lire. UNE seule definition.
+
+        Le robots.txt et l'en-tete `X-Robots-Tag` la partagent : deux listes
+        ecrites a la main divergeraient, et la page oubliee serait justement celle
+        qu'on n'a pas pensee.
+        """
+        return {f for _, f, *_ in PAGES} | {"404.html", "500.html"}
+
     @app.middleware("http")
     async def _quality(request: Request, call_next):
         # HEAD est traite comme GET, le corps en moins. Mesure du 18/09 : toutes les
@@ -143,6 +152,24 @@ def install(app, static_dir):
             response.headers.setdefault(
                 "cache-control",
                 "public, max-age=31536000, immutable" if immuable else "no-cache")
+
+            # 19/09/2026 — LE SEUL REFUS QUI REFUSE VRAIMENT.
+            #
+            # Les planches de travail internes (`logo-lab.html` et compagnie) etaient
+            # « refusees aux robots » par un `Disallow` dans robots.txt. Cette
+            # directive interdit l'EXPLORATION, pas l'INDEXATION : l'adresse peut
+            # remonter dans les resultats si elle est liee depuis ailleurs -- une
+            # planche de logos a cote du vrai site, sur une application de sante
+            # mentale. `noindex` est la seule directive qui empeche l'indexation, et
+            # elle exige que la page reste LISIBLE par le robot.
+            #
+            # En-tete plutot que balise : il vaut pour tous les formats, y compris
+            # ceux qui n'ont pas de `<head>`, et il ne depend pas du contenu du
+            # fichier. Deduit, jamais ecrit a la main : tout `.html` servi qui n'est
+            # pas un ecran du produit. Une planche ajoutee demain est couverte.
+            nom = chemin.removeprefix("/static/")
+            if nom.endswith(".html") and nom not in ecrans_du_produit():
+                response.headers.setdefault("x-robots-tag", "noindex")
 
         if tete:
             # Memes statut, memes en-tetes (y compris HSTS et CSP), corps vide :
@@ -190,12 +217,26 @@ def install(app, static_dir):
         # un ecran du produit. Une planche ajoutee demain est couverte le jour meme.
         # Le CSS et le JS, eux, restent ouverts : les bloquer empeche les moteurs de
         # rendre le vrai site.
-        ecrans = {f for _, f, *_ in PAGES} | {"404.html", "500.html"}
+        ecrans = ecrans_du_produit()
         ateliers = sorted(f.name for f in static_dir.glob("*.html") if f.name not in ecrans)
 
+        # 19/09/2026 — LES ATELIERS NE SONT PLUS `Disallow`, ET C'EST LE CORRECTIF.
+        #
+        # `Disallow` interdit d'EXPLORER, pas d'INDEXER : une adresse bloquee peut
+        # remonter dans les resultats si elle est liee depuis ailleurs. Et il se
+        # retourne contre nous : un moteur qui n'a pas le droit de lire la page ne
+        # verra jamais son `noindex`. Les deux mecanismes se neutralisent.
+        #
+        # Le vrai refus est desormais l'en-tete `X-Robots-Tag: noindex`, pose par le
+        # middleware sur ces memes pages -- deduit de la meme liste, jamais d'une
+        # seconde ecrite a la main. Pour qu'il soit lu, la page doit rester explorable.
+        #
+        # L'API, elle, garde son `Disallow` : elle n'a aucune page a montrer, et
+        # l'empecher d'etre exploree est exactement ce qu'on veut.
         lines = ["User-agent: *", "Allow: /$"]
         lines += [f"Disallow: {chemin}" for chemin in api]
-        lines += [f"Disallow: /static/{nom}" for nom in ateliers]
+        lines += [f"# /static/{nom} : noindex par en-tete, explorable pour qu'il soit lu"
+                  for nom in ateliers]
         lines += [f"Sitemap: {public_origin(request)}/sitemap.xml", ""]
         return PlainTextResponse("\n".join(lines))
 

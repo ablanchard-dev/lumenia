@@ -63,6 +63,16 @@ def _wants_html(request: Request) -> bool:
 def install(app, static_dir):
     @app.middleware("http")
     async def _quality(request: Request, call_next):
+        # HEAD est traite comme GET, le corps en moins. Mesure du 18/09 : toutes les
+        # pages, plus robots.txt, sitemap.xml et favicon.ico, repondaient 405 en HEAD,
+        # parce que `@app.get` n'enregistre que GET. Un moniteur de disponibilite ou un
+        # verificateur de liens sonde en HEAD par defaut : il aurait rapporte le site
+        # en panne alors qu'il repond. RFC 9110 §9.3.2 l'exige, et le faire ICI couvre
+        # aussi les pages ajoutees plus tard, sans qu'on ait a y penser.
+        tete = request.method == "HEAD"
+        if tete:
+            request.scope["method"] = "GET"
+
         # Force HTTPS seulement quand l'hebergeur le demande : en local, tout
         # tourne en clair et une redirection rendrait le produit intestable.
         if os.getenv("FORCE_HTTPS") == "1":
@@ -73,6 +83,14 @@ def install(app, static_dir):
         response: Response = await call_next(request)
         for key, value in _HEADERS.items():
             response.headers.setdefault(key, value)
+
+        if tete:
+            # Memes statut, memes en-tetes (y compris HSTS et CSP), corps vide :
+            # un sondage HEAD doit voir le site tel qu'il est, pas un site sans
+            # en-tetes de securite.
+            return Response(status_code=response.status_code,
+                            headers=dict(response.headers),
+                            media_type=response.media_type)
         return response
 
     @app.get("/favicon.ico", include_in_schema=False)

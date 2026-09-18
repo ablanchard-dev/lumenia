@@ -170,7 +170,16 @@ def install(app, static_dir):
     @app.get("/sitemap.xml", include_in_schema=False)
     def sitemap():
         origin = public_origin()
-        # Une seule liste : le sitemap ne peut pas oublier une page que le site sert.
+        # 🔴 Corrige le 18/09/2026 : cette ligne disait « une seule liste : le sitemap ne
+        # peut pas oublier une page que le site sert ». C'etait faux. `PAGES` alimente le
+        # sitemap et robots.txt, mais les routes sont ecrites a la main ailleurs — juste
+        # au-dessus pour `/cgu` et `/confidentialite`, dans `main.py` pour `/`. Ajouter une
+        # page, c'est deux gestes, et le second s'oublie.
+        #
+        # L'oubli ne coute pas que du referencement : robots.txt deduit sa liste d'API de
+        # tout ce qui n'est PAS dans `PAGES`, donc une page publique oubliee ici est
+        # activement `Disallow:`. Ce qui tient les deux listes ensemble est desormais un
+        # test qui interroge les routes reelles — `test_aucune_page_publique_ne_manque_au_plan`.
         lignes = "".join(
             f"  <url><loc>{origin}{chemin}</loc>"
             f"<changefreq>{freq}</changefreq><priority>{prio}</priority></url>\n"

@@ -103,12 +103,15 @@ cd backend
 .venv\Scripts\python -m pytest
 ```
 
-350+ parametrized cases (`backend/tests/`), run in CI on every push — **378 passing on
-18/09/2026**, from 226 test functions. The exact count is whatever `pytest` reports, and it
-grows with the suite. This line read "70+" until that date, back when it was true; nothing
-was false about it afterwards either, since 378 is more than 70, and that is exactly why it
-sat there while the suite grew fivefold. A test now refuses a floor worth less than half of
-what the repo declares. They cover crisis detection, the
+350+ parametrized cases (`backend/tests/`), run in CI on every push, from **272 test
+functions**. The number of cases pytest reports is larger and grows with the suite; the
+function count is the one written here, because it can be counted without running anything —
+and a test holds it **exactly**, so adding a test turns this line red until it is updated.
+The floor read "70+" until 18/09/2026, back when it was true; nothing was false about it
+afterwards either, since the real figure is far more than 70, and that is exactly why it sat
+there while the suite grew fivefold. The same day, the two exact numbers that replaced it
+("378 passing, from 226 test functions") were already stale when written — hence a guard on
+the one that can be derived rather than remembered. They cover crisis detection, the
 server-side access gate (entry threshold enforced on `/chat`, with the 3114 line still
 reachable when gated), the unavailable-judge flag on the entry parcours, and the clinical
 scores. The clinical scores are legacy

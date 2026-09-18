@@ -26,12 +26,38 @@ from pathlib import Path
 BACKEND = Path(__file__).resolve().parent.parent
 README = BACKEND.parent / "README.md"
 
+# `\s` couvre le saut de ligne : la phrase du README est coupee en deux, et c'est normal.
+MOTIF = r"\*\*(\d+)\s+test\s+functions\*\*"
+
 
 def _fonctions_de_test() -> int:
     return sum(
         len(re.findall(r"^def test_", f.read_text(encoding="utf-8-sig"), re.M))
         for f in sorted((BACKEND / "tests").glob("test_*.py"))
     )
+
+
+def _fonctions_annoncees() -> int | None:
+    """Le « from N test functions » du README : un nombre EXACT, donc tenable exactement.
+
+    18/09/2026, deuxième passage sur la même phrase. La borne « N+ » ci-dessous est
+    gardée depuis ce matin, mais la phrase porte aussi deux nombres exacts et datés —
+    « **378 passing on 18/09/2026**, from 226 test functions » — que rien ne tenait.
+    Mesure du jour : **441 collectés, 270 fonctions**. Les deux étaient faux le jour
+    même de leur date, exactement comme le README de l'autre dépôt (tour 102).
+
+    Un nombre exact n'a pas besoin d'une bande de tolérance : il se compte. Celui-ci
+    se compte **sans lancer pytest depuis pytest**, ce qui est précisément pourquoi
+    c'est lui qu'on garde, et pourquoi le nombre de cas exécutés, lui, reste décrit
+    plutôt que chiffré — « whatever pytest reports », et la phrase le dit déjà.
+    """
+    # ⚠️ Le chiffre est cherché **en gras**, et ce n'est pas cosmétique. Première version :
+    # `from\s+(\d+)\s+test\s+functions`, qui a attrapé la citation historique du paragraphe
+    # (« "378 passing, from 226 test functions" were already stale ») au lieu de l'annonce
+    # vivante — le crible lisait l'exemple périmé que la phrase donne pour expliquer le
+    # piège, et rougissait sur lui. Un document qui se cite lui-même piège son propre crible.
+    trouve = re.search(MOTIF, README.read_text(encoding="utf-8-sig"))
+    return int(trouve.group(1)) if trouve else None
 
 
 def _borne_annoncee() -> int | None:
@@ -62,4 +88,27 @@ def test_la_taille_annoncee_n_est_pas_absurdement_basse():
         f"de test (et en exécute davantage, paramétrage compris). La phrase n'est pas fausse, "
         "et c'est ce qui la rend invisible : elle donne au lecteur une idée de l'effort qui "
         "est plusieurs fois trop petite"
+    )
+
+
+def test_l_extracteur_de_fonctions_lit_bien_la_phrase():
+    """Témoin inverse : un extracteur toujours None laisserait tout passer."""
+    assert re.search(MOTIF, "…, from **270 test functions**.").group(1) == "270"
+    coupee = "from **270 test" + chr(10) + "functions**"
+    assert re.search(MOTIF, coupee).group(1) == "270", "la phrase du README est coupee en deux lignes"
+    assert not re.search(MOTIF, "270 questions from the bank")
+    # Le piege mesure : la citation historique du README, non grasse, ne doit pas repondre.
+    assert not re.search(MOTIF, '("378 passing, from 226 test functions") were already stale')
+
+
+def test_le_nombre_de_fonctions_annonce_est_le_vrai():
+    declarees = _fonctions_de_test()
+    annoncees = _fonctions_annoncees()
+
+    assert annoncees is not None, "le README doit annoncer combien de fonctions de test existent"
+    assert annoncees == declarees, (
+        f"le README annonce {annoncees} fonctions de test, le dépôt en déclare {declarees}. "
+        "Celui-là est exact et se compte : il n'a pas droit à une bande de tolérance. "
+        "Le jour où quelqu'un ajoute un test, ce crible rougit et la phrase se met à jour "
+        "dans le même commit — c'est tout ce qu'on lui demande"
     )

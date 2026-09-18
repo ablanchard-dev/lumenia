@@ -20,7 +20,12 @@ from fastapi.testclient import TestClient
 from app.main import app
 
 client = TestClient(app)
-FRONT = (Path(__file__).resolve().parent.parent / "static" / "app.js").read_text(encoding="utf-8")
+# 18/09/2026 : le front, c'est `app.js` ET `index.html`. Un lien
+# `<a href="/journal/export" download>` est un consommateur aussi reel qu'un
+# `fetch()` — ne lire que le JavaScript aurait fait passer une route branchee
+# pour une route orpheline.
+_STATIC = Path(__file__).resolve().parent.parent / "static"
+FRONT = "\n".join((_STATIC / n).read_text(encoding="utf-8") for n in ("app.js", "index.html"))
 
 # Routes exposées que le front n'appelle pas, constatées le 17/09/2026.
 # Les cinq premières atteignent un modèle : ce sont celles qui coûtent.
@@ -38,7 +43,6 @@ SANS_CONSOMMATEUR = {
     # Et celles-ci, plus surprenantes : le journal et le profil sont ecrits,
     # exportables et lisibles par l'API, mais AUCUN ecran ne les appelle.
     "/journal",
-    "/journal/export",
     "/profile",
     "/adapt",
     "/resources",        # les ressources de crise : le front code le 3114 en dur

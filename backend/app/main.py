@@ -340,6 +340,13 @@ def journal_add(body: JournalIn):
 # « ceci est du texte » : rien n'est coupe, tout ce qui a ete ecrit reste dans le fichier.
 _AMORCES_DE_FORMULE = ("=", "+", "-", "@")
 
+# 18/09/2026 - L'ecran propose le lien avec `download="lumenia-journal.csv"`, et le serveur
+# envoyait `journal.csv`. Ce n'est pas un partage d'avis : `download` est IGNORE des que la
+# reponse porte un Content-Disposition nomme. L'utilisateur recevait donc un nom qu'on ne lui
+# avait jamais montre -- et generique, sur un fichier fait pour etre transmis puis rouvert
+# des semaines plus tard. Un test compare ce nom a celui ecrit dans la page.
+NOM_DU_FICHIER_EXPORT = "lumenia-journal.csv"
+
 
 def _texte(valeur) -> str:
     s = "" if valeur is None else str(valeur)
@@ -360,7 +367,7 @@ def journal_export():
         # sert a rien ici — le fichier est telecharge avant d'etre ouvert.
         buf.seek(0)
         return StreamingResponse(iter([buf.getvalue().encode("utf-8-sig")]), media_type="text/csv",
-                                 headers={"Content-Disposition": "attachment; filename=journal.csv"})
+                                 headers={"Content-Disposition": f"attachment; filename={NOM_DU_FICHIER_EXPORT}"})
 
 # Assessments
 @app.post("/assessment/entry")

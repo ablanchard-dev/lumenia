@@ -93,6 +93,25 @@ _VERIFIED: dict[str, str] = {}
 
 @app.post("/entry/verify")
 def entry_verify(body: EntryVerifyIn):
+    # 18/09/2026 — la detresse d'abord, l'epreuve ensuite.
+    #
+    # Cette route n'appelle aucun LLM pour les epreuves objectives : elle etait donc
+    # restee hors du garde pose le 17/09, qui visait les routes LLM. Mesure du jour :
+    # « je veux mourir, je ne vois plus de raison de continuer » ecrit dans le champ
+    # de reponse recevait « Regarde ce qu'on ajoute a chaque pas : +1, +2, +3... ».
+    #
+    # C'est le pire endroit ou rater ca. A ce moment-la le chat est encore ferme --
+    # le gate ne s'ouvre qu'au parcours valide -- donc ce champ est le SEUL endroit
+    # ou la personne peut ecrire. Et si elle echoue, l'ecran suivant lui annonce que
+    # le seuil reste ferme.
+    #
+    # `gate=False` : on ne bloque pas le parcours, on repond a la detresse. Le
+    # resultat de l'epreuve n'est pas enregistre dans ce cas -- la personne a autre
+    # chose a faire que passer un test, et elle pourra la rejouer.
+    crise = _guard(body.answer, gate=False)
+    if crise:
+        return crise
+
     res = verify_challenge(body.challenge_id, body.answer)
     if body.challenge_id in _BY_ID and _VERIFIED.get(body.challenge_id) != "ok":
         _VERIFIED[body.challenge_id] = ("ok" if res.get("ok")

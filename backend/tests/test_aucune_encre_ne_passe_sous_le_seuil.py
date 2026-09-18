@@ -39,6 +39,11 @@ ENCRES = {
     "primary": FONDS_DE_PAGE,
     # L'encre du bouton ne vit que sur le bouton : son dégradé, pas la page.
     "on-primary": ("primary", "primary-strong"),
+    # 19/09/2026 : l'encre de la pastille de bonne réponse, posée sur l'accent et nulle
+    # part ailleurs. Elle était écrite en dur — donc identique dans les deux thèmes, et
+    # à 2,97:1 en clair. Ce crible ne l'avait jamais vue : son motif ne lit que les
+    # encres tokenisées. Voir `test_une_encre_ecrite_en_dur_n_echappe_pas_au_crible.py`.
+    "on-accent": ("accent",),
 }
 
 

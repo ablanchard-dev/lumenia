@@ -64,6 +64,9 @@
   --primary-strong: #8b5cf6;
   --on-primary: #0f0b1a;
   --accent: #6ee7b7;
+  /* Encre posee SUR l'accent (pastille de la bonne reponse). Elle etait ecrite en dur,
+     donc identique dans les deux themes : 10,69:1 ici, 2,97:1 en clair. */
+  --on-accent: #06251b;
   --danger: #fda4af;
   --ring: #a78bfa;
   --halo: rgba(139, 92, 246, .14);          /* lueur signature Lumenia */
@@ -85,6 +88,8 @@
   --primary-strong: #6d28d9;
   --on-primary: #ffffff;
   --accent: #047857;
+  /* En clair l'accent est un vert FONCE : l'encre doit etre claire, pas sombre. */
+  --on-accent: #ffffff;
   --danger: #be123c;
   --ring: #7c3aed;
   --halo: rgba(124, 58, 237, .10);
@@ -529,7 +534,7 @@ a { color: var(--primary); }
   border-color: var(--accent);
   background: color-mix(in srgb, var(--accent) 13%, var(--surface-2));
 }
-.choice.correct .choice-key { background: var(--accent); border-color: transparent; color: #06251b; }
+.choice.correct .choice-key { background: var(--accent); border-color: transparent; color: var(--on-accent); }
 .choice.wrong {
   border-color: var(--danger);
   background: color-mix(in srgb, var(--danger) 11%, var(--surface-2));

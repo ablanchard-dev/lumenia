@@ -56,3 +56,39 @@ def test_head_garde_les_en_tetes_de_securite():
 def test_une_methode_vraiment_absente_reste_refusee():
     """Le témoin inverse : ouvrir HEAD ne doit pas ouvrir tout le reste."""
     assert client.request("DELETE", "/").status_code in (405, 404)
+
+
+# -----------------------------------------------------------------------------
+# 18/09/2026 — constate en direct, pas deduit : apres avoir corrige `app.js`, le
+# navigateur a continue d'executer l'ANCIEN script malgre un rechargement complet.
+# Le fichier servi etait bon ; la page, elle, tournait sur une version perimee.
+#
+# Cause : les fichiers statiques ne portaient **aucun `cache-control`**. Sans
+# directive, le navigateur applique une heuristique de fraicheur : le comportement
+# depend du navigateur, et une mise a jour peut mettre longtemps a atteindre
+# quelqu'un qui a deja ouvert le site.
+#
+# Les URL ne sont pas versionnees (`/static/app.js`, sans empreinte), donc la seule
+# reponse sure est d'exiger une revalidation : `no-cache` ne veut pas dire « ne pas
+# mettre en cache » mais « demande-moi avant de reutiliser ». Avec l'ETag deja
+# present, la revalidation coute un 304 vide.
+# -----------------------------------------------------------------------------
+
+STATIQUES = ["/static/app.js", "/static/style.css", "/static/logo-mark.svg"]
+
+
+@pytest.mark.parametrize("chemin", STATIQUES)
+def test_les_fichiers_statiques_exigent_une_revalidation(chemin):
+    reponse = client.get(chemin)
+    assert reponse.status_code == 200, chemin
+    cache = reponse.headers.get("cache-control", "")
+    assert cache, f"{chemin} ne dit rien sur son cache : le navigateur decidera seul"
+    assert "no-cache" in cache or "max-age=0" in cache, cache
+
+
+@pytest.mark.parametrize("chemin", STATIQUES)
+def test_l_empreinte_reste_la_pour_que_la_revalidation_soit_gratuite(chemin):
+    """Temoin : exiger la revalidation sans ETag transformerait chaque visite en
+    retelechargement complet — on aurait remplace un defaut par un autre."""
+    reponse = client.get(chemin)
+    assert reponse.headers.get("etag") or reponse.headers.get("last-modified"), chemin

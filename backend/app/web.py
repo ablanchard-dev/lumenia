@@ -84,6 +84,17 @@ def install(app, static_dir):
         for key, value in _HEADERS.items():
             response.headers.setdefault(key, value)
 
+        # Les URL statiques ne portent pas d'empreinte (`/static/app.js`), donc un
+        # cache long servirait une version perimee apres chaque correction. Constate
+        # en direct le 18/09 : `app.js` corrige, fichier servi correct, et la page
+        # tournait toujours sur l'ancien script. Sans `cache-control`, le navigateur
+        # applique une heuristique et decide seul.
+        # `no-cache` ne veut pas dire « ne cache pas » : il veut dire « redemande-moi
+        # avant de reutiliser ». Avec l'ETag deja pose par StaticFiles, cette
+        # revalidation coute un 304 vide.
+        if request.url.path.startswith("/static/"):
+            response.headers.setdefault("cache-control", "no-cache")
+
         if tete:
             # Memes statut, memes en-tetes (y compris HSTS et CSP), corps vide :
             # un sondage HEAD doit voir le site tel qu'il est, pas un site sans

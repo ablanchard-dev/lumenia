@@ -65,9 +65,17 @@ client, and trusting it would let a ten-line loop reset its LLM quota at will.
   failover when a quota runs out. They all speak the OpenAI protocol; a provider with
   no key is simply skipped.
 
-Server persistence is a local SQLite (`backend/data/lumenia.db`). The `frontend/`
-folder is the old Streamlit interface, kept for reference but no longer used: the
-current UI lives in `backend/static/` and is served by the backend.
+Server persistence is a local SQLite (`backend/data/lumenia.db`). The current UI
+lives in `backend/static/` and is served by the backend.
+
+The `frontend/` folder is the older Streamlit interface. It is **superseded, but
+still wired**: `docker compose up` builds and runs it, and `run_frontend.bat` and
+`setup_windows_frontend.ps1` still launch it from the repo root. Until 18/09/2026
+this section claimed the opposite, and that claim is why nobody opened that
+interface for a long time — long enough for it to show the 3114 crisis line only
+under a condition. Whether to keep both interfaces or drop the compose service is
+still open. A test now keeps this section and `docker-compose.yml` in agreement,
+in both directions.
 
 ## Entry question bank
 

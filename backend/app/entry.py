@@ -53,7 +53,14 @@ _BY_ID = {item["id"]: {**item, "dimension": step["dimension"]}
 
 
 # Seuil de réussite du parcours d'entrée. Source de vérité SERVEUR (le front a sa
-# propre constante ENTRY_PASS_RATIO ; les deux doivent rester alignées).
+# propre constante ENTRY_PASS_RATIO dans `static/app.js`).
+#
+# « Les deux doivent rester alignées », disait cette ligne — sans que rien ne le
+# tienne. C'est un chiffre clinique, pas un réglage : le laisser diverger, c'est
+# laisser le front décider d'un seuil que le protocole a fixé. Et la divergence ne
+# lèverait rien : selon son sens, quelqu'un lit « le seuil reste fermé » alors que
+# le chat lui est ouvert, ou lit « réussi » puis se fait renvoyer au test.
+# `test_le_front_et_le_serveur_comptent_pareil` le vérifie depuis le 18/09/2026.
 ENTRY_PASS_RATIO = 0.85
 
 def entry_passed(score: int, total: int) -> bool:

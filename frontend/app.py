@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import os
 import requests
 import pandas as pd
@@ -7,6 +7,22 @@ import streamlit as st
 BACKEND = os.getenv("BACKEND_URL", "http://localhost:8000")
 
 st.set_page_config(page_title="Lumenia v2.1", page_icon="🤖", layout="wide")
+
+# Le numero de crise, avant tout le reste et sans aucune condition.
+#
+# 18/09/2026. Il n'apparaissait qu'a l'interieur de `if risk_flag:`, c'est-a-dire
+# seulement apres qu'un PHQ-9 avait leve un signal -- et vingt lignes plus bas, un
+# `st.stop()` sur le consentement coupe la page avant meme d'y arriver. Quelqu'un
+# qui ouvrait cette interface en detresse sans avoir rempli de questionnaire ne
+# voyait le numero nulle part. L'interface servie par le backend le porte sans
+# condition depuis le debut : le 3114 ne se merite pas.
+#
+# Ecrit ici, au-dessus de tout `if` et de tout `st.stop()`, pour que rien ne
+# puisse s'interposer. `test_toute_interface_porte_le_3114_sans_condition` refuse
+# qu'il redescende sous une condition.
+st.caption(
+    "En cas de detresse : **3114** (national, gratuit, 24h/24) - **15** ou **112** en urgence vitale."
+)
 st.markdown(
     """
 <style>

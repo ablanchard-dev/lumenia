@@ -19,6 +19,35 @@ from fastapi.responses import JSONResponse
 PAR_MINUTE = 20          # large pour une conversation, etroit pour une boucle
 FENETRE = 60.0
 
+# 18/09/2026 - La regle annoncee en tete de ce fichier parlait de deux categories : les
+# routes qui appellent un modele, et les LECTURES. Le code en laissait passer une
+# troisieme -- les ECRITURES. `POST /journal` ecrit en base, ne coute pas un centime de
+# quota, et n'etait rationne par rien : 40 requetes d'affilee, 40 fois 200. Une entree
+# peut porter 10 000 caracteres ; la borne d'entree limite UNE requete, pas leur nombre,
+# et c'est le disque de qui heberge qui se remplit.
+#
+# Budget separe et plus large : personne qui vide son sac un soir ne doit rencontrer une
+# porte fermee. Et c'est la METHODE qui decide, pas une liste ecrite a la main : une route
+# d'ecriture ajoutee demain nait protegee.
+#
+# LE CHIFFRE VIENT D'UNE MESURE, pas d'un gout : la rafale legitime la plus dense du
+# produit est le parcours d'entree -- 30 `/entry/verify` plus un `/entry/complete`, soit
+# 31 ecritures qu'un candidat rapide enchaine en moins d'une minute. Un premier essai a
+# 60 a d'ailleurs fait rougir `test_chat_is_gated_server_side_until_entry_passed`, qui
+# joue trois parcours d'affilee : c'est la suite qui a dit que le budget etait trop etroit.
+# 120 laisse donc quatre parcours de marge.
+#
+# CE QUE CA NE FAIT PAS : arreter quelqu'un de determine. 120 ecritures par minute restent
+# des donnees. Ce que ca arrete, c'est la boucle -- celle qui ecrirait des milliers de fois
+# par seconde. Un plafond en OCTETS serait la reponse complete ; il n'est pas ecrit ici.
+PAR_MINUTE_ECRITURE = 120
+ECRITURES = {"POST", "PUT", "PATCH", "DELETE"}
+
+TROP_D_ECRITURES = (
+    "Trop d'enregistrements d'affilee : ca repart dans une minute. "
+    "Rien n'est perdu, et rien ne t'est reproche."
+)
+
 ROUTES_LLM = {
     "/chat",
     "/focus/decompose",
@@ -114,13 +143,13 @@ def _oublier_les_perimes(t: float) -> None:
 VISITEURS_AVANT_BALAYAGE = 1000
 
 
-def autorise(cle: str) -> tuple[bool, int]:
+def autorise(cle: str, plafond: int = PAR_MINUTE) -> tuple[bool, int]:
     """(passe, secondes avant la prochaine ouverture)."""
     t = maintenant()
     if len(_vues) > VISITEURS_AVANT_BALAYAGE:
         _oublier_les_perimes(t)
     recentes = [v for v in _vues.get(cle, ()) if t - v < FENETRE]
-    if len(recentes) >= PAR_MINUTE:
+    if len(recentes) >= plafond:
         _vues[cle] = recentes
         return False, max(1, int(FENETRE - (t - recentes[0])) + 1)
     recentes.append(t)
@@ -131,12 +160,25 @@ def autorise(cle: str) -> tuple[bool, int]:
 def install(app):
     @app.middleware("http")
     async def _anti_spam(request, call_next):
-        if request.method == "POST" and request.url.path in ROUTES_LLM:
-            passe, attente = autorise(cle_de(client_de(request)))
-            if not passe:
-                return JSONResponse(
-                    {"reply": TROP_VITE, "risk_flag": False, "rate_limited": True},
-                    status_code=429,
-                    headers={"retry-after": str(attente)},
-                )
+        if request.method in ECRITURES:
+            cle = cle_de(client_de(request))
+            if request.url.path in ROUTES_LLM:
+                passe, attente = autorise(cle, PAR_MINUTE)
+                if not passe:
+                    return JSONResponse(
+                        {"reply": TROP_VITE, "risk_flag": False, "rate_limited": True},
+                        status_code=429,
+                        headers={"retry-after": str(attente)},
+                    )
+            else:
+                # Budget separe : une ecriture ne consomme pas le quota de conversation,
+                # et inversement. La cle est prefixee, donc les deux compteurs ne se
+                # melangent pas pour un meme visiteur.
+                passe, attente = autorise("ecriture:" + cle, PAR_MINUTE_ECRITURE)
+                if not passe:
+                    return JSONResponse(
+                        {"detail": TROP_D_ECRITURES, "rate_limited": True},
+                        status_code=429,
+                        headers={"retry-after": str(attente)},
+                    )
         return await call_next(request)

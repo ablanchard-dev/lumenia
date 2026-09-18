@@ -187,6 +187,17 @@ def _lines(text: Optional[str], fallback: List[str], limit: int | None = None) -
         # retire "1." / "2)" éventuels
         if len(s) > 2 and s[0].isdigit() and s[1] in ".)":
             s = s[2:].strip()
+        # 19/09/2026 — UNE LIGNE QUI ANNONCE LA LISTE N'EN FAIT PAS PARTIE.
+        #
+        # Les prompts demandent « une étape par ligne, rien d'autre » ; la plupart des modèles
+        # répondent quand même « Bien sûr ! Voici 5 micro-étapes : » avant la liste. Mesuré :
+        # cette phrase prenait la PREMIÈRE place, et la troncature à `limit` faisait tomber la
+        # vraie dernière étape. Deux dégâts, une cause.
+        #
+        # Une seule forme est écartée, celle qui est sans ambiguïté : la ligne qui se TERMINE
+        # par deux-points. « Ouvrir le fichier : celui de mardi » reste une étape.
+        if s.endswith(":"):
+            continue
         if s:
             items.append(s)
     if not items:

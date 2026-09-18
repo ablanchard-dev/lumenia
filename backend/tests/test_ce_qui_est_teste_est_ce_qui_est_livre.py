@@ -57,6 +57,28 @@ def test_l_extracteur_lit_bien_une_version_et_pas_autre_chose():
     assert not re.search(r"^FROM\s+python:(\d+\.\d+)", "FROM node:20-slim", re.M)
 
 
+def test_le_readme_annonce_la_version_que_l_on_livre():
+    """Troisième endroit qui déclare une version, et le seul qu'un humain lit.
+
+    18/09/2026, au lendemain du crible ci-dessous : il comparait les Dockerfiles à
+    la CI et les avait alignés sur 3.11 — pendant que le README, deux sections plus
+    haut, demandait « Python 3.12+ ». Un crible qui couvre deux surfaces sur trois
+    laisse la troisième dériver tranquillement, et c'est celle-là qu'on suit pour
+    installer.
+    """
+    readme = (DEPOT / "README.md").read_text(encoding="utf-8-sig")
+    livree = _version_image(DEPOT / "backend" / "Dockerfile")
+
+    annoncees = set(re.findall(r"Python\s+(\d+\.\d+)", readme))
+
+    assert annoncees, "le README doit dire sur quelle version de Python ça tourne"
+    assert annoncees == {livree}, (
+        f"le README demande Python {sorted(annoncees)}, les images livrent {livree}. "
+        "C'est la phrase que quelqu'un suit pour installer : elle l'envoie sur une "
+        "version que ni la CI ni la production n'exécutent"
+    )
+
+
 @pytest.mark.parametrize("dockerfile", _dockerfiles(), ids=lambda f: f.parent.name)
 def test_la_ci_valide_la_version_que_l_image_livre(dockerfile):
     livree = _version_image(dockerfile)

@@ -19,7 +19,7 @@ Docker, tested in CI.
 
 ## Run
 
-Requirements: Python 3.12+. At least one free API key is recommended (links are in
+Requirements: Python 3.11 — the version both images ship (`FROM python:3.11-slim`) and the one CI validates. At least one free API key is recommended (links are in
 `backend/.env.example`); without a key, the app still works in a degraded mode.
 
 ```
@@ -99,8 +99,12 @@ cd backend
 .venv\Scripts\python -m pytest
 ```
 
-70+ parametrized cases (`backend/tests/`), run in CI on every push — the exact count is
-whatever `pytest` reports, and it grows with the suite. They cover crisis detection, the
+350+ parametrized cases (`backend/tests/`), run in CI on every push — **378 passing on
+18/09/2026**, from 226 test functions. The exact count is whatever `pytest` reports, and it
+grows with the suite. This line read "70+" until that date, back when it was true; nothing
+was false about it afterwards either, since 378 is more than 70, and that is exactly why it
+sat there while the suite grew fivefold. A test now refuses a floor worth less than half of
+what the repo declares. They cover crisis detection, the
 server-side access gate (entry threshold enforced on `/chat`, with the 3114 line still
 reachable when gated), the unavailable-judge flag on the entry parcours, and the clinical
 scores. The clinical scores are legacy

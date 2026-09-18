@@ -66,6 +66,14 @@
       <li><code>journal</code> — les notes que vous écrivez volontairement dans le journal.</li>
       <li><code>assessments</code> — les résultats des questionnaires que vous remplissez.</li>
     </ul>
+    <p>
+      Une chose vit en dehors de cette base, et elle mérite d'être dite : pour empêcher
+      qu'une boucle automatique épuise le service, l'<strong>anti-spam</strong> compte les
+      requêtes reçues sur une fenêtre d'une minute. Ce compteur vit en mémoire vive, il
+      disparaît au redémarrage, et votre <strong>adresse IP</strong> n'y est pas conservée :
+      elle est transformée en un condensat salé au démarrage du serveur, qui permet de
+      distinguer deux visiteurs sans permettre de retrouver qui ils sont.
+    </p>
   </section>
 
   <section>

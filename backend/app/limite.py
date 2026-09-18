@@ -9,7 +9,9 @@ Ce qu'elle s'interdit : faire taire le 3114. La reponse 429 porte le numero,
 comme le gate d'entree le porte deja. Quelqu'un qui tape trop vite peut etre
 quelqu'un qui va mal.
 """
+import hashlib
 import os
+import secrets
 import time
 
 from fastapi.responses import JSONResponse
@@ -53,6 +55,25 @@ def reset() -> None:
     global _decalage
     _vues.clear()
     _decalage = 0.0
+
+
+# Le limiteur n'a jamais eu besoin de SAVOIR qui vient : il lui faut une cle stable
+# le temps d'une fenetre d'une minute. Une adresse IP est une donnee personnelle
+# (CJUE, Breyer, C-582/14) et Lumenia est une appli de sante mentale : garder
+# l'adresse en clair, c'est relier quelqu'un aux minutes exactes ou il a ecrit a un
+# compagnon de crise. Le sel est tire au demarrage et ne quitte jamais le processus :
+# la cle n'est donc reversible ni en memoire, ni d'un redemarrage a l'autre.
+_SEL = secrets.token_bytes(32)
+
+
+def cle_de(adresse: str) -> str:
+    """Condensat sale de l'adresse : distingue les visiteurs sans les nommer."""
+    return hashlib.blake2b(adresse.encode("utf-8"), key=_SEL, digest_size=16).hexdigest()
+
+
+def reinitialiser() -> None:
+    """Meme geste que `reset`, sous le nom qu'emploient les tests de vie privee."""
+    reset()
 
 
 def derriere_un_proxy() -> bool:
@@ -111,7 +132,7 @@ def install(app):
     @app.middleware("http")
     async def _anti_spam(request, call_next):
         if request.method == "POST" and request.url.path in ROUTES_LLM:
-            passe, attente = autorise(client_de(request))
+            passe, attente = autorise(cle_de(client_de(request)))
             if not passe:
                 return JSONResponse(
                     {"reply": TROP_VITE, "risk_flag": False, "rate_limited": True},

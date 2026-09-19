@@ -25,6 +25,17 @@
   <link rel="icon" type="image/svg+xml" href="/static/logo-mark.svg">
   <!-- 180×180, la taille qu'Apple dessine : servir le logo entier coûtait 2,2 Mo pour ce carré. -->
   <link rel="apple-touch-icon" sizes="180x180" href="/static/icone-tactile-180.png">
+  <!-- 19/09/2026 — LES DEUX POLICES DU PREMIER ÉCRAN, DEMANDÉES TOUT DE SUITE.
+       Un navigateur ne découvre un fichier de police qu'après avoir téléchargé la feuille
+       de style, l'avoir analysée, puis avoir trouvé du texte qui l'emploie : trois étapes
+       pendant lesquelles le mot-marque s'affiche en Georgia avant de changer de forme.
+       Seuls les sous-ensembles `latin` sont ici ; les `latin-ext` restent conditionnels
+       (`unicode-range`), et les imposer coûterait 51 Ko à des visites qui n'en affichent
+       aucun caractère.
+       ⚠️ `crossorigin` n'est pas décoratif : une police se télécharge toujours en mode
+       CORS, même depuis son propre domaine. Sans lui, le fichier part DEUX fois. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/static/polices/lora-latin.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/static/polices/raleway-latin.woff2">
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>

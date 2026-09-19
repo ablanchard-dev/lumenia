@@ -103,7 +103,7 @@ cd backend
 .venv\Scripts\python -m pytest
 ```
 
-350+ parametrized cases (`backend/tests/`), run in CI on every push, from **361 test
+350+ parametrized cases (`backend/tests/`), run in CI on every push, from **365 test
 functions**. The number of cases pytest reports is larger and grows with the suite; the
 function count is the one written here, because it can be counted without running anything —
 and a test holds it **exactly**, so adding a test turns this line red until it is updated.

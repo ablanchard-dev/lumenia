@@ -38,6 +38,10 @@ def test_au_dela_du_quota_la_route_repond_429():
 
 
 def test_le_429_porte_toujours_le_3114():
+    # 19/09/2026 - « toujours » est le nom, pas la mesure : ce test envoie /chat et lit
+    # ["reply"], donc il ne voit qu'une des deux reponses 429 du middleware. L'autre,
+    # celle des ECRITURES, est restee muette un jour entier. Le « toujours » est tenu
+    # depuis par test_tout_refus_temporaire_porte_le_numero, qui DEDUIT les corps des 429.
     _envoyer(limite.PAR_MINUTE)
     trop = client.post("/chat", json={"message": "bonjour", "history": []})
     assert "3114" in trop.json()["reply"]

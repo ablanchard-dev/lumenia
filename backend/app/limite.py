@@ -43,9 +43,17 @@ FENETRE = 60.0
 PAR_MINUTE_ECRITURE = 120
 ECRITURES = {"POST", "PUT", "PATCH", "DELETE"}
 
+# 19/09/2026 - LE NUMERO MANQUAIT ICI, et c'etait le pire endroit possible. Ce refus-la
+# tombe dans le middleware, AVANT que la route ne s'execute -- donc avant `_guard(...)`,
+# le garde de crise que `POST /journal` fait passer sur le titre et le contenu. Ecrire sa
+# detresse dans son journal ramene le 3114 ; l'ecrire une fois de trop ne le ramenait pas.
+# C'etait la seule reponse du produit ou personne ne rattrapait la detresse, et trois
+# documents plus un test promettaient deja le contraire.
 TROP_D_ECRITURES = (
     "Trop d'enregistrements d'affilee : ca repart dans une minute. "
-    "Rien n'est perdu, et rien ne t'est reproche."
+    "Rien n'est perdu, et rien ne t'est reproche.\n\n"
+    "Si ca urge, le **3114** (national, gratuit, 24h/24) repond tout de suite, "
+    "et le **15** pour une urgence medicale."
 )
 
 # 18/09/2026 - LE JUGE DU PARCOURS D'ENTREE. La regle en tete de ce fichier dit « les

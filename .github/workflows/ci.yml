@@ -22,6 +22,11 @@ jobs:
         working-directory: backend
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Historique complet : `test_la_date_des_pages_legales_dit_vrai` lit la date du
+          # dernier changement de chaque page dans git. Sur un clone a 1 commit, ce commit
+          # « introduit » tous les fichiers et le test compare a la date de la tete.
+          fetch-depth: 0
       # 3.11, parce que c'est ce que les deux images livrent (`FROM python:3.11-slim`).
       # Jusqu'au 18/09/2026 la CI validait sur 3.12 : elle testait une version que
       # personne n'execute, et son vert ne disait rien de ce qui tourne vraiment.

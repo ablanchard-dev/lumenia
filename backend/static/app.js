@@ -28,14 +28,36 @@
 
   /* ---------------- utilitaires ---------------- */
 
+  // Qui parle au backend. Sans compte : un UUIDv4 tiré une fois par navigateur. Le backend
+  // ne rend que ce qui appartient à CET identifiant (journal, drapeau de risque, parcours).
+  // Avant le 23/09/2026, tout était global : chacun lisait le journal des autres.
+  const VISITEUR = (() => {
+    let id = localStorage.getItem("lumenia.id");
+    if (!id) { id = crypto.randomUUID(); localStorage.setItem("lumenia.id", id); }
+    return id;
+  })();
+
   async function api(path, opts = {}) {
     const res = await fetch(path, {
-      headers: { "Content-Type": "application/json" },
       ...opts,
+      headers: { "Content-Type": "application/json", "X-Lumenia-Id": VISITEUR },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return res.json();
   }
+
+  // Un lien nu ne présente pas VISITEUR : on passe par fetch, puis le navigateur
+  // enregistre le fichier sous le nom annoncé par `download`.
+  $("export-journal")?.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const a = e.currentTarget;
+    const res = await fetch(a.getAttribute("href"), { headers: { "X-Lumenia-Id": VISITEUR } });
+    if (!res.ok) return;
+    const url = URL.createObjectURL(await res.blob());
+    const tmp = Object.assign(document.createElement("a"), { href: url, download: a.getAttribute("download") });
+    tmp.click();
+    URL.revokeObjectURL(url);
+  });
 
   function show(name) {
     Object.entries(screens).forEach(([k, el]) => { el.hidden = k !== name; });

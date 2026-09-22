@@ -23,12 +23,9 @@ ROUTES = [
 
 
 def _set_kv(key, value):
+    from conftest import VISITEUR
     with m.SessionLocal() as db:
-        kv = db.get(m.KV, key)
-        if kv:
-            kv.value = value
-        else:
-            db.add(m.KV(key=key, value=value))
+        m._kv_poser(db, VISITEUR, key, value)
         db.commit()
 
 

@@ -18,6 +18,7 @@ class Profile(Base):
     low_stim: Mapped[bool] = mapped_column(Boolean, default=True)
     font_size: Mapped[int] = mapped_column(Integer, default=16)
     pacing: Mapped[str] = mapped_column(String(32), default="normal")
+    owner: Mapped[Optional[str]] = mapped_column(String(36), index=True)
     created_at: Mapped = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 class Journal(Base):
@@ -26,6 +27,7 @@ class Journal(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     title: Mapped[str] = mapped_column(String(200))
     content: Mapped[str] = mapped_column(Text)
+    owner: Mapped[Optional[str]] = mapped_column(String(36), index=True)
     created_at: Mapped = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 class Assessment(Base):
@@ -37,4 +39,5 @@ class Assessment(Base):
     score: Mapped[int] = mapped_column(Integer)
     severity: Mapped[Optional[str]] = mapped_column(String(32))
     risk_flag: Mapped[bool] = mapped_column(Boolean, default=False)
+    owner: Mapped[Optional[str]] = mapped_column(String(36), index=True)
     created_at: Mapped = mapped_column(DateTime(timezone=True), server_default=func.now())

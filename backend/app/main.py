@@ -1,6 +1,6 @@
-import io, csv, json
+import io, csv, json, re
 from pathlib import Path
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Depends, Header, HTTPException
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import ORJSONResponse, StreamingResponse, FileResponse
@@ -60,6 +60,45 @@ def _refus_sans_echo(request, exc: RequestValidationError):
 
 STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 
+
+# ---------------- A qui appartient ce qu'on lit ----------------
+# 23/09/2026 — AUDIT AVANT PRODUCTION, exploit execute : sans compte ni en-tete,
+# `GET /journal` rendait le journal de tout le monde, `/journal/export` en faisait un CSV,
+# et `risk.flag` / `entry.passed` etaient des cles GLOBALES — le drapeau de risque
+# suicidaire d'une personne s'affichait a la suivante, et un parcours reussi ouvrait
+# l'accompagnement a tous. Tout l'etat supposait un seul utilisateur, sur un site public.
+#
+# Lumenia reste sans compte : chaque navigateur tire un UUIDv4 (`crypto.randomUUID()`) et
+# le presente dans `X-Lumenia-Id`. Ce n'est pas un cookie (il ne part que dans les requetes
+# que la page fait elle-meme, donc pas de CSRF) ; c'est la frontiere, donc on exige la forme
+# exacte d'un v4 — « 1 » ou l'UUID nul se devinent.
+_ID_VISITEUR = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+_SANS_IDENTIFIANT = ("Session introuvable : recharge la page. En cas de detresse, le 3114 "
+                     "(national, gratuit, 24h/24) reste joignable directement.")
+
+
+def visiteur(x_lumenia_id: str = Header("")) -> str:
+    v = x_lumenia_id.strip().lower()
+    if not _ID_VISITEUR.match(v):
+        raise HTTPException(401, detail=_SANS_IDENTIFIANT)
+    return v
+
+
+def _kv(db, v: str, nom: str):
+    return db.get(KV, f"{v}:{nom}")
+
+
+def _kv_poser(db, v: str, nom: str, valeur: str):
+    rec = _kv(db, v, nom)
+    if rec:
+        rec.value = valeur
+    else:
+        db.add(KV(key=f"{v}:{nom}", value=valeur))
+
+
+def _profil(db, v: str):
+    return db.execute(select(Profile).where(Profile.owner == v).limit(1)).scalar_one_or_none()
+
 @app.get("/healthz")
 def healthz():
     return {"ok": True, "version": VERSION}
@@ -74,7 +113,7 @@ def index(request: Request):
 
 # ---------------- Portail d'entrée (mini-parcours cognitif) ----------------
 @app.get("/entry/parcours")
-def entry_parcours(exclude: str = ""):
+def entry_parcours(exclude: str = "", v: str = Depends(visiteur)):
     # Tirer un parcours, c'est COMMENCER une tentative : ce que le serveur a constaté
     # dans la précédente ne la concerne plus.
     #
@@ -83,7 +122,7 @@ def entry_parcours(exclude: str = ""):
     # ratée dans la tentative suivante comptait quand même comme juste. Le seuil
     # d'entrée s'ouvrait alors en partie sur une tentative précédente — pour une garde,
     # c'est une porte entrebâillée, pas un détail de score.
-    _VERIFIED.clear()
+    _VERIFIED.pop(v, None)
     seen = {x.strip() for x in exclude.split(",") if x.strip()}
     return get_parcours(seen)
 
@@ -95,12 +134,21 @@ def entry_challenge():
 # /entry/complete ne compte que ça : le `ok` envoyé par le client ouvrait le chat à
 # 30 résultats inventés (vérifié le 16/09). Une bonne réponse obtenue après un essai
 # raté reste bonne (le front autorise les nouvelles tentatives avec indice).
-# ponytail: mémoire du process, mono-utilisateur local comme le gate lui-même ; un
-# redémarrage en plein parcours fait échouer fermé (épreuves non vérifiées).
-_VERIFIED: dict[str, str] = {}
+# Par visiteur depuis le 23/09/2026 (avant : un seul dict pour tout le monde).
+# ponytail: mémoire du process ; un redémarrage en plein parcours fait échouer fermé
+# (épreuves non vérifiées). Borné à _VERIFIED_MAX visiteurs, le plus ancien sort ;
+# passer en base si plusieurs processus servent un jour la même application.
+_VERIFIED: dict[str, dict[str, str]] = {}
+_VERIFIED_MAX = 10_000
+
+
+def _verifie(v: str) -> dict[str, str]:
+    if v not in _VERIFIED and len(_VERIFIED) >= _VERIFIED_MAX:
+        _VERIFIED.pop(next(iter(_VERIFIED)))
+    return _VERIFIED.setdefault(v, {})
 
 @app.post("/entry/verify")
-def entry_verify(body: EntryVerifyIn):
+def entry_verify(body: EntryVerifyIn, v: str = Depends(visiteur)):
     # 18/09/2026 — la detresse d'abord, l'epreuve ensuite.
     #
     # Cette route n'appelle aucun LLM pour les epreuves objectives : elle etait donc
@@ -116,25 +164,27 @@ def entry_verify(body: EntryVerifyIn):
     # `gate=False` : on ne bloque pas le parcours, on repond a la detresse. Le
     # resultat de l'epreuve n'est pas enregistre dans ce cas -- la personne a autre
     # chose a faire que passer un test, et elle pourra la rejouer.
-    crise = _guard(body.answer, gate=False)
+    crise = _guard(v, body.answer, gate=False)
     if crise:
         return crise
 
     res = verify_challenge(body.challenge_id, body.answer)
-    if body.challenge_id in _BY_ID and _VERIFIED.get(body.challenge_id) != "ok":
-        _VERIFIED[body.challenge_id] = ("ok" if res.get("ok")
+    constate = _verifie(v)
+    if body.challenge_id in _BY_ID and constate.get(body.challenge_id) != "ok":
+        constate[body.challenge_id] = ("ok" if res.get("ok")
                                         else "undetermined" if res.get("undetermined") else "ko")
     return res
 
 @app.post("/entry/complete")
-def entry_complete(body: EntryCompleteIn):
+def entry_complete(body: EntryCompleteIn, v: str = Depends(visiteur)):
+    constate = _VERIFIED.pop(v, {})
     seen: set[str] = set()
     results = []
     for r in (r.model_dump() for r in body.results):
         if r["id"] not in _BY_ID or r["id"] in seen:
             continue  # épreuve inconnue ou répétée : ne compte pas, ne gonfle pas le total
         seen.add(r["id"])
-        state = _VERIFIED.pop(r["id"], None)
+        state = constate.get(r["id"])
         r["dimension"] = _BY_ID[r["id"]]["dimension"]
         r["ok"] = state == "ok" and not r["skipped"]
         r["undetermined"] = state == "undetermined" and not r["skipped"]
@@ -148,18 +198,10 @@ def entry_complete(body: EntryCompleteIn):
     summary = json.dumps(entry_summary(results), ensure_ascii=False)
     with SessionLocal() as db:
         db.add(Assessment(kind="entry", payload=json.dumps(results, ensure_ascii=False),
-                          score=score, severity=None, risk_flag=False))
-        kv = db.get(KV, "profile.entry")
-        if not kv:
-            db.add(KV(key="profile.entry", value=summary))
-        else:
-            kv.value = summary
+                          score=score, severity=None, risk_flag=False, owner=v))
+        _kv_poser(db, v, "profile.entry", summary)
         # Résultat du gate persisté côté serveur (source de vérité, pas seulement le front).
-        gk = db.get(KV, "entry.passed")
-        if not gk:
-            db.add(KV(key="entry.passed", value="1" if passed else "0"))
-        else:
-            gk.value = "1" if passed else "0"
+        _kv_poser(db, v, "entry.passed", "1" if passed else "0")
         db.commit()
     return {"ok": True, "score": score, "total": total, "passed": passed,
             # Distingue "tu as echoue" de "on n a pas pu corriger" : le front doit
@@ -167,91 +209,82 @@ def entry_complete(body: EntryCompleteIn):
             "undetermined": not gradable}
 
 # ---------------- Chat (évaluation interne incluse) ----------------
-def _persist_risk_flag():
+def _persist_risk_flag(v: str):
     with SessionLocal() as db:
-        kv = db.get(KV, "risk.flag")
-        if not kv:
-            db.add(KV(key="risk.flag", value="1"))
-        else:
-            kv.value = "1"
+        _kv_poser(db, v, "risk.flag", "1")
         db.commit()
 
 
 @app.post("/chat")
-def chat(body: ChatIn):
+def chat(body: ChatIn, v: str = Depends(visiteur)):
     # SECURITE D'ABORD : la detresse prime sur le controle d'acces. On detecte la crise AVANT
     # le gate, sinon une personne suicidaire qui n'a pas valide le parcours recevrait « finis
     # ton test a 85% » au lieu d'une reponse de crise. La crise court-circuite le gate.
     if detect_crisis(body.message):
-        _persist_risk_flag()
+        _persist_risk_flag(v)
         return {"reply": SAFETY_REPLY, "risk_flag": True}
     # Gate serveur : l'accompagnement n'est ouvert qu'apres validation du parcours d'entree
     # (seuil ENTRY_PASS_RATIO). Enforce cote serveur, pas seulement au front (un appel direct a
     # /chat ne contourne plus le gate). SECURITE : la ressource de crise (3114) reste TOUJOURS
     # visible, on ne coupe jamais l'acces a l'aide en cas de detresse.
     with SessionLocal() as db:
-        gk = db.get(KV, "entry.passed")
+        gk = _kv(db, v, "entry.passed")
     if not gk or gk.value != "1":
         return {"reply": "L'accompagnement s'ouvre une fois le parcours d'entree valide (seuil 85%). "
                           "Termine-le pour continuer. En cas de detresse, le 3114 (national, gratuit, "
                           "24h/24) reste joignable directement, a tout moment.",
                 "risk_flag": False, "gated": True}
     with SessionLocal() as db:
-        prof = db.execute(select(Profile).limit(1)).scalar_one_or_none()
+        prof = _profil(db, v)
         low_stim = bool(prof and prof.low_stim)
         pacing = prof.pacing if prof else "normal"
-        kv = db.get(KV, "profile.entry")
+        kv = _kv(db, v, "profile.entry")
         try:
             entry_profile = json.loads(kv.value) if kv and kv.value else None
         except ValueError:
             entry_profile = None
     out = chat_reply(body.message, [t.model_dump() for t in body.history], low_stim, pacing, entry_profile)
     if out["risk"]:
-        _persist_risk_flag()
+        _persist_risk_flag(v)
     return {"reply": out["reply"], "risk_flag": out["risk"]}
 
 # Consent
 @app.get("/consent")
-def get_consent():
+def get_consent(v: str = Depends(visiteur)):
     with SessionLocal() as db:
-        rec = db.get(KV, "consent.accepted")
+        rec = _kv(db, v, "consent.accepted")
         return {"accepted": bool(rec and rec.value == "1")}
 
 @app.post("/consent")
-def set_consent(accepted: bool):
+def set_consent(accepted: bool, v: str = Depends(visiteur)):
     with SessionLocal() as db:
-        rec = db.get(KV, "consent.accepted")
-        if not rec:
-            rec = KV(key="consent.accepted", value="1" if accepted else "0")
-            db.add(rec)
-        else:
-            rec.value = "1" if accepted else "0"
+        _kv_poser(db, v, "consent.accepted", "1" if accepted else "0")
         db.commit()
         return {"accepted": accepted}
 
 # Risk flag (read)
 @app.get("/risk")
-def get_risk():
+def get_risk(v: str = Depends(visiteur)):
     with SessionLocal() as db:
-        kv = db.get(KV, "risk.flag")
+        kv = _kv(db, v, "risk.flag")
         return {"risk_flag": bool(kv and kv.value == "1")}
 
 # Profile
 @app.get("/profile")
-def get_profile():
+def get_profile(v: str = Depends(visiteur)):
     with SessionLocal() as db:
-        prof = db.execute(select(Profile).limit(1)).scalar_one_or_none()
+        prof = _profil(db, v)
         if not prof:
-            prof = Profile()
+            prof = Profile(owner=v)
             db.add(prof); db.commit(); db.refresh(prof)
         return {"id": prof.id, "low_stim": prof.low_stim, "font_size": prof.font_size, "pacing": prof.pacing}
 
 @app.post("/profile")
-def set_profile(p: ProfileIn):
+def set_profile(p: ProfileIn, v: str = Depends(visiteur)):
     with SessionLocal() as db:
-        prof = db.execute(select(Profile).limit(1)).scalar_one_or_none()
+        prof = _profil(db, v)
         if not prof:
-            prof = Profile(); db.add(prof)
+            prof = Profile(owner=v); db.add(prof)
         prof.low_stim = p.low_stim
         prof.font_size = p.font_size
         prof.pacing = p.pacing
@@ -266,7 +299,7 @@ def adapt(p: ProfileIn):
     if p.pacing == "slow": tips.append("Mode Pomodoro 10/2")
     return {"ui_tips": tips}
 
-def _guard(*texts: str, gate: bool = True):
+def _guard(v: str, *texts: str, gate: bool = True):
     """Meme securite que /chat pour tout texte libre qui partirait au LLM.
 
     Revue 17/09, verifie en l'executant : ces routes envoyaient « je veux mourir » au LLM
@@ -274,11 +307,11 @@ def _guard(*texts: str, gate: bool = True):
     Crise d'abord (jamais bloquee par le gate), puis gate. None = la route peut continuer.
     """
     if any(detect_crisis(t or "") for t in texts):
-        _persist_risk_flag()
+        _persist_risk_flag(v)
         return {"reply": SAFETY_REPLY, "risk_flag": True}
     if gate:
         with SessionLocal() as db:
-            gk = db.get(KV, "entry.passed")
+            gk = _kv(db, v, "entry.passed")
         if not gk or gk.value != "1":
             return {"reply": "Cet outil s'ouvre une fois le parcours d'entree valide. En cas de "
                              "detresse, le 3114 (national, gratuit, 24h/24) reste joignable.",
@@ -287,49 +320,49 @@ def _guard(*texts: str, gate: bool = True):
 
 # Focus / impostor / creativity / scenarios
 @app.post("/focus/decompose")
-def focus_decompose(body: DecomposeIn):
-    blocked = _guard(body.task)
+def focus_decompose(body: DecomposeIn, v: str = Depends(visiteur)):
+    blocked = _guard(v, body.task)
     if blocked:
         return blocked
     return {"task": body.task, "steps": decompose(body.task, body.steps)}
 
 @app.post("/impostor/reframe")
-def impostor_reframe(body: ReframeIn):
-    blocked = _guard(body.thought)
+def impostor_reframe(body: ReframeIn, v: str = Depends(visiteur)):
+    blocked = _guard(v, body.thought)
     if blocked:
         return blocked
     return {"thought": body.thought, "reframes": reframe(body.thought)}
 
 @app.post("/creativity/generate")
-def creativity_generate(body: CreativityIn):
-    blocked = _guard(body.goal)
+def creativity_generate(body: CreativityIn, v: str = Depends(visiteur)):
+    blocked = _guard(v, body.goal)
     if blocked:
         return blocked
     return {"goal": body.goal, "mode": body.mode, "ideas": creative(body.goal, body.mode)}
 
 @app.post("/scenarios")
-def scenarios_generate(body: ScenarioIn):
-    blocked = _guard(body.context)
+def scenarios_generate(body: ScenarioIn, v: str = Depends(visiteur)):
+    blocked = _guard(v, body.context)
     if blocked:
         return blocked
     return {"context": body.context, "style": body.style, "scripts": scenarios(body.context, body.style)}
 
 # Journal
 @app.get("/journal")
-def journal_list():
+def journal_list(v: str = Depends(visiteur)):
     with SessionLocal() as db:
-        rows = db.execute(select(Journal).order_by(Journal.created_at.desc())).scalars().all()
+        rows = db.execute(select(Journal).where(Journal.owner == v).order_by(Journal.created_at.desc())).scalars().all()
         return [ {"id": j.id, "title": j.title, "content": j.content, "created_at": str(j.created_at)} for j in rows ]
 
 @app.post("/journal")
-def journal_add(body: JournalIn):
+def journal_add(body: JournalIn, v: str = Depends(visiteur)):
     with SessionLocal() as db:
-        j = Journal(title=body.title, content=body.content)
+        j = Journal(title=body.title, content=body.content, owner=v)
         db.add(j); db.commit(); db.refresh(j)
         out = {"id": j.id, "title": j.title, "content": j.content, "created_at": str(j.created_at)}
     # L'entree reste enregistree, mais une detresse ecrite au journal declenche la meme reponse
     # de crise qu'au chat (avant, rien ne se passait). Pas de gate : ecrire n'appelle aucun LLM.
-    crisis = _guard(body.title, body.content, gate=False)
+    crisis = _guard(v, body.title, body.content, gate=False)
     return {**out, **crisis} if crisis else out
 
 # 18/09/2026 - Un journal exporte est un fichier qu'on DONNE a quelqu'un : la page de
@@ -354,9 +387,9 @@ def _texte(valeur) -> str:
 
 
 @app.get("/journal/export")
-def journal_export():
+def journal_export(v: str = Depends(visiteur)):
     with SessionLocal() as db:
-        rows = db.execute(select(Journal).order_by(Journal.created_at)).scalars().all()
+        rows = db.execute(select(Journal).where(Journal.owner == v).order_by(Journal.created_at)).scalars().all()
         buf = io.StringIO()
         # 19/09/2026 - EXCEL N'EMPLOIE PAS UN SEPARATEUR FIXE : il prend le separateur de
         # liste de Windows, qui vaut « ; » en francais, en allemand, en espagnol. Un
@@ -378,44 +411,40 @@ def journal_export():
 
 # Assessments
 @app.post("/assessment/entry")
-def assess_entry(body: EntryAssessmentIn):
+def assess_entry(body: EntryAssessmentIn, v: str = Depends(visiteur)):
     scores = entry_score(body.answers)
     total = sum(scores.values())
     with SessionLocal() as db:
-        db.add(Assessment(kind="entry", payload=json.dumps(body.answers), score=total, severity=None, risk_flag=False))
+        db.add(Assessment(kind="entry", payload=json.dumps(body.answers), score=total, severity=None, risk_flag=False, owner=v))
         db.commit()
     return {"scores": scores, "total": total}
 
 @app.post("/assessment/phq9")
-def assess_phq9(body: PHQ9In):
+def assess_phq9(body: PHQ9In, v: str = Depends(visiteur)):
     total, severity, risk = phq9_score(body.items, body.item9)
     with SessionLocal() as db:
-        db.add(Assessment(kind="phq9", payload=json.dumps(body.items), score=total, severity=severity, risk_flag=risk))
-        kv = db.get(KV, "risk.flag")
-        if not kv:
-            db.add(KV(key="risk.flag", value="1" if risk else "0"))
-        else:
-            kv.value = "1" if risk else "0"
+        db.add(Assessment(kind="phq9", payload=json.dumps(body.items), score=total, severity=severity, risk_flag=risk, owner=v))
+        _kv_poser(db, v, "risk.flag", "1" if risk else "0")
         db.commit()
     return {"total": total, "severity": severity, "risk_flag": risk}
 
 @app.post("/assessment/gad7")
-def assess_gad7(body: GAD7In):
+def assess_gad7(body: GAD7In, v: str = Depends(visiteur)):
     total, severity = gad7_score(body.items)
     with SessionLocal() as db:
-        db.add(Assessment(kind="gad7", payload=json.dumps(body.items), score=total, severity=severity, risk_flag=False))
+        db.add(Assessment(kind="gad7", payload=json.dumps(body.items), score=total, severity=severity, risk_flag=False, owner=v))
         db.commit()
     return {"total": total, "severity": severity}
 
 # Psy coach (gated by risk flag)
 @app.post("/psy/coach")
-def psy_coach(body: CoachIn):
+def psy_coach(body: CoachIn, v: str = Depends(visiteur)):
     # Le message COURANT est analyse (avant, seul un drapeau deja pose ailleurs bloquait).
-    crisis = _guard(body.topic, gate=False)
+    crisis = _guard(v, body.topic, gate=False)
     if crisis:
         return {**crisis, "blocked": True, "message": SAFETY_REPLY}
     with SessionLocal() as db:
-        kv = db.get(KV, "risk.flag")
+        kv = _kv(db, v, "risk.flag")
         risky = bool(kv and kv.value == "1")
     if risky:
         return {"blocked": True, "message": "Par prudence, génération limitée. En cas d’urgence: 3114 / 15 / 112."}

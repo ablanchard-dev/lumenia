@@ -19,3 +19,12 @@ SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False, futu
 
 def init_db():
     Base.metadata.create_all(engine)
+    # 23/09/2026 — `create_all` n'ajoute pas une colonne a une table qui existe deja. Une base
+    # d'avant le cloisonnement recoit `owner` ici ; ses lignes restent a NULL, donc ne sont
+    # plus lues par PERSONNE : fermer par defaut, ne rien supprimer.
+    from sqlalchemy import inspect, text
+    insp = inspect(engine)
+    with engine.begin() as conn:
+        for table in ("profiles", "journal", "assessments"):
+            if "owner" not in {c["name"] for c in insp.get_columns(table)}:
+                conn.execute(text(f"ALTER TABLE {table} ADD COLUMN owner VARCHAR(36)"))

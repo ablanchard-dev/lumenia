@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import uuid
 import requests
 import pandas as pd
 import streamlit as st
@@ -7,6 +8,11 @@ import streamlit as st
 BACKEND = os.getenv("BACKEND_URL", "http://localhost:8000")
 
 st.set_page_config(page_title="Lumenia v2.1", page_icon="🤖", layout="wide")
+
+# 23/09/2026 : le serveur cloisonne tout par `X-Lumenia-Id`. Une session Streamlit = un visiteur.
+if "lumenia_id" not in st.session_state:
+    st.session_state.lumenia_id = str(uuid.uuid4())
+ENTETES = {"X-Lumenia-Id": st.session_state.lumenia_id}
 
 # Le numero de crise, avant tout le reste et sans aucune condition.
 #
@@ -36,7 +42,7 @@ html, body, [class*="css"] { font-size: var(--fs) !important; }
 # ---------------- Helpers API ----------------
 def api_get(path):
     try:
-        r = requests.get(f"{BACKEND}{path}", timeout=10)
+        r = requests.get(f"{BACKEND}{path}", headers=ENTETES, timeout=10)
         r.raise_for_status()
         return r.json()
     except Exception:
@@ -46,7 +52,7 @@ def api_get(path):
 def api_post(path, payload=None, params=None):
     """POST helper that can send either JSON payload or query params."""
     try:
-        r = requests.post(f"{BACKEND}{path}", json=payload, params=params, timeout=15)
+        r = requests.post(f"{BACKEND}{path}", json=payload, params=params, headers=ENTETES, timeout=15)
         r.raise_for_status()
         return r.json()
     except Exception:
@@ -189,7 +195,7 @@ with tabs[6]:
     if data:
         df = pd.DataFrame(data)
         st.dataframe(df, use_container_width=True)
-        csv = requests.get(f"{BACKEND}/journal/export").text
+        csv = requests.get(f"{BACKEND}/journal/export", headers=ENTETES, timeout=10).text
         st.download_button("Exporter CSV", data=csv, file_name="journal.csv", mime="text/csv")
     else:
         st.info("Journal vide.")

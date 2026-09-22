@@ -11,6 +11,26 @@ _TEST_DB = os.path.join(tempfile.mkdtemp(prefix="lumenia-tests-"), "test.db")
 os.environ["DATABASE_URL"] = "sqlite:///" + _TEST_DB.replace("\\", "/")
 
 
+# --- Le visiteur par defaut des tests ------------------------------------------
+#
+# 23/09/2026 : tout l'etat est cloisonne par `X-Lumenia-Id` (voir
+# test_un_visiteur_ne_lit_jamais_un_autre.py). Les ~50 `TestClient(app)` de la suite parlent
+# au nom d'UN visiteur, comme le fait une page : l'en-tete est pose par defaut, et un test
+# qui passe ses propres `headers` (autre visiteur, ou aucun) garde la main.
+VISITEUR = "6f1c2d3e-4b5a-4c6d-8e7f-001122334455"
+
+from starlette.testclient import TestClient as _TC  # noqa: E402
+
+_init_tc = _TC.__init__
+
+
+def _init_avec_visiteur(self, *a, headers=None, **kw):
+    _init_tc(self, *a, headers={"X-Lumenia-Id": VISITEUR, **(headers or {})}, **kw)
+
+
+_TC.__init__ = _init_avec_visiteur
+
+
 # --- L'etat vivant du processus ne doit pas fuir d'un test a l'autre ----------
 #
 # 17/09/2026 : deux fuites trouvees le meme jour, par le meme symptome (un test

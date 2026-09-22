@@ -37,12 +37,10 @@ def client():
 
 
 def _ouvrir_le_gate() -> None:
+    from app.main import _kv_poser
+    from conftest import VISITEUR
     with SessionLocal() as db:
-        kv = db.get(KV, "entry.passed")
-        if kv:
-            kv.value = "1"
-        else:
-            db.add(KV(key="entry.passed", value="1"))
+        _kv_poser(db, VISITEUR, "entry.passed", "1")
         db.commit()
 
 
@@ -109,11 +107,11 @@ def test_un_message_de_DETRESSE_ne_se_retrouve_pas_davantage(client):
 
 def test_un_message_refuse_par_le_gate_ne_laisse_rien_non_plus(client):
     """Le chemin le plus facile à oublier : la réponse est un refus, pas une conversation."""
+    from app.main import _kv_poser
+    from conftest import VISITEUR
     with SessionLocal() as db:
-        kv = db.get(KV, "entry.passed")
-        if kv:
-            kv.value = "0"
-            db.commit()
+        _kv_poser(db, VISITEUR, "entry.passed", "0")
+        db.commit()
 
     marqueur = _sentinelle()
     r = client.post("/chat", json={"message": f"aide moi {marqueur}", "history": []})

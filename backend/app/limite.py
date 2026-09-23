@@ -50,10 +50,10 @@ ECRITURES = {"POST", "PUT", "PATCH", "DELETE"}
 # C'etait la seule reponse du produit ou personne ne rattrapait la detresse, et trois
 # documents plus un test promettaient deja le contraire.
 TROP_D_ECRITURES = (
-    "Trop d'enregistrements d'affilee : ca repart dans une minute. "
-    "Rien n'est perdu, et rien ne t'est reproche.\n\n"
-    "Si ca urge, le **3114** (national, gratuit, 24h/24) repond tout de suite, "
-    "et le **15** pour une urgence medicale."
+    "Trop d'enregistrements d'affilée : ça repart dans une minute. "
+    "Rien n'est perdu, et rien ne t'est reproché.\n\n"
+    "Si ça urge, le **3114** (national, gratuit, 24h/24) répond tout de suite, "
+    "et le **15** pour une urgence médicale."
 )
 
 # 18/09/2026 - LE JUGE DU PARCOURS D'ENTREE. La regle en tete de ce fichier dit « les
@@ -102,10 +102,10 @@ ROUTES_LLM = {
 }
 
 TROP_VITE = (
-    "Trop de messages d'affilee : je reprends dans une minute. "
+    "Trop de messages d'affilée : je reprends dans une minute. "
     "Ce n'est pas un refus, c'est une limite technique.\n\n"
-    "Si ca urge, le **3114** (national, gratuit, 24h/24) repond tout de suite, "
-    "et le **15** pour une urgence medicale."
+    "Si ça urge, le **3114** (national, gratuit, 24h/24) répond tout de suite, "
+    "et le **15** pour une urgence médicale."
 )
 
 # ponytail: compteurs en memoire, un seul processus. Si Lumenia passe a plusieurs

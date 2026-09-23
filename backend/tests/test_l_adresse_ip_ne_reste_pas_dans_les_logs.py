@@ -31,3 +31,10 @@ def test_aucun_lancement_expose_ne_garde_l_ip_dans_son_journal():
     assert len(lancements) >= 2, "témoin : le Dockerfile et le compose doivent être lus"
     fautifs = [ou for ou, ligne in lancements if "--no-access-log" not in ligne]
     assert fautifs == [], f"journal d'accès uvicorn actif (IP en clair) : {fautifs}"
+
+
+def test_aucun_lancement_expose_n_annonce_son_serveur():
+    # 23/09/2026 (repasse de la grille) : chaque réponse portait « server: uvicorn ». Rien ne sert
+    # à le dire, et c'est la première ligne d'un inventaire pour qui cherche une faille connue.
+    fautifs = [ou for ou, ligne in _lancements_exposes() if "--no-server-header" not in ligne]
+    assert fautifs == [], f"en-tête server annoncé : {fautifs}"

@@ -333,8 +333,8 @@ def install(app, static_dir):
                 # Le 3114 voyage avec la panne : il est sur tous les ecrans et dans la
                 # reponse 429 de l'anti-spam, il n'a pas de raison de disparaitre ici.
                 "reply": (
-                    "Ca a casse de notre cote, tu n'y es pour rien et rien n'est perdu. "
-                    "Reessaie dans un instant. En cas de detresse, le 3114 (national, "
+                    "Ça a cassé de notre côté, tu n'y es pour rien et rien n'est perdu. "
+                    "Réessaie dans un instant. En cas de détresse, le 3114 (national, "
                     "gratuit, 24h/24) reste joignable directement."
                 ),
             },

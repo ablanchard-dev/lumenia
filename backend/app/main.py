@@ -78,7 +78,7 @@ STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 # que la page fait elle-meme, donc pas de CSRF) ; c'est la frontiere, donc on exige la forme
 # exacte d'un v4 — « 1 » ou l'UUID nul se devinent.
 _ID_VISITEUR = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-_SANS_IDENTIFIANT = ("Session introuvable : recharge la page. En cas de detresse, le 3114 "
+_SANS_IDENTIFIANT = ("Session introuvable : recharge la page. En cas de détresse, le 3114 "
                      "(national, gratuit, 24h/24) reste joignable directement.")
 
 
@@ -321,8 +321,8 @@ def _guard(v: str, *texts: str, gate: bool = True):
         with SessionLocal() as db:
             gk = _kv(db, v, "entry.passed")
         if not gk or gk.value != "1":
-            return {"reply": "Cet outil s'ouvre une fois le parcours d'entree valide. En cas de "
-                             "detresse, le 3114 (national, gratuit, 24h/24) reste joignable.",
+            return {"reply": "Cet outil s'ouvre une fois le parcours d'entrée validé. En cas de "
+                             "détresse, le 3114 (national, gratuit, 24h/24) reste joignable.",
                     "risk_flag": False, "gated": True}
     return None
 

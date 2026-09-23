@@ -36,6 +36,17 @@ def _bloc_tactile() -> str:
     return m.group(1)
 
 
+def test_le_retour_des_pages_legales_est_une_vraie_cible():
+    """23/09/2026, mesure au navigateur à 375 px de chaque écran : tout fait 44 px ou plus, sauf
+    « ← Revenir à Lumenia » sur les CGU et la confidentialité, 145 × 24. C'est le seul chemin
+    de retour vers l'application depuis ces pages. (Les liens DANS le texte, 19 px de haut, restent
+    tels quels : WCAG 2.5.8 les exempte, et les grossir casserait la ligne.)"""
+    regle = re.search(r"\.legal-back\s*\{([^}]*)\}", CSS)
+    assert regle, "témoin : la règle du lien de retour existe"
+    hauteur = re.search(r"min-height:\s*(\d+)px", regle.group(1))
+    assert hauteur and int(hauteur.group(1)) >= SEUIL, "le retour des pages légales fait moins de 44 px de haut"
+
+
 def test_une_tablette_tactile_a_aussi_ses_cibles_de_44px():
     """23/09/2026 : le bloc tactile ne s'appliquait que sous 760 px de large. À 768 px et plus
     (tablette, portable à écran tactile), la corbeille restait à 30 × 30 et la fermeture de la

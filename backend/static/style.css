@@ -1046,9 +1046,14 @@ a { color: var(--primary); }
   padding: 48px 20px 96px;
   color: var(--text);
 }
+/* 23/09/2026 : 145 × 24 mesuré à 375 px, seul chemin de retour vers l'application depuis ces
+   pages. La cible passe à 44 px de haut ; la marge du bas absorbe ce qui a été ajouté, le texte
+   reste à la même distance du titre. */
 .legal-back {
-  display: inline-block;
-  margin-bottom: 26px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-bottom: 16px;
   font-size: 15px;
   color: var(--primary);
   text-decoration: none;

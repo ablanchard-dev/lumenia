@@ -779,6 +779,18 @@
       conv.messages.push({ role: "assistant", content: r.reply });
       saveConvs();
       if (r.risk_flag) showSafetyBanner();
+      if (r.gated) {
+        // 23/09/2026 — le navigateur se croyait « seuil réussi », le serveur non : chaque message
+        // recevait « termine le parcours » et rien ne menait au parcours. On oublie le « réussi »
+        // périmé et on montre le chemin (reprise de la pause s'il y en a une).
+        localStorage.removeItem("lumenia.entryPassed");
+        const aller = document.createElement("button");
+        aller.type = "button";
+        aller.className = "btn-secondary chat-vers-parcours";
+        aller.textContent = "Aller au parcours";
+        aller.addEventListener("click", () => startParcours());
+        messagesEl.lastElementChild?.querySelector(".msg-body")?.appendChild(aller);
+      }
     } catch (err) {
       $("typing-msg")?.remove();
       appendMessageEl("assistant", panne(err, "Ton message n'est pas perdu."));

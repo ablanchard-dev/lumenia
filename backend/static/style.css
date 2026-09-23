@@ -1162,3 +1162,5 @@ a[href^="tel:"] {
   color: var(--on-primary);
   text-decoration: none;
 }
+
+.chat-vers-parcours { margin-top: 12px; }

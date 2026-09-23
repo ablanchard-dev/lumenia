@@ -238,9 +238,9 @@ def chat(body: ChatIn, v: str = Depends(visiteur)):
     with SessionLocal() as db:
         gk = _kv(db, v, "entry.passed")
     if not gk or gk.value != "1":
-        return {"reply": "L'accompagnement s'ouvre une fois le parcours d'entree valide (seuil 85%). "
-                          "Termine-le pour continuer. En cas de detresse, le 3114 (national, gratuit, "
-                          "24h/24) reste joignable directement, a tout moment.",
+        return {"reply": "L'accompagnement s'ouvre une fois le parcours d'entrée validé (seuil de 85 %). "
+                          "Termine-le pour continuer. En cas de détresse, le 3114 (national, gratuit, "
+                          "24h/24) reste joignable directement, à tout moment.",
                 "risk_flag": False, "gated": True}
     with SessionLocal() as db:
         prof = _profil(db, v)

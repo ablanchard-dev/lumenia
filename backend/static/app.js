@@ -11,13 +11,6 @@
     chat: $("screen-chat"),
   };
 
-  // Test ÉLIMINATOIRE : part minimale de bonnes réponses (épreuves notées
-  // seulement) pour ouvrir l'accès. Valeur fixée par le protocole clinique de
-  // Blandine (psychologue) : seuil exigeant pour que réussir = sensation d'accomplir
-  // quelque chose, et non de passer à la moitié. En dessous : accès fermé, retente
-  // possible. (Sur 30 questions tirées, 0.85 ⇒ il faut 26/30 bonnes réponses.)
-  const ENTRY_PASS_RATIO = 0.85;
-
   const state = {
     parcours: null,       // {steps:[{id,dimension,label,kind,question}], i, results:[], failures}
     sending: false,

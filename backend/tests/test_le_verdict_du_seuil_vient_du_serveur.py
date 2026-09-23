@@ -36,3 +36,14 @@ def test_l_ecran_suit_le_verdict_du_serveur():
     assert re.search(r"\.passed\b", corps), "la réussite affichée ne vient pas du serveur"
     assert re.search(r"\.undetermined\b", corps), "« non corrigé » n'atteint pas l'écran"
     assert "ENTRY_PASS_RATIO" not in corps, "le navigateur recalcule encore le seuil lui-même"
+
+
+def test_le_navigateur_ne_porte_plus_le_seuil_clinique():
+    """Une copie que plus personne ne lit est celle qu'on relira demain, et qui aura dérivé.
+
+    23/09/2026 : depuis que l'écran suit le verdict du serveur (418ec79, test ci-dessus), la constante
+    du navigateur n'était lue par aucune ligne. Elle ne tenait que parce qu'un garde exigeait
+    une constante commune aux deux côtés. Le seuil clinique n'a plus qu'une adresse : le serveur.
+    """
+    js = (STATIC / "app.js").read_text(encoding="utf-8")
+    assert "ENTRY_PASS_RATIO" not in js, "le navigateur déclare encore le seuil clinique"

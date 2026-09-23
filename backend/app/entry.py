@@ -53,15 +53,15 @@ _BY_ID = {item["id"]: {**item, "dimension": step["dimension"]}
           for step in PARCOURS for item in step["pool"]}
 
 
-# Seuil de réussite du parcours d'entrée. Source de vérité SERVEUR (le front a sa
-# propre constante ENTRY_PASS_RATIO dans `static/app.js`).
+# Seuil de réussite du parcours d'entrée. Sa SEULE adresse : le navigateur affiche le
+# verdict que le serveur rend (418ec79) et, depuis le 23/09/2026, ne porte plus de copie.
 #
-# « Les deux doivent rester alignées », disait cette ligne — sans que rien ne le
-# tienne. C'est un chiffre clinique, pas un réglage : le laisser diverger, c'est
-# laisser le front décider d'un seuil que le protocole a fixé. Et la divergence ne
-# lèverait rien : selon son sens, quelqu'un lit « le seuil reste fermé » alors que
-# le chat lui est ouvert, ou lit « réussi » puis se fait renvoyer au test.
-# `test_le_front_et_le_serveur_comptent_pareil` le vérifie depuis le 18/09/2026.
+# Protocole clinique de Blandine (psychologue) : un seuil exigeant, pour que réussir
+# soit la sensation d'avoir accompli quelque chose, et non d'être passé à la moitié.
+#
+# Le front en gardait une copie que plus aucune ligne ne lisait, tenue alignée par
+# `test_le_front_et_le_serveur_comptent_pareil`. Ce garde reste : toute constante
+# déclarée un jour des deux côtés devra valoir la même chose des deux côtés.
 ENTRY_PASS_RATIO = 0.85
 
 def entry_passed(score: int, total: int) -> bool:

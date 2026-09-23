@@ -56,15 +56,15 @@ def _communes() -> list[str]:
     return sorted(set(_constantes_front()) & set(_constantes_serveur()))
 
 
-def test_le_crible_voit_bien_une_constante_declaree_des_deux_cotes():
-    """Témoin de contenu : sans lui, un motif cassé rendrait le garde vert sur du vide."""
-    communes = _communes()
+def test_le_crible_lit_bien_les_vrais_fichiers():
+    """Témoin de contenu : sans lui, un motif cassé rendrait le garde vert sur du vide.
 
-    assert communes, {
-        "front": sorted(_constantes_front()),
-        "serveur": sorted(_constantes_serveur()),
-    }
-    assert "ENTRY_PASS_RATIO" in communes, communes
+    23/09/2026 : ce témoin exigeait `ENTRY_PASS_RATIO` des DEUX côtés. Le navigateur n'en porte
+    plus de copie (elle n'était lue par aucune ligne) : il n'y a aujourd'hui aucune constante
+    commune, et c'est l'état voulu. Le témoin prouve donc que le crible lit le vrai serveur ;
+    le côté navigateur est prouvé par l'extracteur ci-dessous, sur un littéral.
+    """
+    assert _constantes_serveur().get("ENTRY_PASS_RATIO") == 0.85, sorted(_constantes_serveur())
 
 
 def test_les_extracteurs_lisent_une_valeur_et_pas_n_importe_quoi():

@@ -1175,3 +1175,11 @@ a[href^="tel:"] {
 
 /* 23/09/2026 : quand un message est amené à l'écran (réponse de crise), il arrive avec de l'air au-dessus. */
 .msg { scroll-margin-top: 20px; }
+
+/* 23/09/2026 : sur un téléphone, l'accueil se pose contre la zone de saisie, sous le pouce
+   (Hoober : à une main, le tiers bas est la seule zone sans effort). 206 px de vide coupaient
+   le groupe titre / suggestions / saisie. L'ordinateur garde sa mise en page. */
+@media (max-width: 640px) {
+  .messages:has(> .welcome) { display: flex; flex-direction: column; }
+  .messages > .welcome { margin: auto auto 12px; }
+}

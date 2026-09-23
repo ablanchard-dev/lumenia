@@ -1,4 +1,4 @@
-import io, csv, json, re
+import io, csv, json, os, re
 from pathlib import Path
 from fastapi import FastAPI, Request, Depends, Header, HTTPException
 from fastapi.exceptions import RequestValidationError
@@ -25,7 +25,12 @@ init_db()
 # savoir a quoi il parle : deux reponses, c'est un deploiement qu'on croit fait.
 VERSION = "2.3.0"
 
-app = FastAPI(title="LumenIa Backend", default_response_class=ORJSONResponse, version=VERSION)
+# 23/09/2026 — la carte de l'API (/docs, /redoc, /openapi.json) n'est pas publique : c'est chaque
+# route, chaque champ et ses bornes, offerts a qui les demande. `LUMENIA_DOCS=1` la rouvre en dev.
+_DOCS = os.getenv("LUMENIA_DOCS", "").strip() == "1"
+app = FastAPI(title="LumenIa Backend", default_response_class=ORJSONResponse, version=VERSION,
+              docs_url="/docs" if _DOCS else None, redoc_url="/redoc" if _DOCS else None,
+              openapi_url="/openapi.json" if _DOCS else None)
 
 # Le premier chargement de l'accueil pesait 71,4 Ko de texte brut alors que tout
 # navigateur annonce `Accept-Encoding: gzip` ; compressé, il en pèse 20,4 (mesuré

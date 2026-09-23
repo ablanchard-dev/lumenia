@@ -28,6 +28,13 @@ elle, la page la plus honnête du produit laisse croire le contraire de ce qui e
 Ce fichier déduit les lectures sans compte depuis le code, et exige que la page tire la
 conséquence, à l'endroit où quelqu'un la lira : dans la section qui énumère ce que le
 serveur enregistre.
+
+23/09/2026 — LA CONSÉQUENCE A CHANGÉ, PAS LA QUESTION. Chaque lecture exige maintenant
+l'identifiant aléatoire du navigateur (`Depends(visiteur)`, audit C-1) : un visiteur ne lit
+plus les notes d'un autre. La phrase « toute personne capable d'atteindre l'instance lit ces
+entrées » est devenue fausse — et ce fichier la garantissait. Il garantit désormais les deux
+faits vrais : la cloison existe dans le CODE (chaque lecture passe par l'identifiant), et la
+page dit QUI peut encore lire (l'administrateur de l'instance, et qui copierait l'identifiant).
 """
 from __future__ import annotations
 
@@ -90,24 +97,35 @@ def test_le_crible_trouve_bien_des_lectures_sans_compte():
     assert len(routes) >= 3, routes
 
 
-def test_aucune_de_ces_routes_ne_demande_d_identite():
-    """Le fait mesuré, pas supposé : rien dans ce dépôt n'authentifie une lecture."""
-    source = MAIN.read_text(encoding="utf-8-sig")
+def test_chaque_lecture_passe_par_l_identifiant_du_navigateur():
+    """Le fait mesuré, pas supposé : chaque route GET qui lit une table exige le visiteur."""
+    arbre = ast.parse(MAIN.read_text(encoding="utf-8-sig"))
+    routes = set(_lectures_sans_compte())
+    sans_cloison = []
+    for noeud in ast.walk(arbre):
+        if not isinstance(noeud, ast.FunctionDef):
+            continue
+        chemins = {getattr(d.args[0], "value", None) for d in noeud.decorator_list
+                   if isinstance(d, ast.Call) and d.args}
+        if not chemins & routes:
+            continue
+        defauts = [ast.unparse(d) for d in noeud.args.defaults]
+        if "Depends(visiteur)" not in defauts:
+            sans_cloison.append(noeud.name)
+    assert sans_cloison == [], f"ces lectures ne sont pas cloisonnées : {sans_cloison}"
 
-    for mot in ("Depends(auth", "HTTPBearer", "OAuth2", "current_user", "login_required"):
-        assert mot not in source, (
-            f"« {mot} » existe : la déduction de ce fichier est périmée, relisez-la"
-        )
 
-
-def test_la_page_tire_la_CONSEQUENCE_de_l_absence_de_compte():
+def test_la_page_dit_QUI_peut_encore_lire():
     section = _section_des_tables().lower()
 
-    assert "atteindre" in section or "accès à l'adresse" in section, (
-        "la section qui énumère ce que le serveur garde doit dire QUI peut le lire : "
-        "sans compte, toute personne capable d'atteindre l'instance lit ces tables"
+    assert "identifiant" in section, "la section doit dire ce qui cloisonne les entrées"
+    assert "administre" in section, (
+        "la cloison ne protège pas du fichier de la base : la page doit nommer qui peut "
+        "encore tout lire"
     )
-    assert "instance" in section
+    assert "atteindre cette instance peut lire" not in section, (
+        "phrase d'avant le 23/09, devenue fausse : un visiteur ne lit plus les notes d'un autre"
+    )
 
 
 def test_la_phrase_est_la_OU_on_lit_ce_qui_est_enregistre():
@@ -131,6 +149,6 @@ def test_la_page_ne_promet_JAMAIS_une_intimite_qu_elle_n_a_pas():
     for promesse in ("vous seul", "vous seule", "personne d'autre ne peut",
                      "nul autre", "vous êtes le seul"):
         assert promesse not in html, (
-            f"« {promesse} » est faux tant qu'il n'y a pas de compte : n'importe qui "
-            "atteignant l'instance lit ces entrées"
+            f"« {promesse} » est faux : l'administrateur de l'instance lit la base, "
+            "et quiconque copie l'identifiant lit ce qu'il protège"
         )

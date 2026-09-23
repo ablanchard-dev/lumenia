@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 from typing import Annotated, List, Optional, Dict
 
 # --- Bornes ---------------------------------------------------------------
@@ -43,6 +43,14 @@ class ScenarioIn(BaseModel):
 class JournalIn(BaseModel):
     title: Annotated[str, Field(max_length=200)]
     content: TexteLong
+
+    # 23/09/2026 (N-3) : titre ET contenu vides donnaient 200 et une ligne vide en base. On refuse
+    # le vide, pas le style : une entree sans titre reste un usage normal.
+    @model_validator(mode="after")
+    def _pas_vide(self):
+        if not self.title.strip() and not self.content.strip():
+            raise ValueError("une entree de journal vide n'a rien a garder")
+        return self
 
 class EntryAssessmentIn(BaseModel):
     # Le parcours compte six dimensions ; 60 entrees laissent toute la marge utile.

@@ -554,10 +554,14 @@
     return state.convs.find((c) => c.id === state.activeId) || null;
   }
 
+  const TITRE_VIDE = "Conversation vide";
+
   function createConv() {
     const c = {
       id: "c" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-      title: "Nouvelle conversation",
+      // 23/09/2026 : pas le libellé du bouton « Nouvelle conversation » juste au-dessus (deux
+      // éléments, un seul nom). Renommée par son premier message.
+      title: TITRE_VIDE,
       createdAt: Date.now(),
       messages: [],
     };
@@ -763,7 +767,8 @@
     sendBtn.disabled = true;
     appendMessageEl("user", text);
     conv.messages.push({ role: "user", content: text });
-    if (conv.title === "Nouvelle conversation") {
+    // L'ancien libellé aussi : les conversations gardées avant le 23/09 le portent encore.
+    if (conv.title === TITRE_VIDE || conv.title === "Nouvelle conversation") {
       conv.title = text.length > 38 ? text.slice(0, 38) + "…" : text;
       renderConvList();
     }

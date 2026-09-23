@@ -251,7 +251,12 @@
     progress.innerHTML = `<span class="p-bar"><span class="p-bar-fill"></span></span>`;
     progress.querySelector(".p-bar-fill").style.width = `${pct}%`;
 
-    $("challenge-step").textContent = `Épreuve ${p.i + 1} sur ${p.steps.length} — ${step.label}`;
+    // 23/09/2026 — plus de sur-titre en capitales : la barre annonce l'épreuve et son intitulé,
+    // le compteur visible reste discret à côté d'elle.
+    progress.setAttribute("aria-valuenow", String(p.i + 1));
+    progress.setAttribute("aria-valuemax", String(p.steps.length));
+    progress.setAttribute("aria-valuetext", `Épreuve ${p.i + 1} sur ${p.steps.length} : ${step.label}`);
+    $("challenge-step").textContent = `${p.i + 1} sur ${p.steps.length}`;
 
     const consigne = $("challenge-consigne");
     consigne.hidden = !step.consigne;

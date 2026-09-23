@@ -342,7 +342,8 @@
     if (!step) return;
     const p = state.parcours;
     const isQcm = step.kind === "qcm";
-    const answer = isQcm ? (p.selected || "") : $("challenge-input").value.trim();
+    // QCM : on envoie le TEXTE choisi. L'ordre et les lettres changent à chaque tirage.
+    const answer = isQcm ? ((p.selected && step.choices[p.selected]) || "") : $("challenge-input").value.trim();
     if (!answer) return;
     // Pendant la verification : le bouton se grise, et « … » dit pourquoi.
     boutonValider(false);

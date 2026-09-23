@@ -23,7 +23,9 @@ from app.main import app
 
 def _bonne_reponse(step):
     c = entry._BY_ID[step["id"]]
-    return c.get("answer") or (c.get("choices") or ["x"])[c.get("correct", 0)]
+    if c.get("choices"):  # QCM : le TEXTE juste (23/09/2026, choix mélangés à chaque tirage)
+        return c["choices"][str(c["answer"]).upper()]
+    return c.get("answer") or c["answers"][0]
 
 
 def _premiere_qcm(steps):

@@ -158,7 +158,13 @@ def get_parcours(exclude: Optional[Set[str]] = None) -> dict:
             if item.get("consigne"):
                 entry["consigne"] = item["consigne"]
             if item["kind"] == "qcm":
-                entry["choices"] = item["choices"]
+                # 23/09/2026 : la bonne réponse était en A pour 44 % des QCM de la banque, et
+                # l'ordre servi était celui de la banque — viser « A » battait le hasard. L'ordre
+                # est mélangé à CHAQUE tirage et les lettres réattribuées ; la vérification porte
+                # sur le texte choisi (verify_challenge), jamais sur une lettre.
+                textes = list(item["choices"].values())
+                random.shuffle(textes)
+                entry["choices"] = dict(zip("ABCDEFGH", textes))
             if item.get("temps_sec"):
                 entry["temps_sec"] = item["temps_sec"]
             steps.append(entry)
@@ -202,13 +208,14 @@ def verify_challenge(challenge_id: str, answer: str) -> dict:
     if not c:
         return {"ok": False, "error": "unknown_challenge"}
 
-    # QCM : la réponse est une lettre (A/B/C/D), comparée à la clé. Pas de LLM.
-    # On tolère aussi le texte exact du bon choix (robustesse côté client).
+    # QCM : la réponse est le TEXTE du choix, comparé au texte juste. Pas de LLM.
+    # 23/09/2026 : plus de lettre. Les choix sont mélangés à chaque tirage (get_parcours) : une
+    # lettre ne désigne plus rien de stable, et l'accepter rendrait son avantage à « A partout ».
     if c["kind"] == "qcm":
         key = str(c.get("answer", "")).strip().upper()
         picked = str(answer).strip()
         correct_text = str((c.get("choices") or {}).get(key, "")).strip()
-        ok = picked.upper() == key or (correct_text and _normalize(picked) == _normalize(correct_text))
+        ok = bool(correct_text) and _normalize(picked) == _normalize(correct_text)
         return {"ok": True} if ok else {"ok": False, "hint": c.get("explication", "")}
 
     # Épreuve ouverte : pas de mauvaise réponse, juste de la matière à profil.

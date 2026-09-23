@@ -113,17 +113,19 @@ def test_objective_items_have_answers():
 
 # --- Validation déterministe (sans LLM) --------------------------------------
 
-def test_verify_qcm_correct_letter_is_ok():
+# 23/09/2026 : une réponse de QCM est le TEXTE choisi (les choix sont mélangés à chaque tirage).
+def test_verify_qcm_correct_text_is_ok():
     assert len(QCM) > 0, "plus aucun QCM dans la banque : ce test est muet"
     for it in QCM:
-        assert verify_challenge(it["id"], it["answer"]).get("ok") is True, it["id"]
+        juste = it["choices"][str(it["answer"]).upper()]
+        assert verify_challenge(it["id"], juste).get("ok") is True, it["id"]
 
 
-def test_verify_qcm_wrong_letter_is_rejected():
+def test_verify_qcm_wrong_text_is_rejected():
     assert len(QCM) > 0, "plus aucun QCM dans la banque : ce test est muet"
     for it in QCM:
-        wrong = next(L for L in "ABCD" if L != str(it["answer"]).upper())
-        assert verify_challenge(it["id"], wrong).get("ok") is False, it["id"]
+        faux = next(t for L, t in it["choices"].items() if L != str(it["answer"]).upper())
+        assert verify_challenge(it["id"], faux).get("ok") is False, it["id"]
 
 
 def test_verify_objective_exact_answer_is_ok(monkeypatch):

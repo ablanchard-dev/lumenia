@@ -41,13 +41,13 @@ def test_entry_passed_threshold():
 
 def _good(step):
     item = _BY_ID[step["id"]]
-    return item["answer"] if item["kind"] == "qcm" else item["answers"][0]
+    return item["choices"][str(item["answer"]).upper()] if item["kind"] == "qcm" else item["answers"][0]
 
 
 def _bad(step):
     item = _BY_ID[step["id"]]
     if item["kind"] == "qcm":
-        return next(k for k in item["choices"] if k != str(item["answer"]).upper())
+        return next(t for k, t in item["choices"].items() if k != str(item["answer"]).upper())
     return "zzz-reponse-fausse"
 
 

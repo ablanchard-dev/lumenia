@@ -1114,8 +1114,13 @@ a { color: var(--primary); }
    la seule destructive. WCAG 2.5.5 demande 44 × 44.
    Lumenia s'adresse à des profils TDAH et autistes : viser au pixel près,
    c'est exactement l'effort qu'on est censé leur épargner.
+   23/09/2026 : et pas seulement sur petit écran. Sous 760 px seulement, une tablette
+   ou un portable tactile gardait la corbeille à 30 px et la fermeture de la bannière
+   de crise à 36 px (audit N-5). Un doigt ne se mesure pas à la largeur de l'écran :
+   dès qu'un pointeur imprécis existe, les cibles grossissent. La souris seule garde
+   le dessin d'origine.
    ============================================================ */
-@media (max-width: 760px) {
+@media (max-width: 760px), (any-pointer: coarse) {
   .conv-del { width: 44px; height: 44px; margin-right: 2px; }
   .conv-open { min-height: 44px; }
   .sidebar-card-link { min-height: 44px; }

@@ -30,10 +30,19 @@ POINTUS = ["conv-del", "conv-open", "sidebar-card-link"]
 
 
 def _bloc_tactile() -> str:
-    """Le bloc @media dédié aux petits écrans où les cibles sont agrandies."""
-    m = re.search(r"@media \(max-width: 760px\) \{(.*?)\n\}", CSS, re.S)
+    """Le bloc @media où les cibles sont agrandies : petit écran OU écran tactile."""
+    m = re.search(r"@media \(max-width: 760px\)(?:, \(any-pointer: coarse\))? \{(.*?)\n\}", CSS, re.S)
     assert m, "aucun bloc @media (max-width: 760px) pour les cibles tactiles"
     return m.group(1)
+
+
+def test_une_tablette_tactile_a_aussi_ses_cibles_de_44px():
+    """23/09/2026 : le bloc tactile ne s'appliquait que sous 760 px de large. À 768 px et plus
+    (tablette, portable à écran tactile), la corbeille restait à 30 × 30 et la fermeture de la
+    bannière de crise à 36 × 36 (audit N-5). Un doigt ne se mesure pas à la largeur de l'écran :
+    le bloc vaut aussi dès qu'un pointeur imprécis existe."""
+    assert re.search(r"@media \(max-width: 760px\), \(any-pointer: coarse\) \{", CSS), \
+        "le bloc des cibles tactiles ne s'applique pas à un écran tactile large"
 
 
 def test_chaque_commande_de_l_ecran_de_chat_fait_44px_sur_petit_ecran():

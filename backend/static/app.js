@@ -188,8 +188,46 @@
     } catch { return []; }
   }
 
-  async function startParcours() {
+  // 23/09/2026 — la pause (L-UI-3). Le parcours est gardé sur CE navigateur à chaque épreuve et
+  // repris là où on l'a laissé. La reprise ne retire PAS de parcours : `GET /entry/parcours`
+  // efface ce que le serveur a constaté (garde du 17/09).
+  const PARCOURS_KEY = "lumenia.parcours";
+
+  function garderParcours() {
+    const p = state.parcours;
+    try { localStorage.setItem(PARCOURS_KEY, JSON.stringify({ steps: p.steps, i: p.i, results: p.results })); }
+    catch { /* stockage plein ou refusé : la pause ne sera simplement pas gardée */ }
+  }
+
+  function parcoursGarde() {
+    try {
+      const g = JSON.parse(localStorage.getItem(PARCOURS_KEY));
+      const valide = g && Array.isArray(g.steps) && g.steps.length && Array.isArray(g.results)
+        && Number.isInteger(g.i) && g.i >= 0 && g.i < g.steps.length;
+      return valide ? g : null;
+    } catch { return null; }
+  }
+
+  function oublierParcours() {
+    try { localStorage.removeItem(PARCOURS_KEY); } catch { /* rien à oublier */ }
+  }
+
+  function annoncerReprise() {
+    const g = parcoursGarde();
+    const note = $("intro-reprise");
+    note.hidden = !g;
+    note.textContent = g ? `Ton parcours est gardé sur ce navigateur : tu reprendras à l'épreuve ${g.i + 1} sur ${g.steps.length}.` : "";
+  }
+
+  async function startParcours(nouveau = false) {
     show("challenge");
+    const garde = nouveau ? null : parcoursGarde();
+    if (garde) {
+      state.parcours = { steps: garde.steps, i: garde.i, results: garde.results, failures: 0 };
+      renderStep();
+      return;
+    }
+    oublierParcours();
     $("challenge-step").textContent = "…";
     $("challenge-question").textContent = "…";
     try {
@@ -241,6 +279,7 @@
     const step = currentStep();
     p.failures = 0;
     p.selected = null;
+    garderParcours();
 
     const progress = $("parcours-progress");
     const pct = Math.round(((p.i + 1) / p.steps.length) * 100);
@@ -438,6 +477,7 @@
 
   async function completeParcours() {
     const p = state.parcours;
+    oublierParcours();
     boutonValider(false);
     $("challenge-skip").hidden = true;
 
@@ -476,7 +516,15 @@
     if (e.key === "Enter") { e.preventDefault(); submitStep(); }
   });
   $("challenge-skip").addEventListener("click", skipStep);
-  $("fail-retry").addEventListener("click", startParcours);
+  $("fail-retry").addEventListener("click", () => startParcours(true));
+  $("challenge-pause").addEventListener("click", () => {
+    garderParcours();
+    show("aucun");
+    annoncerReprise();
+    introEl.classList.remove("fade");
+    introEl.hidden = false;
+    $("intro-enter").focus();
+  });
 
   /* ---------------- conversations (localStorage) ---------------- */
 
@@ -797,5 +845,6 @@
     }
     // sinon : l'intro animée se joue à CHAQUE ouverture, puis « Entrer dans le seuil »
     //   → consentement (1ʳᵉ fois) → parcours (si pas encore réussi) → chat (si réussi)
+    if (accepted && localStorage.getItem("lumenia.entryPassed") !== "1") annoncerReprise();
   })();
 })();

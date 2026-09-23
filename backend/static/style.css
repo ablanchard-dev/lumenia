@@ -435,6 +435,23 @@ a { color: var(--primary); }
   flex-wrap: wrap;
 }
 
+/* 23/09/2026 — la pause : un lien discret, pas un second bouton qui concurrence « Valider ». */
+.btn-pause {
+  min-height: 44px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.btn-pause:hover { color: var(--text); }
+.btn-pause:focus-visible { outline: 2px dashed var(--primary); outline-offset: 3px; border-radius: 4px; }
+.intro-reprise { margin: 14px 0 0; font-size: 14px; color: var(--text-muted); text-align: center; }
+
 .btn-skip {
   display: inline-flex;
   align-items: center;

@@ -871,8 +871,14 @@
       $("fail-score").textContent = "22 / 30";
       return show("fail");
     }
-    // sinon : l'intro animée se joue à CHAQUE ouverture, puis « Entrer dans le seuil »
-    //   → consentement (1ʳᵉ fois) → parcours (si pas encore réussi) → chat (si réussi)
-    if (accepted && localStorage.getItem("lumenia.entryPassed") !== "1") annoncerReprise();
+    // 23/09/2026 — qui a déjà passé le seuil revient pour parler : pas d'intro rejouée, pas de clic
+    // imposé (critique Impeccable #4). Si le serveur ne le sait plus, le refus du chat montre le chemin.
+    if (accepted && localStorage.getItem("lumenia.entryPassed") === "1") {
+      hideIntroNow();
+      return enterChat();
+    }
+    // sinon : l'intro animée se joue (première visite, ou parcours en pause qu'elle annonce),
+    //   puis « Entrer dans le seuil » → consentement (1ʳᵉ fois) → parcours
+    if (accepted) annoncerReprise();
   })();
 })();

@@ -830,8 +830,11 @@ a { color: var(--primary); }
 .welcome::before {
   content: "";
   position: absolute;
-  inset: -60% -20%;
-  background: radial-gradient(ellipse 50% 45% at 50% 40%, var(--halo), transparent 70%);
+  /* 23/09/2026 — le bas s'arrête à l'accueil : les 60 % d'en dessous étaient déjà transparents
+     et rendaient le chat vide défilable (158 px à 375 x 812). Même dessin, boîte recalculée :
+     centre 0,88/1,6 = 55 %, rayon vertical 0,99/1,6 = 61,875 %. */
+  inset: -60% -20% 0;
+  background: radial-gradient(ellipse 50% 61.875% at 50% 55%, var(--halo), transparent 70%);
   pointer-events: none;
 }
 .welcome > * { position: relative; }

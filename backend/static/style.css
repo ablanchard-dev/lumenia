@@ -484,12 +484,13 @@ a { color: var(--primary); }
 }
 
 .choice {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 14px;
   width: 100%;
   min-height: 56px;
-  padding: 12px 16px;
+  padding: 12px 52px 12px 16px;
   text-align: left;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
@@ -500,6 +501,30 @@ a { color: var(--primary); }
   transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
 }
 .choice:hover:not(:disabled) { border-color: var(--primary); }
+
+/* 23/09/2026 — TROIS ÉTATS, TROIS LANGAGES. Focus, sélection et verdict partageaient la même
+   famille violette et ne différaient que par l'épaisseur d'un halo : sur une capture, on ne
+   savait pas dire si A était choisi ou seulement survolé au clavier. Maintenant :
+   - focus    = anneau POINTILLÉ hors de la carte (où est le clavier) ;
+   - choisi   = l'indicateur radio à droite se REMPLIT (ce que l'on a choisi) ;
+   - verdict  = l'indicateur prend la couleur du verdict. */
+.choice::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: transparent;
+  transition: border-color .18s ease, background .18s ease;
+}
+.choice:focus-visible {
+  outline: 2px dashed var(--ring);
+  outline-offset: 3px;
+}
 
 .choice-key {
   flex: 0 0 auto;
@@ -517,11 +542,14 @@ a { color: var(--primary); }
 }
 .choice-text { flex: 1 1 auto; }
 
-/* sélectionné — bordure forte + chip rempli + halo discret (pas couleur seule) */
+/* sélectionné — bordure forte + chip rempli + indicateur plein (pas couleur seule, pas de halo) */
 .choice.selected {
   border-color: var(--primary-strong);
   background: color-mix(in srgb, var(--primary) 12%, var(--surface-2));
-  box-shadow: 0 0 0 1px var(--primary-strong), 0 8px 22px -14px var(--glow);
+}
+.choice.selected::after {
+  border-color: var(--primary-strong);
+  background: radial-gradient(circle, var(--primary-strong) 0 42%, transparent 46%);
 }
 .choice.selected .choice-key {
   background: linear-gradient(180deg, var(--primary), var(--primary-strong));
@@ -535,10 +563,12 @@ a { color: var(--primary); }
   background: color-mix(in srgb, var(--accent) 13%, var(--surface-2));
 }
 .choice.correct .choice-key { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+.choice.correct::after { border-color: var(--accent); background: radial-gradient(circle, var(--accent) 0 42%, transparent 46%); }
 .choice.wrong {
   border-color: var(--danger);
   background: color-mix(in srgb, var(--danger) 11%, var(--surface-2));
 }
+.choice.wrong::after { border-color: var(--danger); }
 
 /* verrouillé une fois la bonne réponse trouvée */
 .challenge-choices.is-locked .choice { cursor: default; }

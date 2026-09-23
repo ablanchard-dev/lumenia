@@ -738,7 +738,10 @@
 
   function showSafetyBanner() {
     $("safety-banner").hidden = false;
-    scrollToEnd();
+    // 23/09/2026 : le DÉBUT de la réponse de crise (celui qui nomme le 3114), pas sa fin. Sur un
+    // téléphone, la bannière prend le haut de l'écran et défiler en bas cachait cette phrase.
+    const reponse = messagesEl.querySelector(".msg.assistant:last-of-type");
+    if (reponse) reponse.scrollIntoView({ block: "start" });
   }
 
   // Suggestions du message d'accueil (re-créées à chaque rendu → délégation).

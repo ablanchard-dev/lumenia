@@ -1172,3 +1172,6 @@ a[href^="tel:"] {
 }
 
 .chat-vers-parcours { margin-top: 12px; }
+
+/* 23/09/2026 : quand un message est amené à l'écran (réponse de crise), il arrive avec de l'air au-dessus. */
+.msg { scroll-margin-top: 20px; }

@@ -98,3 +98,22 @@ def test_le_crible_sait_mesurer_un_png():
 
     assert _cote_png(grand) == (1248, 1254)
     assert len(grand) > BUDGET_PAR_IMAGE, "l'image d'origine est bien celle qu'on ne sert pas en icône"
+
+
+def test_aucune_page_servie_meme_atelier_n_affiche_une_image_hors_budget():
+    """23/09/2026 — le 18/09 ne pesait que les pages du plan du site. La planche
+    `intro-preview.html` (servie, 200) affichait encore le PNG de 2,18 Mo, pour une
+    image de 400 points au plus."""
+    pesees, trop_lourdes = 0, []
+    for page in sorted((RACINE / "static").glob("*.html")):
+        html = client.get(f"/static/{page.name}").text
+        for src in re.findall(r'<img[^>]+src="(/static/[^"]+)"', html):
+            reponse = client.get(src)
+            poids = len(reponse.content)
+            pesees += 1
+            if not reponse.headers.get("content-type", "").startswith("image/"):
+                trop_lourdes.append(f"{page.name} -> {src} servie en {reponse.headers.get('content-type')}")
+            if poids > BUDGET_PAR_IMAGE:
+                trop_lourdes.append(f"{page.name} -> {src} ({poids // 1024} Ko)")
+    assert pesees > 5, "témoin : les images des pages doivent être pesées"
+    assert trop_lourdes == []

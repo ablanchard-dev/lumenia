@@ -475,6 +475,7 @@ def resources():
 # en-tetes voyagent bien ensemble (`font/woff2` + `nosniff`).
 mimetypes.add_type("font/woff2", ".woff2")
 mimetypes.add_type("font/woff", ".woff")
+mimetypes.add_type("image/webp", ".webp")  # même piège, même registre (23/09)
 
 # En-tetes de securite, robots.txt, sitemap et 404 humain : un seul endroit.
 #

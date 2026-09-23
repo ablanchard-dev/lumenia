@@ -68,8 +68,10 @@ client, and trusting it would let a ten-line loop reset its LLM quota at will.
 - **Safety.** Built-in distress detection on every free-text input (chat, the helper
   tools and the journal): if a message hints at suicidal thoughts, Lumenia stops short and
   points to 3114, without calling the model.
-- **Single user.** The entry gate, the risk flag and the profile are global to the server:
-  run one instance per person. It is not built to be shared behind one URL.
+- **Per browser.** The entry gate, the risk flag, the profile and the journal are kept per
+  visitor: each browser draws a random identifier (`X-Lumenia-Id`) and only reads what it
+  wrote. There are no accounts: clearing the browser's storage loses access to that data,
+  and whoever runs the instance can still read all of it.
 - **LLM.** A chain of free providers (Gemini, Cerebras, Groq, Mistral) with automatic
   failover when a quota runs out. They all speak the OpenAI protocol; a provider with
   no key is simply skipped.
@@ -108,7 +110,7 @@ cd backend
 .venv\Scripts\python -m pytest
 ```
 
-350+ parametrized cases (`backend/tests/`), run in CI on every push, from **402 test
+350+ parametrized cases (`backend/tests/`), run in CI on every push, from **403 test
 functions**. The number of cases pytest reports is larger and grows with the suite; the
 function count is the one written here, because it can be counted without running anything —
 and a test holds it **exactly**, so adding a test turns this line red until it is updated.

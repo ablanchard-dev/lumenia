@@ -28,3 +28,12 @@ def test_l_ouverture_dit_ce_que_lumenia_n_est_pas():
         "le 3114": r"\b3114\b",
     }.items() if not re.search(motif, ouverture, re.I)]
     assert manquants == [], f"l'ouverture du README ne dit pas : {manquants}"
+
+
+def test_le_readme_ne_dit_plus_global_au_serveur_depuis_le_cloisonnement():
+    """23/09/2026 — « Single user … global to the server: run one instance per person » était
+    vrai jusqu'à 630e9c8 ; depuis, profil, drapeau de risque et seuil sont cloisonnés par
+    visiteur (`Depends(visiteur)`). Le README ne peut pas dire les deux."""
+    main = (README.parent / "backend" / "app" / "main.py").read_text(encoding="utf-8")
+    assert "Depends(visiteur)" in main, "témoin : le cloisonnement doit exister pour que ce test ait un sens"
+    assert "global to the server" not in README.read_text(encoding="utf-8")

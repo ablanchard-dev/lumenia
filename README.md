@@ -9,8 +9,13 @@ conversation. Direct tone, no judgment, no medical jargon. A FastAPI backend tha
 serves the UI; an LLM via chained free providers; local data.
 
 Full-stack: FastAPI + SQLite + a served SPA, a multi-provider LLM chain with failover,
-a **server-enforced** access gate, and a blocking crisis-safety check — deployed with
+a **server-enforced** access gate, and a blocking crisis-safety check — packaged with
 Docker, tested in CI.
+
+This repository is code to run yourself, **not a hosted service**: there is no public
+instance to sign up to, and whoever runs an instance can read what is stored in it.
+Lumenia is **not a medical device** and does not replace a health professional. In
+distress in France: **3114** (suicide prevention, free, 24/7) or 15 (medical emergencies).
 
 ![Lumenia home screen](docs/lumenia.png)
 
@@ -103,7 +108,7 @@ cd backend
 .venv\Scripts\python -m pytest
 ```
 
-350+ parametrized cases (`backend/tests/`), run in CI on every push, from **401 test
+350+ parametrized cases (`backend/tests/`), run in CI on every push, from **402 test
 functions**. The number of cases pytest reports is larger and grows with the suite; the
 function count is the one written here, because it can be counted without running anything —
 and a test holds it **exactly**, so adding a test turns this line red until it is updated.

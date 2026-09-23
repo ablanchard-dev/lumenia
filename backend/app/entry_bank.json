@@ -9,7 +9,7 @@
         "sous_type": "Similarités abstraites",
         "niveau": 2,
         "temps_sec": 45,
-        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "consigne": "Dis en quoi les deux notions se ressemblent. Choisis la réponse la plus générale et la plus abstraite.",
         "question": "Un microscope et un télescope",
         "kind": "qcm",
         "choices": {
@@ -27,7 +27,7 @@
         "sous_type": "Similarités abstraites",
         "niveau": 2,
         "temps_sec": 45,
-        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "consigne": "Dis en quoi les deux notions se ressemblent. Choisis la réponse la plus générale et la plus abstraite.",
         "question": "Une règle sociale et une loi",
         "kind": "qcm",
         "choices": {
@@ -45,7 +45,7 @@
         "sous_type": "Similarités abstraites",
         "niveau": 2,
         "temps_sec": 45,
-        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "consigne": "Dis en quoi les deux notions se ressemblent. Choisis la réponse la plus générale et la plus abstraite.",
         "question": "Une carte et un modèle réduit",
         "kind": "qcm",
         "choices": {
@@ -63,7 +63,7 @@
         "sous_type": "Similarités abstraites",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "consigne": "Dis en quoi les deux notions se ressemblent. Choisis la réponse la plus générale et la plus abstraite.",
         "question": "Un doute et une hypothèse",
         "kind": "qcm",
         "choices": {
@@ -81,7 +81,7 @@
         "sous_type": "Similarités abstraites",
         "niveau": 4,
         "temps_sec": 45,
-        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "consigne": "Dis en quoi les deux notions se ressemblent. Choisis la réponse la plus générale et la plus abstraite.",
         "question": "Un poème et une équation",
         "kind": "qcm",
         "choices": {
@@ -99,7 +99,7 @@
         "sous_type": "Similarités abstraites",
         "niveau": 2,
         "temps_sec": 45,
-        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "consigne": "Dis en quoi les deux notions se ressemblent. Choisis la réponse la plus générale et la plus abstraite.",
         "question": "Un vaccin et une ceinture de sécurité",
         "kind": "qcm",
         "choices": {
@@ -117,7 +117,7 @@
         "sous_type": "Similarités abstraites",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "consigne": "Dis en quoi les deux notions se ressemblent. Choisis la réponse la plus générale et la plus abstraite.",
         "question": "Un budget et un calendrier",
         "kind": "qcm",
         "choices": {
@@ -135,7 +135,7 @@
         "sous_type": "Similarités abstraites",
         "niveau": 2,
         "temps_sec": 45,
-        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "consigne": "Dis en quoi les deux notions se ressemblent. Choisis la réponse la plus générale et la plus abstraite.",
         "question": "Un dictionnaire et un atlas",
         "kind": "qcm",
         "choices": {
@@ -153,7 +153,7 @@
         "sous_type": "Similarités abstraites",
         "niveau": 2,
         "temps_sec": 45,
-        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "consigne": "Dis en quoi les deux notions se ressemblent. Choisis la réponse la plus générale et la plus abstraite.",
         "question": "Un algorithme et une recette",
         "kind": "qcm",
         "choices": {
@@ -171,7 +171,7 @@
         "sous_type": "Similarités abstraites",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Dites en quoi les deux notions se ressemblent. Choisissez la réponse la plus générale et la plus abstraite.",
+        "consigne": "Dis en quoi les deux notions se ressemblent. Choisis la réponse la plus générale et la plus abstraite.",
         "question": "Un juge et un arbitre",
         "kind": "qcm",
         "choices": {
@@ -189,7 +189,7 @@
         "sous_type": "Vocabulaire conceptuel",
         "niveau": 2,
         "temps_sec": 35,
-        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "consigne": "Choisis la définition la plus précise du mot présenté.",
         "question": "Pragmatique",
         "kind": "qcm",
         "choices": {
@@ -207,7 +207,7 @@
         "sous_type": "Vocabulaire conceptuel",
         "niveau": 2,
         "temps_sec": 35,
-        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "consigne": "Choisis la définition la plus précise du mot présenté.",
         "question": "Inférer",
         "kind": "qcm",
         "choices": {
@@ -225,7 +225,7 @@
         "sous_type": "Vocabulaire conceptuel",
         "niveau": 3,
         "temps_sec": 35,
-        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "consigne": "Choisis la définition la plus précise du mot présenté.",
         "question": "Équivoque",
         "kind": "qcm",
         "choices": {
@@ -243,7 +243,7 @@
         "sous_type": "Vocabulaire conceptuel",
         "niveau": 3,
         "temps_sec": 35,
-        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "consigne": "Choisis la définition la plus précise du mot présenté.",
         "question": "Corroborer",
         "kind": "qcm",
         "choices": {
@@ -261,7 +261,7 @@
         "sous_type": "Vocabulaire conceptuel",
         "niveau": 3,
         "temps_sec": 35,
-        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "consigne": "Choisis la définition la plus précise du mot présenté.",
         "question": "Lacunaire",
         "kind": "qcm",
         "choices": {
@@ -279,7 +279,7 @@
         "sous_type": "Vocabulaire conceptuel",
         "niveau": 3,
         "temps_sec": 35,
-        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "consigne": "Choisis la définition la plus précise du mot présenté.",
         "question": "Paradoxe",
         "kind": "qcm",
         "choices": {
@@ -297,7 +297,7 @@
         "sous_type": "Vocabulaire conceptuel",
         "niveau": 4,
         "temps_sec": 35,
-        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "consigne": "Choisis la définition la plus précise du mot présenté.",
         "question": "Extrapoler",
         "kind": "qcm",
         "choices": {
@@ -315,7 +315,7 @@
         "sous_type": "Vocabulaire conceptuel",
         "niveau": 2,
         "temps_sec": 35,
-        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "consigne": "Choisis la définition la plus précise du mot présenté.",
         "question": "Nuance",
         "kind": "qcm",
         "choices": {
@@ -333,7 +333,7 @@
         "sous_type": "Vocabulaire conceptuel",
         "niveau": 3,
         "temps_sec": 35,
-        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "consigne": "Choisis la définition la plus précise du mot présenté.",
         "question": "Réciproque",
         "kind": "qcm",
         "choices": {
@@ -351,7 +351,7 @@
         "sous_type": "Vocabulaire conceptuel",
         "niveau": 4,
         "temps_sec": 35,
-        "consigne": "Choisissez la définition la plus précise du mot présenté.",
+        "consigne": "Choisis la définition la plus précise du mot présenté.",
         "question": "Contingent",
         "kind": "qcm",
         "choices": {
@@ -369,7 +369,7 @@
         "sous_type": "Information générale stable",
         "niveau": 4,
         "temps_sec": 75,
-        "consigne": "Lisez l'énoncé puis choisissez la seule conclusion logiquement correcte. Une seule réponse respecte exactement le principe physique en jeu.",
+        "consigne": "Lis l'énoncé puis choisis la seule conclusion logiquement correcte. Une seule réponse respecte exactement le principe physique en jeu.",
         "question": "Le principe d'Archimède énonce que la poussée subie par un corps immergé égale le poids du volume de fluide qu'il déplace. Deux billes de même volume, l'une en plomb, l'autre en bois, sont entièrement immergées dans la même eau et maintenues sous la surface. Que peut-on affirmer de la poussée exercée sur chacune ?",
         "kind": "qcm",
         "choices": {
@@ -387,7 +387,7 @@
         "sous_type": "Information générale stable",
         "niveau": 4,
         "temps_sec": 75,
-        "consigne": "Raisonnez à partir de la définition donnée, sans la réciter. Choisissez la seule affirmation qui en découle nécessairement.",
+        "consigne": "Raisonne à partir de la définition donnée, sans la réciter. Choisis la seule affirmation qui en découle nécessairement.",
         "question": "Un nombre premier est un entier supérieur à 1 qui n'admet que deux diviseurs distincts : 1 et lui-même. Quelle affirmation est, pour cette raison, nécessairement vraie ?",
         "kind": "qcm",
         "choices": {
@@ -405,7 +405,7 @@
         "sous_type": "Information générale stable",
         "niveau": 4,
         "temps_sec": 70,
-        "consigne": "Mobilisez le sens précis de la notion pour trancher entre des formulations proches. Une seule est exacte.",
+        "consigne": "Mobilise le sens précis de la notion pour trancher entre des formulations proches. Une seule est exacte.",
         "question": "Le pH mesure l'acidité ou la basicité d'une solution sur une échelle de 0 à 14. Une solution passe d'un pH de 5 à un pH de 3. Que peut-on en conclure correctement ?",
         "kind": "qcm",
         "choices": {
@@ -423,7 +423,7 @@
         "sous_type": "Information générale stable",
         "niveau": 4,
         "temps_sec": 70,
-        "consigne": "Identifiez la fonction la plus fondamentale du dispositif décrit, pas seulement une de ses propriétés visibles. Une seule réponse vise l'essentiel.",
+        "consigne": "Identifie la fonction la plus fondamentale du dispositif décrit, pas seulement une de ses propriétés visibles. Une seule réponse vise l'essentiel.",
         "question": "Dans une démocratie représentative, quel rôle les élections périodiques remplissent-elles de la manière la plus fondamentale ?",
         "kind": "qcm",
         "choices": {
@@ -441,7 +441,7 @@
         "sous_type": "Information générale stable",
         "niveau": 3,
         "temps_sec": 40,
-        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "consigne": "Réponds à la question de connaissance générale stable. Choisis la meilleure réponse.",
         "question": "Pourquoi utilise-t-on un groupe témoin dans une expérience ?",
         "kind": "qcm",
         "choices": {
@@ -459,7 +459,7 @@
         "sous_type": "Information générale stable",
         "niveau": 4,
         "temps_sec": 40,
-        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "consigne": "Réponds à la question de connaissance générale stable. Choisis la meilleure réponse.",
         "question": "Quelle est la différence essentielle entre corrélation et causalité ?",
         "kind": "qcm",
         "choices": {
@@ -477,7 +477,7 @@
         "sous_type": "Information générale stable",
         "niveau": 3,
         "temps_sec": 40,
-        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "consigne": "Réponds à la question de connaissance générale stable. Choisis la meilleure réponse.",
         "question": "Qu'est-ce qu'une métaphore ?",
         "kind": "qcm",
         "choices": {
@@ -495,7 +495,7 @@
         "sous_type": "Information générale stable",
         "niveau": 4,
         "temps_sec": 75,
-        "consigne": "Raisonnez sur les conséquences de la notion économique, au-delà de sa simple définition. Une seule conclusion est correcte.",
+        "consigne": "Raisonne sur les conséquences de la notion économique, au-delà de sa simple définition. Une seule conclusion est correcte.",
         "question": "L'inflation désigne une hausse générale et durable du niveau des prix. Si le salaire nominal d'une personne augmente de 2 % sur un an alors que l'inflation atteint 5 % sur la même période, que peut-on conclure ?",
         "kind": "qcm",
         "choices": {
@@ -513,7 +513,7 @@
         "sous_type": "Information générale stable",
         "niveau": 3,
         "temps_sec": 40,
-        "consigne": "Répondez à la question de connaissance générale stable. Choisissez la meilleure réponse.",
+        "consigne": "Réponds à la question de connaissance générale stable. Choisis la meilleure réponse.",
         "question": "Qu'est-ce qu'un biais d'échantillonnage ?",
         "kind": "qcm",
         "choices": {
@@ -531,7 +531,7 @@
         "sous_type": "Information générale stable",
         "niveau": 4,
         "temps_sec": 80,
-        "consigne": "Utilisez la signification de la grandeur, et non un simple nom d'unité, pour interpréter la situation. Une seule réponse est exacte.",
+        "consigne": "Utilise la signification de la grandeur, et non un simple nom d'unité, pour interpréter la situation. Une seule réponse est exacte.",
         "question": "La fréquence, exprimée en hertz (Hz), correspond au nombre de cycles d'un phénomène périodique par seconde. Un phénomène A se répète 50 fois par seconde, un phénomène B se répète une fois toutes les deux secondes. Comment comparer leurs fréquences ?",
         "kind": "qcm",
         "choices": {
@@ -549,7 +549,7 @@
         "sous_type": "Compréhension et jugement",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "consigne": "Choisis la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
         "question": "Pourquoi demander un consentement éclairé avant une recherche impliquant des personnes ?",
         "kind": "qcm",
         "choices": {
@@ -567,7 +567,7 @@
         "sous_type": "Compréhension et jugement",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "consigne": "Choisis la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
         "question": "Pourquoi ne faut-il pas conclure fermement à partir d'une seule observation isolée ?",
         "kind": "qcm",
         "choices": {
@@ -585,7 +585,7 @@
         "sous_type": "Compréhension et jugement",
         "niveau": 4,
         "temps_sec": 90,
-        "consigne": "Choisissez la conduite qui préserve à la fois l'équité de l'évaluation, la validité des résultats et l'intégrité de la démarche. Une seule réponse concilie ces trois exigences.",
+        "consigne": "Choisis la conduite qui préserve à la fois l'équité de l'évaluation, la validité des résultats et l'intégrité de la démarche. Une seule réponse concilie ces trois exigences.",
         "question": "Pendant un test d'entrée standardisé, plusieurs candidats signalent qu'une même question semble admettre deux interprétations également défendables. L'examinateur ne peut pas joindre le concepteur avant la fin de la session. Quelle décision est la plus défendable ?",
         "kind": "qcm",
         "choices": {
@@ -603,7 +603,7 @@
         "sous_type": "Compréhension et jugement",
         "niveau": 4,
         "temps_sec": 85,
-        "consigne": "Identifiez la justification la plus profonde de la pratique décrite, celle qui en fait la valeur durable. Une seule réponse vise cette raison de fond.",
+        "consigne": "Identifie la justification la plus profonde de la pratique décrite, celle qui en fait la valeur durable. Une seule réponse vise cette raison de fond.",
         "question": "Dans un projet long mené par une équipe, on consigne par écrit non seulement les décisions prises, mais aussi les raisons qui les ont motivées et les options écartées. Quelle est la justification la plus fondamentale de cette pratique ?",
         "kind": "qcm",
         "choices": {
@@ -621,7 +621,7 @@
         "sous_type": "Compréhension et jugement",
         "niveau": 4,
         "temps_sec": 45,
-        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "consigne": "Choisis la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
         "question": "Pourquoi séparer les données personnelles des scores dans une application de test ?",
         "kind": "qcm",
         "choices": {
@@ -639,7 +639,7 @@
         "sous_type": "Compréhension et jugement",
         "niveau": 4,
         "temps_sec": 85,
-        "consigne": "Déterminez ce que vise réellement le dispositif décrit du point de vue de la validité de la mesure. Une seule réponse en saisit la fonction propre.",
+        "consigne": "Détermine ce que vise réellement le dispositif décrit du point de vue de la validité de la mesure. Une seule réponse en saisit la fonction propre.",
         "question": "Avant une tâche cognitive chronométrée, on présente au candidat un exemple d'entraînement non noté, qu'il réalise puis dont on lui montre la solution. Du point de vue de la qualité de la mesure, quelle est la fonction essentielle de cet exemple ?",
         "kind": "qcm",
         "choices": {
@@ -657,7 +657,7 @@
         "sous_type": "Compréhension et jugement",
         "niveau": 4,
         "temps_sec": 45,
-        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "consigne": "Choisis la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
         "question": "Pourquoi éviter d'annoncer 'tu es surdoué' après un court test d'application ?",
         "kind": "qcm",
         "choices": {
@@ -675,7 +675,7 @@
         "sous_type": "Compréhension et jugement",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "consigne": "Choisis la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
         "question": "Pourquoi chronométrer de façon identique tous les utilisateurs dans une tâche de vitesse ?",
         "kind": "qcm",
         "choices": {
@@ -693,7 +693,7 @@
         "sous_type": "Compréhension et jugement",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "consigne": "Choisis la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
         "question": "Pourquoi proposer une pause lorsqu'un participant montre des signes de fatigue marquée ?",
         "kind": "qcm",
         "choices": {
@@ -711,7 +711,7 @@
         "sous_type": "Compréhension et jugement",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Choisissez la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
+        "consigne": "Choisis la réponse qui préserve le mieux la rigueur, l'éthique et la qualité de la situation.",
         "question": "Pourquoi l'examinateur ne doit-il pas aider pendant un item noté ?",
         "kind": "qcm",
         "choices": {
@@ -729,7 +729,7 @@
         "sous_type": "objective (enigme Qui suis-je)",
         "niveau": 4,
         "temps_sec": 80,
-        "consigne": "Cette devinette repose sur des métaphores : chaque indice décrit une propriété au sens figuré. Choisissez l'unique réponse qui satisfait simultanément toutes les contraintes de l'énoncé.",
+        "consigne": "Cette devinette repose sur des métaphores : chaque indice décrit une propriété au sens figuré. Choisis l'unique réponse qui satisfait simultanément toutes les contraintes de l'énoncé.",
         "question": "Je restitue ce qu'on me confie sans rien y ajouter ni rien comprendre ; je n'existe que parce qu'un autre a parlé ; je m'affaiblis à chaque fois que je me répète, jusqu'à disparaître. Que suis-je ?",
         "kind": "qcm",
         "choices": {
@@ -747,7 +747,7 @@
         "sous_type": "Raisonnement conceptuel (paradoxe d'augmentation par retrait)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Identifiez la notion abstraite qui correspond le mieux à la description. Choisissez la seule réponse pleinement cohérente.",
+        "consigne": "Identifie la notion abstraite qui correspond le mieux à la description. Choisis la seule réponse pleinement cohérente.",
         "question": "Quelle entité possède la propriété paradoxale de croître précisément à mesure qu'on lui soustrait de la substance ?",
         "kind": "qcm",
         "choices": {
@@ -765,8 +765,8 @@
         "sous_type": "Analyse sémantique (possession vs usage)",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Choisissez la notion qui satisfait exactement la double condition énoncée, sans approximation.",
-        "question": "Quelle chose vous appartient en propre alors même que ce sont les autres qui s'en servent presque toujours plus que vous ?",
+        "consigne": "Choisis la notion qui satisfait exactement la double condition énoncée, sans approximation.",
+        "question": "Quelle chose t'appartient en propre alors même que ce sont les autres qui s'en servent presque toujours plus que toi ?",
         "kind": "qcm",
         "choices": {
           "A": "Votre nom propre, qui vous désigne mais que vous prononcez rarement vous-même alors qu'autrui le prononce constamment.",
@@ -775,7 +775,7 @@
           "D": "Votre signature, qui vous identifie et que vous seul tracez."
         },
         "answer": "A",
-        "explication": "Le nom propre vous appartient (il vous désigne légalement et socialement) tout en étant employé davantage par autrui que par vous-même, qui le prononcez peu. La voix vous appartient mais c'est vous qui l'utilisez le plus. La réputation n'est pas une possession et ne se 'sert' pas. La signature est au contraire tracée par vous seul, ce qui contredit la condition."
+        "explication": "Le nom propre t'appartient (il te désigne légalement et socialement) tout en étant employé davantage par autrui que par toi-même, qui le prononces peu. La voix t'appartient mais c'est toi qui l'utilises le plus. La réputation n'est pas une possession et ne se 'sert' pas. La signature est au contraire tracée par toi seul, ce qui contredit la condition."
       },
       {
         "id": "silence",
@@ -783,7 +783,7 @@
         "sous_type": "Raisonnement conceptuel (autoréférence performative)",
         "niveau": 5,
         "temps_sec": 50,
-        "consigne": "Repérez la notion dont l'existence est détruite par l'acte même qui la nomme. Une seule réponse est rigoureuse.",
+        "consigne": "Repère la notion dont l'existence est détruite par l'acte même qui la nomme. Une seule réponse est rigoureuse.",
         "question": "Quelle réalité se trouve abolie par l'acte même de la désigner à voix haute ?",
         "kind": "qcm",
         "choices": {
@@ -801,7 +801,7 @@
         "sous_type": "Raisonnement temporel (relations relatives)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Déterminez le repère temporel qui occupe simultanément les deux positions décrites. Choisissez la seule réponse exacte.",
+        "consigne": "Détermine le repère temporel qui occupe simultanément les deux positions décrites. Choisis la seule réponse exacte.",
         "question": "Quel moment est à la fois l'avenir qu'attendait la veille et le passé que regrettera le lendemain ?",
         "kind": "qcm",
         "choices": {
@@ -819,7 +819,7 @@
         "sous_type": "Raisonnement conceptuel (la vacuité comme fonction)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Identifiez ce dont la multitude de vides constitue précisément le moyen de retenir. Une seule réponse est défendable.",
+        "consigne": "Identifie ce dont la multitude de vides constitue précisément le moyen de retenir. Une seule réponse est défendable.",
         "question": "Pour quelle chose la profusion de cavités n'est-elle pas une perte mais la condition même de sa capacité à retenir un liquide ?",
         "kind": "qcm",
         "choices": {
@@ -837,7 +837,7 @@
         "sous_type": "Analyse sémantique (ambiguïté du mouvement attribué)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Choisissez la chose qui permet de monter et de descendre tout en demeurant elle-même parfaitement immobile. Une seule réponse résout l'ambiguïté.",
+        "consigne": "Choisis la chose qui permet de monter et de descendre tout en demeurant elle-même parfaitement immobile. Une seule réponse résout l'ambiguïté.",
         "question": "Qu'est-ce qui rend possibles la montée et la descente alors que cette chose ne se déplace jamais d'elle-même ?",
         "kind": "qcm",
         "choices": {
@@ -855,7 +855,7 @@
         "sous_type": "Raisonnement conceptuel (usure proportionnelle à la durée d'usage)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Identifiez l'objet dont la diminution de taille mesure exactement le temps pendant lequel il a rempli sa fonction. Une seule réponse est juste.",
+        "consigne": "Identifie l'objet dont la diminution de taille mesure exactement le temps pendant lequel il a rempli sa fonction. Une seule réponse est juste.",
         "question": "Quel objet voit sa hauteur décroître en proportion directe du temps durant lequel il a accompli sa fonction ?",
         "kind": "qcm",
         "choices": {
@@ -873,8 +873,8 @@
         "sous_type": "Raisonnement physique-conceptuel (variation avec l'angle de la source)",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Choisissez la chose dont la présence et la taille dépendent entièrement de la position d'une source lumineuse. Une seule réponse est cohérente avec les trois conditions.",
-        "question": "Quelle chose vous accompagne quand la lumière vient de haut, s'allonge quand la source décline, puis disparaît totalement quand toute lumière s'éteint ?",
+        "consigne": "Choisis la chose dont la présence et la taille dépendent entièrement de la position d'une source lumineuse. Une seule réponse est cohérente avec les trois conditions.",
+        "question": "Quelle chose t'accompagne quand la lumière vient de haut, s'allonge quand la source décline, puis disparaît totalement quand toute lumière s'éteint ?",
         "kind": "qcm",
         "choices": {
           "A": "La zone d'ombre projetée par un corps : présente au soleil haut, allongée au soleil rasant, abolie dans l'obscurité.",
@@ -891,7 +891,7 @@
         "sous_type": "Analyse phonético-orthographique (élément commun récurrent)",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Repérez l'unique élément graphique commun aux quatre mots selon la contrainte de position indiquée. Une seule réponse vérifie toutes les positions.",
+        "consigne": "Repère l'unique élément graphique commun aux quatre mots selon la contrainte de position indiquée. Une seule réponse vérifie toutes les positions.",
         "question": "Quelle lettre apparaît dans chacun des mots suivants — 'instant', 'banni', 'tunnel' et 'enclin' — tout en y figurant exactement deux fois ?",
         "kind": "qcm",
         "choices": {
@@ -909,7 +909,7 @@
         "sous_type": "Analyse sémantique (polysémie réconciliant deux sens opposés)",
         "niveau": 5,
         "temps_sec": 60,
-        "consigne": "Trouvez la réalité unique qui réconcilie le double sens : posséder un 'lit' sans y dormir, et 'courir' sans avoir de jambes. Une seule réponse honore les deux acceptions à la fois.",
+        "consigne": "Trouve la réalité unique qui réconcilie le double sens : posséder un 'lit' sans y dormir, et 'courir' sans avoir de jambes. Une seule réponse honore les deux acceptions à la fois.",
         "question": "Qu'est-ce qui possède un lit où nul ne se repose et qui court continûment sans jamais avoir de membres ?",
         "kind": "qcm",
         "choices": {
@@ -927,7 +927,7 @@
         "sous_type": "objective (raisonnement verbal abstrait)",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Choisissez la formulation qui capte le mieux le point commun ABSTRAIT le plus général entre les deux notions.",
+        "consigne": "Choisis la formulation qui capte le mieux le point commun ABSTRAIT le plus général entre les deux notions.",
         "question": "Qu'ont fondamentalement en commun une horloge et un calendrier ?",
         "kind": "qcm",
         "choices": {
@@ -945,7 +945,7 @@
         "sous_type": "objective (raisonnement verbal abstrait)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Identifiez la propriété conceptuelle commune la plus précise.",
+        "consigne": "Identifie la propriété conceptuelle commune la plus précise.",
         "question": "Un clavier d'ordinateur et un alphabet relèvent tous deux de quelle notion ?",
         "kind": "qcm",
         "choices": {
@@ -963,7 +963,7 @@
         "sous_type": "objective (raisonnement verbal abstrait)",
         "niveau": 4,
         "temps_sec": 45,
-        "consigne": "Choisissez le terme dont la définition correspond exactement à l'énoncé.",
+        "consigne": "Choisis le terme dont la définition correspond exactement à l'énoncé.",
         "question": "Comment nomme-t-on précisément ce qui n'est jamais perçu directement mais seulement déduit de ses effets sur d'autres objets ?",
         "kind": "qcm",
         "choices": {
@@ -981,7 +981,7 @@
         "sous_type": "objective (raisonnement verbal abstrait)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Trouvez le concept général qui rend compte de la propriété décrite.",
+        "consigne": "Trouve le concept général qui rend compte de la propriété décrite.",
         "question": "Un miroir inverse la gauche et la droite mais conserve le haut et le bas. Quelle notion explique le mieux ce type de transformation ?",
         "kind": "qcm",
         "choices": {
@@ -999,7 +999,7 @@
         "sous_type": "objective (raisonnement verbal abstrait)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Identifiez la nuance sémantique exacte qui distingue les deux termes.",
+        "consigne": "Identifie la nuance sémantique exacte qui distingue les deux termes.",
         "question": "Qu'est-ce qui distingue le plus précisément un secret d'une simple information privée ?",
         "kind": "qcm",
         "choices": {
@@ -1017,7 +1017,7 @@
         "sous_type": "objective (raisonnement verbal abstrait)",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Choisissez l'énoncé qui décrit le plus rigoureusement le statut logique de la notion.",
+        "consigne": "Choisis l'énoncé qui décrit le plus rigoureusement le statut logique de la notion.",
         "question": "Quel énoncé caractérise le mieux la nature du futur par rapport au passé ?",
         "kind": "qcm",
         "choices": {
@@ -1035,7 +1035,7 @@
         "sous_type": "objective (raisonnement verbal abstrait)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Identifiez la propriété essentielle commune à ces deux objets.",
+        "consigne": "Identifie la propriété essentielle commune à ces deux objets.",
         "question": "Qu'ont fondamentalement en commun une carte géographique et le mot 'arbre' ?",
         "kind": "qcm",
         "choices": {
@@ -1053,7 +1053,7 @@
         "sous_type": "objective (raisonnement verbal abstrait)",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Choisissez la distinction conceptuelle la plus exacte.",
+        "consigne": "Choisis la distinction conceptuelle la plus exacte.",
         "question": "Un livre considéré comme objet physique et le texte qu'il contient illustrent quelle distinction ?",
         "kind": "qcm",
         "choices": {
@@ -1071,7 +1071,7 @@
         "sous_type": "objective (raisonnement verbal abstrait)",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Identifiez la notion qui décrit le mieux le mode d'existence de l'objet.",
+        "consigne": "Identifie la notion qui décrit le mieux le mode d'existence de l'objet.",
         "question": "Un nuage n'a ni frontière nette ni composition fixe et se renouvelle constamment tout en gardant son identité apparente. Quelle notion décrit le mieux ce mode d'existence ?",
         "kind": "qcm",
         "choices": {
@@ -1089,7 +1089,7 @@
         "sous_type": "objective (raisonnement verbal abstrait)",
         "niveau": 5,
         "temps_sec": 60,
-        "consigne": "Choisissez la formulation la plus rigoureuse du point commun.",
+        "consigne": "Choisis la formulation la plus rigoureuse du point commun.",
         "question": "Le feu et un être vivant partagent un trait fondamental. Lequel est formulé le plus rigoureusement ?",
         "kind": "qcm",
         "choices": {
@@ -1107,7 +1107,7 @@
         "sous_type": "objective (similitude concrete)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Indiquez en quoi ces deux choses se ressemblent au niveau le plus general et le plus abstrait, et non par un simple detail observable.",
+        "consigne": "Indique en quoi ces deux choses se ressemblent au niveau le plus general et le plus abstrait, et non par un simple detail observable.",
         "question": "Une horloge et un coeur",
         "kind": "qcm",
         "choices": {
@@ -1162,7 +1162,7 @@
         "sous_type": "objective (similitude concrete)",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Indiquez en quoi ces deux objets se ressemblent au niveau le plus precis et le plus fondamental possible, au-dela de la categorie evidente.",
+        "consigne": "Indique en quoi ces deux objets se ressemblent au niveau le plus precis et le plus fondamental possible, au-dela de la categorie evidente.",
         "question": "Un piano et un violon",
         "kind": "qcm",
         "choices": {
@@ -1180,7 +1180,7 @@
         "sous_type": "objective (similitude concrete)",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Indiquez en quoi ces deux objets se ressemblent de la facon la plus generale et la plus abstraite, sans vous arreter a leur usage apparent.",
+        "consigne": "Indique en quoi ces deux objets se ressemblent de la facon la plus generale et la plus abstraite, sans t'arreter a leur usage apparent.",
         "question": "Une carte et une boussole",
         "kind": "qcm",
         "choices": {
@@ -1235,7 +1235,7 @@
         "sous_type": "objective (similitude concrete)",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Indiquez le point commun le plus general et le plus precis, au-dela du fait perceptif evident.",
+        "consigne": "Indique le point commun le plus general et le plus precis, au-dela du fait perceptif evident.",
         "question": "Un miroir et la surface d'un lac calme",
         "kind": "qcm",
         "choices": {
@@ -1352,7 +1352,7 @@
         "sous_type": "objective (similitude concrete)",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Indiquez en quoi ces deux realites se ressemblent de la maniere la plus generale et la plus abstraite, en evitant les ressemblances triviales.",
+        "consigne": "Indique en quoi ces deux realites se ressemblent de la maniere la plus generale et la plus abstraite, en evitant les ressemblances triviales.",
         "question": "Un arbre et une personne",
         "kind": "qcm",
         "choices": {
@@ -1471,7 +1471,7 @@
         "sous_type": "objective (similitude poetique facile)",
         "niveau": 5,
         "temps_sec": 60,
-        "consigne": "Au-dela de la metaphore courante, indiquez le point commun fonctionnel le plus precis entre ces deux elements.",
+        "consigne": "Au-dela de la metaphore courante, indique le point commun fonctionnel le plus precis entre ces deux elements.",
         "question": "Une fenetre et un oeil",
         "kind": "qcm",
         "choices": {
@@ -1515,7 +1515,7 @@
         "sous_type": "Séries numériques",
         "niveau": 3,
         "temps_sec": 50,
-        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "consigne": "Trouve la règle de la série puis choisis le terme suivant.",
         "question": "3, 6, 11, 18, 27, ?",
         "kind": "qcm",
         "choices": {
@@ -1533,7 +1533,7 @@
         "sous_type": "Séries numériques",
         "niveau": 2,
         "temps_sec": 50,
-        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "consigne": "Trouve la règle de la série puis choisis le terme suivant.",
         "question": "2, 6, 12, 20, 30, ?",
         "kind": "qcm",
         "choices": {
@@ -1551,7 +1551,7 @@
         "sous_type": "Séries numériques",
         "niveau": 4,
         "temps_sec": 70,
-        "consigne": "Trouvez la regle qui engendre la serie, puis choisissez le terme suivant.",
+        "consigne": "Trouve la regle qui engendre la serie, puis choisis le terme suivant.",
         "question": "2, 3, 7, 16, 32, ?",
         "kind": "qcm",
         "choices": {
@@ -1569,7 +1569,7 @@
         "sous_type": "Séries numériques",
         "niveau": 4,
         "temps_sec": 65,
-        "consigne": "Trouvez la regle qui engendre la serie, puis choisissez le terme suivant.",
+        "consigne": "Trouve la regle qui engendre la serie, puis choisis le terme suivant.",
         "question": "3, 8, 18, 38, ?",
         "kind": "qcm",
         "choices": {
@@ -1587,7 +1587,7 @@
         "sous_type": "Séries numériques",
         "niveau": 3,
         "temps_sec": 50,
-        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "consigne": "Trouve la règle de la série puis choisis le terme suivant.",
         "question": "5, 7, 11, 19, 35, ?",
         "kind": "qcm",
         "choices": {
@@ -1605,7 +1605,7 @@
         "sous_type": "Séries numériques",
         "niveau": 3,
         "temps_sec": 50,
-        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "consigne": "Trouve la règle de la série puis choisis le terme suivant.",
         "question": "4, 9, 19, 39, 79, ?",
         "kind": "qcm",
         "choices": {
@@ -1623,7 +1623,7 @@
         "sous_type": "Séries numériques",
         "niveau": 2,
         "temps_sec": 50,
-        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "consigne": "Trouve la règle de la série puis choisis le terme suivant.",
         "question": "2, 3, 5, 9, 17, ?",
         "kind": "qcm",
         "choices": {
@@ -1641,7 +1641,7 @@
         "sous_type": "Séries numériques",
         "niveau": 4,
         "temps_sec": 65,
-        "consigne": "Trouvez la regle qui engendre la serie, puis choisissez le terme suivant.",
+        "consigne": "Trouve la regle qui engendre la serie, puis choisis le terme suivant.",
         "question": "100, 84, 70, 58, ?",
         "kind": "qcm",
         "choices": {
@@ -1659,7 +1659,7 @@
         "sous_type": "Séries numériques",
         "niveau": 5,
         "temps_sec": 80,
-        "consigne": "Trouvez la regle qui engendre la serie, puis choisissez le terme suivant.",
+        "consigne": "Trouve la regle qui engendre la serie, puis choisis le terme suivant.",
         "question": "1, 2, 4, 7, 12, ?",
         "kind": "qcm",
         "choices": {
@@ -1677,7 +1677,7 @@
         "sous_type": "Séries numériques",
         "niveau": 3,
         "temps_sec": 50,
-        "consigne": "Trouvez la règle de la série puis choisissez le terme suivant.",
+        "consigne": "Trouve la règle de la série puis choisis le terme suivant.",
         "question": "7, 10, 16, 28, 52, ?",
         "kind": "qcm",
         "choices": {
@@ -1695,7 +1695,7 @@
         "sous_type": "Matrices logiques textuelles",
         "niveau": 3,
         "temps_sec": 55,
-        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "consigne": "Chaque ligne suit la même règle. Trouve l'élément manquant.",
         "question": "Lignes: [3, 4, 10], [5, 2, 12], [6, 7, ?]",
         "kind": "qcm",
         "choices": {
@@ -1713,7 +1713,7 @@
         "sous_type": "Matrices logiques textuelles",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "consigne": "Chaque ligne suit la même règle. Trouve l'élément manquant.",
         "question": "Lignes: [2, 3, 13], [1, 4, 17], [3, 5, ?]",
         "kind": "qcm",
         "choices": {
@@ -1731,7 +1731,7 @@
         "sous_type": "Matrices logiques textuelles",
         "niveau": 3,
         "temps_sec": 55,
-        "consigne": "Chaque ligne suit la même règle. Trouvez l'élément manquant.",
+        "consigne": "Chaque ligne suit la même règle. Trouve l'élément manquant.",
         "question": "Lignes: [A, C, F], [B, D, G], [C, E, ?]. Les lettres avancent de +2 puis +3.",
         "kind": "qcm",
         "choices": {
@@ -1749,7 +1749,7 @@
         "sous_type": "Matrices logiques textuelles",
         "niveau": 4,
         "temps_sec": 75,
-        "consigne": "Chaque ligne suit une meme regle reliant les deux premiers nombres au troisieme. Identifiez la regle, puis trouvez le nombre manquant.",
+        "consigne": "Chaque ligne suit une meme regle reliant les deux premiers nombres au troisieme. Identifie la regle, puis trouve le nombre manquant.",
         "question": "Ligne 1 : (4 ; 3) -> 5. Ligne 2 : (6 ; 5) -> 19. Ligne 3 : (8 ; 4) -> ?",
         "kind": "qcm",
         "choices": {
@@ -1767,7 +1767,7 @@
         "sous_type": "Matrices logiques textuelles",
         "niveau": 4,
         "temps_sec": 70,
-        "consigne": "Une meme fonction transforme chaque entree en sa sortie. Deduisez la regle, puis calculez la sortie demandee.",
+        "consigne": "Une meme fonction transforme chaque entree en sa sortie. Deduis la regle, puis calcule la sortie demandee.",
         "question": "3 -> 10 ; 5 -> 26 ; 7 -> 50 ; 9 -> ?",
         "kind": "qcm",
         "choices": {
@@ -1785,7 +1785,7 @@
         "sous_type": "Matrices logiques textuelles",
         "niveau": 4,
         "temps_sec": 70,
-        "consigne": "Dans chaque triplet, le troisieme nombre se deduit des deux premiers par une regle unique. Trouvez la valeur manquante.",
+        "consigne": "Dans chaque triplet, le troisieme nombre se deduit des deux premiers par une regle unique. Trouve la valeur manquante.",
         "question": "(6 ; 3) -> 33 ; (9 ; 5) -> 76 ; (7 ; 4) -> ?",
         "kind": "qcm",
         "choices": {
@@ -1803,7 +1803,7 @@
         "sous_type": "Matrices logiques textuelles",
         "niveau": 4,
         "temps_sec": 75,
-        "consigne": "Chaque triplet obeit a la meme relation entre ses trois termes. Identifiez-la, puis completez le dernier triplet.",
+        "consigne": "Chaque triplet obeit a la meme relation entre ses trois termes. Identifie-la, puis complete le dernier triplet.",
         "question": "(5 ; 4) -> 9 ; (8 ; 3) -> 55 ; (9 ; 4) -> ?",
         "kind": "qcm",
         "choices": {
@@ -1821,7 +1821,7 @@
         "sous_type": "Matrices logiques textuelles",
         "niveau": 4,
         "temps_sec": 90,
-        "consigne": "Le signe de chaque case resulte d'une regle de multiplication entre un signe propre a sa ligne et un signe propre a sa colonne. Deduisez la regle, puis donnez le signe de la case manquante.",
+        "consigne": "Le signe de chaque case resulte d'une regle de multiplication entre un signe propre a sa ligne et un signe propre a sa colonne. Deduis la regle, puis donne le signe de la case manquante.",
         "question": "Grille 3x3 (les signes connus). Ligne 1 : + ; - ; - . Ligne 2 : - ; + ; + . Ligne 3 : + ; ? ; - . Quel est le signe de la case du milieu de la ligne 3 ?",
         "kind": "qcm",
         "choices": {
@@ -1839,7 +1839,7 @@
         "sous_type": "Matrices logiques textuelles",
         "niveau": 4,
         "temps_sec": 80,
-        "consigne": "Chaque ligne relie ses trois nombres par une meme regle a deux operations. Trouvez le nombre manquant.",
+        "consigne": "Chaque ligne relie ses trois nombres par une meme regle a deux operations. Trouve le nombre manquant.",
         "question": "(48 ; 8) -> 4 ; (54 ; 6) -> 12 ; (60 ; 5) -> ?",
         "kind": "qcm",
         "choices": {
@@ -1857,7 +1857,7 @@
         "sous_type": "Matrices logiques textuelles",
         "niveau": 4,
         "temps_sec": 75,
-        "consigne": "Une seule regle relie les deux premiers nombres de chaque ligne au troisieme. Deduisez-la, puis completez.",
+        "consigne": "Une seule regle relie les deux premiers nombres de chaque ligne au troisieme. Deduis-la, puis complete.",
         "question": "(4 ; 5) -> 21 ; (7 ; 6) -> 29 ; (3 ; 8) -> ?",
         "kind": "qcm",
         "choices": {
@@ -1875,7 +1875,7 @@
         "sous_type": "Balances et équations",
         "niveau": 3,
         "temps_sec": 55,
-        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "consigne": "Traite la balance comme une équation. Trouve la valeur demandée.",
         "question": "2 triangles = 1 carré. 1 carré + 1 triangle = 12. Combien vaut le carré ?",
         "kind": "qcm",
         "choices": {
@@ -1893,7 +1893,7 @@
         "sous_type": "Balances et équations",
         "niveau": 3,
         "temps_sec": 55,
-        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "consigne": "Traite la balance comme une équation. Trouve la valeur demandée.",
         "question": "3 cercles = 1 losange. 1 losange + 1 cercle = 20. Combien vaut le cercle ?",
         "kind": "qcm",
         "choices": {
@@ -1911,7 +1911,7 @@
         "sous_type": "Balances et équations",
         "niveau": 3,
         "temps_sec": 55,
-        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "consigne": "Traite la balance comme une équation. Trouve la valeur demandée.",
         "question": "2 étoiles + 1 cercle = 13. Le cercle vaut étoile + 4. Combien vaut l'étoile ?",
         "kind": "qcm",
         "choices": {
@@ -1929,7 +1929,7 @@
         "sous_type": "Balances et équations",
         "niveau": 4,
         "temps_sec": 80,
-        "consigne": "Plusieurs equivalences de masses sont donnees. Enchaînez-les pour determiner la valeur cherchee.",
+        "consigne": "Plusieurs equivalences de masses sont donnees. Enchaîne-les pour determiner la valeur cherchee.",
         "question": "Sur des balances en equilibre : 3 carres pesent autant que 4 cercles ; 1 cercle pese autant que 2 triangles ; 1 triangle pese 9 g. Combien pese 1 carre ?",
         "kind": "qcm",
         "choices": {
@@ -1947,7 +1947,7 @@
         "sous_type": "Balances et équations",
         "niveau": 4,
         "temps_sec": 80,
-        "consigne": "Resolvez le systeme, puis evaluez l'expression demandee.",
+        "consigne": "Resous le systeme, puis evalue l'expression demandee.",
         "question": "On sait que 3A + 2B = 31 et que A - B = 2. Quelle est la valeur de 2A + B ?",
         "kind": "qcm",
         "choices": {
@@ -1965,7 +1965,7 @@
         "sous_type": "Balances et équations",
         "niveau": 3,
         "temps_sec": 55,
-        "consigne": "Traitez la balance comme une équation. Trouvez la valeur demandée.",
+        "consigne": "Traite la balance comme une équation. Trouve la valeur demandée.",
         "question": "X + Y = 17 et X - Y = 5. Combien vaut X ?",
         "kind": "qcm",
         "choices": {
@@ -1983,7 +1983,7 @@
         "sous_type": "Balances et équations",
         "niveau": 4,
         "temps_sec": 80,
-        "consigne": "Combinez les equilibres successifs pour trouver la masse demandee.",
+        "consigne": "Combine les equilibres successifs pour trouver la masse demandee.",
         "question": "A l'equilibre : 5 pentagones pesent autant que 3 hexagones ; 1 hexagone pese autant que 2 losanges ; 1 losange pese 5 g. Combien pese 1 pentagone ?",
         "kind": "qcm",
         "choices": {
@@ -2001,7 +2001,7 @@
         "sous_type": "Balances et équations",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Une balance est en équilibre. Déduisez la valeur demandée à partir des deux plateaux.",
+        "consigne": "Une balance est en équilibre. Déduis la valeur demandée à partir des deux plateaux.",
         "question": "Sur le plateau gauche on place 3 livres identiques et un poids de 0,5 kg. Sur le plateau droit on place 1 livre identique et un poids de 6,5 kg. La balance est en équilibre. Combien pèse un livre ?",
         "kind": "qcm",
         "choices": {
@@ -2019,7 +2019,7 @@
         "sous_type": "Balances et équations",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Utilisez l'équilibre des deux plateaux pour calculer la masse d'un cube.",
+        "consigne": "Utilise l'équilibre des deux plateaux pour calculer la masse d'un cube.",
         "question": "5 cubes identiques et 3 billes équilibrent exactement 3 cubes identiques et 11 billes. Chaque bille pèse 4 g. Quelle est la masse d'un cube ?",
         "kind": "qcm",
         "choices": {
@@ -2037,7 +2037,7 @@
         "sous_type": "Balances et équations",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Résolvez le système formé par les deux pesées pour trouver la valeur demandée.",
+        "consigne": "Résous le système formé par les deux pesées pour trouver la valeur demandée.",
         "question": "On sait que 3A + 2B = 29 et que A + B = 12, où A et B sont des masses entières en grammes. Quelle est la masse de A ?",
         "kind": "qcm",
         "choices": {
@@ -2055,7 +2055,7 @@
         "sous_type": "Logique déductive",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "consigne": "Évalue la validité logique de la conclusion, sans ajouter d'information non donnée.",
         "question": "Tous les dax sont des lons. Aucun lon n'est mer. Conclusion: aucun dax n'est mer.",
         "kind": "qcm",
         "choices": {
@@ -2073,7 +2073,7 @@
         "sous_type": "Logique déductive",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "consigne": "Évalue la validité logique de la conclusion, sans ajouter d'information non donnée.",
         "question": "Tous les A sont B. Certains B sont C. Conclusion: certains A sont C.",
         "kind": "qcm",
         "choices": {
@@ -2091,7 +2091,7 @@
         "sous_type": "Logique déductive",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "consigne": "Évalue la validité logique de la conclusion, sans ajouter d'information non donnée.",
         "question": "Si la règle P est vraie, alors Q est vraie. Q est fausse. Que peut-on conclure sur P ?",
         "kind": "qcm",
         "choices": {
@@ -2109,7 +2109,7 @@
         "sous_type": "Logique déductive",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "consigne": "Évalue la validité logique de la conclusion, sans ajouter d'information non donnée.",
         "question": "Si un code est valide, il contient au moins un chiffre. Ce code ne contient aucun chiffre. Conclusion ?",
         "kind": "qcm",
         "choices": {
@@ -2127,7 +2127,7 @@
         "sous_type": "Logique déductive",
         "niveau": 5,
         "temps_sec": 60,
-        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "consigne": "Évalue la validité logique de la conclusion, sans ajouter d'information non donnée.",
         "question": "Exactement une des trois affirmations est vraie: A dit 'B est vraie'; B dit 'C est vraie'; C dit 'A est fausse'. Quelle affirmation est vraie ?",
         "kind": "qcm",
         "choices": {
@@ -2145,7 +2145,7 @@
         "sous_type": "Logique déductive",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "consigne": "Évalue la validité logique de la conclusion, sans ajouter d'information non donnée.",
         "question": "Dans une boîte, tous les jetons rouges sont grands. Un jeton est grand. Peut-on conclure qu'il est rouge ?",
         "kind": "qcm",
         "choices": {
@@ -2163,7 +2163,7 @@
         "sous_type": "Logique déductive",
         "niveau": 2,
         "temps_sec": 60,
-        "consigne": "Évaluez la validité logique de la conclusion, sans ajouter d'information non donnée.",
+        "consigne": "Évalue la validité logique de la conclusion, sans ajouter d'information non donnée.",
         "question": "Trois interrupteurs A, B, C: exactement deux sont allumés. A est éteint. Que sait-on ?",
         "kind": "qcm",
         "choices": {
@@ -2181,7 +2181,7 @@
         "sous_type": "Logique déductive",
         "niveau": 4,
         "temps_sec": 80,
-        "consigne": "À partir des règles données, identifiez la SEULE conclusion qui en découle nécessairement.",
+        "consigne": "À partir des règles données, identifie la SEULE conclusion qui en découle nécessairement.",
         "question": "On sait : (1) Si N est vrai alors O est vrai. (2) Si O est vrai alors P est faux. (3) Si P est faux alors Q est vrai. Or on observe que Q est FAUX. Que peut-on conclure avec certitude ?",
         "kind": "qcm",
         "choices": {
@@ -2199,7 +2199,7 @@
         "sous_type": "Logique déductive",
         "niveau": 4,
         "temps_sec": 90,
-        "consigne": "À partir des contraintes d'ordre, déterminez quelle affirmation est NÉCESSAIREMENT vraie (toujours, sans aucune exception).",
+        "consigne": "À partir des contraintes d'ordre, détermine quelle affirmation est NÉCESSAIREMENT vraie (toujours, sans aucune exception).",
         "question": "Cinq coureuses Anne, Béa, Clara, Diane et Élise arrivent sans ex aequo. On sait : Élise arrive avant Anne ; Anne arrive avant Béa ; Béa arrive avant Clara ; et Anne arrive avant Diane. Quelle affirmation est forcément vraie ?",
         "kind": "qcm",
         "choices": {
@@ -2217,7 +2217,7 @@
         "sous_type": "Logique déductive",
         "niveau": 5,
         "temps_sec": 75,
-        "consigne": "Combinez les deux conditions logiques pour trouver la SEULE attribution de valeurs compatible.",
+        "consigne": "Combine les deux conditions logiques pour trouver la SEULE attribution de valeurs compatible.",
         "question": "Deux interrupteurs X et Y. On sait : (1) X et Y ne peuvent pas être tous les deux dans le même état (l'un est allumé si et seulement si l'autre est éteint). (2) Si Y est éteint, alors X est éteint. Quel est l'état du système ?",
         "kind": "qcm",
         "choices": {
@@ -2262,7 +2262,7 @@
         "sous_type": "Suites numériques",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Identifiez la règle de construction de la suite, puis donnez le terme suivant.",
+        "consigne": "Identifie la règle de construction de la suite, puis donne le terme suivant.",
         "question": "Soit la suite : 2, 1, 3, 4, 7, 11, 18, ... Quel est le terme suivant ?",
         "kind": "qcm",
         "choices": {
@@ -2280,7 +2280,7 @@
         "sous_type": "Ordonnancement déductif",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Croisez toutes les comparaisons de taille pour désigner la personne la plus grande.",
+        "consigne": "Croise toutes les comparaisons de taille pour désigner la personne la plus grande.",
         "question": "Cinq personnes. Anne est plus grande que Béa. Clara est plus petite que Béa. Diane est plus grande qu'Anne. Élise est plus grande que Béa mais plus petite qu'Anne. Qui est la plus grande des cinq ?",
         "kind": "qcm",
         "choices": {
@@ -2307,7 +2307,7 @@
         "sous_type": "Suites numériques",
         "niveau": 5,
         "temps_sec": 75,
-        "consigne": "Trouvez la loi qui relie les écarts successifs, puis calculez le terme suivant.",
+        "consigne": "Trouve la loi qui relie les écarts successifs, puis calcule le terme suivant.",
         "question": "Soit la suite : 2, 5, 10, 17, 28, ... Quel est le terme suivant ?",
         "kind": "qcm",
         "choices": {
@@ -2325,7 +2325,7 @@
         "sous_type": "Suites numériques",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Dégagez la règle générant la suite, puis fournissez le terme manquant.",
+        "consigne": "Dégage la règle générant la suite, puis fournis le terme manquant.",
         "question": "Soit la suite : 2, 5, 10, 17, 26, ... Quel est le terme suivant ?",
         "kind": "qcm",
         "choices": {
@@ -2361,7 +2361,7 @@
         "sous_type": "Séries numériques",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Identifiez la règle de récurrence qui lie chaque terme aux précédents, puis choisissez le terme suivant.",
+        "consigne": "Identifie la règle de récurrence qui lie chaque terme aux précédents, puis choisis le terme suivant.",
         "question": "2, 6, 14, 30, 62, ?",
         "kind": "qcm",
         "choices": {
@@ -2388,7 +2388,7 @@
         "sous_type": "Syllogismes",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "En admettant les deux prémisses comme vraies, choisissez la SEULE conclusion qui en découle nécessairement.",
+        "consigne": "En admettant les deux prémisses comme vraies, choisis la SEULE conclusion qui en découle nécessairement.",
         "question": "Prémisses : « Certains félins de ce refuge sont vaccinés. » et « Tous les animaux vaccinés de ce refuge sont adoptables. » Que peut-on conclure avec certitude ?",
         "kind": "qcm",
         "choices": {
@@ -2406,7 +2406,7 @@
         "sous_type": "Séries numériques",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "La série alterne deux opérations différentes. Trouvez le motif, puis choisissez le terme suivant.",
+        "consigne": "La série alterne deux opérations différentes. Trouve le motif, puis choisis le terme suivant.",
         "question": "96, 48, 72, 36, 54, ?",
         "kind": "qcm",
         "choices": {
@@ -2433,7 +2433,7 @@
         "sous_type": "Ordonnancement / inférence transitive",
         "niveau": 5,
         "temps_sec": 75,
-        "consigne": "À partir des comparaisons de vitesse données, déterminez qui est le coureur le plus lent. Toutes les comparaisons sont strictes.",
+        "consigne": "À partir des comparaisons de vitesse données, détermine qui est le coureur le plus lent. Toutes les comparaisons sont strictes.",
         "question": "Cinq coureurs : Alex court plus vite que Bilal. Chloé court plus vite qu'Alex. Bilal court plus vite que Driss. Chloé court plus vite qu'Émile. Émile court plus vite que Bilal. Qui est le plus lent ?",
         "kind": "qcm",
         "choices": {
@@ -2451,7 +2451,7 @@
         "sous_type": "Séries numériques",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Les écarts entre les termes ne sont pas constants. Trouvez la loi qui les gouverne, puis choisissez le terme suivant.",
+        "consigne": "Les écarts entre les termes ne sont pas constants. Trouve la loi qui les gouverne, puis choisis le terme suivant.",
         "question": "3, 4, 7, 12, 19, 28, ?",
         "kind": "qcm",
         "choices": {
@@ -2469,7 +2469,7 @@
         "sous_type": "Séries numériques",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Repérez la relation entre chaque terme et le suivant, puis choisissez le terme manquant.",
+        "consigne": "Repère la relation entre chaque terme et le suivant, puis choisis le terme manquant.",
         "question": "2, 3, 5, 9, 17, 33, ?",
         "kind": "qcm",
         "choices": {
@@ -2487,7 +2487,7 @@
         "sous_type": "Syllogismes / validité logique",
         "niveau": 5,
         "temps_sec": 70,
-        "consigne": "Une règle générale et un fait sont donnés. Choisissez l'énoncé qui constitue un raisonnement logiquement VALIDE.",
+        "consigne": "Une règle générale et un fait sont donnés. Choisis l'énoncé qui constitue un raisonnement logiquement VALIDE.",
         "question": "On admet : « Tous les oiseaux migrateurs de cette réserve partent au sud en hiver. » Quel raisonnement est logiquement valide ?",
         "kind": "qcm",
         "choices": {
@@ -2505,7 +2505,7 @@
         "sous_type": "Séries numériques",
         "niveau": 5,
         "temps_sec": 60,
-        "consigne": "Le facteur multiplicatif change d'un terme à l'autre. Identifiez sa progression, puis choisissez le terme suivant.",
+        "consigne": "Le facteur multiplicatif change d'un terme à l'autre. Identifie sa progression, puis choisis le terme suivant.",
         "question": "1, 2, 6, 24, 120, ?",
         "kind": "qcm",
         "choices": {
@@ -2523,7 +2523,7 @@
         "sous_type": "Séries numériques",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "La quantité soustraite n'est pas constante. Trouvez la règle qui la fait évoluer, puis choisissez le terme suivant.",
+        "consigne": "La quantité soustraite n'est pas constante. Trouve la règle qui la fait évoluer, puis choisis le terme suivant.",
         "question": "100, 97, 91, 82, 70, ?",
         "kind": "qcm",
         "choices": {
@@ -2615,7 +2615,7 @@
         "sous_type": "Raisonnement quantitatif / pourcentages",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Lisez attentivement l'énoncé et effectuez le calcul exact. Attention au piège de l'addition des pourcentages.",
+        "consigne": "Lis attentivement l'énoncé et effectue le calcul exact. Attention au piège de l'addition des pourcentages.",
         "question": "Un manteau affiché 120 € est d'abord soldé à −30 %. À la caisse, une remise supplémentaire de 30 % est appliquée sur le prix déjà soldé. Combien le client paie-t-il ?",
         "kind": "qcm",
         "choices": {
@@ -2665,7 +2665,7 @@
         "sous_type": "Balances et équations",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Calculez mentalement en respectant l'ordre des opérations, puis choisissez le résultat exact.",
+        "consigne": "Calcule mentalement en respectant l'ordre des opérations, puis choisis le résultat exact.",
         "question": "Que vaut : les deux tiers d'une douzaine et demie, diminués de la moitié d'une demi-douzaine ?",
         "kind": "qcm",
         "choices": {
@@ -2683,7 +2683,7 @@
         "sous_type": "Logique déductive",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Modélisez le rythme du retard, rapportez-le à la durée totale, puis choisissez le résultat exact.",
+        "consigne": "Modélise le rythme du retard, rapporte-le à la durée totale, puis choisis le résultat exact.",
         "question": "Une horloge prend 3 minutes de retard toutes les 4 heures. De combien de minutes retarde-t-elle au bout de 3 jours pleins ?",
         "kind": "qcm",
         "choices": {
@@ -2723,7 +2723,7 @@
         "sous_type": "Balances et équations",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Traduisez l'énoncé en équation, isolez l'inconnue, puis choisissez sa valeur.",
+        "consigne": "Traduis l'énoncé en équation, isole l'inconnue, puis choisis sa valeur.",
         "question": "Le triple d'un nombre, augmenté de 7, est égal au double de ce même nombre augmenté de 20. Quel est ce nombre ?",
         "kind": "qcm",
         "choices": {
@@ -2741,7 +2741,7 @@
         "sous_type": "Logique déductive",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Déterminez le prix unitaire, appliquez la remise, puis choisissez le prix total exact.",
+        "consigne": "Détermine le prix unitaire, applique la remise, puis choisis le prix total exact.",
         "question": "Douze crayons coûtent 9 EUR. Un lot de 30 crayons est vendu avec une remise de 20 % sur le prix unitaire. Combien coûte ce lot ?",
         "kind": "qcm",
         "choices": {
@@ -2769,7 +2769,7 @@
         "sous_type": "Balances et équations",
         "niveau": 5,
         "temps_sec": 75,
-        "consigne": "Posez le système à partir des deux conditions, résolvez, puis choisissez la valeur demandée.",
+        "consigne": "Pose le système à partir des deux conditions, résous, puis choisis la valeur demandée.",
         "question": "La somme des âges d'un père et de son fils est 56 ans. Il y a 8 ans, le père avait exactement le triple de l'âge du fils. Quel est l'âge actuel du fils ?",
         "kind": "qcm",
         "choices": {
@@ -2787,7 +2787,7 @@
         "sous_type": "Balances et équations",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Traduisez la suite d'actions en équation portant sur le nombre initial, résolvez, puis choisissez ce nombre.",
+        "consigne": "Traduis la suite d'actions en équation portant sur le nombre initial, résous, puis choisis ce nombre.",
         "question": "Un panier contient des pommes. On en retire le tiers, puis on en mange 4 de plus ; il reste alors exactement la moitié du nombre initial. Combien le panier contenait-il de pommes au départ ?",
         "kind": "qcm",
         "choices": {
@@ -2805,7 +2805,7 @@
         "sous_type": "Balances et équations",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Posez le système liant le nombre de bêtes et le nombre de pattes, résolvez, puis choisissez la valeur demandée.",
+        "consigne": "Pose le système liant le nombre de bêtes et le nombre de pattes, résous, puis choisis la valeur demandée.",
         "question": "Un terrarium contient uniquement des araignées (8 pattes chacune) et des scarabées (6 pattes chacun). On y compte 10 bêtes et 68 pattes au total. Combien y a-t-il d'araignées ?",
         "kind": "qcm",
         "choices": {
@@ -2841,7 +2841,7 @@
         "sous_type": "Empan envers",
         "niveau": 1,
         "temps_sec": 35,
-        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "consigne": "Lis mentalement la suite puis restitue-la à l'envers. Réponse attendue avec des tirets.",
         "question": "7-2-9-4",
         "kind": "objective",
         "answers": [
@@ -2855,7 +2855,7 @@
         "sous_type": "Empan envers",
         "niveau": 2,
         "temps_sec": 40,
-        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "consigne": "Lis mentalement la suite puis restitue-la à l'envers. Réponse attendue avec des tirets.",
         "question": "3-8-1-6-5",
         "kind": "objective",
         "answers": [
@@ -2869,7 +2869,7 @@
         "sous_type": "Empan envers",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "consigne": "Lis mentalement la suite puis restitue-la à l'envers. Réponse attendue avec des tirets.",
         "question": "9-4-2-7-1-8",
         "kind": "objective",
         "answers": [
@@ -2883,7 +2883,7 @@
         "sous_type": "Empan envers",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "consigne": "Lis mentalement la suite puis restitue-la à l'envers. Réponse attendue avec des tirets.",
         "question": "5-1-9-3-8-2-6",
         "kind": "objective",
         "answers": [
@@ -2897,7 +2897,7 @@
         "sous_type": "Empan envers",
         "niveau": 5,
         "temps_sec": 55,
-        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "consigne": "Lis mentalement la suite puis restitue-la à l'envers. Réponse attendue avec des tirets.",
         "question": "8-6-2-9-4-7-3-1",
         "kind": "objective",
         "answers": [
@@ -2911,7 +2911,7 @@
         "sous_type": "Empan envers",
         "niveau": 2,
         "temps_sec": 40,
-        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "consigne": "Lis mentalement la suite puis restitue-la à l'envers. Réponse attendue avec des tirets.",
         "question": "2-5-8-1-4",
         "kind": "objective",
         "answers": [
@@ -2925,7 +2925,7 @@
         "sous_type": "Empan envers",
         "niveau": 3,
         "temps_sec": 45,
-        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "consigne": "Lis mentalement la suite puis restitue-la à l'envers. Réponse attendue avec des tirets.",
         "question": "6-3-7-9-2-5",
         "kind": "objective",
         "answers": [
@@ -2939,7 +2939,7 @@
         "sous_type": "Empan envers",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "consigne": "Lis mentalement la suite puis restitue-la à l'envers. Réponse attendue avec des tirets.",
         "question": "4-8-1-5-9-2-7",
         "kind": "objective",
         "answers": [
@@ -2953,7 +2953,7 @@
         "sous_type": "Empan envers",
         "niveau": 5,
         "temps_sec": 55,
-        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "consigne": "Lis mentalement la suite puis restitue-la à l'envers. Réponse attendue avec des tirets.",
         "question": "1-7-3-6-8-4-9-2",
         "kind": "objective",
         "answers": [
@@ -2967,7 +2967,7 @@
         "sous_type": "Empan envers",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Lisez mentalement la suite puis restituez-la à l'envers. Réponse attendue avec des tirets.",
+        "consigne": "Lis mentalement la suite puis restitue-la à l'envers. Réponse attendue avec des tirets.",
         "question": "9-2-6-1-8-5-3",
         "kind": "objective",
         "answers": [
@@ -2981,7 +2981,7 @@
         "sous_type": "Empan ordre croissant",
         "niveau": 1,
         "temps_sec": 40,
-        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
         "question": "6-1-9-3",
         "kind": "objective",
         "answers": [
@@ -2995,7 +2995,7 @@
         "sous_type": "Empan ordre croissant",
         "niveau": 2,
         "temps_sec": 45,
-        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
         "question": "4-8-2-7-1",
         "kind": "objective",
         "answers": [
@@ -3009,7 +3009,7 @@
         "sous_type": "Empan ordre croissant",
         "niveau": 3,
         "temps_sec": 50,
-        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
         "question": "9-0-5-2-8-3",
         "kind": "objective",
         "answers": [
@@ -3023,7 +3023,7 @@
         "sous_type": "Empan ordre croissant",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
         "question": "7-4-1-6-9-2-5",
         "kind": "objective",
         "answers": [
@@ -3037,7 +3037,7 @@
         "sous_type": "Empan ordre croissant",
         "niveau": 5,
         "temps_sec": 60,
-        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
         "question": "8-3-0-6-1-9-4-2",
         "kind": "objective",
         "answers": [
@@ -3051,7 +3051,7 @@
         "sous_type": "Empan ordre croissant",
         "niveau": 2,
         "temps_sec": 45,
-        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
         "question": "5-2-9-1-6",
         "kind": "objective",
         "answers": [
@@ -3065,7 +3065,7 @@
         "sous_type": "Empan ordre croissant",
         "niveau": 3,
         "temps_sec": 50,
-        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
         "question": "3-8-0-7-4-1",
         "kind": "objective",
         "answers": [
@@ -3079,7 +3079,7 @@
         "sous_type": "Empan ordre croissant",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
         "question": "9-6-2-5-8-1-7",
         "kind": "objective",
         "answers": [
@@ -3093,7 +3093,7 @@
         "sous_type": "Empan ordre croissant",
         "niveau": 5,
         "temps_sec": 60,
-        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
         "question": "4-0-8-3-9-1-6-2",
         "kind": "objective",
         "answers": [
@@ -3107,7 +3107,7 @@
         "sous_type": "Empan ordre croissant",
         "niveau": 3,
         "temps_sec": 50,
-        "consigne": "Réorganisez les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise les chiffres dans l'ordre croissant. Réponse attendue avec des tirets.",
         "question": "2-7-5-0-9-4",
         "kind": "objective",
         "answers": [
@@ -3121,7 +3121,7 @@
         "sous_type": "Séquençage lettres-nombres",
         "niveau": 2,
         "temps_sec": 55,
-        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
         "question": "B-4-A-7-C-2",
         "kind": "objective",
         "answers": [
@@ -3135,7 +3135,7 @@
         "sous_type": "Séquençage lettres-nombres",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
         "question": "D-9-A-1-C-5",
         "kind": "objective",
         "answers": [
@@ -3149,7 +3149,7 @@
         "sous_type": "Séquençage lettres-nombres",
         "niveau": 4,
         "temps_sec": 65,
-        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
         "question": "F-3-B-8-E-0-A",
         "kind": "objective",
         "answers": [
@@ -3163,7 +3163,7 @@
         "sous_type": "Séquençage lettres-nombres",
         "niveau": 5,
         "temps_sec": 70,
-        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
         "question": "C-6-G-2-A-9-D-1",
         "kind": "objective",
         "answers": [
@@ -3177,7 +3177,7 @@
         "sous_type": "Séquençage lettres-nombres",
         "niveau": 5,
         "temps_sec": 70,
-        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
         "question": "H-4-B-7-E-2-A-5",
         "kind": "objective",
         "answers": [
@@ -3191,7 +3191,7 @@
         "sous_type": "Séquençage lettres-nombres",
         "niveau": 2,
         "temps_sec": 55,
-        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
         "question": "A-8-D-3-B",
         "kind": "objective",
         "answers": [
@@ -3205,7 +3205,7 @@
         "sous_type": "Séquençage lettres-nombres",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
         "question": "E-1-C-9-F-4",
         "kind": "objective",
         "answers": [
@@ -3219,7 +3219,7 @@
         "sous_type": "Séquençage lettres-nombres",
         "niveau": 4,
         "temps_sec": 65,
-        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
         "question": "G-0-B-6-D-2-A",
         "kind": "objective",
         "answers": [
@@ -3233,7 +3233,7 @@
         "sous_type": "Séquençage lettres-nombres",
         "niveau": 5,
         "temps_sec": 70,
-        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
         "question": "F-5-H-1-C-8-A-3",
         "kind": "objective",
         "answers": [
@@ -3247,7 +3247,7 @@
         "sous_type": "Séquençage lettres-nombres",
         "niveau": 5,
         "temps_sec": 70,
-        "consigne": "Réorganisez d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
+        "consigne": "Réorganise d'abord les chiffres en ordre croissant, puis les lettres en ordre alphabétique. Réponse attendue avec des tirets.",
         "question": "D-2-I-7-B-0-E-4",
         "kind": "objective",
         "answers": [
@@ -3261,7 +3261,7 @@
         "sous_type": "Mise à jour mentale",
         "niveau": 1,
         "temps_sec": 55,
-        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "consigne": "Garde le nombre de départ en mémoire et applique mentalement les opérations dans l'ordre.",
         "question": "Départ 6. +3, ×2, -5 = ?",
         "kind": "objective",
         "answers": [
@@ -3275,7 +3275,7 @@
         "sous_type": "Mise à jour mentale",
         "niveau": 2,
         "temps_sec": 60,
-        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "consigne": "Garde le nombre de départ en mémoire et applique mentalement les opérations dans l'ordre.",
         "question": "Départ 12. -4, ×3, +2 = ?",
         "kind": "objective",
         "answers": [
@@ -3289,7 +3289,7 @@
         "sous_type": "Mise à jour mentale",
         "niveau": 2,
         "temps_sec": 60,
-        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "consigne": "Garde le nombre de départ en mémoire et applique mentalement les opérations dans l'ordre.",
         "question": "Départ 5. ×4, -6, ÷2 = ?",
         "kind": "objective",
         "answers": [
@@ -3303,7 +3303,7 @@
         "sous_type": "Mise à jour mentale",
         "niveau": 3,
         "temps_sec": 65,
-        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "consigne": "Garde le nombre de départ en mémoire et applique mentalement les opérations dans l'ordre.",
         "question": "Départ 9. +7, ÷4, ×6 = ?",
         "kind": "objective",
         "answers": [
@@ -3317,7 +3317,7 @@
         "sous_type": "Mise à jour mentale",
         "niveau": 4,
         "temps_sec": 70,
-        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "consigne": "Garde le nombre de départ en mémoire et applique mentalement les opérations dans l'ordre.",
         "question": "Départ 15. -3, ÷2, +11, ×2 = ?",
         "kind": "objective",
         "answers": [
@@ -3331,7 +3331,7 @@
         "sous_type": "Mise à jour mentale",
         "niveau": 3,
         "temps_sec": 65,
-        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "consigne": "Garde le nombre de départ en mémoire et applique mentalement les opérations dans l'ordre.",
         "question": "Départ 8. ×3, +4, ÷2, -7 = ?",
         "kind": "objective",
         "answers": [
@@ -3345,7 +3345,7 @@
         "sous_type": "Mise à jour mentale",
         "niveau": 4,
         "temps_sec": 70,
-        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "consigne": "Garde le nombre de départ en mémoire et applique mentalement les opérations dans l'ordre.",
         "question": "Départ 21. ÷3, +8, ×2, -5 = ?",
         "kind": "objective",
         "answers": [
@@ -3359,7 +3359,7 @@
         "sous_type": "Mise à jour mentale",
         "niveau": 4,
         "temps_sec": 70,
-        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "consigne": "Garde le nombre de départ en mémoire et applique mentalement les opérations dans l'ordre.",
         "question": "Départ 4. +9, ×3, -6, ÷3 = ?",
         "kind": "objective",
         "answers": [
@@ -3373,7 +3373,7 @@
         "sous_type": "Mise à jour mentale",
         "niveau": 4,
         "temps_sec": 70,
-        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "consigne": "Garde le nombre de départ en mémoire et applique mentalement les opérations dans l'ordre.",
         "question": "Départ 18. -5, ×2, +7, ÷3 = ?",
         "kind": "objective",
         "answers": [
@@ -3387,7 +3387,7 @@
         "sous_type": "Mise à jour mentale",
         "niveau": 5,
         "temps_sec": 75,
-        "consigne": "Gardez le nombre de départ en mémoire et appliquez mentalement les opérations dans l'ordre.",
+        "consigne": "Garde le nombre de départ en mémoire et applique mentalement les opérations dans l'ordre.",
         "question": "Départ 11. +5, ÷4, +9, ×3, -6 = ?",
         "kind": "objective",
         "answers": [
@@ -3407,7 +3407,7 @@
         "sous_type": "Transformations mentales",
         "niveau": 2,
         "temps_sec": 50,
-        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "consigne": "Résous mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
         "question": "Sur une grille 5x5, le point est en (ligne 2, colonne 1). On le reflète par rapport à l'axe vertical central (colonne 3). Quelle est sa nouvelle position ?",
         "kind": "qcm",
         "choices": {
@@ -3425,7 +3425,7 @@
         "sous_type": "Transformations mentales",
         "niveau": 3,
         "temps_sec": 50,
-        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "consigne": "Résous mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
         "question": "Une flèche ↑ subit une rotation de 90° dans le sens horaire, puis une symétrie haut/bas. Quelle direction finale ?",
         "kind": "qcm",
         "choices": {
@@ -3443,7 +3443,7 @@
         "sous_type": "Transformations mentales",
         "niveau": 2,
         "temps_sec": 50,
-        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "consigne": "Résous mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
         "question": "Départ en B2 sur une grille A-D / 1-4. Déplacements: droite, droite, bas, gauche, haut. Case finale ?",
         "kind": "qcm",
         "choices": {
@@ -3461,7 +3461,7 @@
         "sous_type": "Transformations mentales",
         "niveau": 3,
         "temps_sec": 50,
-        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "consigne": "Résous mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
         "question": "Sur une grille 4x4, un carré occupe (1,2). Après rotation de 180° autour du centre de la grille, où se trouve-t-il ?",
         "kind": "qcm",
         "choices": {
@@ -3479,7 +3479,7 @@
         "sous_type": "Transformations mentales",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "consigne": "Résous mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
         "question": "Une forme en L occupe dans un carré 2x2 les cases (1,1), (2,1), (2,2). Après rotation 90° horaire, quelles cases sont occupées ?",
         "kind": "qcm",
         "choices": {
@@ -3497,7 +3497,7 @@
         "sous_type": "Transformations mentales",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "consigne": "Résous mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
         "question": "Un segment va de (2,1) à (2,4) dans une grille 4x4. Après réflexion sur la diagonale principale (ligne=colonne), où va-t-il ?",
         "kind": "qcm",
         "choices": {
@@ -3515,7 +3515,7 @@
         "sous_type": "Transformations mentales",
         "niveau": 2,
         "temps_sec": 50,
-        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "consigne": "Résous mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
         "question": "Une flèche ↗ est tournée de 90° dans le sens antihoraire. Quelle direction obtient-on ?",
         "kind": "qcm",
         "choices": {
@@ -3533,7 +3533,7 @@
         "sous_type": "Transformations mentales",
         "niveau": 5,
         "temps_sec": 50,
-        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "consigne": "Résous mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
         "question": "Dans une grille 5x5, un motif a pour centre (3,3) et un point en (1,4). Après rotation 90° horaire autour du centre, où va ce point ?",
         "kind": "qcm",
         "choices": {
@@ -3551,7 +3551,7 @@
         "sous_type": "Transformations mentales",
         "niveau": 4,
         "temps_sec": 50,
-        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "consigne": "Résous mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
         "question": "Une pièce occupe (1,1), (1,2), (2,2), (3,2) dans une grille 3x3. Après réflexion gauche/droite, quelles cases sont occupées ?",
         "kind": "qcm",
         "choices": {
@@ -3569,7 +3569,7 @@
         "sous_type": "Transformations mentales",
         "niveau": 3,
         "temps_sec": 50,
-        "consigne": "Résolvez mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
+        "consigne": "Résous mentalement la transformation spatiale. Les lignes augmentent de haut en bas; les colonnes de gauche à droite.",
         "question": "On regarde une horloge dans un miroir vertical. L'aiguille qui pointe vers 2 semble pointer vers quelle heure ?",
         "kind": "qcm",
         "choices": {
@@ -3587,7 +3587,7 @@
         "sous_type": "Patrons de cube",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "consigne": "Imagine le pliage du patron de cube. Indique la face opposée à celle demandée.",
         "question": "Patron en croix: centre=Rouge, haut=Bleu, bas=Vert, gauche=Jaune, droite=Noir, case sous le bas=Blanc. Quelle face est opposée au Rouge ?",
         "kind": "qcm",
         "choices": {
@@ -3605,7 +3605,7 @@
         "sous_type": "Patrons de cube",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "consigne": "Imagine le pliage du patron de cube. Indique la face opposée à celle demandée.",
         "question": "Même patron en croix: centre=1, haut=2, bas=3, gauche=4, droite=5, case sous le bas=6. Quelle face est opposée à 2 ?",
         "kind": "qcm",
         "choices": {
@@ -3623,7 +3623,7 @@
         "sous_type": "Patrons de cube",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "consigne": "Imagine le pliage du patron de cube. Indique la face opposée à celle demandée.",
         "question": "Même patron en croix: centre=A, haut=B, bas=C, gauche=D, droite=E, case sous le bas=F. Quelle face est opposée à D ?",
         "kind": "qcm",
         "choices": {
@@ -3641,7 +3641,7 @@
         "sous_type": "Patrons de cube",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "consigne": "Imagine le pliage du patron de cube. Indique la face opposée à celle demandée.",
         "question": "Patron en ligne: A-B-C-D en rangée; E au-dessus de B; F au-dessous de B. Quelle face est opposée à B ?",
         "kind": "qcm",
         "choices": {
@@ -3659,7 +3659,7 @@
         "sous_type": "Patrons de cube",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "consigne": "Imagine le pliage du patron de cube. Indique la face opposée à celle demandée.",
         "question": "Patron en ligne: A-B-C-D; E au-dessus de B; F au-dessous de B. Quelle face est opposée à E ?",
         "kind": "qcm",
         "choices": {
@@ -3677,7 +3677,7 @@
         "sous_type": "Patrons de cube",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "consigne": "Imagine le pliage du patron de cube. Indique la face opposée à celle demandée.",
         "question": "Patron en ligne: A-B-C-D; E au-dessus de B; F au-dessous de B. Quelle face est opposée à A ?",
         "kind": "qcm",
         "choices": {
@@ -3695,7 +3695,7 @@
         "sous_type": "Patrons de cube",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "consigne": "Imagine le pliage du patron de cube. Indique la face opposée à celle demandée.",
         "question": "Patron en croix: centre=Lune, haut=Étoile, bas=Soleil, gauche=Nuage, droite=Pluie, case sous le bas=Vent. Quelle face est opposée à Soleil ?",
         "kind": "qcm",
         "choices": {
@@ -3713,7 +3713,7 @@
         "sous_type": "Patrons de cube",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "consigne": "Imagine le pliage du patron de cube. Indique la face opposée à celle demandée.",
         "question": "Patron en croix: centre=M, haut=N, bas=O, gauche=P, droite=Q, case sous le bas=R. Si M est devant, quelle face est derrière ?",
         "kind": "qcm",
         "choices": {
@@ -3731,7 +3731,7 @@
         "sous_type": "Patrons de cube",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "consigne": "Imagine le pliage du patron de cube. Indique la face opposée à celle demandée.",
         "question": "Patron en ligne: 1-2-3-4; 5 au-dessus de 2; 6 au-dessous de 2. Si 2 est devant et 5 est dessus, quelle face est à droite ?",
         "kind": "qcm",
         "choices": {
@@ -3749,7 +3749,7 @@
         "sous_type": "Patrons de cube",
         "niveau": 5,
         "temps_sec": 60,
-        "consigne": "Imaginez le pliage du patron de cube. Indiquez la face opposée à celle demandée.",
+        "consigne": "Imagine le pliage du patron de cube. Indique la face opposée à celle demandée.",
         "question": "Patron en croix: centre=C, haut=H, bas=B, gauche=G, droite=D, extérieur sous B=X. Quelles paires sont toutes opposées ?",
         "kind": "qcm",
         "choices": {
@@ -3767,7 +3767,7 @@
         "sous_type": "Pliage mental",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "consigne": "Imagine la feuille quadrillée, le pliage puis le dépliage. Réponds par les coordonnées des trous.",
         "question": "Feuille 4x4. Pli vertical: colonne 1 sur 4, colonne 2 sur 3. On perce en (ligne 2, colonne 3) sur la feuille pliée. Après dépliage ?",
         "kind": "qcm",
         "choices": {
@@ -3785,7 +3785,7 @@
         "sous_type": "Pliage mental",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "consigne": "Imagine la feuille quadrillée, le pliage puis le dépliage. Réponds par les coordonnées des trous.",
         "question": "Feuille 4x4. Pli horizontal: ligne 1 sur 4, ligne 2 sur 3. On perce en (ligne 3, colonne 1). Après dépliage ?",
         "kind": "qcm",
         "choices": {
@@ -3803,7 +3803,7 @@
         "sous_type": "Pliage mental",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "consigne": "Imagine la feuille quadrillée, le pliage puis le dépliage. Réponds par les coordonnées des trous.",
         "question": "Feuille 4x4. Pli vertical puis horizontal. On perce la case pliée correspondant à (ligne 3, colonne 3). Après dépliage ?",
         "kind": "qcm",
         "choices": {
@@ -3821,7 +3821,7 @@
         "sous_type": "Pliage mental",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "consigne": "Imagine la feuille quadrillée, le pliage puis le dépliage. Réponds par les coordonnées des trous.",
         "question": "Feuille 6x6. Pli vertical: 1↔6, 2↔5, 3↔4. Trou en (4,5). Après dépliage ?",
         "kind": "qcm",
         "choices": {
@@ -3839,7 +3839,7 @@
         "sous_type": "Pliage mental",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "consigne": "Imagine la feuille quadrillée, le pliage puis le dépliage. Réponds par les coordonnées des trous.",
         "question": "Feuille 6x6. Pli horizontal: 1↔6, 2↔5, 3↔4. Trou en (5,4). Après dépliage ?",
         "kind": "qcm",
         "choices": {
@@ -3857,7 +3857,7 @@
         "sous_type": "Pliage mental",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "consigne": "Imagine la feuille quadrillée, le pliage puis le dépliage. Réponds par les coordonnées des trous.",
         "question": "Feuille 6x6. Pli vertical puis horizontal. Trou en (4,4) sur la feuille pliée. Après dépliage ?",
         "kind": "qcm",
         "choices": {
@@ -3875,7 +3875,7 @@
         "sous_type": "Pliage mental",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "consigne": "Imagine la feuille quadrillée, le pliage puis le dépliage. Réponds par les coordonnées des trous.",
         "question": "Feuille 4x4. Pli vertical. Deux trous sur la feuille pliée: (1,3) et (4,4). Après dépliage ?",
         "kind": "qcm",
         "choices": {
@@ -3893,7 +3893,7 @@
         "sous_type": "Pliage mental",
         "niveau": 4,
         "temps_sec": 60,
-        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "consigne": "Imagine la feuille quadrillée, le pliage puis le dépliage. Réponds par les coordonnées des trous.",
         "question": "Feuille 4x4. Pli horizontal. Deux trous: (3,2) et (4,4). Après dépliage ?",
         "kind": "qcm",
         "choices": {
@@ -3911,7 +3911,7 @@
         "sous_type": "Pliage mental",
         "niveau": 3,
         "temps_sec": 60,
-        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "consigne": "Imagine la feuille quadrillée, le pliage puis le dépliage. Réponds par les coordonnées des trous.",
         "question": "Feuille 8x8. Pli vertical central. Trou en (6,5). Après dépliage ?",
         "kind": "qcm",
         "choices": {
@@ -3929,7 +3929,7 @@
         "sous_type": "Pliage mental",
         "niveau": 5,
         "temps_sec": 60,
-        "consigne": "Imaginez la feuille quadrillée, le pliage puis le dépliage. Répondez par les coordonnées des trous.",
+        "consigne": "Imagine la feuille quadrillée, le pliage puis le dépliage. Réponds par les coordonnées des trous.",
         "question": "Feuille 8x8. Pli vertical puis horizontal. Trou en (5,5). Après dépliage ?",
         "kind": "qcm",
         "choices": {
@@ -3947,7 +3947,7 @@
         "sous_type": "Assemblage de formes",
         "niveau": 1,
         "temps_sec": 55,
-        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "consigne": "Décompose ou compose mentalement la forme décrite. Choisis l'option correcte.",
         "question": "Une forme 3x3 occupe toutes les cases sauf le centre. Combien de petites cases la composent ?",
         "kind": "qcm",
         "choices": {
@@ -3965,7 +3965,7 @@
         "sous_type": "Assemblage de formes",
         "niveau": 2,
         "temps_sec": 55,
-        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "consigne": "Décompose ou compose mentalement la forme décrite. Choisis l'option correcte.",
         "question": "Deux rectangles 1x3 sont assemblés en angle droit en partageant exactement une case d'extrémité. Combien de cases distinctes dans la forme finale ?",
         "kind": "qcm",
         "choices": {
@@ -3983,7 +3983,7 @@
         "sous_type": "Assemblage de formes",
         "niveau": 2,
         "temps_sec": 55,
-        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "consigne": "Décompose ou compose mentalement la forme décrite. Choisis l'option correcte.",
         "question": "Dans un carré 4x4, on place un carré 2x2 dans le coin supérieur gauche et un carré 2x2 dans le coin inférieur droit. Combien de cases sont occupées ?",
         "kind": "qcm",
         "choices": {
@@ -4001,7 +4001,7 @@
         "sous_type": "Assemblage de formes",
         "niveau": 3,
         "temps_sec": 55,
-        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "consigne": "Décompose ou compose mentalement la forme décrite. Choisis l'option correcte.",
         "question": "Une pièce occupe les cases (1,1), (1,2), (2,1), (3,1). Quelle description correspond ?",
         "kind": "qcm",
         "choices": {
@@ -4019,7 +4019,7 @@
         "sous_type": "Assemblage de formes",
         "niveau": 2,
         "temps_sec": 55,
-        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "consigne": "Décompose ou compose mentalement la forme décrite. Choisis l'option correcte.",
         "question": "On veut couvrir un rectangle 2x3 avec des dominos 1x2 sans chevauchement. Combien de dominos faut-il ?",
         "kind": "qcm",
         "choices": {
@@ -4037,7 +4037,7 @@
         "sous_type": "Assemblage de formes",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "consigne": "Décompose ou compose mentalement la forme décrite. Choisis l'option correcte.",
         "question": "Une pièce T dans une grille 3x3 occupe toute la ligne du haut et la case centrale de la ligne du milieu. Après rotation 180°, quelles cases sont occupées ?",
         "kind": "qcm",
         "choices": {
@@ -4055,7 +4055,7 @@
         "sous_type": "Assemblage de formes",
         "niveau": 2,
         "temps_sec": 55,
-        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "consigne": "Décompose ou compose mentalement la forme décrite. Choisis l'option correcte.",
         "question": "Un rectangle 3x4 est découpé en carrés 1x1. On enlève les quatre coins. Combien de cases restent ?",
         "kind": "qcm",
         "choices": {
@@ -4073,7 +4073,7 @@
         "sous_type": "Assemblage de formes",
         "niveau": 3,
         "temps_sec": 55,
-        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "consigne": "Décompose ou compose mentalement la forme décrite. Choisis l'option correcte.",
         "question": "Une forme occupe (1,2), (2,1), (2,2), (2,3), (3,2) dans une grille 3x3. Quelle symétrie possède-t-elle ?",
         "kind": "qcm",
         "choices": {
@@ -4091,7 +4091,7 @@
         "sous_type": "Assemblage de formes",
         "niveau": 3,
         "temps_sec": 55,
-        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "consigne": "Décompose ou compose mentalement la forme décrite. Choisis l'option correcte.",
         "question": "On assemble deux triangles rectangles identiques par leur hypoténuse. Quelle forme plane peut-on obtenir ?",
         "kind": "qcm",
         "choices": {
@@ -4109,7 +4109,7 @@
         "sous_type": "Assemblage de formes",
         "niveau": 4,
         "temps_sec": 55,
-        "consigne": "Décomposez ou composez mentalement la forme décrite. Choisissez l'option correcte.",
+        "consigne": "Décompose ou compose mentalement la forme décrite. Choisis l'option correcte.",
         "question": "Une pièce en zigzag occupe (1,1), (1,2), (2,2), (2,3). Sa réflexion gauche/droite dans une grille 3x3 occupe quoi ?",
         "kind": "qcm",
         "choices": {
@@ -4133,8 +4133,8 @@
         "sous_type": "Codage symbolique",
         "niveau": 1,
         "temps_sec": 23,
-        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
-        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: ABCD",
+        "consigne": "Utilise rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encode: ABCD",
         "kind": "objective",
         "answers": [
           "#%&@"
@@ -4147,8 +4147,8 @@
         "sous_type": "Codage symbolique",
         "niveau": 2,
         "temps_sec": 26,
-        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
-        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: FACE",
+        "consigne": "Utilise rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encode: FACE",
         "kind": "objective",
         "answers": [
           "?#&+"
@@ -4161,8 +4161,8 @@
         "sous_type": "Codage symbolique",
         "niveau": 2,
         "temps_sec": 26,
-        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
-        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: BEDA",
+        "consigne": "Utilise rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encode: BEDA",
         "kind": "objective",
         "answers": [
           "%+@#"
@@ -4175,8 +4175,8 @@
         "sous_type": "Codage symbolique",
         "niveau": 3,
         "temps_sec": 29,
-        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
-        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: CAFÉ (ignorer l'accent: CAFE)",
+        "consigne": "Utilise rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encode: CAFÉ (ignorer l'accent: CAFE)",
         "kind": "objective",
         "answers": [
           "&#?+"
@@ -4189,8 +4189,8 @@
         "sous_type": "Codage symbolique",
         "niveau": 3,
         "temps_sec": 29,
-        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
-        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: DEAF",
+        "consigne": "Utilise rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encode: DEAF",
         "kind": "objective",
         "answers": [
           "@+#?"
@@ -4203,8 +4203,8 @@
         "sous_type": "Codage symbolique",
         "niveau": 2,
         "temps_sec": 26,
-        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
-        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: BEEF",
+        "consigne": "Utilise rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encode: BEEF",
         "kind": "objective",
         "answers": [
           "%++?"
@@ -4217,8 +4217,8 @@
         "sous_type": "Codage symbolique",
         "niveau": 3,
         "temps_sec": 29,
-        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
-        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: FADE",
+        "consigne": "Utilise rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encode: FADE",
         "kind": "objective",
         "answers": [
           "?#@+"
@@ -4231,8 +4231,8 @@
         "sous_type": "Codage symbolique",
         "niveau": 2,
         "temps_sec": 26,
-        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
-        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: ACDF",
+        "consigne": "Utilise rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encode: ACDF",
         "kind": "objective",
         "answers": [
           "#&@?"
@@ -4245,8 +4245,8 @@
         "sous_type": "Codage symbolique",
         "niveau": 4,
         "temps_sec": 32,
-        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
-        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: FEDCAB",
+        "consigne": "Utilise rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encode: FEDCAB",
         "kind": "objective",
         "answers": [
           "?+@&#%"
@@ -4259,8 +4259,8 @@
         "sous_type": "Codage symbolique",
         "niveau": 4,
         "temps_sec": 32,
-        "consigne": "Utilisez rapidement la clé de codage. Réponse attendue sans espace.",
-        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encodez: BADFACE",
+        "consigne": "Utilise rapidement la clé de codage. Réponse attendue sans espace.",
+        "question": "Clé: A=#, B=%, C=&, D=@, E=+, F=? . Encode: BADFACE",
         "kind": "objective",
         "answers": [
           "%#@?#&+"
@@ -4273,7 +4273,7 @@
         "sous_type": "Recherche de symboles",
         "niveau": 1,
         "temps_sec": 21,
-        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "consigne": "Dis si la cible apparaît exactement dans la série. Réponds OUI ou NON.",
         "question": "Cible: XZ | Série: AXZ-QP-LM-RT",
         "kind": "objective",
         "answers": [
@@ -4287,7 +4287,7 @@
         "sous_type": "Recherche de symboles",
         "niveau": 2,
         "temps_sec": 24,
-        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "consigne": "Dis si la cible apparaît exactement dans la série. Réponds OUI ou NON.",
         "question": "Cible: 7B | Série: 7D-8B-9B-B7",
         "kind": "objective",
         "answers": [
@@ -4301,7 +4301,7 @@
         "sous_type": "Recherche de symboles",
         "niveau": 2,
         "temps_sec": 24,
-        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "consigne": "Dis si la cible apparaît exactement dans la série. Réponds OUI ou NON.",
         "question": "Cible: @# | Série: %&-#@-@@-@#",
         "kind": "objective",
         "answers": [
@@ -4315,7 +4315,7 @@
         "sous_type": "Recherche de symboles",
         "niveau": 1,
         "temps_sec": 21,
-        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "consigne": "Dis si la cible apparaît exactement dans la série. Réponds OUI ou NON.",
         "question": "Cible: MN | Série: NM-MM-NN-MN",
         "kind": "objective",
         "answers": [
@@ -4329,7 +4329,7 @@
         "sous_type": "Recherche de symboles",
         "niveau": 2,
         "temps_sec": 24,
-        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "consigne": "Dis si la cible apparaît exactement dans la série. Réponds OUI ou NON.",
         "question": "Cible: 42 | Série: 24-44-22-4Z",
         "kind": "objective",
         "answers": [
@@ -4343,7 +4343,7 @@
         "sous_type": "Recherche de symboles",
         "niveau": 3,
         "temps_sec": 27,
-        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "consigne": "Dis si la cible apparaît exactement dans la série. Réponds OUI ou NON.",
         "question": "Cible: PQ | Série: OPQ-PRQ-P0Q",
         "kind": "objective",
         "answers": [
@@ -4357,7 +4357,7 @@
         "sous_type": "Recherche de symboles",
         "niveau": 4,
         "temps_sec": 30,
-        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "consigne": "Dis si la cible apparaît exactement dans la série. Réponds OUI ou NON.",
         "question": "Cible: A1 | Série: AI-AI-1A-lA",
         "kind": "objective",
         "answers": [
@@ -4371,7 +4371,7 @@
         "sous_type": "Recherche de symboles",
         "niveau": 3,
         "temps_sec": 27,
-        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "consigne": "Dis si la cible apparaît exactement dans la série. Réponds OUI ou NON.",
         "question": "Cible: >< | Série: <>-<<->>-<>",
         "kind": "objective",
         "answers": [
@@ -4385,7 +4385,7 @@
         "sous_type": "Recherche de symboles",
         "niveau": 2,
         "temps_sec": 24,
-        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "consigne": "Dis si la cible apparaît exactement dans la série. Réponds OUI ou NON.",
         "question": "Cible: Z2 | Série: ZZ-ZS-2Z-Z2",
         "kind": "objective",
         "answers": [
@@ -4399,7 +4399,7 @@
         "sous_type": "Recherche de symboles",
         "niveau": 3,
         "temps_sec": 27,
-        "consigne": "Dites si la cible apparaît exactement dans la série. Répondez OUI ou NON.",
+        "consigne": "Dis si la cible apparaît exactement dans la série. Réponds OUI ou NON.",
         "question": "Cible: bd | Série: db-bq-pd-bd",
         "kind": "objective",
         "answers": [
@@ -4413,8 +4413,8 @@
         "sous_type": "Barrage / comptage attentionnel",
         "niveau": 1,
         "temps_sec": 26,
-        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
-        "question": "Comptez le nombre de 'A' dans: A C A D B A E A",
+        "consigne": "Compte rapidement les cibles selon la règle indiquée. Réponds par un nombre.",
+        "question": "Compte le nombre de 'A' dans: A C A D B A E A",
         "kind": "objective",
         "answers": [
           "4"
@@ -4427,8 +4427,8 @@
         "sous_type": "Barrage / comptage attentionnel",
         "niveau": 2,
         "temps_sec": 30,
-        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
-        "question": "Comptez les paires 'XZ' dans: XZ XX ZX XZ XZ",
+        "consigne": "Compte rapidement les cibles selon la règle indiquée. Réponds par un nombre.",
+        "question": "Compte les paires 'XZ' dans: XZ XX ZX XZ XZ",
         "kind": "objective",
         "answers": [
           "3"
@@ -4441,8 +4441,8 @@
         "sous_type": "Barrage / comptage attentionnel",
         "niveau": 2,
         "temps_sec": 30,
-        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
-        "question": "Comptez les chiffres pairs dans: 7 2 5 8 9 4 1 6",
+        "consigne": "Compte rapidement les cibles selon la règle indiquée. Réponds par un nombre.",
+        "question": "Compte les chiffres pairs dans: 7 2 5 8 9 4 1 6",
         "kind": "objective",
         "answers": [
           "4"
@@ -4455,8 +4455,8 @@
         "sous_type": "Barrage / comptage attentionnel",
         "niveau": 3,
         "temps_sec": 34,
-        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
-        "question": "Comptez les symboles '+' immédiatement suivis de '-': + - + + - - + -",
+        "consigne": "Compte rapidement les cibles selon la règle indiquée. Réponds par un nombre.",
+        "question": "Compte les symboles '+' immédiatement suivis de '-': + - + + - - + -",
         "kind": "objective",
         "answers": [
           "3"
@@ -4469,8 +4469,8 @@
         "sous_type": "Barrage / comptage attentionnel",
         "niveau": 4,
         "temps_sec": 38,
-        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
-        "question": "Comptez les lettres B précédées immédiatement d'un A dans: A B B A B A C B A B",
+        "consigne": "Compte rapidement les cibles selon la règle indiquée. Réponds par un nombre.",
+        "question": "Compte les lettres B précédées immédiatement d'un A dans: A B B A B A C B A B",
         "kind": "objective",
         "answers": [
           "3"
@@ -4483,8 +4483,8 @@
         "sous_type": "Barrage / comptage attentionnel",
         "niveau": 3,
         "temps_sec": 34,
-        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
-        "question": "Comptez les groupes où le premier et le dernier caractère sont identiques: ABA, CDD, EFE, GHG",
+        "consigne": "Compte rapidement les cibles selon la règle indiquée. Réponds par un nombre.",
+        "question": "Compte les groupes où le premier et le dernier caractère sont identiques: ABA, CDD, EFE, GHG",
         "kind": "objective",
         "answers": [
           "3"
@@ -4497,8 +4497,8 @@
         "sous_type": "Barrage / comptage attentionnel",
         "niveau": 2,
         "temps_sec": 30,
-        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
-        "question": "Comptez les nombres strictement supérieurs à 50: 49 51 50 62 38 70",
+        "consigne": "Compte rapidement les cibles selon la règle indiquée. Réponds par un nombre.",
+        "question": "Compte les nombres strictement supérieurs à 50: 49 51 50 62 38 70",
         "kind": "objective",
         "answers": [
           "3"
@@ -4511,8 +4511,8 @@
         "sous_type": "Barrage / comptage attentionnel",
         "niveau": 5,
         "temps_sec": 42,
-        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
-        "question": "Comptez les occurrences de '11' dans: 111011 (chevauchements autorisés)",
+        "consigne": "Compte rapidement les cibles selon la règle indiquée. Réponds par un nombre.",
+        "question": "Compte les occurrences de '11' dans: 111011 (chevauchements autorisés)",
         "kind": "objective",
         "answers": [
           "3"
@@ -4525,8 +4525,8 @@
         "sous_type": "Barrage / comptage attentionnel",
         "niveau": 4,
         "temps_sec": 38,
-        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
-        "question": "Comptez les paires adjacentes de lettres identiques dans: A A B C C C D E E",
+        "consigne": "Compte rapidement les cibles selon la règle indiquée. Réponds par un nombre.",
+        "question": "Compte les paires adjacentes de lettres identiques dans: A A B C C C D E E",
         "kind": "objective",
         "answers": [
           "4"
@@ -4539,8 +4539,8 @@
         "sous_type": "Barrage / comptage attentionnel",
         "niveau": 3,
         "temps_sec": 34,
-        "consigne": "Comptez rapidement les cibles selon la règle indiquée. Répondez par un nombre.",
-        "question": "Comptez les groupes contenant exactement deux chiffres: A12, B7C, 34D, EFG, 9H8",
+        "consigne": "Compte rapidement les cibles selon la règle indiquée. Réponds par un nombre.",
+        "question": "Compte les groupes contenant exactement deux chiffres: A12, B7C, 34D, EFG, 9H8",
         "kind": "objective",
         "answers": [
           "3"
@@ -4553,7 +4553,7 @@
         "sous_type": "Comparaison rapide",
         "niveau": 1,
         "temps_sec": 18,
-        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "consigne": "Compare les deux chaînes. Réponds IDENTIQUE ou DIFFÉRENT.",
         "question": "K7M2Q | K7M2Q",
         "kind": "objective",
         "answers": [
@@ -4567,7 +4567,7 @@
         "sous_type": "Comparaison rapide",
         "niveau": 2,
         "temps_sec": 21,
-        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "consigne": "Compare les deux chaînes. Réponds IDENTIQUE ou DIFFÉRENT.",
         "question": "AB8D0 | AB8O0",
         "kind": "objective",
         "answers": [
@@ -4581,7 +4581,7 @@
         "sous_type": "Comparaison rapide",
         "niveau": 2,
         "temps_sec": 21,
-        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "consigne": "Compare les deux chaînes. Réponds IDENTIQUE ou DIFFÉRENT.",
         "question": "pqd69 | pqd69",
         "kind": "objective",
         "answers": [
@@ -4595,7 +4595,7 @@
         "sous_type": "Comparaison rapide",
         "niveau": 3,
         "temps_sec": 24,
-        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "consigne": "Compare les deux chaînes. Réponds IDENTIQUE ou DIFFÉRENT.",
         "question": "L1I0O | L1I0O",
         "kind": "objective",
         "answers": [
@@ -4609,7 +4609,7 @@
         "sous_type": "Comparaison rapide",
         "niveau": 2,
         "temps_sec": 21,
-        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "consigne": "Compare les deux chaînes. Réponds IDENTIQUE ou DIFFÉRENT.",
         "question": "S5Z2B | S5ZB2",
         "kind": "objective",
         "answers": [
@@ -4623,7 +4623,7 @@
         "sous_type": "Comparaison rapide",
         "niveau": 3,
         "temps_sec": 24,
-        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "consigne": "Compare les deux chaînes. Réponds IDENTIQUE ou DIFFÉRENT.",
         "question": "mnRN8 | mnRM8",
         "kind": "objective",
         "answers": [
@@ -4637,7 +4637,7 @@
         "sous_type": "Comparaison rapide",
         "niveau": 2,
         "temps_sec": 21,
-        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "consigne": "Compare les deux chaînes. Réponds IDENTIQUE ou DIFFÉRENT.",
         "question": "@@##%% | @@##%%",
         "kind": "objective",
         "answers": [
@@ -4651,7 +4651,7 @@
         "sous_type": "Comparaison rapide",
         "niveau": 3,
         "temps_sec": 24,
-        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "consigne": "Compare les deux chaînes. Réponds IDENTIQUE ou DIFFÉRENT.",
         "question": "bdpq | bdpq",
         "kind": "objective",
         "answers": [
@@ -4665,7 +4665,7 @@
         "sous_type": "Comparaison rapide",
         "niveau": 2,
         "temps_sec": 21,
-        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "consigne": "Compare les deux chaînes. Réponds IDENTIQUE ou DIFFÉRENT.",
         "question": "VXWYYX | VXWYYX",
         "kind": "objective",
         "answers": [
@@ -4679,7 +4679,7 @@
         "sous_type": "Comparaison rapide",
         "niveau": 4,
         "temps_sec": 27,
-        "consigne": "Comparez les deux chaînes. Répondez IDENTIQUE ou DIFFÉRENT.",
+        "consigne": "Compare les deux chaînes. Réponds IDENTIQUE ou DIFFÉRENT.",
         "question": "102S0 | 10ZS0",
         "kind": "objective",
         "answers": [

@@ -89,7 +89,10 @@
   }
 
   function escapeHtml(s) {
-    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // Guillemets et apostrophes aussi (23/09/2026, audit M-2) : sans eux, la première
+    // interpolation dans un attribut ouvrirait un XSS. `&` d'abord, sinon il ré-échappe les autres.
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
   /* Mini-rendu markdown sûr : échappe tout, puis gras/italique/listes. */

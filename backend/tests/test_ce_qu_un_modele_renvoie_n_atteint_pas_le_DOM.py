@@ -156,9 +156,10 @@ def test_le_gras_et_les_listes_marchent_toujours():
 def test_aucun_ATTRIBUT_n_est_fabrique_a_partir_du_texte():
     """La porte par laquelle ça cassera un jour.
 
-    `escapeHtml` n'échappe ni `"` ni `'`. Tant que le rendu ne fabrique aucun
-    attribut, c'est sans conséquence. Le jour où quelqu'un ajoute les liens
-    markdown, ce test rougit AVANT que la réponse d'un modèle ne porte un `href`.
+    Depuis le 23/09/2026 `escapeHtml` échappe aussi `"` et `'` : ce test reste le
+    SECOND verrou. Le jour où quelqu'un ajoute les liens markdown, il rougit AVANT
+    que la réponse d'un modèle ne porte un `href` (un `javascript:` n'a besoin
+    d'aucun guillemet).
     """
     entrees = [
         'guillemet " et apostrophe \' au milieu',
@@ -169,10 +170,35 @@ def test_aucun_ATTRIBUT_n_est_fabrique_a_partir_du_texte():
     ]
     rendus = _rendre(entrees)
 
-    assert '"' in rendus[0], "le témoin : le guillemet doit bien traverser le rendu"
+    assert "&quot;" in rendus[0], "le témoin : le guillemet traverse le rendu, échappé"
 
     for balise in re.findall(r"<[^>]+>", "".join(rendus)):
         assert "=" not in balise, (
-            f"{balise} porte un attribut : `escapeHtml` ne protège pas les guillemets, "
-            "donc un attribut construit à partir du texte d'un modèle est une sortie"
+            f"{balise} porte un attribut : un attribut construit à partir du texte d'un "
+            "modèle est une sortie, guillemets échappés ou non (javascript:)"
         )
+
+
+# 23/09/2026 (audit M-2) — la fragilité décrite plus haut est fermée à la source : `escapeHtml`
+# échappe aussi `"` et `'`. Le garde sur les attributs reste : il ne coûte rien et empêche
+# que la sûreté ne repose que sur un seul verrou.
+def _echapper(entrees: list[str]) -> list[str]:
+    programme = (
+        _fonctions_de_rendu()
+        + "\nconst entrees = JSON.parse(process.argv[1]);\n"
+        + "console.log(JSON.stringify(entrees.map(escapeHtml)));\n"
+    )
+    sortie = subprocess.run(["node", "-e", programme, json.dumps(entrees)],
+                            capture_output=True, text=True, timeout=60)
+    assert sortie.returncode == 0, sortie.stderr
+    return json.loads(sortie.stdout)
+
+
+def test_les_guillemets_et_apostrophes_sont_echappes():
+    rendu = _echapper(['" onmouseover="alert(1)', "' onfocus='x"])
+    assert rendu == ["&quot; onmouseover=&quot;alert(1)", "&#39; onfocus=&#39;x"]
+
+
+def test_l_esperluette_est_echappee_la_premiere():
+    # Sinon « " » deviendrait « &quot; » puis « &amp;quot; » : le texte affiché serait faux.
+    assert _echapper(['"&']) == ["&quot;&amp;"]

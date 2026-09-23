@@ -42,8 +42,31 @@
       ...opts,
       headers: { "Content-Type": "application/json", "X-Lumenia-Id": VISITEUR },
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) {
+      // Le statut et le message du serveur voyagent avec l'erreur : sans eux, chaque panne
+      // se disait avec la même phrase (voir `panne`).
+      let detail = "";
+      try { const b = await res.json(); if (typeof b.detail === "string") detail = b.detail; } catch { /* corps non JSON */ }
+      throw Object.assign(new Error(`HTTP ${res.status}`), { status: res.status, detail });
+    }
     return res.json();
+  }
+
+  /* 23/09/2026 — UNE PANNE, SA PHRASE. Trop de demandes, session perdue, souci du serveur et
+     coupure réseau affichaient tous « Impossible de joindre le serveur. Vérifie que le backend
+     tourne » : faux trois fois sur quatre (le serveur avait répondu), et du jargon. Chaque cas dit
+     maintenant ce qui se passe et quoi faire. Le 3114 reste dans toutes. */
+  const TOUJOURS_3114 = "Si ça urge, le 3114 (gratuit, 24h/24) répond tout de suite, même quand Lumenia est en panne.";
+  function panne(err, avant = "") {
+    const s = err && err.status;
+    let quoi;
+    if (s === 429) quoi = (err.detail || "Beaucoup de demandes en peu de temps : attends une minute, puis réessaie.").replace(/\*\*/g, "");
+    else if (s === 401) quoi = "Ta session s'est perdue. Recharge la page pour reprendre.";
+    else if (s >= 500) quoi = "Lumenia a rencontré un problème de son côté. Réessaie dans un instant.";
+    else if (s) quoi = "Ta demande n'a pas pu être traitée. Réessaie.";
+    else quoi = "Pas de connexion à Lumenia : vérifie ton réseau, puis réessaie.";
+    if (!quoi.includes("3114")) quoi += " " + TOUJOURS_3114;
+    return (avant ? avant + " " : "") + quoi;
   }
 
   // Un lien nu ne présente pas VISITEUR : on passe par fetch, puis le navigateur
@@ -123,10 +146,9 @@
     try {
       await api("/consent?accepted=true", { method: "POST" });
       startParcours();
-    } catch {
+    } catch (err) {
       $("consent-error").hidden = false;
-      $("consent-error").textContent =
-        "Impossible de joindre le serveur. Vérifie que le backend tourne, puis réessaie. Si ça ne va pas, le 3114 (gratuit, 24h/24) répond tout de suite.";
+      $("consent-error").textContent = panne(err);
       btn.textContent = "Continuer";
       btn.disabled = false;
     }
@@ -175,9 +197,8 @@
       localStorage.setItem(SEEN_KEY, JSON.stringify([...new Set([...seen, ...ids])].slice(-40)));
       state.parcours = { steps: data.steps, i: 0, results: [], failures: 0 };
       renderStep();
-    } catch {
-      $("challenge-question").textContent =
-        "Le serveur ne répond pas. Vérifie que le backend tourne, puis recharge la page. Si ça ne va pas, le 3114 (gratuit, 24h/24) répond tout de suite.";
+    } catch (err) {
+      $("challenge-question").textContent = panne(err);
     }
   }
 
@@ -380,8 +401,8 @@
         }
         if (p.failures >= 2) $("challenge-skip").hidden = false;
       }
-    } catch {
-      fb.textContent = "Erreur de connexion au serveur — réessaie. Si ça ne va pas, le 3114 (gratuit, 24h/24) répond tout de suite.";
+    } catch (err) {
+      fb.textContent = panne(err);
       boutonValider(true);
     }
   }
@@ -694,12 +715,9 @@
       conv.messages.push({ role: "assistant", content: r.reply });
       saveConvs();
       if (r.risk_flag) showSafetyBanner();
-    } catch {
+    } catch (err) {
       $("typing-msg")?.remove();
-      appendMessageEl(
-        "assistant",
-        "La connexion au serveur a échoué. Ton message n'est pas perdu — réessaie dans un instant. Et si ça urge, le 3114 (gratuit, 24h/24) ne dépend pas de Lumenia : il répond même quand nous sommes en panne."
-      );
+      appendMessageEl("assistant", panne(err, "Ton message n'est pas perdu."));
     } finally {
       state.sending = false;
       sendBtn.disabled = input.value.trim() === "";

@@ -38,16 +38,29 @@ def _bloc_ecran(identifiant: str) -> str:
 
 
 def _messages_d_erreur_du_script() -> list[str]:
-    """Les phrases que le script affiche quand une requête échoue."""
-    return [m.group(1) for m in re.finditer(r'"([^"]*serveur[^"]*)"', JS)]
+    """Les phrases que le script affiche quand une requête échoue.
+
+    23/09/2026 : elles vivent toutes dans `panne(err)` (une phrase par panne) ; avant, chaque
+    `catch` écrivait la sienne et on les retrouvait au mot « serveur ». Le crible lit donc le
+    corps de `panne`, en y ajoutant le complément `TOUJOURS_3114` qu'elle colle à chaque phrase
+    qui n'a pas déjà le numéro.
+    """
+    corps = JS[JS.index("function panne("):]
+    corps = corps[: corps.index("\n  }\n")]
+    # Les littéraux lus DANS L'ORDRE (un `""` vide compte pour une paire) : un simple
+    # `"[^"]+"` appariait les guillemets de travers et collait du code dans les « phrases ».
+    phrases = [t for t in re.findall(r'"((?:[^"\\\n]|\\.)*)"', corps) if len(t) >= 12 and " " in t]
+    complement = re.search(r'const TOUJOURS_3114 = "([^"]+)"', JS)
+    colle = "TOUJOURS_3114" in corps and complement is not None
+    return [p if "3114" in p or not colle else p + " " + complement.group(1) for p in phrases]
 
 
 def test_le_crible_voit_bien_les_messages_d_erreur():
     """Témoin : un motif cassé rendrait le test suivant vert sur le vide."""
     messages = _messages_d_erreur_du_script()
 
-    assert len(messages) >= 3, messages
-    assert any("échoué" in m for m in messages)
+    assert len(messages) >= 4, messages
+    assert any("réseau" in m for m in messages)
 
 
 @pytest.mark.parametrize("ecran", ECRANS_HABITES)

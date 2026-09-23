@@ -198,7 +198,10 @@ def entry_complete(body: EntryCompleteIn, v: str = Depends(visiteur)):
     total = len(results)
     # Le seuil est un RATIO : sans contrôle de longueur, le dénominateur vient du client
     # et un appel direct avec un seul item juste passait à 100 %. Fail-closed.
-    gradable = entry_is_gradable(results)
+    # 23/09/2026 — AUCUN constat pour ce visiteur alors que des épreuves arrivent : le serveur a
+    # redémarré (constats en mémoire) pendant une pause du parcours. Il ne peut rien corriger, donc
+    # il ne prononce pas d'échec. `passed` reste faux : la garde, elle, ne s'ouvre pas.
+    gradable = entry_is_gradable(results) and (bool(constate) or not results)
     passed = gradable and entry_is_complete(total) and entry_passed(score, total)
     summary = json.dumps(entry_summary(results), ensure_ascii=False)
     with SessionLocal() as db:

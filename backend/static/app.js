@@ -475,40 +475,48 @@
     }
   }
 
+  // 23/09/2026 — le verdict vient du SERVEUR. Le navigateur recalculait la réussite et ignorait
+  // la réponse : « non corrigé » (juge injoignable, serveur redémarré pendant une pause) finissait
+  // en « le seuil reste fermé », et un « réussi » local ouvrait le chat que le serveur gardait fermé.
   async function completeParcours() {
     const p = state.parcours;
-    oublierParcours();
     boutonValider(false);
     $("challenge-skip").hidden = true;
-
-    // Score : seules les épreuves NOTÉES comptent (l'expression libre `libre` n'a
-    // pas de bonne réponse). Réussite = part de bonnes réponses ≥ ENTRY_PASS_RATIO.
-    const objective = p.results.filter((r) => r.dimension !== "libre");
-    const correct = objective.filter((r) => r.ok && !r.skipped).length;
-    const ratio = objective.length ? correct / objective.length : 0;
-    const passed = ratio >= ENTRY_PASS_RATIO;
-
     const fb = $("challenge-feedback");
-    fb.classList.add("ok");
-    fb.textContent = passed ? "C'est ouvert. Bienvenue." : "Parcours terminé.";
 
+    let verdict;
     try {
-      await api("/entry/complete", {
+      verdict = await api("/entry/complete", {
         method: "POST",
         body: JSON.stringify({ results: p.results }),
       });
-    } catch { /* enregistrement non bloquant */ }
+    } catch (err) {
+      // Rien n'est perdu : le parcours reste gardé, on le reprend à la dernière épreuve.
+      fb.classList.remove("ok");
+      fb.textContent = panne(err, "Ton parcours est gardé : recharge la page pour l'envoyer à nouveau. ");
+      return;
+    }
+    oublierParcours();
 
-    if (passed) {
-      // Réussi = accès ouvert, test plus jamais reproposé sur cet appareil.
+    if (verdict.passed) {
+      fb.classList.add("ok");
+      fb.textContent = "C'est ouvert. Bienvenue.";
       localStorage.setItem("lumenia.entryPassed", "1");
       setTimeout(enterChat, 700);
-    } else {
-      // Échec = test éliminatoire : le seuil ne s'ouvre pas, mais on peut retenter.
-      localStorage.removeItem("lumenia.entryPassed");
-      $("fail-score").textContent = `${correct} / ${objective.length}`;
-      setTimeout(() => show("fail"), 900);
+      return;
     }
+    localStorage.removeItem("lumenia.entryPassed");
+    const nonCorrige = !!verdict.undetermined;
+    $("fail-titre").textContent = nonCorrige
+      ? "Ton parcours n'a pas pu être corrigé"
+      : "Le seuil reste fermé… pour l'instant";
+    $("fail-texte").textContent = nonCorrige
+      ? "Ce n'est pas un échec : une partie de tes réponses n'a pas pu être vérifiée (le correcteur n'a pas répondu, ou le serveur a redémarré pendant ta pause). Tu peux le reprendre quand tu veux."
+      : "Ce parcours demande un certain regard sur les choses. Il ne s'est pas tout à fait ouvert cette fois, mais rien n'est figé : tu peux le retenter quand tu veux.";
+    $("fail-score-ligne").hidden = nonCorrige;
+    $("fail-score").textContent = `${verdict.score} / ${verdict.total}`;
+    fb.textContent = "Parcours terminé.";
+    setTimeout(() => show("fail"), 900);
   }
 
   $("challenge-btn").addEventListener("click", submitStep);
